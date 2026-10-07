@@ -345,11 +345,11 @@ async function poll() {
   }
 }
 
-if (!TELEGRAM_TOKEN || TELEGRAM_TOKEN === '8996849772:AAGT8m9pcPybVgdLtcacYr09JzYX30GxgkQ') {
+if (!TELEGRAM_TOKEN) {
   console.log('❌ Telegram tokenini yaz!');
   process.exit(1);
 }
-if (!GITHUB_TOKEN || GITHUB_TOKEN === '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) {
+if (!GITHUB_TOKEN) {
   console.log('❌ GitHub tokenini yaz!');
   process.exit(1);
 }
