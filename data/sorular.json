@@ -1,6 +1,158 @@
 {
   "sorular": [
     {
+      "id": "tg_1791402174448_vz3eud",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletleriyle ilgili olarak;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletlerinde Gök Tanrı inancı yaygındır, ikili teşkilat uygulanmıştır ve kurultay devlet işlerinin görüşüldüğü meclis olmuştur.",
+      "gorsel": null,
+      "eklenme": 1791402174448,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791402174448_w6sesx",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Uygurlar yerleşik hayata geçtikleri için ekonomik, kültürel ve askeri teşkilat bakımından diğer Türk devletlerinden farklılaşmıştır.",
+      "gorsel": null,
+      "eklenme": 1791402174448,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791402174448_90u0nx",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"Toy\" ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Sadece savaş öncesi yapılan bir toplantıdır",
+        "Kağanın katılımıyla yapılan büyük ziyafet ve toplantıdır",
+        "Dini bir bayramdır",
+        "Sadece kadınların katıldığı toplantıdır",
+        "Yas törenidir"
+      ],
+      "dogru": 1,
+      "aciklama": "Toy, kağanın katılımıyla yapılan büyük ziyafet ve devlet meselelerinin görüşüldüğü toplantıdır.",
+      "gorsel": null,
+      "eklenme": 1791402174448,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791402174448_g8270j",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde görülen;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Kurgan (mezar), balbal (mezar taşı heykelcik) ve yuğ (yas töreni) hepsi ölüm ve ahiret inancıyla ilgilidir.",
+      "gorsel": null,
+      "eklenme": 1791402174448,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791402174448_1a52h3",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"balbal\" ile ilgili aşağıdakilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Mezarlara dikilen heykelciklerdir",
+        "Ölen kişinin savaştığı düşmanları simgeler",
+        "Bir tür anıt-mezardır",
+        "Ahiret inancının göstergesidir",
+        "Sadece kağanların mezarına dikilir"
+      ],
+      "dogru": 4,
+      "aciklama": "Balbal sadece kağanların mezarına değil, savaşçı ve önemli kişilerin mezarına da dikilir.",
+      "gorsel": null,
+      "eklenme": 1791402174448,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791402174448_3f6rje",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"yoğ\" ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Düğün töreni",
+        "Yas töreni",
+        "Zafer töreni",
+        "Din değiştirme töreni",
+        "Kurban töreni"
+      ],
+      "dogru": 1,
+      "aciklama": "Yoğ (Yuğ), İlk Türk devletlerinde ölüm sonrası düzenlenen yas törenidir.",
+      "gorsel": null,
+      "eklenme": 1791402174448,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791402174448_7epfy9",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"kurgan\" ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Tapınak anlamına gelir",
+        "Mezar anlamına gelir",
+        "Pazar yeri anlamına gelir",
+        "Ordu karargâhı anlamına gelir",
+        "Kervansaray anlamına gelir"
+      ],
+      "dogru": 1,
+      "aciklama": "Kurgan, İlk Türk devletlerinde mezar (özellikle hükümdar mezarı) anlamına gelir.",
+      "gorsel": null,
+      "eklenme": 1791402174448,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791402174448_fvbuc9",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"Hayvan Üslubu\" ile ilgili olarak aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Sadece resim sanatında görülür",
+        "Hayvan figürlerinin stilize edilerek kullanıldığı bir sanat tarzıdır",
+        "Sadece Uygurlara aittir",
+        "Sadece dini törenlerde kullanılır",
+        "Türkler tarafından hiç kullanılmamıştır"
+      ],
+      "dogru": 1,
+      "aciklama": "Hayvan Üslubu, hayvan figürlerinin stilize edilerek kullanıldığı, İskitlerden Avrupa Hunlarına kadar geniş coğrafyada görülen bir sanat tarzıdır.",
+      "gorsel": null,
+      "eklenme": 1791402174448,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791402151746_8akuqr",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
