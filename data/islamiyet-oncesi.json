@@ -777,6 +777,90 @@
       "secenekler": ["Coğrafi özelliğinden", "Hazar Devleti'nden", "Rusçadan", "Farsçadan", "Arapçadan"],
       "dogru": 1,
       "aciklama": "Günümüzdeki Hazar Denizi'nin adı Hazar Türk devletinden kalmıştır."
-    }
+    },
+    {
+  "id": 82,
+  "soru": "Hazarlar tarih sahnesine hangi Türk topluluğunun devamı olarak çıkmıştır?",
+  "secenekler": ["Kumanlar", "Peçenekler", "Sabar Türkleri", "Avarlar", "Bulgarlar"],
+  "dogru": 2,
+  "aciklama": "Hazarlar tarih sahnesine Sabar Türklerinin devamı olarak çıkmıştır."
+},
+{
+  "id": 83,
+  "soru": "Müslüman Araplarla ilk kez savaşan Hazarlar hangi savaşı yapmıştır?",
+  "secenekler": ["Talas Savaşı", "Belencer Savaşı", "Dandanakan Savaşı", "Kösedağ Savaşı", "Malazgirt Savaşı"],
+  "dogru": 1,
+  "aciklama": "Hz. Osman Zamanı'nda Müslüman Araplarla ilk kez Belencer Savaşı'nda karşılaşmışlardır."
+},
+{
+  "id": 84,
+  "soru": "Hazar-Arap savaşları hangi dönemde yavaşlamıştır?",
+  "secenekler": ["Emeviler", "Abbasiler", "Selçuklular", "Osmanlılar", "Sasaniler"],
+  "dogru": 1,
+  "aciklama": "Emeviler döneminde devam eden Hazar-Arap savaşları Abbasiler döneminde yavaşlamıştır."
+},
+{
+  "id": 85,
+  "soru": "Türk tarihinde ordusuna ücretli asker alan ilk Türk devleti hangisidir?",
+  "secenekler": ["Asya Hun Devleti", "Göktürk Devleti", "Uygur Devleti", "Hazar Devleti", "Avrupa Hun Devleti"],
+  "dogru": 3,
+  "aciklama": "Hazarlar ordularına ücretli asker alarak Türk tarihinde ordusuna ücretli asker alan ilk Türk devleti olmuştur."
+},
+{
+  "id": 86,
+  "soru": "Hazar Devleti hangi yıl sona ermiştir?",
+  "secenekler": ["840", "920", "968", "1040", "1071"],
+  "dogru": 2,
+  "aciklama": "968 yılında Ruslar, Hazar Hakanlığı'na son vermiştir."
+},
+{
+  "id": 87,
+  "soru": "Pax Hazaria (Hazar Barış Çağı) hangi yüzyıllar arasında yaşanmıştır?",
+  "secenekler": ["V-VI. yüzyıllar", "VI-VII. yüzyıllar", "VII-IX. yüzyıllar", "X-XI. yüzyıllar", "XI-XII. yüzyıllar"],
+  "dogru": 2,
+  "aciklama": "Hazar Barış Çağı VII. ve IX. yüzyıllar arasında yaşanmıştır."
+},
+{
+  "id": 88,
+  "soru": "Hazarlar hangi ticaret yolu üzerinde ticaret yaparak zenginleşmiştir?",
+  "secenekler": ["İpek Yolu", "Baharat Yolu", "Kürk Yolu", "Kral Yolu", "Tuz Yolu"],
+  "dogru": 2,
+  "aciklama": "Hazarlar \"Kürk Yolu\" üzerinde ticaret yaparak zenginleşmiştir."
+},
+{
+  "id": 89,
+  "soru": "Hazarların adaletli ve hoşgörülü olduğundan bahseden ünlü seyyah kimdir?",
+  "secenekler": ["İbn-i Batuta", "İbn-i Havkal", "Evliya Çelebi", "Marco Polo", "İbn-i Fadlan"],
+  "dogru": 1,
+  "aciklama": "İbn-i Havkal, Hazarların adaletli ve hoşgörülü yönetiminden bahsetmiştir."
+},
+{
+  "id": 90,
+  "soru": "Günümüzde Hazar Türkleri hangi isimle anılmaktadır?",
+  "secenekler": ["Yakut Türkleri", "Karay Türkleri", "Kuman Türkleri", "Peçenek Türkleri", "Avar Türkleri"],
+  "dogru": 1,
+  "aciklama": "Hazar Türkleri günümüzde Karay Türkleri olarak varlıklarını sürdürmektedirler."
+},
+{
+  "id": 91,
+  "soru": "Hazarların en büyük etkisi hangi toplum üzerinde olmuştur?",
+  "secenekler": ["Bizans", "Araplar", "Ruslar", "Sasaniler", "Persler"],
+  "dogru": 2,
+  "aciklama": "Hazarların en büyük etkisi Ruslar üzerinde olmuştur. Rus prensleri, Hazarlıların devlet ve ordu teşkilatını örnek almıştır."
+},
+{
+  "id": 92,
+  "soru": "Günümüzdeki \"Hazar Denizi\"nin adı nereden gelmektedir?",
+  "secenekler": ["Coğrafi özelliğinden", "Hazar Devleti'nden", "Rusçadan", "Farsçadan", "Arapçadan"],
+  "dogru": 1,
+  "aciklama": "Günümüzdeki Hazar Denizi'nin adı Hazar Türk devletinden kalmıştır."
+},
+{
+  "id": 93,
+  "soru": "Hazar hakanı, Müslümanların daha iyi yönetilebilmesi için Müslümanların başına hangi unvanda yönetici atamıştır?",
+  "secenekler": ["Hakan", "Yabgu", "Hazz", "Şad", "Tudun"],
+  "dogru": 2,
+  "aciklama": "Hazar hakanı, Müslümanların başına \"Hazz\" denilen yöneticiler atamıştır."
+}
   ]
 }
