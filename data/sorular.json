@@ -1,6 +1,63 @@
 {
   "sorular": [
     {
+      "id": "tg_1791405292617_xz7tga",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Mani dini ile ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Işık anlamına gelir",
+        "Et yemek ve savaşmak yasaktır",
+        "Uygurlar bu dini benimsemiştir",
+        "Bu dinin etkisiyle Uygurlar resim sanatında gelişmiştir",
+        "Bu din Uygurları savaşçı bir toplum yapmıştır"
+      ],
+      "dogru": 4,
+      "aciklama": "Mani dini savaşmayı yasakladığı için Uygurları savaşçı bir toplum yapmamıştır.",
+      "gorsel": null,
+      "eklenme": 1791405292617,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405292617_ahkn8u",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurların Mani dinini benimsemesinin sonucu olarak aşağıdakilerden hangisi ortaya çıkmıştır?",
+      "secenekler": [
+        "Savaşçılık özelliklerinin artması",
+        "Yerleşik hayata geçmeleri ve savaşçılık özelliklerini kaybetmeleri",
+        "Göçebe hayatı benimsemeleri",
+        "Çin'e saldırmaları",
+        "Hristiyanlığı kabul etmeleri"
+      ],
+      "dogru": 1,
+      "aciklama": "Mani dini savaş yapmayı yasakladığı için Uygurlar savaşçılık özelliklerini kaybetmiş ve yerleşik hayata geçmişlerdir.",
+      "gorsel": null,
+      "eklenme": 1791405292617,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405292617_k7ecs9",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurlarla ilgili olarak;\nI. Yerleşik hayata geçen ilk Türk topluluğudur\nII. Mani ve Budizm dinlerini benimsemişlerdir\nIII. Matbaayı ve hareketli harfleri kullanmışlardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Uygurlar yerleşik hayata geçen ilk Türk topluluğudur, Mani ve Budizm'i benimsemişler ve matbaayı geliştirmişlerdir.",
+      "gorsel": null,
+      "eklenme": 1791405292617,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791405272845_f2ivtm",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
