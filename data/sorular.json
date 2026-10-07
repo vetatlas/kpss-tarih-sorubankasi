@@ -1,3 +1,23 @@
 {
-  "sorular": []
+  "sorular": [
+    {
+      "id": "tg_1791393225671_419a9b",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi Türk Tarihi",
+      "seviye": "Ortaöğretim",
+      "soru": "Doğru Cevap",
+      "secenekler": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "dogru": 4,
+      "aciklama": "atla",
+      "gorsel": "https://api.telegram.org/file/bot8996849772:AAGT8m9pcPybVgdLtcacYr09JzYX30GxgkQ/photos/file_0.jpg",
+      "eklenme": 1791393225671,
+      "kaynak": "telegram"
+    }
+  ]
 }
