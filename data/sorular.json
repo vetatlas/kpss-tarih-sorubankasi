@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791407104682_77gup8",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurların Mani dinini benimsemesinin sonucu olarak aşağıdakilerden hangisi ortaya çıkmıştır?",
+      "secenekler": [
+        "Savaşçılık özelliklerinin artması",
+        "Yerleşik hayata geçmeleri ve savaşçılık özelliklerini kaybetmeleri",
+        "Göçebe hayatı benimsemeleri",
+        "Çin'e saldırmaları",
+        "Hristiyanlığı kabul etmeleri"
+      ],
+      "dogru": 1,
+      "aciklama": "Mani dini savaş yapmayı yasakladığı için Uygurlar savaşçılık özelliklerini kaybetmiş ve yerleşik hayata geçmişlerdir.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_1fjw0m",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurlarla ilgili olarak;\nI. Yerleşik hayata geçen ilk Türk topluluğudur\nII. Mani ve Budizm dinlerini benimsemişlerdir\nIII. Matbaayı ve hareketli harfleri kullanmışlardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Uygurlar yerleşik hayata geçen ilk Türk topluluğudur, Mani ve Budizm'i benimsemişler ve matbaayı geliştirmişlerdir.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_45rw8k",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurların yerleşik hayata geçmelerinde etkili olan temel faktör aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Savaşçı özelliklerini kaybetmeleri",
+        "Mani ve Budizm dinlerini benimsemeleri",
+        "Çin ile ticaret yapmaları",
+        "İklim koşulları",
+        "Bizans ile ittifak yapmaları"
+      ],
+      "dogru": 1,
+      "aciklama": "Uygurlar Mani ve Budizm dinlerini benimsedikten sonra yerleşik hayata geçmişlerdir.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_ch369d",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "II. Göktürk Devleti'nin yıkılışında etkili olan temel sebep aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Çin'in saldırıları",
+        "Uygur, Basmil ve Karluk ittifakı",
+        "Bizans'ın saldırıları",
+        "Arap akınları",
+        "Ekonomik çöküş"
+      ],
+      "dogru": 1,
+      "aciklama": "744'te Uygur, Basmil ve Karluk ittifakı II. Göktürk Devleti'ni yıkmıştır.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_t5uq8i",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Orhun Yazıtları'nda;\nI. Tonyukuk\nII. Kültigin\nIII. Bilge Kağan\nadına dikilen yazıtlar sırasıyla hangi yıllarda dikilmiştir?",
+      "secenekler": [
+        "720 - 732 - 735",
+        "732 - 720 - 735",
+        "735 - 732 - 720",
+        "720 - 735 - 732",
+        "732 - 735 - 720"
+      ],
+      "dogru": 0,
+      "aciklama": "Tonyukuk Yazıtı 720'de, Kültigin Yazıtı 732'de, Bilge Kağan Yazıtı 735'te dikilmiştir.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_ikuqks",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Orhun Yazıtları'nı yazan ve \"Yolluğ Tigin\" olarak bilinen kişi aşağıdaki hükümdarlardan hangisinin döneminde yaşamıştır?",
+      "secenekler": [
+        "Bumin Kağan",
+        "İstemi Yabgu",
+        "Mukan Kağan",
+        "Bilge Kağan",
+        "Kutluk Kağan"
+      ],
+      "dogru": 3,
+      "aciklama": "Yolluğ Tigin, Bilge Kağan döneminde Orhun Yazıtları'nı yazmıştır.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_efyovc",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Orhun Yazıtları'nda yer alan \"Ey Türk budunu! Devletini ve töreni kim bozdu? İşte sen kendin bozdun.\" ifadesiyle vurgulanmak istenen temel düşünce aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Türklerin savaşçı özelliği",
+        "Türklerin birlik ve beraberliği koruması gerektiği",
+        "Çin'in Türkler üzerindeki etkisi",
+        "Göktürklerin ekonomik gücü",
+        "Türklerin yerleşik hayata geçmesi"
+      ],
+      "dogru": 1,
+      "aciklama": "Orhun Yazıtları'nda Türk milletine birlik ve beraberliği koruma, devlete ve töreye sahip çıkma öğüdü verilmektedir.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_lt1r9q",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Orhun Yazıtları ile ilgili olarak;\nI. II. Göktürk Devleti döneminde dikilmiştir\nII. Türk dilinin ilk yazılı belgesidir\nIII. 38 harfli Göktürk alfabesiyle yazılmıştır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Orhun Yazıtları II. Göktürk döneminde dikilmiş, Türk dilinin ilk yazılı belgesidir ve 38 harfli Göktürk alfabesiyle yazılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_vtnd27",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Göktürk Devleti'nin yıkılışından sonra Türklerin bağımsızlığını yeniden kazanmasını sağlayan ve 682'de kurulan devlet aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "I. Göktürk Devleti",
+        "II. Göktürk (Kutluk) Devleti",
+        "Uygur Devleti",
+        "Hazar Devleti",
+        "Avrupa Hun Devleti"
+      ],
+      "dogru": 1,
+      "aciklama": "682'de Kutluk (İlteriş) Kağan tarafından kurulan II. Göktürk Devleti, Türklerin yeniden bağımsızlığını sağlamıştır.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407104682_ss9eqr",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "I. Göktürk Devleti'nin yıkılışında etkili olan temel sebep aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Çin'in böl-yönet politikası",
+        "Bizans'ın saldırıları",
+        "Ekonomik kriz",
+        "Veba salgını",
+        "Arap akınları"
+      ],
+      "dogru": 0,
+      "aciklama": "Çin, Göktürk Devleti'ni içten parçalamak için böl-yönet politikası uygulamış ve devlet 630'da yıkılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791407104682,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791407059076_0l5r78",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
