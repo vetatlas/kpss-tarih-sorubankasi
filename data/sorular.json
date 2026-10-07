@@ -1,25 +1,6 @@
 {
   "sorular": [
     {
-      "id": "tg_1791395295481_1out0u",
-      "ders": "Tarih",
-      "kategori": "İslamiyet Öncesi Türk Tarihi",
-      "seviye": "Ortaöğretim",
-      "soru": "[18/21] .",
-      "secenekler": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
-      "dogru": 3,
-      "aciklama": "",
-      "gorsel": null,
-      "eklenme": 1791395295481,
-      "kaynak": "telegram-anket"
-    },
-    {
       "id": "tg_1791394793971_rn3cvq",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi Türk Tarihi",
