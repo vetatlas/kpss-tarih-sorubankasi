@@ -1,25 +1,6 @@
 {
   "sorular": [
     {
-      "id": "tg_1791396786576_t74blt",
-      "ders": "Tarih",
-      "kategori": "Karışık 🔀",
-      "seviye": "Ortaöğretim",
-      "soru": "Görseldeki soruyu cevapla",
-      "secenekler": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
-      "dogru": 3,
-      "aciklama": "",
-      "gorsel": "https://api.telegram.org/file/bot8996849772:AAG1HvXApp23fdjAanD7B_lIRW8_u4NKaXI/photos/file_13.jpg",
-      "eklenme": 1791396786576,
-      "kaynak": "telegram-seri"
-    },
-    {
       "id": "tg_1791396684661_qxarqz",
       "ders": "Tarih",
       "kategori": "Karışık 🔀",
