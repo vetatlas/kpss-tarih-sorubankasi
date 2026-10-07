@@ -96,10 +96,10 @@
       "kaynak": "telegram-bulk"
     },
     {
-      "id": "tg_1791404947325_3b24st",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
       "seviye": "Lisans",
+      "altKonu": "",
       "soru": "Asya Hun Devleti ile ilgili olarak;\nI. Tarihte bilinen ilk teşkilatlı Türk devletidir\nII. Orduyu onluk sisteme göre teşkilatlandırmıştır\nIII. Mete Han döneminde en parlak dönemini yaşamıştır\nyargılarından hangileri doğrudur?",
       "secenekler": [
         "Yalnız I",
@@ -108,11 +108,11 @@
         "II ve III",
         "I, II ve III"
       ],
-      "dogru": 4,
       "aciklama": "Asya Hun Devleti ilk teşkilatlı Türk devletidir, orduyu onluk sisteme göre düzenlemiş ve Mete Han döneminde en parlak dönemini yaşamıştır.",
       "gorsel": null,
-      "eklenme": 1791404947325,
-      "kaynak": "telegram-bulk"
+      "zorluk": "",
+      "dogru": 4,
+      "id": "tg_1791404947325_3b24st"
     },
     {
       "id": "tg_1791404947325_zckmg1",
