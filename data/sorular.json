@@ -1,23 +1,3 @@
 {
-  "sorular": [
-    {
-      "id": "tg_1791382579720_v9znvr",
-      "ders": "Tarih",
-      "kategori": "İslamiyet öncesi Türk tarihi",
-      "seviye": "Ortaöğretim",
-      "soru": "Türk kadını ilk kullanan devlet?",
-      "secenekler": [
-        "Asya Hun devleti",
-        "Göktürk devleti",
-        "Uygur devleti",
-        "Avrupa Hun devleti",
-        "İskitler"
-      ],
-      "dogru": 1,
-      "aciklama": "552'de Bumin Kağan kurdu",
-      "gorsel": null,
-      "eklenme": 1791382579720,
-      "kaynak": "telegram"
-    }
-  ]
+  "sorular": []
 }
