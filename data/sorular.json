@@ -1,25 +1,6 @@
 {
   "sorular": [
     {
-      "id": "tg_1791395421032_1yawgj",
-      "ders": "Tarih",
-      "kategori": "İslamiyet Öncesi Türk Tarihi",
-      "seviye": "Ortaöğretim",
-      "soru": "Görseldeki soruyu cevapla",
-      "secenekler": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
-      "dogru": 2,
-      "aciklama": "",
-      "gorsel": "https://api.telegram.org/file/bot8996849772:AAG1HvXApp23fdjAanD7B_lIRW8_u4NKaXI/photos/file_2.jpg",
-      "eklenme": 1791395421032,
-      "kaynak": "telegram-seri"
-    },
-    {
       "id": "tg_1791395392960_n1552t",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi Türk Tarihi",
