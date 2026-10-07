@@ -468,11 +468,24 @@ async function handleText(msg) {
       state.secenekIdx = 0;
       return send(chatId, `✅ Soru kaydedildi.\n\n🔤 *A* seçeneğini yaz (_/gorsel_ = görsel):`);
     case 'secenek':
+      if (text.toLowerCase() === 'atla' || text.toLowerCase() === 'skip') {
+        while (state.secenekler.length < 5) {
+          state.secenekler.push(LETTERS[state.secenekler.length]);
+        }
+        state.step = 'dogru';
+        return send(chatId, `✅ *Şıklar otomatik (A B C D E)*\n_Görseldeki şıklar kullanılacak._\n\n✔️ *Doğru cevap?*`, {
+          reply_markup: { inline_keyboard: [[
+            { text: 'A', callback_data: 'dogru_A' }, { text: 'B', callback_data: 'dogru_B' },
+            { text: 'C', callback_data: 'dogru_C' }, { text: 'D', callback_data: 'dogru_D' },
+            { text: 'E', callback_data: 'dogru_E' }
+          ]] }
+        });
+      }
       state.secenekler.push(text);
       state.secenekIdx++;
       if (state.secenekIdx < 5) {
         const L = LETTERS[state.secenekIdx];
-        return send(chatId, `✅ *${LETTERS[state.secenekIdx - 1]}* kaydedildi.\n\n🔤 *${L}* yaz:`);
+        return send(chatId, `✅ *${LETTERS[state.secenekIdx - 1]}* kaydedildi.\n\n🔤 *${L}* yaz (_görselli soru için "atla" yaz_):`);
       }
       state.step = 'dogru';
       return send(chatId, `✅ Tüm şıklar alındı.\n\n✔️ *Doğru cevap?*`, {
