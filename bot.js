@@ -4,9 +4,8 @@ const fs = require('fs');
 const path = require('path');
 
 // ⚠️ BURAYA KENDİ BOT TOKENİNİ YAZ
-const TELEGRAM_TOKEN = '8996849772:AAGT8m9pcPybVgdLtcacYr09JzYX30GxgkQ';
-const TELEGRAM_API = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`;
-
+const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 // ⚠️ BURAYA KENDİ GITHUB TOKENİNİ YAZ
 const GITHUB_TOKEN = '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';
 const GITHUB_OWNER = 'vetatlas';
