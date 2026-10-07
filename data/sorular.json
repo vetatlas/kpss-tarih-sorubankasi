@@ -1,3 +1,194 @@
 {
-  "sorular": []
+  "sorular": [
+    {
+      "id": "tg_1791407020638_4vcmyl",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Asya Hun Devleti'nin Batı kanadının 375'te Avrupa'ya göç etmesiyle başlayan ve Avrupa'nın siyasi haritasını değiştiren olay aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Kavimler Göçü",
+        "Haçlı Seferleri",
+        "Yüzyıl Savaşları",
+        "Roma'nın yıkılışı",
+        "İstanbul'un Fethi"
+      ],
+      "dogru": 0,
+      "aciklama": "375'te başlayan Kavimler Göçü, Avrupa'nın siyasi haritasını değiştirmiştir.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_x0kdto",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Asya Hun Devleti'nin yıkılış sürecinde Çin'in uyguladığı politikalar sonucu ortaya çıkan gelişme aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Türklerin yerleşik hayata geçmesi",
+        "Hunların Doğu ve Batı olarak ikiye ayrılması",
+        "İpek Yolu'nun kapanması",
+        "Bizans'ın Anadolu'ya girmesi",
+        "Kavimler Göçü'nün başlaması"
+      ],
+      "dogru": 1,
+      "aciklama": "Çin'in böl-yönet politikası sonucunda Hunlar Doğu ve Batı Hunları olarak ikiye ayrılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_y34h40",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Türk tarihinde \"ordu-millet\" anlayışını ilk kez ortaya koyan ve orduyu onluk sisteme göre teşkilatlandıran hükümdar kimdir?",
+      "secenekler": [
+        "Teoman",
+        "Mete Han",
+        "Bumin Kağan",
+        "Bilge Kağan",
+        "Kutluk Kağan"
+      ],
+      "dogru": 1,
+      "aciklama": "Mete Han, orduyu onluk sisteme göre teşkilatlandırmış ve \"ordu-millet\" anlayışını ortaya koymuştur.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_a5rqi9",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Asya Hun Devleti ile ilgili olarak;\nI. Tarihte bilinen ilk teşkilatlı Türk devletidir\nII. Orduyu onluk sisteme göre teşkilatlandırmıştır\nIII. Mete Han döneminde en parlak dönemini yaşamıştır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Asya Hun Devleti ilk teşkilatlı Türk devletidir, orduyu onluk sisteme göre düzenlemiş ve Mete Han döneminde en parlak dönemini yaşamıştır.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_anm38d",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Tarihte bilinen ilk teşkilatlı Türk devleti ve kurucusu aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Göktürk Devleti - Bumin Kağan",
+        "Asya Hun Devleti - Teoman",
+        "Avrupa Hun Devleti - Balamir",
+        "Uygur Devleti - Kutluk Bilge Kül Kağan",
+        "Hazar Devleti - Hazar Bey"
+      ],
+      "dogru": 1,
+      "aciklama": "Asya Hun Devleti, MÖ 220'de Teoman tarafından kurulan ilk teşkilatlı Türk devletidir.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_9jvwj7",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İskitlerle ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Yunan kaynaklarında \"Saka\" olarak geçerler",
+        "Hayvan Üslubu'nu geliştirmişlerdir",
+        "Maden işlemeciliğinde ileri gitmişlerdir",
+        "Anadolu'ya akınlar düzenlemişlerdir",
+        "Sasani Devleti'ni yıkmışlardır"
+      ],
+      "dogru": 4,
+      "aciklama": "İskitler Sasani Devleti'ni yıkmamıştır; Sasani Devleti İskitlerden sonra kurulmuştur.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_fsxv35",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İskitlerle (Sakalar) ilgili olarak;\nI. Alp Er Tunga Destanı onlara aittir\nII. Tomris Hatun İskit hükümdarıdır\nIII. Bozkırın kuyumcuları olarak bilinirler\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Alp Er Tunga Destanı İskitlere aittir, Tomris Hatun İskit hükümdarıdır ve İskitler \"bozkırın kuyumcuları\" olarak bilinir.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_ekk79f",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Atı ilk kez evcilleştirerek geniş bir coğrafyaya yayan Orta Asya kültür çevresi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Anav",
+        "Afanasyevo",
+        "Andronova",
+        "Karasuk",
+        "Tagar"
+      ],
+      "dogru": 2,
+      "aciklama": "Andronova kültürü, atı ilk kez evcilleştiren ve geniş alana yayan kültür merkezidir.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_c9d5nk",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Orta Asya kültür çevreleriyle ilgili olarak;\nI. Anav, Orta Asya'nın en eski kültür merkezidir\nII. Afanasyevo, Türklere ait en eski kültür merkezidir\nIII. Karasuk, demir madeninin ilk işlendiği kültür merkezidir\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Anav en eski kültür merkezi, Afanasyevo Türklere ait en eski kültür merkezi, Karasuk ise demirin ilk işlendiği kültür merkezidir.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407020638_amqyyp",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Türk adının anlamıyla ilgili olarak aşağıdaki kaynak-anlam eşleştirmelerinden hangisi yanlıştır?",
+      "secenekler": [
+        "Çin kaynakları - Miğfer",
+        "Uygur kaynakları - Güç, kuvvet",
+        "Kaşgarlı Mahmud - Olgunluk çağı",
+        "Ziya Gökalp - Kanun ve nizam sahibi",
+        "İran kaynakları - Türemek"
+      ],
+      "dogru": 4,
+      "aciklama": "İran kaynaklarında \"Türk\" kelimesi \"güzel insan\" anlamında kullanılmıştır. \"Türemek\" anlamı ise Wambery tarafından ileri sürülmüştür.",
+      "gorsel": null,
+      "eklenme": 1791407020638,
+      "kaynak": "telegram-bulk"
+    }
+  ]
 }
