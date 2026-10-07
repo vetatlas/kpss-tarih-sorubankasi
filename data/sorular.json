@@ -1,6 +1,25 @@
 {
   "sorular": [
     {
+      "id": "tg_1791405494804_zw35zt",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"töre\" ile ilgili olarak;\nI. Yazısız hukuk kurallarıdır\nII. Kağan da töreye uymak zorundadır\nIII. Zamanla değişebilen kurallardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Töre yazısız hukuk kurallarıdır, kağan da töreye uymak zorundadır ve töre zamanla değişebilir.",
+      "gorsel": null,
+      "eklenme": 1791405494804,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791405450637_95t03g",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
