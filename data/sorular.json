@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791401462744_oj3dq8",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "I. Göktürk Devleti'nin yıkılışında etkili olan temel sebep aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Çin'in böl-yönet politikası",
+        "Bizans'ın saldırıları",
+        "Ekonomik kriz",
+        "Veba salgını",
+        "Arap akınları"
+      ],
+      "dogru": 0,
+      "aciklama": "Çin, Göktürk Devleti'ni içten parçalamak için böl-yönet politikası uygulamış ve devlet 630'da yıkılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_f5qdmu",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Göktürklerde Mukan Kağan hükümdar olduğu zaman devletin doğu kanadının yönetimini üstlenmiş, batı kanadını ise amcası İstemi Yabgu yönetmeye devam etmiştir.",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "Yalnız III",
+        "I ve II",
+        "I, II ve III"
+      ],
+      "dogru": 3,
+      "aciklama": "Metinde ikili teşkilat uygulandığı ve yönetimin hükümdar ailesi arasında paylaşıldığı görülmektedir. Ailenin en yaşlı üyesinin hükümdar olduğuna dair bilgi yoktur.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_nqw9fy",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Göktürk Devleti'nde hükümdarın ülkeyi doğu ve batı olarak ikiye ayırıp yönetmesine ne ad verilir?",
+      "secenekler": [
+        "Kut anlayışı",
+        "İkili teşkilat",
+        "Töre",
+        "Kurultay",
+        "Ülüş"
+      ],
+      "dogru": 1,
+      "aciklama": "İkili teşkilat, hükümdarın ülkeyi doğu ve batı kanadı olarak ikiye ayırıp yönetmesidir.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_cgahxh",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "I. Göktürk Devleti'nin kurucusu ve kuruluş yılı sırasıyla aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Bumin Kağan - 552",
+        "İstemi Yabgu - 552",
+        "Mukan Kağan - 552",
+        "Bilge Kağan - 552",
+        "Kutluk Kağan - 682"
+      ],
+      "dogru": 0,
+      "aciklama": "I. Göktürk Devleti 552'de Bumin Kağan tarafından kurulmuştur.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_wa2fet",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "\"Türk\" adını bir devlet adı olarak ilk kez kullanan Türk devleti aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Asya Hun Devleti",
+        "Avrupa Hun Devleti",
+        "I. Göktürk Devleti",
+        "Uygur Devleti",
+        "Hazar Devleti"
+      ],
+      "dogru": 2,
+      "aciklama": "552'de Bumin Kağan tarafından kurulan I. Göktürk Devleti, \"Türk\" adını taşıyan ilk devlettir.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_iest9v",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avrupa Hun Devleti'nin yıkılışını hazırlayan temel sebep aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Bizans'ın saldırıları",
+        "Attila'nın ölümü sonrası taht kavgaları",
+        "Veba salgını",
+        "Ekonomik kriz",
+        "Çin'in saldırıları"
+      ],
+      "dogru": 1,
+      "aciklama": "Attila'nın 453'te ölümü sonrası oğulları arasındaki taht kavgaları devletin yıkılışını hazırlamıştır.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_jn12hf",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avrupa Hun Devleti'nin Batı Roma üzerine düzenlediği ve Papa I. Leo'nun araya girmesiyle durdurulan sefer aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Galya Seferi",
+        "İtalya Seferi",
+        "Margos Seferi",
+        "Balkan Seferi",
+        "Anadolu Seferi"
+      ],
+      "dogru": 1,
+      "aciklama": "Attila'nın İtalya Seferi, Papa I. Leo'nun araya girmesiyle durdurulmuştur.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_864ovl",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Attila'nın 447'de Bizans'ı ağır vergiye bağlayan ve Bizans'ın Hunlara ödediği vergiyi üç katına çıkaran antlaşma aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Margos Antlaşması",
+        "Anatolios Antlaşması",
+        "Verdun Antlaşması",
+        "Karlofça Antlaşması",
+        "Zitvatorok Antlaşması"
+      ],
+      "dogru": 1,
+      "aciklama": "Anatolios Antlaşması ile Bizans, Hunlara ödediği vergiyi üç katına çıkarmıştır.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_b620t8",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avrupa Hun Devleti ile Bizans arasında imzalanan ve Bizans'ın Hunlara vergi ödemesini öngören 434 tarihli antlaşma aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Margos Antlaşması",
+        "Anatolios Antlaşması",
+        "Karlofça Antlaşması",
+        "Pasarofça Antlaşması",
+        "Belgrad Antlaşması"
+      ],
+      "dogru": 0,
+      "aciklama": "434'te imzalanan Margos Antlaşması ile Bizans, Hunlara vergi ödemeyi kabul etmiştir.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401462744_rn4rdl",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avrupa Hun Devleti ile ilgili olarak;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Avrupa Hun Devleti'nin en ünlü hükümdarı Attila'dır, Bizans ile Margos ve Anatolios antlaşmaları imzalanmış ve Attila'nın ölümü sonrası taht kavgalarıyla yıkılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791401462744,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791401260731_3e2gp3",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
