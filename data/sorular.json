@@ -1,6 +1,25 @@
 {
   "sorular": [
     {
+      "id": "tg_1791401943643_05ukgc",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"töre\" ile ilgili olarak;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Töre yazısız hukuk kurallarıdır, kağan da töreye uymak zorundadır ve töre zamanla değişebilir.",
+      "gorsel": null,
+      "eklenme": 1791401943643,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791401890635_ochlhz",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
