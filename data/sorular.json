@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791405143727_dl9294",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "I. Göktürk Devleti'nin yıkılışında etkili olan temel sebep aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Çin'in böl-yönet politikası",
+        "Bizans'ın saldırıları",
+        "Ekonomik kriz",
+        "Veba salgını",
+        "Arap akınları"
+      ],
+      "dogru": 0,
+      "aciklama": "Çin, Göktürk Devleti'ni içten parçalamak için böl-yönet politikası uygulamış ve devlet 630'da yıkılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_v7m42v",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Göktürklerde Mukan Kağan hükümdar olduğu zaman devletin doğu kanadının yönetimini üstlenmiş, batı kanadını ise amcası İstemi Yabgu yönetmeye devam etmiştir.\nBuna göre Göktürklerle ilgili;\nI. İkili teşkilat uygulandığı\nII. Yönetimin hükümdar ailesi arasında paylaşıldığı\nIII. Ailenin en yaşlı üyesinin hükümdar olduğu\ndurumlarından hangilerine ulaşılabilir?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "Yalnız III",
+        "I ve II",
+        "I, II ve III"
+      ],
+      "dogru": 3,
+      "aciklama": "Metinde ikili teşkilat uygulandığı ve yönetimin hükümdar ailesi arasında paylaşıldığı görülmektedir. Ailenin en yaşlı üyesinin hükümdar olduğuna dair bilgi yoktur.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_rdj6u0",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Göktürk Devleti'nde hükümdarın ülkeyi doğu ve batı olarak ikiye ayırıp yönetmesine ne ad verilir?",
+      "secenekler": [
+        "Kut anlayışı",
+        "İkili teşkilat",
+        "Töre",
+        "Kurultay",
+        "Ülüş"
+      ],
+      "dogru": 1,
+      "aciklama": "İkili teşkilat, hükümdarın ülkeyi doğu ve batı kanadı olarak ikiye ayırıp yönetmesidir.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_bf99v8",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "I. Göktürk Devleti'nin kurucusu ve kuruluş yılı sırasıyla aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Bumin Kağan - 552",
+        "İstemi Yabgu - 552",
+        "Mukan Kağan - 552",
+        "Bilge Kağan - 552",
+        "Kutluk Kağan - 682"
+      ],
+      "dogru": 0,
+      "aciklama": "I. Göktürk Devleti 552'de Bumin Kağan tarafından kurulmuştur.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_tf21ar",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "\"Türk\" adını bir devlet adı olarak ilk kez kullanan Türk devleti aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Asya Hun Devleti",
+        "Avrupa Hun Devleti",
+        "I. Göktürk Devleti",
+        "Uygur Devleti",
+        "Hazar Devleti"
+      ],
+      "dogru": 2,
+      "aciklama": "552'de Bumin Kağan tarafından kurulan I. Göktürk Devleti, \"Türk\" adını taşıyan ilk devlettir.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_3pqcly",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avrupa Hun Devleti'nin yıkılışını hazırlayan temel sebep aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Bizans'ın saldırıları",
+        "Attila'nın ölümü sonrası taht kavgaları",
+        "Veba salgını",
+        "Ekonomik kriz",
+        "Çin'in saldırıları"
+      ],
+      "dogru": 1,
+      "aciklama": "Attila'nın 453'te ölümü sonrası oğulları arasındaki taht kavgaları devletin yıkılışını hazırlamıştır.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_xwbkz0",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avrupa Hun Devleti'nin Batı Roma üzerine düzenlediği ve Papa I. Leo'nun araya girmesiyle durdurulan sefer aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Galya Seferi",
+        "İtalya Seferi",
+        "Margos Seferi",
+        "Balkan Seferi",
+        "Anadolu Seferi"
+      ],
+      "dogru": 1,
+      "aciklama": "Attila'nın İtalya Seferi, Papa I. Leo'nun araya girmesiyle durdurulmuştur.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_au8rj2",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Attila'nın 447'de Bizans'ı ağır vergiye bağlayan ve Bizans'ın Hunlara ödediği vergiyi üç katına çıkaran antlaşma aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Margos Antlaşması",
+        "Anatolios Antlaşması",
+        "Verdun Antlaşması",
+        "Karlofça Antlaşması",
+        "Zitvatorok Antlaşması"
+      ],
+      "dogru": 1,
+      "aciklama": "Anatolios Antlaşması ile Bizans, Hunlara ödediği vergiyi üç katına çıkarmıştır.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_an15u8",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avrupa Hun Devleti ile Bizans arasında imzalanan ve Bizans'ın Hunlara vergi ödemesini öngören 434 tarihli antlaşma aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Margos Antlaşması",
+        "Anatolios Antlaşması",
+        "Karlofça Antlaşması",
+        "Pasarofça Antlaşması",
+        "Belgrad Antlaşması"
+      ],
+      "dogru": 0,
+      "aciklama": "434'te imzalanan Margos Antlaşması ile Bizans, Hunlara vergi ödemeyi kabul etmiştir.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405143727_h3biix",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avrupa Hun Devleti ile ilgili olarak;\nI. En ünlü hükümdarı Attila'dır\nII. Bizans ile Margos ve Anatolios antlaşmalarını imzalamıştır\nIII. Attila'nın ölümü sonrası taht kavgalarıyla yıkılmıştır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Avrupa Hun Devleti'nin en ünlü hükümdarı Attila'dır, Bizans ile Margos ve Anatolios antlaşmaları imzalanmış ve Attila'nın ölümü sonrası taht kavgalarıyla yıkılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791405143727,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791404983966_y5ilgh",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
@@ -96,10 +286,10 @@
       "kaynak": "telegram-bulk"
     },
     {
+      "id": "tg_1791404947325_3b24st",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
       "seviye": "Lisans",
-      "altKonu": "",
       "soru": "Asya Hun Devleti ile ilgili olarak;\nI. Tarihte bilinen ilk teşkilatlı Türk devletidir\nII. Orduyu onluk sisteme göre teşkilatlandırmıştır\nIII. Mete Han döneminde en parlak dönemini yaşamıştır\nyargılarından hangileri doğrudur?",
       "secenekler": [
         "Yalnız I",
@@ -108,11 +298,11 @@
         "II ve III",
         "I, II ve III"
       ],
+      "dogru": 4,
       "aciklama": "Asya Hun Devleti ilk teşkilatlı Türk devletidir, orduyu onluk sisteme göre düzenlemiş ve Mete Han döneminde en parlak dönemini yaşamıştır.",
       "gorsel": null,
-      "zorluk": "",
-      "dogru": 4,
-      "id": "tg_1791404947325_3b24st"
+      "eklenme": 1791404947325,
+      "kaynak": "telegram-bulk"
     },
     {
       "id": "tg_1791404947325_zckmg1",
