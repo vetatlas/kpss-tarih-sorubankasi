@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KPSS Tarih — Soru Bankası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060b16;--bg-2:#0a1120;--gold:#c9a227;--gold-2:#e6c455;--gold-3:#f7e9b8;
+  --card:rgba(255,255,255,.028);--card-h:rgba(255,255,255,.055);
+  --line:rgba(255,255,255,.075);--line-2:rgba(255,255,255,.13);
+  --text:#eef2f8;--text-2:#b9c6da;--muted:#6b7b93;
+  --green:#34d399;--green-bg:rgba(52,211,153,.1);--green-line:rgba(52,211,153,.38);
+  --red:#f87171;--red-bg:rgba(248,113,113,.1);--red-line:rgba(248,113,113,.38);
+  --amber:#fbbf24;--amber-bg:rgba(251,191,36,.1);--amber-line:rgba(251,191,36,.32);
+  --shadow-lg:0 24px 70px -22px rgba(0,0,0,.75);
+  --shadow-gold:0 16px 50px -18px rgba(201,162,39,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;
+  display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;position:relative;font-size:14px;
+}
+
+/* AMBIENT */
+.ambient{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.45;animation:float 24s ease-in-out infinite}
+.orb.o1{width:480px;height:480px;background:radial-gradient(circle,rgba(201,162,39,.26),transparent 65%);top:-180px;left:-140px}
+.orb.o2{width:420px;height:420px;background:radial-gradient(circle,rgba(30,50,82,.85),transparent 65%);top:42%;right:-160px;animation-delay:-8s}
+.orb.o3{width:380px;height:380px;background:radial-gradient(circle,rgba(201,162,39,.14),transparent 65%);bottom:-140px;left:25%;animation-delay:-16s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,30px) scale(.94)}}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.spotlight{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(201,162,39,.055),transparent 60%);
+  transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;will-change:transform}
+body:hover .spotlight{opacity:1}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:rgba(6,11,22,.72);
+  backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);
+  border-bottom:1px solid var(--line);}
+.header-inner{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;cursor:pointer;user-select:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.brand:hover{transform:translateX(3px)}
+.brand-mark{width:36px;height:36px;border-radius:10px;flex:0 0 auto;
+  background:linear-gradient(145deg,var(--gold-2),#9a7a15);display:grid;place-items:center;
+  font-family:'Playfair Display',serif;font-weight:800;font-size:16px;color:#0f0c04;
+  box-shadow:0 5px 16px -6px rgba(201,162,39,.8), inset 0 1px 0 rgba(255,255,255,.4);
+  position:relative;overflow:hidden}
+.brand-mark::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
+  transform:translateX(-120%);animation:shine 4s ease-in-out infinite}
+@keyframes shine{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.brand-text h1{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;line-height:1.15;color:#fff}
+.brand-text span{font-size:9px;color:var(--muted);letter-spacing:1.8px;text-transform:uppercase;font-weight:700}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-stat{font-size:11.5px;color:var(--muted);font-weight:500;text-align:right;line-height:1.35;display:none}
+.header-stat b{color:var(--gold-2);font-weight:700}
+@media(min-width:700px){.header-stat{display:block}}
+.icon-btn{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--text-2);cursor:pointer;
+  display:grid;place-items:center;transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  position:relative;font-family:inherit}
+.icon-btn:hover{border-color:rgba(201,162,39,.4);color:var(--gold-2);background:rgba(201,162,39,.08);transform:scale(1.08) rotate(-5deg)}
+.icon-btn svg{width:17px;height:17px}
+.icon-btn .badge-count{position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;padding:0 4px;
+  border-radius:10px;background:var(--gold);color:#141005;font-size:9.5px;font-weight:800;
+  display:grid;place-items:center;border:2px solid var(--bg)}
+.icon-btn.active{border-color:rgba(201,162,39,.5);color:var(--gold-2);background:rgba(201,162,39,.12)}
+
+/* LAYOUT */
+main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:22px 20px 60px;position:relative;z-index:2}
+.screen{animation:screenIn .55s cubic-bezier(.16,1,.3,1)}
+@keyframes screenIn{from{opacity:0;transform:translateY(16px);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+
+/* HERO */
+.hero{text-align:center;margin-bottom:30px}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(201,162,39,.09);
+  border:1px solid rgba(201,162,39,.28);color:var(--gold-2);font-size:10px;font-weight:700;
+  letter-spacing:1.6px;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:14px;
+  animation:heroIn .6s cubic-bezier(.16,1,.3,1) backwards}
+.hero-badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-2);
+  box-shadow:0 0 10px var(--gold-2);animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,38px);font-weight:700;
+  line-height:1.15;color:#fff;margin-bottom:10px;letter-spacing:-.6px;
+  animation:heroIn .6s cubic-bezier(.16,1,.3,1) .08s backwards}
+@keyframes heroIn{from{opacity:0;transform:translateY(18px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+.hero h2 em{font-style:normal;background:linear-gradient(120deg,var(--gold-3),var(--gold),#9a7a15,var(--gold-3));
+  background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:gradShift 5s ease infinite}
+@keyframes gradShift{0%,100%{background-position:0% center}50%{background-position:100% center}}
+.hero p{color:var(--muted);max-width:520px;margin:0 auto;font-size:13px;line-height:1.6;
+  animation:heroIn .6s cubic-bezier(.16,1,.3,1) .16s backwards}
+.hero-rule{width:56px;height:2px;margin:18px auto 0;border-radius:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:heroIn .6s cubic-bezier(.16,1,.3,1) .24s backwards}
+.hero-actions{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap;
+  animation:heroIn .6s cubic-bezier(.16,1,.3,1) .3s backwards}
+.mini-btn{background:transparent;border:1px solid rgba(201,162,39,.28);color:var(--gold-2);
+  padding:6px 14px;border-radius:100px;font-size:11px;font-weight:700;cursor:pointer;
+  font-family:inherit;letter-spacing:.4px;transition:all .25s;display:inline-flex;align-items:center;gap:6px}
+.mini-btn:hover{background:rgba(201,162,39,.1);border-color:rgba(201,162,39,.5);transform:translateY(-1px)}
+
+/* SECTION LABEL */
+.section-label{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:800;
+  letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.section-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+
+/* GRID */
+.grid{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:560px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+/* CATEGORY CARDS */
+.cat-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:16px 15px;cursor:pointer;text-align:left;font-family:inherit;
+  display:flex;flex-direction:column;gap:9px;position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .4s, background .4s;
+  backdrop-filter:blur(10px);animation:cardIn .5s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px) scale(.96);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+.cat-card::before{content:"";position:absolute;inset:0;border-radius:14px;
+  background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(201,162,39,.14),transparent 42%);
+  opacity:0;transition:opacity .4s;pointer-events:none}
+.cat-card:hover::before{opacity:1}
+.cat-card::after{content:"";position:absolute;inset:-1px;border-radius:14px;padding:1px;
+  background:linear-gradient(135deg,rgba(201,162,39,.55),transparent 45%,transparent 55%,rgba(201,162,39,.28));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none}
+.cat-card:hover{transform:translateY(-5px);border-color:transparent;background:var(--card-h);box-shadow:var(--shadow-lg)}
+.cat-card:hover::after{opacity:1}
+.cat-card:active{transform:translateY(-1px) scale(.985)}
+.cat-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.cat-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cat-icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(145deg,rgba(201,162,39,.16),rgba(201,162,39,.04));
+  border:1px solid rgba(201,162,39,.22);font-size:18px;
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.cat-card:hover .cat-icon{transform:rotate(-10deg) scale(1.12)}
+.cat-count{font-size:10px;font-weight:700;color:var(--gold-2);background:rgba(201,162,39,.09);
+  border:1px solid rgba(201,162,39,.2);padding:3px 9px;border-radius:100px;letter-spacing:.3px}
+.cat-card h3{font-size:13.5px;font-weight:700;color:#fff;line-height:1.3;letter-spacing:-.1px}
+.cat-card p{font-size:11.5px;color:var(--muted);line-height:1.45}
+.cat-cta{margin-top:2px;font-size:11px;font-weight:700;color:var(--gold-2);letter-spacing:.4px;
+  display:flex;align-items:center;gap:5px;opacity:.65;transition:opacity .3s, gap .3s}
+.cat-card:hover .cat-cta{opacity:1;gap:9px}
+
+/* SKELETON */
+.skeleton{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:16px 15px;display:flex;flex-direction:column;gap:9px;position:relative;overflow:hidden}
+.skeleton::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);
+  transform:translateX(-100%);animation:shimmer 1.6s infinite}
+@keyframes shimmer{100%{transform:translateX(100%)}}
+.sk-line{height:10px;border-radius:5px;background:rgba(255,255,255,.05)}
+.sk-line.w40{width:40%}.sk-line.w70{width:70%}.sk-line.w90{width:90%}
+.sk-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.05)}
+.sk-row{display:flex;justify-content:space-between;align-items:center}
+
+/* BUTTONS */
+.btn{font-family:inherit;font-size:13px;font-weight:700;border-radius:10px;
+  padding:11px 20px;cursor:pointer;border:1px solid transparent;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .3s, background .25s, border-color .25s;
+  letter-spacing:.1px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  position:relative;overflow:hidden}
+.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.btn-primary{background:linear-gradient(145deg,var(--gold-2),var(--gold));color:#141005;box-shadow:var(--shadow-gold)}
+.btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 22px 60px -18px rgba(201,162,39,.7)}
+.btn-primary:active{transform:translateY(0) scale(.98)}
+.btn-ghost{background:rgba(255,255,255,.04);border-color:var(--line-2);color:var(--text)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none !important}
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.5);
+  pointer-events:none;animation:rippleAnim .7s cubic-bezier(.16,1,.3,1)}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+
+/* MODAL */
+.modal-backdrop{position:fixed;inset:0;z-index:300;background:rgba(4,8,16,.72);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
+.modal-backdrop.show{opacity:1;pointer-events:auto}
+.modal{background:linear-gradient(160deg,rgba(20,30,48,.98),rgba(10,17,32,.98));
+  border:1px solid var(--line-2);border-radius:20px;max-width:440px;width:100%;
+  padding:26px 24px;box-shadow:0 40px 100px -30px rgba(0,0,0,.9);position:relative;
+  transform:translateY(24px) scale(.94);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);
+  overflow:hidden}
+.modal-backdrop.show .modal{transform:none;opacity:1}
+.modal::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,162,39,.75),transparent)}
+.modal-icon{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;
+  background:linear-gradient(145deg,rgba(201,162,39,.2),rgba(201,162,39,.05));
+  border:1px solid rgba(201,162,39,.28);font-size:24px;margin-bottom:14px}
+.modal h3{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;
+  letter-spacing:-.2px;margin-bottom:6px;line-height:1.3}
+.modal .modal-sub{font-size:12.5px;color:var(--muted);margin-bottom:20px;line-height:1.55}
+.modal .modal-sub b{color:var(--gold-2);font-weight:700}
+
+.count-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.count-opt{padding:14px 6px;background:rgba(255,255,255,.03);border:1.5px solid var(--line);
+  border-radius:11px;cursor:pointer;font-family:inherit;color:var(--text-2);
+  font-size:13px;font-weight:700;transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+.count-opt .num{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1}
+.count-opt .lbl{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.count-opt:hover{border-color:rgba(201,162,39,.4);background:rgba(201,162,39,.06);transform:translateY(-2px)}
+.count-opt.active{border-color:var(--gold);background:rgba(201,162,39,.14);box-shadow:0 8px 24px -10px rgba(201,162,39,.5)}
+.count-opt.active .num{color:var(--gold-2)}
+.count-opt.active .lbl{color:var(--gold-2)}
+.count-opt.active::after{content:"✓";position:absolute;top:4px;right:6px;font-size:10px;color:var(--gold-2);font-weight:900}
+
+.custom-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding:12px 14px;
+  background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:11px}
+.custom-row label{font-size:12px;color:var(--muted);font-weight:600;flex:1}
+.custom-row input{width:80px;padding:8px 12px;background:rgba(0,0,0,.35);border:1px solid var(--line-2);
+  border-radius:8px;color:#fff;font-family:inherit;font-size:13px;font-weight:700;text-align:center;outline:none;
+  transition:all .2s}
+.custom-row input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+.custom-row input::-webkit-outer-spin-button,.custom-row input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+.modal-actions{display:flex;gap:9px;justify-content:flex-end}
+.modal-actions .btn{flex:1}
+
+/* REPORT MODAL */
+.report-modal textarea{width:100%;padding:12px 14px;background:rgba(0,0,0,.35);
+  border:1px solid var(--line-2);border-radius:11px;color:#fff;font-family:inherit;font-size:13px;
+  line-height:1.5;resize:vertical;min-height:100px;outline:none;transition:all .25s;margin-bottom:14px}
+.report-modal textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+.report-modal textarea::placeholder{color:var(--muted)}
+.report-q-preview{background:rgba(201,162,39,.06);border:1px solid rgba(201,162,39,.2);
+  border-radius:11px;padding:12px 14px;margin-bottom:14px}
+.report-q-preview .rqp-lbl{font-size:9.5px;font-weight:800;color:var(--gold-2);
+  letter-spacing:1.4px;text-transform:uppercase;margin-bottom:5px}
+.report-q-preview .rqp-text{font-size:12.5px;color:var(--text-2);line-height:1.5;
+  max-height:80px;overflow:hidden;text-overflow:ellipsis}
+
+/* QUIZ */
+.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.quiz-meta{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:600;color:var(--muted)}
+.quiz-meta b{color:var(--gold-2);font-weight:800;font-variant-numeric:tabular-nums}
+.timer{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.04);
+  border:1px solid var(--line);padding:5px 12px;border-radius:100px;font-variant-numeric:tabular-nums;
+  font-size:11.5px;color:var(--text-2)}
+.timer b{color:#fff;font-weight:700}
+.bar{height:4px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden;margin-bottom:20px;position:relative}
+.bar-fill{height:100%;width:0;border-radius:100px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-2),var(--gold-3),var(--gold-2),var(--gold));
+  background-size:200% auto;transition:width .6s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 0 14px rgba(201,162,39,.6);animation:gradShift 3s linear infinite}
+
+.question-card{background:linear-gradient(160deg,rgba(255,255,255,.042),rgba(255,255,255,.012));
+  border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,30px);
+  backdrop-filter:blur(14px);box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+  animation:cardSlideIn .55s cubic-bezier(.16,1,.3,1)}
+@keyframes cardSlideIn{from{opacity:0;transform:translateY(18px) scale(.98);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+.question-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,162,39,.65),transparent)}
+.q-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:9.5px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-2);background:rgba(201,162,39,.09);
+  border:1px solid rgba(201,162,39,.2);padding:4px 11px;border-radius:100px}
+.q-tools{display:flex;align-items:center;gap:6px}
+.q-tool{width:32px;height:32px;border-radius:9px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--text-2);cursor:pointer;
+  display:grid;place-items:center;transition:all .3s cubic-bezier(.34,1.56,.64,1);font-family:inherit}
+.q-tool svg{width:15px;height:15px;transition:transform .3s}
+.q-tool:hover{border-color:rgba(201,162,39,.4);color:var(--gold-2);background:rgba(201,162,39,.08);transform:scale(1.1)}
+.q-tool:hover svg{transform:scale(1.1)}
+.q-tool.fav-active{border-color:rgba(201,162,39,.5);color:var(--gold-2);background:rgba(201,162,39,.14)}
+.q-tool.fav-active svg{fill:var(--gold-2)}
+.q-tool.report:hover{border-color:rgba(248,113,113,.5);color:var(--red);background:rgba(248,113,113,.08)}
+.q-tool.pop{animation:toolPop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes toolPop{0%{transform:scale(1)}40%{transform:scale(1.3) rotate(-10deg)}100%{transform:scale(1)}}
+.q-tool.reported{border-color:rgba(248,113,113,.5);color:var(--red);background:rgba(248,113,113,.1)}
+.q-tool.reported svg{fill:var(--red)}
+
+.question-card h2{font-family:'Playfair Display',serif;font-size:clamp(15px,2vw,18.5px);
+  font-weight:600;line-height:1.5;color:#fff;margin-bottom:20px;letter-spacing:-.1px}
+
+.options-list{display:flex;flex-direction:column;gap:8px}
+.option{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.022);
+  border:1.5px solid var(--line);border-radius:11px;padding:12px 15px;cursor:pointer;
+  font-family:inherit;text-align:left;transition:all .3s cubic-bezier(.16,1,.3,1);
+  font-size:13.5px;color:var(--text);line-height:1.5;position:relative;overflow:hidden;
+  animation:optIn .5s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes optIn{from{opacity:0;transform:translateX(-22px) scale(.96)}to{opacity:1;transform:none}}
+.option::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(201,162,39,.1),transparent 45%);
+  opacity:0;transition:opacity .35s;pointer-events:none}
+.option:hover:not(.disabled)::before{opacity:1}
+.option:hover:not(.disabled){border-color:rgba(201,162,39,.42);background:rgba(201,162,39,.045);transform:translateX(5px)}
+.option:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.option.disabled{cursor:default}
+.option .letter{width:26px;height:26px;flex:0 0 auto;border-radius:8px;
+  background:rgba(255,255,255,.045);border:1.5px solid var(--line-2);display:grid;place-items:center;
+  font-weight:800;font-size:11.5px;color:var(--text-2);transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.option .opt-text{flex:1;padding-top:2px;font-weight:500}
+.option .mark{font-size:16px;font-weight:800;margin-left:8px;padding-top:2px;opacity:0;
+  transform:scale(.3);transition:all .4s cubic-bezier(.34,1.56,.64,1)}
+.option:hover:not(.disabled) .letter{border-color:var(--gold);color:var(--gold-2);
+  background:rgba(201,162,39,.1);transform:scale(1.08) rotate(-5deg)}
+.option.correct{background:var(--green-bg);border-color:var(--green-line);animation:popCorrect .6s cubic-bezier(.34,1.56,.64,1)}
+.option.correct .letter{background:var(--green);border-color:var(--green);color:#052e1a;transform:scale(1.1)}
+.option.correct .mark{opacity:1;transform:scale(1);color:var(--green)}
+@keyframes popCorrect{0%{transform:scale(1)}40%{transform:scale(1.03)}70%{transform:scale(.99)}100%{transform:scale(1)}}
+.option.wrong{background:var(--red-bg);border-color:var(--red-line);animation:shakeWrong .55s cubic-bezier(.36,.07,.19,.97)}
+.option.wrong .letter{background:var(--red);border-color:var(--red);color:#450a0a}
+.option.wrong .mark{opacity:1;transform:scale(1);color:var(--red)}
+@keyframes shakeWrong{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-6px)}40%,60%{transform:translateX(6px)}}
+.option.dim{opacity:.4;filter:saturate(.35)}
+
+.feedback{margin-top:16px;border-radius:12px;padding:0 16px;font-size:13px;line-height:1.6;
+  max-height:0;overflow:hidden;opacity:0;transition:all .5s cubic-bezier(.16,1,.3,1);
+  border:1px solid transparent;transform:translateY(-8px)}
+.feedback.show{max-height:600px;opacity:1;padding:14px 16px;transform:none}
+.feedback.correct{background:var(--green-bg);border-color:var(--green-line);color:#b8f0d5}
+.feedback.wrong{background:var(--red-bg);border-color:var(--red-line);color:#fecaca}
+.feedback .fb-title{display:flex;align-items:center;gap:8px;font-weight:800;margin-bottom:5px;font-size:13px}
+.feedback .fb-title .ic{width:19px;height:19px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:900}
+.feedback.correct .fb-title .ic{background:var(--green);color:#052e1a}
+.feedback.wrong .fb-title .ic{background:var(--red);color:#450a0a}
+.feedback .fb-body{font-size:12.5px;opacity:.94;line-height:1.65}
+.feedback .fb-body strong{font-weight:800;color:#fff}
+
+.q-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.kbd-hint{font-size:11px;color:var(--muted);font-weight:500}
+.kbd{display:inline-block;background:rgba(255,255,255,.07);border:1px solid var(--line-2);
+  border-radius:4px;padding:1px 6px;font-size:10px;font-weight:700;color:var(--text-2);
+  font-family:ui-monospace,monospace}
+
+/* RESULT */
+.result-wrap{max-width:720px;margin:0 auto}
+.result-card{background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  border:1px solid var(--line);border-radius:20px;padding:clamp(24px,4vw,38px);
+  backdrop-filter:blur(14px);box-shadow:var(--shadow-lg);text-align:center;
+  position:relative;overflow:hidden;animation:cardSlideIn .6s cubic-bezier(.16,1,.3,1)}
+.result-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,162,39,.75),transparent)}
+.score-ring{width:150px;height:150px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;
+  position:relative;background:conic-gradient(var(--gold) 0%, rgba(255,255,255,.06) 0);transition:background .1s linear}
+.score-ring::before{content:"";position:absolute;inset:-7px;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent,rgba(201,162,39,.3),transparent 30%);
+  animation:spin 9s linear infinite;opacity:.6}
+@keyframes spin{to{transform:rotate(360deg)}}
+.score-ring::after{content:"";position:absolute;inset:11px;border-radius:50%;background:#0a1120;
+  box-shadow:inset 0 2px 18px rgba(0,0,0,.55)}
+.score-inner{position:relative;z-index:1;text-align:center}
+.score-inner .pct{font-family:'Playfair Display',serif;font-size:40px;font-weight:800;color:#fff;
+  line-height:1;letter-spacing:-1.5px;font-variant-numeric:tabular-nums}
+.score-inner .pct small{font-size:19px;color:var(--gold-2);font-weight:700;margin-left:2px}
+.score-inner .sub{font-size:9.5px;font-weight:800;color:var(--muted);letter-spacing:1.8px;text-transform:uppercase;margin-top:6px}
+.result-card h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3.2vw,26px);color:#fff;
+  margin-bottom:9px;font-weight:700;letter-spacing:-.3px}
+.result-card > p{color:var(--muted);font-size:13px;max-width:440px;margin:0 auto 24px;line-height:1.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:26px}
+.stat-box{background:rgba(255,255,255,.028);border:1px solid var(--line);border-radius:12px;
+  padding:14px 8px;transition:transform .3s cubic-bezier(.34,1.56,.64,1), border-color .3s}
+.stat-box:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.stat-box .num{font-size:22px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.stat-box .num.g{color:var(--green)}
+.stat-box .num.r{color:var(--red)}
+.stat-box .lbl{font-size:9.5px;font-weight:800;color:var(--muted);letter-spacing:1.4px;text-transform:uppercase;margin-top:4px}
+.result-actions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+
+.review{margin-top:28px;text-align:left}
+.review h3{font-size:10px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.review h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.review-item{background:rgba(255,255,255,.022);border:1px solid var(--line);
+  border-left:3px solid var(--red);border-radius:10px;padding:13px 15px;margin-bottom:8px;
+  animation:cardIn .4s cubic-bezier(.16,1,.3,1) backwards}
+.review-item .rq{font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;line-height:1.45}
+.review-item .ra{font-size:12px;display:flex;flex-direction:column;gap:4px}
+.review-item .ra span{color:var(--muted)}
+.review-item .ra b{color:var(--green);font-weight:800}
+.review-item .ra i{color:var(--red);font-style:normal;font-weight:700}
+
+/* FAVORITES SCREEN */
+.fav-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.fav-header h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,26px);color:#fff;font-weight:700;letter-spacing:-.3px}
+.fav-header p{font-size:12.5px;color:var(--muted);margin-top:3px}
+.fav-list{display:flex;flex-direction:column;gap:10px}
+.fav-item{background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.012));
+  border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;
+  padding:14px 16px;position:relative;animation:cardIn .4s cubic-bezier(.16,1,.3,1) backwards;
+  transition:transform .3s, border-color .3s, box-shadow .3s}
+.fav-item:hover{border-color:var(--line-2);transform:translateX(3px);box-shadow:0 8px 24px -12px rgba(0,0,0,.6)}
+.fav-item .fq{font-size:13.5px;font-weight:600;color:#fff;line-height:1.5;margin-bottom:10px;padding-right:34px}
+.fav-item .fcat{font-size:9.5px;font-weight:800;color:var(--gold-2);letter-spacing:1.4px;
+  text-transform:uppercase;margin-bottom:8px}
+.fav-item .fopts{font-size:12px;color:var(--text-2);line-height:1.7}
+.fav-item .fopts span{display:block}
+.fav-item .fopts b{color:var(--green);font-weight:800}
+.fav-item .fav-remove{position:absolute;top:12px;right:12px;width:26px;height:26px;border-radius:8px;
+  border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);cursor:pointer;
+  display:grid;place-items:center;transition:all .25s;font-family:inherit}
+.fav-item .fav-remove:hover{border-color:rgba(248,113,113,.5);color:var(--red);background:rgba(248,113,113,.1)}
+.fav-item .fav-remove svg{width:12px;height:12px}
+.empty-state{text-align:center;padding:50px 24px;background:rgba(255,255,255,.02);
+  border:1px dashed var(--line-2);border-radius:16px}
+.empty-state .es-ico{font-size:38px;margin-bottom:12px;opacity:.5}
+.empty-state h4{font-size:15px;color:#fff;font-weight:700;margin-bottom:6px}
+.empty-state p{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+/* CONFETTI */
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+.confetti i{position:absolute;width:8px;height:12px;top:-20px;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);background:rgba(6,11,22,.55);
+  backdrop-filter:blur(20px);padding:18px 20px;text-align:center;position:relative;z-index:2}
+footer p{font-size:11px;color:var(--muted);line-height:1.65}
+footer b{color:var(--gold-2);font-weight:700}
+
+.hidden{display:none !important}
+
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(201,162,39,.28);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:rgba(201,162,39,.5)}
+</style>
+</head>
+<body>
+
+<div class="ambient"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="grain"></div>
+<div class="spotlight" id="spotlight"></div>
+
+<header>
+  <div class="header-inner">
+    <div class="brand" onclick="goHome()">
+      <div class="brand-mark">KT</div>
+      <div class="brand-text"><h1>KPSS Tarih</h1><span>Soru Bankası</span></div>
+    </div>
+    <div class="header-right">
+      <div class="header-stat" id="headerStat"></div>
+      <button class="icon-btn" id="favBtn" onclick="openFavorites()" title="Favoriler">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span class="badge-count hidden" id="favBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home" class="screen">
+    <div class="hero">
+      <div class="hero-badge">GitHub'dan canlı veri</div>
+      <h2>Tarihi <em>test et</em>, doğruyu seç.</h2>
+      <p>KPSS Genel Kültür Tarih için profesyonel 5 seçenekli test platformu. Sorular GitHub üzerinden dinamik yüklenir.</p>
+      <div class="hero-rule"></div>
+      <div class="hero-actions">
+        <button class="mini-btn" onclick="localStorage.clear();location.reload(true)">🔄 Önbelleği Temizle</button>
+      </div>
+    </div>
+
+    <div id="setupNotice"></div>
+    <div class="section-label">Konu Seçimi</div>
+    <div class="grid" id="catGrid"></div>
+    <div id="errorBox"></div>
+  </section>
+
+  <!-- FAVORITES -->
+  <section id="favorites" class="screen hidden">
+    <div class="fav-header">
+      <div>
+        <h2>⭐ Favori Sorularım</h2>
+        <p id="favSub">Kaydettiğin sorular burada listelenir</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-primary" id="favStartBtn" onclick="startFavoritesQuiz()" style="padding:9px 16px;font-size:12px">
+          🎯 Favorilerden Test Çöz
+        </button>
+        <button class="btn btn-ghost" onclick="goHome()" style="padding:9px 16px;font-size:12px">← Ana Sayfa</button>
+      </div>
+    </div>
+    <div class="fav-list" id="favList"></div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="screen hidden">
+    <div class="quiz-top">
+      <button class="btn btn-ghost" style="padding:8px 14px;font-size:12px" onclick="quitQuiz()">← Çıkış</button>
+      <div class="quiz-meta">
+        <span><b id="qCounter">1</b> / <span id="qTotal">10</span></span>
+        <span class="timer">⏱ <b id="qTimer">00:00</b></span>
+      </div>
+    </div>
+    <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+
+    <div class="question-card">
+      <div class="q-head">
+        <span class="badge" id="qCat">Kategori</span>
+        <div class="q-tools">
+          <button class="q-tool" id="favToggle" onclick="toggleFavorite()" title="Favorilere ekle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </button>
+          <button class="q-tool report" id="reportToggle" onclick="openReport()" title="Hata bildir">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </button>
+        </div>
+      </div>
+      <h2 id="qText">Soru yükleniyor…</h2>
+      <div class="options-list" id="optionsList"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="q-actions">
+        <span class="kbd-hint">💡 <span class="kbd">1-5</span> / <span class="kbd">A-E</span> ile seç &nbsp;•&nbsp; <span class="kbd">Enter</span> ile ilerle &nbsp;•&nbsp; <span class="kbd">F</span> favori</span>
+        <button class="btn btn-primary hidden" id="nextBtn" onclick="nextQuestion()">Sonraki →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="screen hidden">
+    <div class="result-wrap">
+      <div class="result-card">
+        <div class="score-ring" id="scoreRing">
+          <div class="score-inner">
+            <div class="pct"><span id="rPct">0</span><small>%</small></div>
+            <div class="sub">Başarı</div>
+          </div>
+        </div>
+        <h2 id="rTitle">Tur tamamlandı</h2>
+        <p id="rMsg"></p>
+
+        <div class="stat-row">
+          <div class="stat-box"><div class="num g" id="rCorrect">0</div><div class="lbl">Doğru</div></div>
+          <div class="stat-box"><div class="num r" id="rWrong">0</div><div class="lbl">Yanlış</div></div>
+          <div class="stat-box"><div class="num" id="rTime">0:00</div><div class="lbl">Süre</div></div>
+        </div>
+
+        <div class="result-actions">
+          <button class="btn btn-primary" onclick="retry()">🔄 Tekrar Dene</button>
+          <button class="btn btn-ghost" onclick="goHome()">🏠 Ana Sayfa</button>
+        </div>
+
+        <div class="review hidden" id="reviewBox">
+          <h3>Yanlış Yaptığın Sorular</h3>
+          <div id="reviewList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><b>KPSS Tarih</b> — GitHub üzerinden dinamik soru bankası &nbsp;•&nbsp; 5 seçenekli test formatı<br>
+  ⭐ Favoriler ve 🚩 hata bildirimi desteklenir &nbsp;•&nbsp; Başarılar! 🎯</p>
+</footer>
+
+<!-- COUNT SELECTION MODAL -->
+<div class="modal-backdrop" id="countModal">
+  <div class="modal">
+    <div class="modal-icon">🎯</div>
+    <h3 id="countTitle">Kaç soru çözmek istersin?</h3>
+    <p class="modal-sub" id="countSub">Konu: <b>İslamiyet Öncesi</b></p>
+
+    <div class="count-options" id="countOptions">
+      <button class="count-opt" data-count="10">
+        <span class="num">10</span><span class="lbl">Soru</span>
+      </button>
+      <button class="count-opt active" data-count="20">
+        <span class="num">20</span><span class="lbl">Soru</span>
+      </button>
+      <button class="count-opt" data-count="30">
+        <span class="num">30</span><span class="lbl">Soru</span>
+      </button>
+      <button class="count-opt" data-count="0">
+        <span class="num">∞</span><span class="lbl">Tümü</span>
+      </button>
+    </div>
+
+    <div class="custom-row">
+      <label>Özel sayı gir (isteğe bağlı)</label>
+      <input type="number" id="customCount" placeholder="—" min="1" max="500">
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeCountModal()">İptal</button>
+      <button class="btn btn-primary" onclick="confirmStartQuiz()">Teste Başla →</button>
+    </div>
+  </div>
+</div>
+
+<!-- REPORT MODAL -->
+<div class="modal-backdrop" id="reportModal">
+  <div class="modal report-modal">
+    <div class="modal-icon" style="background:linear-gradient(145deg,rgba(248,113,113,.2),rgba(248,113,113,.05));border-color:rgba(248,113,113,.3)">🚩</div>
+    <h3>Hata Bildir</h3>
+    <p class="modal-sub">Bu soruda bir hata mı var? Bize bildir, hemen düzeltelim.</p>
+
+    <div class="report-q-preview">
+      <div class="rqp-lbl">İlgili Soru</div>
+      <div class="rqp-text" id="reportQText">—</div>
+    </div>
+
+    <textarea id="reportText" placeholder="Hatayı kısaca açıklar mısın? (örn: doğru cevap yanlış işaretlenmiş, yazım hatası, seçenek eksik…)"></textarea>
+
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeReport()">İptal</button>
+      <button class="btn btn-primary" onclick="submitReport()">📨 Gönder</button>
+    </div>
+  </div>
+</div>
+
+<div class="confetti" id="confetti"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   ⚙️  CONFIG
+   ═══════════════════════════════════════════════════ */
+const CONFIG = {
+  githubUser: "vetatlas",
+  githubRepo: "kpss-tarih-sorubankasi",
+  branch: "main",
+  dataFolder: "data",
+  indexFile: "kategoriler.json"
+};
+
+function buildBases(){
+  const u = CONFIG.githubUser, r = CONFIG.githubRepo, b = CONFIG.branch, d = CONFIG.dataFolder;
+  return [
+    `https://raw.githubusercontent.com/${u}/${r}/${b}/${d}/`,
+    `https://cdn.jsdelivr.net/gh/${u}/${r}@${b}/${d}/`
+  ];
+}
+
+/* FALLBACK */
+const FALLBACK_INDEX = [
+  { key:"islamOncesi", dosya:"islamiyet-oncesi.json", ad:"İslamiyet Öncesi Türk Tarihi", ikon:"🏹", aciklama:"Hunlar, Göktürkler, Uygurlar" },
+  { key:"turkIslam",   dosya:"turk-islam.json",       ad:"İlk Türk-İslam Devletleri",     ikon:"🕌", aciklama:"Karahanlılar, Gazneliler" },
+  { key:"osmanli",     dosya:"osmanli.json",          ad:"Osmanlı Tarihi",                ikon:"⚔️", aciklama:"Kuruluş'tan Dağılma'ya" },
+  { key:"kurtulus",    dosya:"kurtulus-savasi.json",  ad:"Kurtuluş Savaşı",               ikon:"🎖️", aciklama:"1918-1923 Milli Mücadele" },
+  { key:"inkilap",     dosya:"inkilap-tarihi.json",   ad:"Atatürk İlkeleri ve İnkılapları",ikon:"📜", aciklama:"Cumhuriyet devrimleri" },
+  { key:"cagdas",      dosya:"cagdas-tarih.json",     ad:"Çağdaş Türk ve Dünya Tarihi",   ikon:"🌍", aciklama:"Dünya savaşları, Soğuk Savaş" }
+];
+
+const FALLBACK_DATA = {
+  "islamOncesi": {
+    kategori: "İslamiyet Öncesi Türk Tarihi",
+    sorular: [
+      { id:1, soru:"\"Türk\" adını bir devlet adı olarak ilk kez kullanan Türk devleti hangisidir?",
+        secenekler:["Asya Hun Devleti","Göktürk Devleti","Uygur Devleti","Avar Devleti","Kırgız Devleti"], dogru:1,
+        aciklama:"552'de Bumin Kağan tarafından kurulan Göktürk Devleti, tarihte \"Türk\" adını taşıyan ilk devlettir." },
+      { id:2, soru:"Türk tarihinin ilk yazılı belgesi kabul edilen eser hangisidir?",
+        secenekler:["Kutadgu Bilig","Divanü Lügati't-Türk","Orhun Yazıtları","Atabetü'l-Hakayık","Divan-ı Hikmet"], dogru:2,
+        aciklama:"Orhun Yazıtları, II. Göktürk Devleti döneminde yazılmıştır ve Türk dilinin ilk yazılı belgesidir." },
+      { id:3, soru:"Türk ordusunu onluk sisteme göre teşkilatlandıran hükümdar kimdir?",
+        secenekler:["Teoman","Mete Han","Bumin Kağan","Bilge Kağan","Kültigin"], dogru:1,
+        aciklama:"Mete Han (MÖ 209-174), Türk ordusunu 10, 100, 1000 ve 10.000 kişilik birimlere ayırmıştır." }
+    ]
+  }
+};
+
+/* ═══════════════════════════════════════════════════
+   HELPERS
+   ═══════════════════════════════════════════════════ */
+const $ = id => document.getElementById(id);
+const LETTERS = ["A","B","C","D","E"];
+const CACHE_PREFIX = "kpss_cache_v3_";
+const CACHE_TTL = 1000 * 60 * 60 * 6;
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function fmtTime(sec){
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return m + ":" + String(s).padStart(2, "0");
+}
+function qId(q){ return q.id || ("h_" + q.soru.substring(0, 40).replace(/\s/g, "_")); }
+
+async function fetchJSON(fileName){
+  const cacheKey = CACHE_PREFIX + fileName;
+  try{
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
+    if(cached && Date.now() - cached.t < CACHE_TTL && cached.d) return cached.d;
+  }catch(e){}
+  const bases = buildBases();
+  let lastErr = null;
+  for(const base of bases){
+    try{
+      const res = await fetch(base + fileName + "?v=" + Date.now(), { cache: "no-store" });
+      if(!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      try{ localStorage.setItem(cacheKey, JSON.stringify({ t: Date.now(), d: data })); }catch(e){}
+      return data;
+    }catch(err){ lastErr = err; }
+  }
+  throw lastErr || new Error("Bağlantı hatası");
+}
+
+/* ═══════════════════════════════════════════════════
+   FAVORİLER (localStorage)
+   ═══════════════════════════════════════════════════ */
+const LS_FAV = "kpss_favs_v1";
+function loadFavs(){
+  try{ return JSON.parse(localStorage.getItem(LS_FAV)) || []; }
+  catch(e){ return []; }
+}
+function saveFavs(list){
+  try{ localStorage.setItem(LS_FAV, JSON.stringify(list)); }catch(e){}
+  renderFavBadge();
+}
+function isFav(q){
+  const id = qId(q);
+  return loadFavs().some(f => f.id === id);
+}
+function toggleFav(q, catAd){
+  const id = qId(q);
+  const list = loadFavs();
+  const idx = list.findIndex(f => f.id === id);
+  if(idx >= 0){
+    list.splice(idx, 1);
+    saveFavs(list);
+    return false;
+  } else {
+    list.unshift({
+      id,
+      soru: q.soru,
+      secenekler: q.secenekler,
+      dogru: q.dogru,
+      aciklama: q.aciklama,
+      kategoriAd: catAd,
+      kategoriKey: S.cat ? S.cat.key : "fav",
+      eklenme: Date.now()
+    });
+    saveFavs(list);
+    return true;
+  }
+}
+function renderFavBadge(){
+  const n = loadFavs().length;
+  const badge = $("favBadge");
+  const btn = $("favBtn");
+  if(n > 0){
+    badge.classList.remove("hidden");
+    badge.textContent = n > 99 ? "99+" : n;
+    btn.classList.add("active");
+  } else {
+    badge.classList.add("hidden");
+    btn.classList.remove("active");
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   İSTATİSTİK
+   ═══════════════════════════════════════════════════ */
+const LS_STATS = "kpss_stats_v2";
+function loadStats(){
+  try{ return JSON.parse(localStorage.getItem(LS_STATS)) || { ans:0, cor:0 }; }
+  catch(e){ return { ans:0, cor:0 }; }
+}
+function recordAnswer(ok){
+  const s = loadStats();
+  s.ans++; if(ok) s.cor++;
+  try{ localStorage.setItem(LS_STATS, JSON.stringify(s)); }catch(e){}
+  renderHeaderStat();
+}
+function renderHeaderStat(){
+  const s = loadStats();
+  const el = $("headerStat");
+  if(!s.ans){ el.innerHTML = ""; return; }
+  const pct = Math.round(s.cor / s.ans * 100);
+  el.innerHTML = `Toplam <b>${s.ans}</b> soru &nbsp;•&nbsp; Başarı <b>%${pct}</b>`;
+}
+
+/* ═══════════════════════════════════════════════════
+   EKRAN
+   ═══════════════════════════════════════════════════ */
+function showScreen(id){
+  ["home","favorites","quiz","result"].forEach(x => {
+    const el = $(x);
+    if(x === id){
+      el.classList.remove("hidden");
+      el.style.animation = "none";
+      void el.offsetWidth;
+      el.style.animation = "";
+    } else {
+      el.classList.add("hidden");
+    }
+  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* ═══════════════════════════════════════════════════
+   ANA SAYFA
+   ═══════════════════════════════════════════════════ */
+async function loadCategories(){
+  const grid = $("catGrid");
+  const errBox = $("errorBox");
+  const notice = $("setupNotice");
+  errBox.innerHTML = "";
+  notice.innerHTML = "";
+
+  grid.innerHTML = "";
+  for(let i = 0; i < 6; i++){
+    const sk = document.createElement("div");
+    sk.className = "skeleton";
+    sk.style.animationDelay = (i * 60) + "ms";
+    sk.innerHTML = `
+      <div class="sk-row"><div class="sk-icon"></div><div class="sk-line w40" style="width:60px"></div></div>
+      <div class="sk-line w90"></div>
+      <div class="sk-line w70"></div>
+      <div class="sk-line w40"></div>
+    `;
+    grid.appendChild(sk);
+  }
+
+  let indexData = null;
+  try{
+    indexData = await fetchJSON(CONFIG.indexFile);
+    if(!Array.isArray(indexData) || indexData.length === 0) throw new Error("Geçersiz");
+  }catch(err){
+    indexData = FALLBACK_INDEX;
+    showSetupNotice(notice);
+  }
+
+  grid.innerHTML = "";
+  indexData.forEach((cat, i) => {
+    const card = document.createElement("button");
+    card.className = "cat-card";
+    card.type = "button";
+    card.style.animationDelay = (i * 70) + "ms";
+    card.innerHTML = `
+      <div class="cat-top">
+        <div class="cat-icon">${cat.ikon || "📘"}</div>
+        <div class="cat-count" data-key="${cat.key}">… soru</div>
+      </div>
+      <h3>${escapeHtml(cat.ad)}</h3>
+      <p>${escapeHtml(cat.aciklama || "")}</p>
+      <div class="cat-cta">Teste Başla <span>→</span></div>
+    `;
+    card.addEventListener("mousemove", e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      card.style.setProperty("--my", (e.clientY - r.top) + "px");
+    });
+    card.addEventListener("click", () => openCountModal(cat));
+    grid.appendChild(card);
+  });
+
+  indexData.forEach(cat => {
+    loadCategoryCount(cat).then(n => {
+      const el = document.querySelector(`.cat-count[data-key="${cat.key}"]`);
+      if(el) el.textContent = n > 0 ? n + " soru" : "boş";
+    });
+  });
+}
+
+function showSetupNotice(el){
+  el.innerHTML = `
+    <div class="setup-banner" style="background:linear-gradient(135deg,rgba(251,191,36,.07),rgba(251,191,36,.02));border:1px solid rgba(251,191,36,.22);border-radius:13px;padding:13px 16px;margin-bottom:20px;display:flex;gap:12px">
+      <div style="font-size:17px">⚙️</div>
+      <div style="flex:1">
+        <h4 style="font-size:12px;font-weight:700;color:#e6c455;margin-bottom:3px">GitHub bağlantısı kurulmadı — dahili demo verisi kullanılıyor</h4>
+        <p style="font-size:11.5px;color:#b9c6da">Kodun başındaki <code style="background:rgba(0,0,0,.35);padding:2px 6px;border-radius:4px;font-size:10.5px">CONFIG</code> nesnesini düzenle.</p>
+      </div>
+    </div>
+  `;
+}
+
+async function loadCategoryCount(cat){
+  try{
+    const data = await fetchJSON(cat.dosya);
+    if(Array.isArray(data)) return data.length;
+    if(data && Array.isArray(data.sorular)) return data.sorular.length;
+    return 0;
+  }catch(e){
+    if(FALLBACK_DATA[cat.key]) return FALLBACK_DATA[cat.key].sorular.length;
+    return 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   COUNT MODAL
+   ═══════════════════════════════════════════════════ */
+let pendingCat = null;
+let selectedCount = 20;
+
+function openCountModal(cat){
+  pendingCat = cat;
+  selectedCount = 20;
+  $("countTitle").textContent = "Kaç soru çözmek istersin?";
+  $("countSub").innerHTML = `Konu: <b>${escapeHtml(cat.ad)}</b>`;
+  $("customCount").value = "";
+  document.querySelectorAll("#countOptions .count-opt").forEach(b => {
+    b.classList.toggle("active", b.dataset.count === "20");
+  });
+  $("countModal").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeCountModal(){
+  $("countModal").classList.remove("show");
+  document.body.style.overflow = "";
+  pendingCat = null;
+}
+
+function confirmStartQuiz(){
+  if(!pendingCat) return;
+  const custom = parseInt($("customCount").value, 10);
+  let n = selectedCount;
+  if(!isNaN(custom) && custom > 0) n = custom;
+  const cat = pendingCat;
+  closeCountModal();
+  startQuiz(cat, n);
+}
+
+document.querySelectorAll("#countOptions .count-opt").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#countOptions .count-opt").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    selectedCount = parseInt(btn.dataset.count, 10);
+    $("customCount").value = "";
+  });
+});
+
+$("customCount").addEventListener("input", () => {
+  if($("customCount").value){
+    document.querySelectorAll("#countOptions .count-opt").forEach(b => b.classList.remove("active"));
+  }
+});
+
+$("countModal").addEventListener("click", e => {
+  if(e.target === $("countModal")) closeCountModal();
+});
+
+/* ═══════════════════════════════════════════════════
+   REPORT MODAL
+   ═══════════════════════════════════════════════════ */
+function openReport(){
+  if(!S.list.length) return;
+  const q = S.list[S.idx];
+  $("reportQText").textContent = q.soru;
+  $("reportText").value = "";
+  $("reportModal").classList.add("show");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => $("reportText").focus(), 300);
+}
+function closeReport(){
+  $("reportModal").classList.remove("show");
+  document.body.style.overflow = "";
+}
+$("reportModal").addEventListener("click", e => {
+  if(e.target === $("reportModal")) closeReport();
+});
+
+function submitReport(){
+  const txt = $("reportText").value.trim();
+  if(!txt){
+    $("reportText").style.borderColor = "#f87171";
+    setTimeout(() => $("reportText").style.borderColor = "", 900);
+    return;
+  }
+  const q = S.list[S.idx];
+  const catAd = S.cat ? S.cat.ad : "Bilinmiyor";
+  const title = `[Hata Bildirimi] ${catAd} — Soru #${S.idx + 1}`;
+  const body = `**Kategori:** ${catAd}\n**Soru:** ${q.soru}\n**Seçenekler:**\n${q.secenekler.map((s, i) => `${LETTERS[i]}) ${s}`).join("\n")}\n**Doğru Cevap (kodda):** ${LETTERS[q.dogru]}) ${q.secenekler[q.dogru]}\n\n**Hata Açıklaması:**\n${txt}`;
+
+  const url = `https://github.com/${CONFIG.githubUser}/${CONFIG.githubRepo}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+  window.open(url, "_blank");
+
+  // Kullanıcıya geri bildirim
+  const btn = $("reportToggle");
+  btn.classList.add("reported");
+  btn.title = "Bildirildi, teşekkürler!";
+  btn.classList.add("pop");
+  setTimeout(() => btn.classList.remove("pop"), 600);
+
+  closeReport();
+}
+
+/* ═══════════════════════════════════════════════════
+   QUIZ
+   ═══════════════════════════════════════════════════ */
+const S = {
+  list: [], idx: 0, correct: 0, wrong: [],
+  answered: false, cat: null,
+  t0: 0, timerId: null, requestedCount: 0,
+  isFavMode: false
+};
+
+async function startQuiz(cat, requestedCount){
+  S.isFavMode = false;
+  S.requestedCount = requestedCount;
+  showLoadingOverlay(true);
+  let sorular = [];
+  try{
+    const data = await fetchJSON(cat.dosya);
+    if(Array.isArray(data)) sorular = data;
+    else if(data && Array.isArray(data.sorular)) sorular = data.sorular;
+  }catch(err){
+    if(FALLBACK_DATA[cat.key]) sorular = FALLBACK_DATA[cat.key].sorular;
+  }
+  showLoadingOverlay(false);
+
+  if(sorular.length === 0){ alert("Bu kategoride henüz soru bulunamadı."); return; }
+
+  sorular = shuffle(sorular);
+  if(requestedCount > 0 && sorular.length > requestedCount){
+    sorular = sorular.slice(0, requestedCount);
+  }
+
+  S.list = sorular;
+  S.idx = 0; S.correct = 0; S.wrong = []; S.answered = false;
+  S.cat = cat;
+
+  $("qTotal").textContent = S.list.length;
+  showScreen("quiz");
+  startTimer();
+  renderQuestion();
+}
+
+function startFavoritesQuiz(){
+  const favs = loadFavs();
+  if(favs.length === 0){ alert("Favori soru yok."); return; }
+  S.isFavMode = true;
+  S.list = shuffle(favs);
+  S.idx = 0; S.correct = 0; S.wrong = []; S.answered = false;
+  S.cat = { ad: "⭐ Favoriler", key: "fav", dosya: "" };
+  $("qTotal").textContent = S.list.length;
+  showScreen("quiz");
+  startTimer();
+  renderQuestion();
+}
+
+function showLoadingOverlay(show){
+  let el = $("loadingOverlay");
+  if(!show){ if(el) el.remove(); return; }
+  if(el) return;
+  el = document.createElement("div");
+  el.id = "loadingOverlay";
+  el.style.cssText = `position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:rgba(6,11,22,.85);backdrop-filter:blur(10px);`;
+  el.innerHTML = `<div style="text-align:center"><div style="width:44px;height:44px;border-radius:50%;margin:0 auto 14px;border:3px solid rgba(201,162,39,.18);border-top-color:#e6c455;animation:spin .8s linear infinite"></div><div style="font-size:12px;color:#6b7b93;font-weight:600">Sorular yükleniyor…</div></div>`;
+  document.body.appendChild(el);
+}
+
+function startTimer(){
+  clearInterval(S.timerId);
+  S.t0 = Date.now();
+  $("qTimer").textContent = "00:00";
+  S.timerId = setInterval(() => {
+    const sec = Math.floor((Date.now() - S.t0) / 1000);
+    const m = String(Math.floor(sec / 60)).padStart(2, "0");
+    const s = String(sec % 60).padStart(2, "0");
+    $("qTimer").textContent = m + ":" + s;
+  }, 1000);
+}
+function stopTimer(){ clearInterval(S.timerId); }
+
+function renderQuestion(){
+  const q = S.list[S.idx];
+  S.answered = false;
+
+  $("qCounter").textContent = S.idx + 1;
+  $("qCat").textContent = S.cat.ad;
+  $("qText").textContent = q.soru;
+
+  const bar = $("barFill");
+  bar.style.width = (S.idx / S.list.length * 100) + "%";
+
+  // Favori butonu durumu
+  const favBtn = $("favToggle");
+  if(isFav(q)) favBtn.classList.add("fav-active");
+  else favBtn.classList.remove("fav-active");
+
+  // Rapor butonu durumu (her soru için sıfırla)
+  const repBtn = $("reportToggle");
+  repBtn.classList.remove("reported");
+
+  const wrap = $("optionsList");
+  wrap.innerHTML = "";
+
+  const indexed = q.secenekler.map((text, i) => ({ text, isCorrect: i === q.dogru }));
+  const mixed = shuffle(indexed);
+
+  mixed.forEach((item, i) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "option";
+    btn.dataset.correct = item.isCorrect ? "1" : "0";
+    btn.style.animationDelay = (i * 70) + "ms";
+    btn.innerHTML = `<span class="letter">${LETTERS[i]}</span><span class="opt-text">${escapeHtml(item.text)}</span><span class="mark"></span>`;
+    btn.addEventListener("mousemove", e => {
+      const r = btn.getBoundingClientRect();
+      btn.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      btn.style.setProperty("--my", (e.clientY - r.top) + "px");
+    });
+    btn.addEventListener("click", () => selectOption(btn, item.isCorrect, q));
+    wrap.appendChild(btn);
+  });
+
+  const fb = $("feedback");
+  fb.className = "feedback";
+  fb.innerHTML = "";
+
+  $("nextBtn").classList.add("hidden");
+  $("nextBtn").textContent = (S.idx === S.list.length - 1) ? "Sonuçları Gör →" : "Sonraki →";
+}
+
+function selectOption(btn, isCorrect, q){
+  if(S.answered) return;
+  S.answered = true;
+
+  const all = document.querySelectorAll("#optionsList .option");
+  const fb = $("feedback");
+
+  all.forEach(el => {
+    el.classList.add("disabled");
+    if(el.dataset.correct === "1"){
+      el.classList.add("correct");
+      el.querySelector(".mark").textContent = "✓";
+    } else if(el !== btn){
+      el.classList.add("dim");
+    }
+  });
+
+  if(isCorrect){
+    S.correct++;
+    recordAnswer(true);
+    fb.className = "feedback show correct";
+    fb.innerHTML = `<div class="fb-title"><span class="ic">✓</span> Doğru cevap!</div><div class="fb-body">${escapeHtml(q.aciklama || "")}</div>`;
+  } else {
+    btn.classList.remove("dim");
+    btn.classList.add("wrong");
+    btn.querySelector(".mark").textContent = "✕";
+    S.wrong.push({ soru: q.soru, verilen: btn.querySelector(".opt-text").textContent, dogru: q.secenekler[q.dogru] });
+    recordAnswer(false);
+    fb.className = "feedback show wrong";
+    fb.innerHTML = `<div class="fb-title"><span class="ic">✕</span> Yanlış cevap</div><div class="fb-body">Doğru cevap: <strong>${escapeHtml(q.secenekler[q.dogru])}</strong><br>${escapeHtml(q.aciklama || "")}</div>`;
+  }
+
+  $("nextBtn").classList.remove("hidden");
+  $("nextBtn").focus();
+}
+
+function nextQuestion(){
+  if(S.idx < S.list.length - 1){ S.idx++; renderQuestion(); }
+  else { finishQuiz(); }
+}
+
+function quitQuiz(){
+  if(S.idx > 0 || S.answered){
+    if(!confirm("Testten çıkmak istediğinize emin misiniz?")) return;
+  }
+  stopTimer();
+  if(S.isFavMode) showScreen("favorites");
+  else showScreen("home");
+  S.isFavMode = false;
+}
+
+/* FAVORİ TOGGLE */
+function toggleFavorite(){
+  if(!S.list.length) return;
+  const q = S.list[S.idx];
+  const catAd = S.cat ? S.cat.ad : "";
+  const added = toggleFav(q, catAd);
+  const btn = $("favToggle");
+  btn.classList.add("pop");
+  setTimeout(() => btn.classList.remove("pop"), 600);
+  if(added) btn.classList.add("fav-active");
+  else btn.classList.remove("fav-active");
+}
+
+/* ═══════════════════════════════════════════════════
+   SONUÇ
+   ═══════════════════════════════════════════════════ */
+function finishQuiz(){
+  stopTimer();
+  const total = S.list.length;
+  const pct = total ? Math.round(S.correct / total * 100) : 0;
+  const elapsed = Math.floor((Date.now() - S.t0) / 1000);
+
+  animateNumber($("rPct"), 0, pct, 900);
+  animateNumber($("rCorrect"), 0, S.correct, 700);
+  animateNumber($("rWrong"), 0, S.wrong.length, 700);
+  $("rTime").textContent = fmtTime(elapsed);
+
+  const ring = $("scoreRing");
+  let cur = 0;
+  const ringAnim = setInterval(() => {
+    cur += Math.max(1, Math.ceil(pct / 40));
+    if(cur >= pct){ cur = pct; clearInterval(ringAnim); }
+    ring.style.background = `conic-gradient(var(--gold) ${cur}%, rgba(255,255,255,.06) ${cur}%)`;
+  }, 22);
+
+  let title, msg;
+  if(pct >= 90){ title = "Muhteşem! 🏆"; msg = "Bu konuya hâkimsin. Diğer konulara geçebilirsin."; }
+  else if(pct >= 75){ title = "Çok iyi! 👏"; msg = "Güçlü bir performans. Yanlışlarını gözden geçir."; }
+  else if(pct >= 50){ title = "İyi gidiyorsun 💪"; msg = "Temelin sağlam. Eksiklerini tekrar ederek yüksel."; }
+  else { title = "Tekrar gerekiyor 📚"; msg = "Endişelenme, yanlışlarını incele ve testi yeniden çöz."; }
+
+  $("rTitle").textContent = title;
+  $("rMsg").textContent = msg;
+
+  const box = $("reviewBox");
+  const list = $("reviewList");
+  list.innerHTML = "";
+  if(S.wrong.length === 0){ box.classList.add("hidden"); }
+  else {
+    box.classList.remove("hidden");
+    S.wrong.forEach((w, i) => {
+      const div = document.createElement("div");
+      div.className = "review-item";
+      div.style.animationDelay = (i * 60) + "ms";
+      div.innerHTML = `<div class="rq">${i + 1}. ${escapeHtml(w.soru)}</div><div class="ra"><span>Senin cevabın: <i>${escapeHtml(w.verilen)}</i></span><span>Doğru cevap: <b>${escapeHtml(w.dogru)}</b></span></div>`;
+      list.appendChild(div);
+    });
+  }
+
+  if(pct >= 75) launchConfetti();
+  showScreen("result");
+}
+
+function animateNumber(el, from, to, dur){
+  const t0 = performance.now();
+  function tick(t){
+    const p = Math.min(1, (t - t0) / dur);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(from + (to - from) * eased);
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function launchConfetti(){
+  const wrap = $("confetti");
+  wrap.innerHTML = "";
+  const colors = ["#c9a227","#e6c455","#f7e9b8","#34d399","#f87171","#ffffff"];
+  for(let i = 0; i < 80; i++){
+    const p = document.createElement("i");
+    p.style.left = Math.random() * 100 + "%";
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = (2.5 + Math.random() * 2) + "s";
+    p.style.animationDelay = (Math.random() * 0.5) + "s";
+    p.style.opacity = 0.7 + Math.random() * 0.3;
+    p.style.transform = `rotate(${Math.random() * 360}deg)`;
+    if(Math.random() > 0.5) p.style.borderRadius = "50%";
+    wrap.appendChild(p);
+    setTimeout(() => p.remove(), 5000);
+  }
+}
+
+function retry(){
+  if(S.isFavMode) startFavoritesQuiz();
+  else if(S.cat) startQuiz(S.cat, S.requestedCount);
+}
+
+function goHome(){
+  stopTimer();
+  S.isFavMode = false;
+  showScreen("home");
+  renderHeaderStat();
+}
+
+/* ═══════════════════════════════════════════════════
+   FAVORİLER EKRANI
+   ═══════════════════════════════════════════════════ */
+function openFavorites(){
+  renderFavorites();
+  showScreen("favorites");
+}
+
+function renderFavorites(){
+  const list = $("favList");
+  const favs = loadFavs();
+  $("favSub").textContent = favs.length > 0
+    ? `${favs.length} favori soru kayıtlı`
+    : "Henüz favori soru eklemedin";
+
+  if(favs.length === 0){
+    list.innerHTML = `
+      <div class="empty-state">
+        <div class="es-ico">⭐</div>
+        <h4>Favori listen boş</h4>
+        <p>Test çözerken yıldız ikonuna basarak<br>soruları buraya kaydedebilirsin.</p>
+      </div>
+    `;
+    $("favStartBtn").disabled = true;
+    return;
+  }
+  $("favStartBtn").disabled = false;
+
+  list.innerHTML = "";
+  favs.forEach((f, i) => {
+    const div = document.createElement("div");
+    div.className = "fav-item";
+    div.style.animationDelay = (i * 50) + "ms";
+    div.innerHTML = `
+      <button class="fav-remove" onclick="removeFav('${f.id}')" title="Favoriden çıkar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="fcat">${escapeHtml(f.kategoriAd || "")}</div>
+      <div class="fq">${escapeHtml(f.soru)}</div>
+      <div class="fopts">
+        ${f.secenekler.map((s, k) => `<span>${LETTERS[k]}) ${escapeHtml(s)}${k === f.dogru ? " <b>✓ doğru</b>" : ""}</span>`).join("")}
+      </div>
+    `;
+    list.appendChild(div);
+  });
+}
+
+function removeFav(id){
+  const list = loadFavs().filter(f => f.id !== id);
+  saveFavs(list);
+  renderFavorites();
+}
+
+/* ═══════════════════════════════════════════════════
+   KLAVYE
+   ═══════════════════════════════════════════════════ */
+document.addEventListener("keydown", e => {
+  // Modal kısayolları
+  if($("countModal").classList.contains("show")){
+    if(e.key === "Escape") closeCountModal();
+    if(e.key === "Enter"){ e.preventDefault(); confirmStartQuiz(); }
+    return;
+  }
+  if($("reportModal").classList.contains("show")){
+    if(e.key === "Escape") closeReport();
+    return;
+  }
+  if($("quiz").classList.contains("hidden")) return;
+  const key = e.key.toLowerCase();
+
+  if(key === "f" && !e.target.matches("input, textarea")){
+    e.preventDefault();
+    toggleFavorite();
+    return;
+  }
+  if(e.key === "Enter" && S.answered){ e.preventDefault(); nextQuestion(); return; }
+  if(!S.answered){
+    let idx = -1;
+    if(["1","2","3","4","5"].includes(key)) idx = parseInt(key) - 1;
+    else if(["a","b","c","d","e"].includes(key)) idx = "abcde".indexOf(key);
+    if(idx >= 0){
+      e.preventDefault();
+      const btn = document.querySelectorAll("#optionsList .option")[idx];
+      if(btn && !btn.classList.contains("disabled")) btn.click();
+    }
+  }
+});
+
+/* RIPPLE */
+document.addEventListener("click", e => {
+  const btn = e.target.closest(".btn");
+  if(!btn) return;
+  const r = btn.getBoundingClientRect();
+  const d = Math.max(r.width, r.height);
+  const rip = document.createElement("span");
+  rip.className = "ripple";
+  rip.style.width = rip.style.height = d + "px";
+  rip.style.left = (e.clientX - r.left - d / 2) + "px";
+  rip.style.top = (e.clientY - r.top - d / 2) + "px";
+  btn.appendChild(rip);
+  setTimeout(() => rip.remove(), 700);
+});
+
+/* SPOTLIGHT */
+const spotlight = $("spotlight");
+let sx = 0, sy = 0, cx = 0, cy = 0;
+document.addEventListener("mousemove", e => { sx = e.clientX; sy = e.clientY; });
+(function loopSpotlight(){
+  cx += (sx - cx) * 0.12;
+  cy += (sy - cy) * 0.12;
+  spotlight.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+  requestAnimationFrame(loopSpotlight);
+})();
+
+/* BAŞLAT */
+renderHeaderStat();
+renderFavBadge();
+loadCategories();
+</script>
+</body>
+</html>
