@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791405416968_p4guhv",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avarlarla ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "İstanbul'u kuşatmışlardır",
+        "Slavları ve Germenleri etkilemişlerdir",
+        "Bayan Han döneminde güçlenmişlerdir",
+        "Hazarlar tarafından yıkılmışlardır",
+        "Hristiyanlığı kabul etmişlerdir"
+      ],
+      "dogru": 4,
+      "aciklama": "Avarlar Hristiyanlığı kabul etmemiştir.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_4c81f6",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Hazarların Museviliği kabul etmesiyle ilgili olarak aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Hristiyanlığı da zorunlu din yapmışlardır",
+        "Yönetici kesim Museviliği kabul etmiştir",
+        "İslamiyet yasaklanmıştır",
+        "Sadece tüccarlar Musevi olmuştur",
+        "Halkın tamamı Musevi olmuştur"
+      ],
+      "dogru": 1,
+      "aciklama": "Hazarlarda yönetici kesim Museviliği kabul etmiştir; ancak halkın büyük kısmı Müslüman, Hristiyan ve diğer inançlara mensup olmaya devam etmiştir.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_mm9rvg",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Hazarların \"Kürk Yolu\" üzerinde ticaret yapmalarının temel sebebi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Savaşçı olmaları",
+        "Coğrafi konumlarının uygun olması",
+        "Çin ile ittifak yapmaları",
+        "Denizcilikte ileri olmaları",
+        "Bizans'ın desteği"
+      ],
+      "dogru": 1,
+      "aciklama": "Hazarlar, coğrafi konumlarının uygun olması nedeniyle Kürk Yolu üzerinde ticaret yaparak zenginleşmiştir.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_xf958l",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Hazarlar ile ilgili olarak;\nI. İlk Türk denizci devletidir\nII. Museviliği resmi din olarak kabul etmişlerdir\nIII. Hazar Barış Çağı'nı yaşamışlardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Hazarlar ilk Türk denizci devletidir, Museviliği kabul etmiş ve Hazar Barış Çağı'nı yaşamıştır.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_f5nsyp",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Hazarların en önemli özelliklerinden biri de farklı dinlere mensup toplulukların bir arada yaşamasına olanak sağlamalarıdır.\nBuna göre Hazarlar için aşağıdakilerden hangisi söylenebilir?",
+      "secenekler": [
+        "Hoşgörülü bir yönetim anlayışına sahip oldukları",
+        "Sadece İslamiyet'i benimsedikleri",
+        "Göçebe yaşamı sürdürdükleri",
+        "Merkezi otoritenin zayıf olduğu",
+        "Sadece ticaretle uğraştıkları"
+      ],
+      "dogru": 0,
+      "aciklama": "Farklı dinlere mensup toplulukların bir arada yaşaması, Hazarların hoşgörülü bir yönetim anlayışına sahip olduğunu gösterir.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_jqnx1o",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Hazarlarla ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "İlk Türk denizci devleti olarak bilinirler",
+        "Musevilik, Hristiyanlık ve İslamiyet'i benimseyenler olmuştur",
+        "Hazar Barış Çağı'nı yaşamışlardır",
+        "İstanbul'u kuşatmışlardır",
+        "Doğu Avrupa'da ticaret yapmışlardır"
+      ],
+      "dogru": 3,
+      "aciklama": "Hazarlar İstanbul'u kuşatmamıştır. İstanbul'u kuşatan Türk devletleri Avarlar ve diğerleridir.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_4ldceo",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Kırgızlarla ilgili olarak;\nI. 840'ta Uygurları yıkmışlardır\nII. Manas Destanı Kırgızlara aittir\nIII. Yenisey Yazıtları'nı bırakmışlardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Kırgızlar 840'ta Uygurları yıkmış, Manas Destanı'na sahiptir ve Yenisey Yazıtları'nı bırakmıştır.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_kfeyk9",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurların yıkılışına neden olan olay aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Çin saldırısı",
+        "Kırgız saldırısı",
+        "Arap akınları",
+        "Bizans'ın müdahalesi",
+        "İç savaş"
+      ],
+      "dogru": 1,
+      "aciklama": "Uygurlar, 840 yılında Kırgızlar tarafından yıkılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_u6fvlb",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Türk tarihinde ilk kez matbaayı kullanan ve hareketli harfleri geliştiren Türk devleti aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Göktürkler",
+        "Uygurlar",
+        "Hazarlar",
+        "Avarlar",
+        "Kırgızlar"
+      ],
+      "dogru": 1,
+      "aciklama": "Uygurlar, Türk tarihinde matbaayı kullanan ve hareketli harfleri geliştiren ilk Türk devletidir.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405416968_o0q3lu",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Mani dinini benimseyen Uygurlar, bu dinin etkisiyle resim sanatında büyük gelişme göstermiş; duvar resimleri, minyatürler ve kitap süslemeleri yapmışlardır.\nBuna göre Mani dininin Uygurlar üzerindeki etkisi için aşağıdakilerden hangisi söylenebilir?",
+      "secenekler": [
+        "Sadece dini hayatı etkilemiştir",
+        "Sadece ekonomik hayatı etkilemiştir",
+        "Kültürel ve sanatsal hayatı etkilemiştir",
+        "Sadece siyasi hayatı etkilemiştir",
+        "Hiçbir etkisi olmamıştır"
+      ],
+      "dogru": 2,
+      "aciklama": "Mani dini, Uygurların kültürel ve sanatsal hayatını etkilemiştir.",
+      "gorsel": null,
+      "eklenme": 1791405416968,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791405292617_xz7tga",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
