@@ -3,42 +3,455 @@
   "dersler": [
     {
       "id": "io-1",
-      "baslik": "Asya Hun Devleti",
+      "baslik": "Türk Kelimesinin Anlamı",
+      "ikon": "📖",
+      "ozet": "Farklı kaynaklarda Türk kelimesinin anlamları",
+      "kartlar": [
+        {
+          "tip": "kavram",
+          "ikon": "📚",
+          "baslik": "\"Türk\" Adının Anlamı",
+          "icerik": "<strong>Kaşgarlı Mahmud</strong> — Olgunluk çağı<br><strong>Ziya Gökalp</strong> — Kanun ve nizam sahibi<br><strong>Çin kaynakları</strong> — Miğfer<br><strong>Uygur kaynakları</strong> — Güç, kuvvet<br><strong>İran kaynakları</strong> — Güzel insan<br><strong>Doerfer</strong> — Devlete bağlı halk<br><strong>Wambery</strong> — Türemek"
+        },
+        {
+          "tip": "onemli",
+          "ikon": "💡",
+          "baslik": "Önemli Not",
+          "icerik": "\"Türk\" adı ilk defa <strong>Çin kaynaklarında</strong>, \"Türkiye\" adı ise <strong>Bizans kaynaklarında Orta Asya için</strong> kullanılmıştır."
+        }
+      ],
+      "sorular": [
+        {
+          "soru": "Kaşgarlı Mahmud'a göre \"Türk\" kelimesinin anlamı nedir?",
+          "secenekler": ["Miğfer", "Güç, kuvvet", "Olgunluk çağı", "Kanun ve nizam sahibi", "Güzel insan"],
+          "dogru": 2,
+          "aciklama": "Kaşgarlı Mahmud, Türk kelimesini \"olgunluk çağı\" olarak açıklamıştır.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Ziya Gökalp'e göre \"Türk\" kelimesinin anlamı nedir?",
+          "secenekler": ["Olgunluk çağı", "Kanun ve nizam sahibi", "Miğfer", "Devlete bağlı halk", "Güzel insan"],
+          "dogru": 1,
+          "aciklama": "Ziya Gökalp, Türk kelimesini \"kanun ve nizam sahibi\" olarak açıklamıştır.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "\"Türk\" adı ilk defa hangi kaynaklarda kullanılmıştır?",
+          "secenekler": ["Bizans kaynakları", "İran kaynakları", "Çin kaynakları", "Uygur kaynakları", "Arap kaynakları"],
+          "dogru": 2,
+          "aciklama": "\"Türk\" adı ilk defa Çin kaynaklarında, \"Türkiye\" adı ise Bizans kaynaklarında Orta Asya için kullanılmıştır.",
+          "kartIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "io-2",
+      "baslik": "Orta Asya Kültür Çevreleri",
+      "ikon": "🏛️",
+      "ozet": "Anav, Afanasyevo, Andronova, Karasuk, Kelteminar, Tagar",
+      "kartlar": [
+        {
+          "tip": "onemli",
+          "ikon": "📜",
+          "baslik": "Orta Asya Kültür Çevreleri",
+          "icerik": "<strong>Anav</strong> — Orta Asya'nın en eski kültür merkezi<br><strong>Afanasyevo</strong> — Orta Asya'nın Türklere ait en eski kültür merkezi<br><strong>Andronova</strong> — Orta Asya'da en geniş alana yayılan kültür merkezi<br><strong>Karasuk</strong> — Demir madeninin ilk kez işlendiği kültür merkezi<br><strong>Kelteminar</strong> — Orta Asya'da yerleşik yaşam unsurlarının görüldüğü kültür merkezi<br><strong>Tagar</strong> — Orta Asya'nın en gelişmiş kültür merkezi"
+        }
+      ],
+      "sorular": [
+        {
+          "soru": "Orta Asya'nın en eski kültür merkezi hangisidir?",
+          "secenekler": ["Afanasyevo", "Andronova", "Anav", "Karasuk", "Tagar"],
+          "dogru": 2,
+          "aciklama": "Anav, Orta Asya'nın en eski kültür merkezidir.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Orta Asya'nın Türklere ait en eski kültür merkezi hangisidir?",
+          "secenekler": ["Anav", "Afanasyevo", "Karasuk", "Kelteminar", "Tagar"],
+          "dogru": 1,
+          "aciklama": "Afanasyevo, Orta Asya'nın Türklere ait en eski kültür merkezidir.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Demir madeninin ilk kez işlendiği Orta Asya kültür merkezi hangisidir?",
+          "secenekler": ["Anav", "Andronova", "Karasuk", "Kelteminar", "Tagar"],
+          "dogru": 2,
+          "aciklama": "Karasuk, demir madeninin ilk kez işlendiği kültür merkezidir.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Orta Asya'da en geniş alana yayılan kültür merkezi hangisidir?",
+          "secenekler": ["Anav", "Afanasyevo", "Andronova", "Karasuk", "Tagar"],
+          "dogru": 2,
+          "aciklama": "Andronova, Orta Asya'da en geniş alana yayılan kültür merkezidir.",
+          "kartIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "io-3",
+      "baslik": "Orta Asya Türk Göçleri",
+      "ikon": "🌍",
+      "ozet": "Nedenleri ve sonuçları",
+      "kartlar": [
+        {
+          "tip": "kavram",
+          "ikon": "📌",
+          "baslik": "Göçlerin Nedenleri",
+          "icerik": "• İklimin değişmesi ve bölgenin çölleşmesi<br>• Kuraklık, karlı fırtınalar ve kıtlık<br>• Hızlı nüfus artışı ve otlakların yetersizliği<br>• Salgın hayvan hastalıkları<br>• Boylar arası mücadeleler ve dış baskılar<br>• Türklerin bağımsız yaşama anlayışı<br>• Yeni yurtlar bulma düşüncesi<br>• Türk cihan hâkimiyeti düşüncesi"
+        },
+        {
+          "tip": "onemli",
+          "ikon": "🎯",
+          "baslik": "Göçlerin Sonuçları",
+          "icerik": "• Değişik coğrafyalarda yeni Türk devletleri kurulmuştur<br>• Türk kültürü (bozkır kültürü) yayılmıştır<br>• Türk tarihini belli bir coğrafya ve belli bir zaman dilimi içinde incelemek zorlaşmıştır<br>• Türk dili ve dini etkileşim sonucu değişimlere uğramıştır"
+        }
+      ],
+      "sorular": [
+        {
+          "soru": "Aşağıdakilerden hangisi Orta Asya Türk göçlerinin nedenlerinden biri değildir?",
+          "secenekler": ["İklimin değişmesi ve bölgenin çölleşmesi", "Hızlı nüfus artışı ve otlakların yetersizliği", "Boylar arası mücadeleler", "Türk cihan hâkimiyeti düşüncesi", "Yerleşik hayata geçme isteği"],
+          "dogru": 4,
+          "aciklama": "Yerleşik hayata geçme isteği Türk göçlerinin nedenleri arasında yer almaz. Aksine Türkler göçebe (konar-göçer) yaşam tarzını benimsemişlerdir.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Orta Asya Türk göçlerinin sonucunda aşağıdakilerden hangisi gerçekleşmemiştir?",
+          "secenekler": ["Yeni Türk devletleri kurulmuştur", "Türk kültürü yayılmıştır", "Türk tarihini incelemek zorlaşmıştır", "Türkler yerleşik hayata geçmiştir", "Türk dili ve dini etkileşim sonucu değişimlere uğramıştır"],
+          "dogru": 3,
+          "aciklama": "Türklerin yerleşik hayata geçmesi Uygurlar döneminde gerçekleşmiştir ve göçlerin doğrudan bir sonucu değildir.",
+          "kartIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "io-4",
+      "baslik": "İskitler (Sakalar)",
       "ikon": "🏹",
-      "ozet": "Bilinen ilk teşkilatlı Türk devleti",
+      "ozet": "Tarihte bilinen ilk Türk topluluğu",
+      "kartlar": [
+        {
+          "tip": "kavram",
+          "ikon": "🐎",
+          "baslik": "İskitlerin Genel Özellikleri",
+          "icerik": "• Tarihte bilinen ilk Türk topluluğudur<br>• En ünlü hükümdarı <b>Alp Er Tunga</b>'dır<br>• Kadın hükümdar <b>Tomris</b> bu boyu yönetmiştir<br>• Karadeniz'in kuzeyinde yaşamışlardır<br>• Yunanlılar <b>İskit</b>, İranlılar ise <b>Saka</b> ismini vermiştir"
+        },
+        {
+          "tip": "onemli",
+          "ikon": "⚔️",
+          "baslik": "Askerî ve Kültürel Özellikler",
+          "icerik": "• Ordusunda <b>Amazon kadın savaşçılar</b> yer almıştır<br>• Atı evcilleştirmiş; koşum takımları, ceket, pantolon, kemer, tekeler ve üzengiyi kullanmışlardır<br>• Maden işlemeciliğinde çok ileri gitmelerinden dolayı <b>\"Bozkırın Kuyumcuları\"</b> olarak anılmışlardır<br>• <b>\"Hayvan Üslubu\"</b> denilen sanat tarzını geliştirmişlerdir"
+        },
+        {
+          "tip": "ornek",
+          "ikon": "📜",
+          "baslik": "Edebi Miras ve Günümüz",
+          "icerik": "• İlk Türk destanı olan <b>Şu</b> ve <b>Alp Er Tunga Sagusu</b>'nu bırakmışlardır<br>• İran ile yaptıkları savaşlar İranlı Firdevsi'nin <b>Şehname</b>'sine konu olmuştur<br>• Günümüzdeki Rusya'da yaşamlarını sürdüren <b>Yakut Türkleri</b> İskitler'in devamıdır"
+        }
+      ],
+      "sorular": [
+        {
+          "soru": "İskitler'in en ünlü hükümdarı kimdir?",
+          "secenekler": ["Tomris", "Alp Er Tunga", "Mete Han", "Balamir", "Teoman"],
+          "dogru": 1,
+          "aciklama": "İskitler'in en ünlü hükümdarı Alp Er Tunga'dır. Tomris ise kadın hükümdardır.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "İskitler, maden işlemeciliğinde çok ileri gitmelerinden dolayı hangi isimle anılmışlardır?",
+          "secenekler": ["Bozkırın Kuyumcuları", "Göçebe Ustaları", "Bozkır Savaşçıları", "Atlı Okçular", "Kürk Tüccarları"],
+          "dogru": 0,
+          "aciklama": "İskitler, maden işlemeciliğindeki ustalıklarından dolayı \"Bozkırın Kuyumcuları\" olarak anılmışlardır.",
+          "kartIndex": 1
+        },
+        {
+          "soru": "İskitler'in geliştirdiği sanat tarzı hangisidir?",
+          "secenekler": ["Uygur Sanatı", "Hayvan Üslubu", "Bozkır Sanatı", "Göktürk Sanatı", "Orhun Sanatı"],
+          "dogru": 1,
+          "aciklama": "İskitler, \"Hayvan Üslubu\" denilen sanat tarzını geliştirmişlerdir.",
+          "kartIndex": 1
+        },
+        {
+          "soru": "Aşağıdakilerden hangisi İskitler'in bıraktığı edebî miraslardan biridir?",
+          "secenekler": ["Orhun Yazıtları", "Divanü Lügati't-Türk", "Alp Er Tunga Sagusu", "Kutadgu Bilig", "Atabetü'l-Hakayık"],
+          "dogru": 2,
+          "aciklama": "İlk Türk destanı olan Şu ve Alp Er Tunga Sagusu İskitler'e aittir.",
+          "kartIndex": 2
+        },
+        {
+          "soru": "İskitler'e İranlılar hangi ismi vermiştir?",
+          "secenekler": ["Hun", "Saka", "Türk", "Yakut", "Kuman"],
+          "dogru": 1,
+          "aciklama": "Yunanlılar İskit, İranlılar ise Saka ismini vermiştir.",
+          "kartIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "io-5",
+      "baslik": "Asya Hun Devleti (Büyük Hun Devleti)",
+      "ikon": "🐺",
+      "ozet": "Tarihte bilinen ilk Türk devleti",
       "kartlar": [
         {
           "tip": "kavram",
           "ikon": "🏛️",
           "baslik": "Kuruluş",
-          "icerik": "Asya Hun Devleti, <strong>MÖ 220</strong>'de <b>Teoman</b> tarafından kurulmuştur. Başkenti <b>Ötüken</b>'dir."
+          "icerik": "• Tarihte bilinen <strong>ilk Türk devletidir</strong><br>• Kurucusu <b>Teoman</b>, başkenti <b>Ötüken</b> (Toprak Ana / Kurşal Bölge)<br>• En önemli hükümdarı <b>Mete Han</b>'dır<br>• \"Hun\" kelimesi Türkçede <b>\"insan, halk\"</b> anlamına gelmektedir<br>• Çinliler Hunlar'a <b>Hung-nu</b> demişlerdir<br>• Hunlar <b>Ötüken</b> merkez olarak kurulmuşlardır"
         },
         {
           "tip": "onemli",
           "ikon": "⚔️",
           "baslik": "Mete Han Dönemi",
-          "icerik": "Mete Han (MÖ 209-174), Türk ordusunu <b>onluk sisteme</b> göre teşkilatlandırdı."
+          "icerik": "• Babası Teoman'ı öldürerek tahta geçmiştir<br>• <b>26 Türk boyunu</b> bir araya getirerek tarihte ilk defa <strong>Türk siyasi birliğini</strong> sağlamıştır<br>• <b>\"Büyük Hun\"</b> veya <b>\"İmparator\"</b> anlamına gelen <b>Tanhu</b> (veya Şanyü) unvanını almıştır<br>• Çinlileri vergiye bağlamış, <b>Kızılırmak</b> ötesinde \"Kızılırmak\" anlaşmasını yapmıştır"
         },
         {
-          "tip": "ornek",
-          "ikon": "💡",
-          "baslik": "Hatırlatma",
-          "icerik": "Asya Hun = <b>İlk teşkilatlı Türk devleti</b>"
+          "tip": "uyari",
+          "ikon": "⚠️",
+          "baslik": "Ki-ok ve Ho-han-yeh Dönemi",
+          "icerik": "• Ki-ok döneminde Çin prensleriyle evlenerek Çinlilerle akrabalık kurmuş, siyasi ve ticari ilişkiler geliştirmeye çalışmıştır<br>• Bu Çinlilerin baskısı Hun Devleti'ni <b>batı ve güney</b> diye ikiye ayırmıştır<br>• Kuzeyde kalanlar Si-yen-piler'e, güneyde kalanlar ise Çinliler tarafından yıkılmıştır<br>• Batı Hun hükümdarı <b>Çi-çi</b>, Kardeşi Ho-han-yeh'in Çin'e bağlanma teklifini <i>\"İstiklali feda etmeyi gülünç ve utanç verici buluyorum\"</i> diyerek reddetmiştir"
+        },
+        {
+          "tip": "onemli",
+          "ikon": "🌍",
+          "baslik": "Kavimler Göçü (375)",
+          "icerik": "Hunların batıya doğru hareketi ve diğer kavimlerin yerlerini terk etmesi ile başlayan Kavimler Göçü sonucunda:<br>• Roma İmparatorluğu ikiye ayrılmıştır<br>• Avrupa Hun Devleti kurulmuştur<br>• Avrupa'da <b>derebeylik (feodalite)</b> ortaya çıkmıştır<br>• Kilise güçlenmiş, <b>skolastik düşünce</b> ortaya çıkmıştır<br>• Alan, Geptit, Vandal, Sakson, Frank, Got, Ostrogot gibi kavimler yerinden olmuş ve Avrupa'nın bugünkü etnik yapısı oluşmuştur<br>• <b>İlk Çağ kapanıp, Orta Çağ başlamıştır</b><br>• Türk kültürü Avrupa'da tanınmıştır"
         }
       ],
       "sorular": [
         {
-          "soru": "Tarihte bilinen ilk teşkilatlı Türk devleti hangisidir?",
-          "secenekler": [
-            "Göktürk Devleti",
-            "Asya Hun Devleti",
-            "Uygur Devleti",
-            "Avar Devleti",
-            "Hazar Devleti"
-          ],
+          "soru": "Asya Hun Devleti'nin kurucusu ve başkenti hangi seçenekte doğru verilmiştir?",
+          "secenekler": ["Mete Han - Ötüken", "Teoman - Ötüken", "Bumin Kağan - Ötüken", "Teoman - Karakurum", "Mete Han - Karakurum"],
           "dogru": 1,
-          "aciklama": "Asya Hun Devleti, MÖ 220'de Teoman tarafından kurulmuştur.",
+          "aciklama": "Asya Hun Devleti'nin kurucusu Teoman, başkenti Ötüken'dir.",
           "kartIndex": 0
+        },
+        {
+          "soru": "Türk tarihinde ilk defa Türk siyasi birliğini sağlayan hükümdar kimdir?",
+          "secenekler": ["Teoman", "Bumin Kağan", "Mete Han", "Bilge Kağan", "Kutluk Kağan"],
+          "dogru": 2,
+          "aciklama": "Mete Han, 26 Türk boyunu bir araya getirerek tarihte ilk defa Türk siyasi birliğini sağlamıştır.",
+          "kartIndex": 1
+        },
+        {
+          "soru": "\"Tanhu\" (Şanyü) unvanı ne anlama gelmektedir?",
+          "secenekler": ["Kutsal hükümdar", "Büyük Hun / İmparator", "Ordu komutanı", "Bilge lider", "Gökyüzü elçisi"],
+          "dogru": 1,
+          "aciklama": "Tanhu (Şanyü) unvanı \"Büyük Hun\" veya \"İmparator\" anlamına gelmektedir ve Mete Han tarafından kullanılmıştır.",
+          "kartIndex": 1
+        },
+        {
+          "soru": "\"İstiklali feda etmeyi gülünç ve utanç verici buluyorum\" sözü hangi Hun hükümdarına aittir?",
+          "secenekler": ["Mete Han", "Teoman", "Ki-ok", "Ho-han-yeh", "Çi-çi"],
+          "dogru": 4,
+          "aciklama": "Batı Hun hükümdarı Çi-çi, kardeşi Ho-han-yeh'in Çin'e bağlanma teklifini bu sözlerle reddetmiştir.",
+          "kartIndex": 2
+        },
+        {
+          "soru": "Kavimler Göçü hangi yıl başlamıştır?",
+          "secenekler": ["375", "395", "476", "552", "630"],
+          "dogru": 0,
+          "aciklama": "Kavimler Göçü, 375 yılında Hunların batıya doğru hareketiyle başlamıştır.",
+          "kartIndex": 3
+        },
+        {
+          "soru": "Kavimler Göçü sonucunda Avrupa'da ortaya çıkan yönetim biçimi hangisidir?",
+          "secenekler": ["Monarşi", "Cumhuriyet", "Derebeylik (Feodalite)", "Teokrasi", "Oligarşi"],
+          "dogru": 2,
+          "aciklama": "Kavimler Göçü sonucunda Avrupa'da derebeylik (feodalite) ortaya çıkmıştır.",
+          "kartIndex": 3
+        },
+        {
+          "soru": "Aşağıdakilerden hangisi Kavimler Göçü'nün sonuçları arasında yer almaz?",
+          "secenekler": ["Roma İmparatorluğu ikiye ayrılmıştır", "Avrupa Hun Devleti kurulmuştur", "Skolastik düşünce ortaya çıkmıştır", "İlk Çağ kapanıp Orta Çağ başlamıştır", "İslamiyet Avrupa'da yayılmıştır"],
+          "dogru": 4,
+          "aciklama": "Kavimler Göçü 375 yılında gerçekleşmiştir. İslamiyet ise 610 yılında ortaya çıkmıştır. Bu nedenle İslamiyet'in Avrupa'da yayılması Kavimler Göçü'nün bir sonucu değildir.",
+          "kartIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "io-6",
+      "baslik": "Avrupa Hun Devleti (375-469)",
+      "ikon": "🏰",
+      "ozet": "Attila ve Batı Roma seferleri",
+      "kartlar": [
+        {
+          "tip": "kavram",
+          "ikon": "🏛️",
+          "baslik": "Kuruluş ve Balamir Dönemi",
+          "icerik": "• <b>Balamir</b> öncülüğünde <b>Etzelburg (Budapeşte)</b> şehri merkez olmak üzere kurulmuştur<br>• <b>Uldız Dönemi</b>'nde Avrupa Hunları Kafkaslar üzerinden Anadolu topraklarına girmiştir<br>• Böylelikle <strong>Türkler ilk kez Anadolu'ya ayak basmışlardır</strong><br>• Uldız kendisine barış için gelen Bizans'ın Trakya valisine <i>\"Güneşin battığı yere kadar her yeri zaptedebilirim.\"</i> demiştir"
+        },
+        {
+          "tip": "onemli",
+          "ikon": "👑",
+          "baslik": "Attila Dönemi ve Margos Antlaşması (444)",
+          "icerik": "Uldız'dan sonra Hunların yönetimine Karaton, Rua daha sonra <b>Attila ve Bleda</b> birlikte geçmiştir. Attila Zamanı'nda Avrupa Hunları en parlak dönemini yaşamıştır.<br><br><b>Margos Antlaşması Maddeleri:</b><br>1. Bizans bundan sonra Hunlara bağlı kavimlerle anlaşmalara girmeyecek<br>2. Bizans'dan Bizans tebaası dahil Hunlardan kaçanlara sığınma hakkı verilmeyecek<br>3. Bizans'ın elinde bulunan mülteciler iade edilecektir<br>4. Ticari münasebetler yine belirli sınır kasabalarında devam edecek<br>5. Bizans'ın ödediği yıllık vergi iki katına yani <b>750 libre altına</b> çıkarılacaktır"
+        },
+        {
+          "tip": "ornek",
+          "ikon": "🏆",
+          "baslik": "Attila'nın Unvanları",
+          "icerik": "• Avrupa'da Hristiyanlar tarafından <b>\"Tanrı'nın Kamçısı\"</b> ve <b>\"Cesur Kavimlerin Efendisi\"</b> unvanları verilmiştir<br>• Almanların ünlü destanı <b>Nibelungen</b>'de ise Attila <b>Etzel</b> olarak geçmiştir"
+        },
+        {
+          "tip": "onemli",
+          "ikon": "📜",
+          "baslik": "Anatolios Antlaşması (447)",
+          "icerik": "Batı Roma'ya sefer yapmak için Doğu Roma'yı kontrol altına almaya çalışan Attila, yaptığı Balkan seferleri sonucunda 447 yılında Doğu Roma ile Anatolios Antlaşması'nı imzalamıştır.<br><br><b>Anatolios Antlaşması Maddeleri:</b><br>1. Bizans, Hunlara ödediği vergiyi üç katına çıkaracaktır<br>2. Bizans, Hunlara savaş tazminatı ödemeyi kabul edecektir<br>3. Tuna'nın güneyinde beş günlük mesafedeki yerler Bizans askerlerinden arındırılacaktır<br>4. Bizans, Hun ülkesinden kendi tarafına kaçanları bir daha kabul etmeyecektir"
+        },
+        {
+          "tip": "uyari",
+          "ikon": "⚠️",
+          "baslik": "Attila'nın Roma Seferi ve Sonrası",
+          "icerik": "• Attila daha sonra Roma'ya yönelerek <b>Galya ve İtalya seferlerine</b> çıkmıştır<br>• Roma'ya kadar gelmiş, ancak <b>Papa ile anlaştıktan sonra geri dönmüştür</b><br>• Attila'nın Roma'ya yönelmesinin nedenleri: Doğu Roma'nın Hristiyan dünyası için kutsal bir merkez olması, Batı Roma'nın gücünü kırdığına inanması, Doğu'da tehlike olarak gördüğü Sasani Devleti üzerine sefer çıkarmak istemesi<br>• Attila Roma Seferi'nden döndükten sonra hayatını kaybetmiş ve oğulları babaları gibi başarılı bir yönetim sergileyememişlerdir. Avrupa Hunları zamanla Hristiyanlaşmış ve benliklerini kaybetmişlerdir"
+        }
+      ],
+      "sorular": [
+        {
+          "soru": "Avrupa Hun Devleti hangi şehir merkez olmak üzere kurulmuştur?",
+          "secenekler": ["Ötüken", "Etzelburg (Budapeşte)", "İstanbul", "Roma", "Karakurum"],
+          "dogru": 1,
+          "aciklama": "Avrupa Hun Devleti, Balamir öncülüğünde Etzelburg (Budapeşte) şehri merkez olmak üzere kurulmuştur.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Türklerin ilk kez Anadolu'ya ayak bastığı dönem hangi Avrupa Hun hükümdarına aittir?",
+          "secenekler": ["Balamir", "Attila", "Uldız", "Bleda", "Karaton"],
+          "dogru": 2,
+          "aciklama": "Uldız Dönemi'nde Avrupa Hunları Kafkaslar üzerinden Anadolu topraklarına girmiş ve Türkler ilk kez Anadolu'ya ayak basmışlardır.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "\"Güneşin battığı yere kadar her yeri zaptedebilirim.\" sözü kime aittir?",
+          "secenekler": ["Attila", "Mete Han", "Balamir", "Uldız", "Çi-çi"],
+          "dogru": 3,
+          "aciklama": "Bu söz Uldız'a aittir. Uldız, kendisine barış için gelen Bizans'ın Trakya valisine bu sözü söylemiştir.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Margos Antlaşması hangi yıl imzalanmıştır?",
+          "secenekler": ["375", "434", "444", "447", "469"],
+          "dogru": 2,
+          "aciklama": "Margos Antlaşması 444 yılında imzalanmıştır.",
+          "kartIndex": 1
+        },
+        {
+          "soru": "Attila'ya Avrupa'da Hristiyanlar tarafından verilen unvanlar hangileridir?",
+          "secenekler": ["Büyük Hun / İmparator", "Tanrı'nın Kamçısı / Cesur Kavimlerin Efendisi", "Bozkırın Kuyumcusu / Savaşçı", "Gökyüzü Elçisi / Kutsal Hükümdar", "Bilge Kağan / Fatih"],
+          "dogru": 1,
+          "aciklama": "Attila'ya Avrupa'da Hristiyanlar tarafından \"Tanrı'nın Kamçısı\" ve \"Cesur Kavimlerin Efendisi\" unvanları verilmiştir.",
+          "kartIndex": 2
+        },
+        {
+          "soru": "Anatolios Antlaşması hangi yıl imzalanmıştır?",
+          "secenekler": ["375", "434", "444", "447", "469"],
+          "dogru": 3,
+          "aciklama": "Anatolios Antlaşması 447 yılında Doğu Roma ile imzalanmıştır.",
+          "kartIndex": 3
+        },
+        {
+          "soru": "Attila, Roma seferinden sonra hangi devletin topraklarına yönelmiştir?",
+          "secenekler": ["Sasani Devleti", "Bizans İmparatorluğu", "Sasani ve Bizans", "Sasani Devleti (Doğu'da tehlike olarak gördüğü)"],
+          "dogru": 3,
+          "aciklama": "Attila, Roma seferinden sonra Doğu'da tehlike olarak gördüğü Sasani Devleti üzerine sefer çıkarmak istemiştir.",
+          "kartIndex": 4
+        }
+      ]
+    },
+    {
+      "id": "io-7",
+      "baslik": "Hazar Devleti (630-968)",
+      "ikon": "🕌",
+      "ozet": "Museviliği kabul eden tek Türk devleti",
+      "kartlar": [
+        {
+          "tip": "kavram",
+          "ikon": "🏛️",
+          "baslik": "Genel Özellikler",
+          "icerik": "• Hazarlar tarih sahnesine <b>Sabar Türklerinin devamı</b> olarak çıkmıştır<br>• <b>Volga</b> kıyıları ile <b>Kırım</b> arasındaki bölgede devlet kurmuşlardır<br>• Bizans, Sasani ve Müslüman Araplarla askeri, siyasi ve ticari ilişkiler kurmuşlardır<br>• Hz. Osman Zamanı'nda Müslüman Araplarla ilk kez savaşan (<b>Belencer Savaşı</b>) Hazarlar, Arap ordularını geri çekilmeye zorlamış ve Kafkaslar bölgesinin Arap eline geçmesini engellemiştir<br>• Emeviler Zamanı'nda da devam eden savaşlar, Abbasiler Zamanı'nda yavaşlamıştır"
+        },
+        {
+          "tip": "onemli",
+          "ikon": "⚔️",
+          "baslik": "Güçlü Ordu ve İlk Ücretli Asker",
+          "icerik": "• VIII. ve IX. yüzyıllarda <strong>Doğu Avrupa'nın en büyük devleti</strong> haline gelmiştir<br>• Hazarlar, X. yüzyıldan itibaren Peçenek akınlarıyla zayıflamıştır<br>• Hazarlar ordularına ücretli asker alarak, <strong>Türk tarihinde ordusuna ücretli asker alan ilk Türk devleti</strong> olmuştur<br>• 968 yılında Ruslar, Hazar Hakanlığı'na son vermiştir<br>• Hazarların en büyük etkisi <b>Ruslar</b> üzerinde olmuştur<br>• Rus prensleri, Hazarlıların devlet ve ordu teşkilatını örnek almıştır<br>• Günümüzdeki <b>Hazar Denizi</b>'nin adı bu Türk devletinden kalmıştır"
+        },
+        {
+          "tip": "onemli",
+          "ikon": "🕊️",
+          "baslik": "Hazar Barış Çağı (Pax Hazaria)",
+          "icerik": "• Hazarlar güçlü ordularıyla VII. ve IX. yüzyıllar arasında bulundukları bölgelerde huzuru ve ulaşım güvenliğini sağlayarak, bu dönemin <b>\"Hazar Barış Çağı\"</b> (Pax Hazaria) olarak adlandırılmasını sağlamışlardır<br>• Yönetici zümrenin <b>Musevi</b> olduğu Hazarlar arasında İslamiyet, Hristiyanlık ve Musevilik gibi dinler de yayılmıştır<br>• Dinî hoşgörünün bulunduğu bu dönemde farklı dinlere inananlar ibadet ve ayinlerini serbestçe yapabilmişlerdir"
+        },
+        {
+          "tip": "ornek",
+          "ikon": "💰",
+          "baslik": "Kürk Yolu ve İbn-i Havkal",
+          "icerik": "• Hazarlar <b>\"Kürk Yolu\"</b> üzerinde ticaret yaparak zenginleşmiştir<br>• Hazarların adaletli ve hoşgörülü olduğundan bahseden <b>İbn-i Havkal</b>: <i>\"İdil şehrinde Müslümanlara, Yahudilere, Hristiyanlara ait kişiler, camilerine bir arada olmak üzere yedi bin câmi vardır.\"</i> demiştir<br>• Hazar mahkemelerinde <b>farklı dinlerden hâkimlerin</b> bulunmasına önem verilmiştir"
+        },
+        {
+          "tip": "uyari",
+          "ikon": "⚠️",
+          "baslik": "Emevi-Hazar İlişkileri ve Günümüz",
+          "icerik": "• Emevi - Hazar savaşlarında Hazar ülkesinde yaşayan Müslümanlar hoşgörülü yönetim nedeniyle Hazarların yanında yer almışlardır<br>• Bu yüzden Hazar hakanı Müslümanların daha iyi yönetilebilmesi için Müslümanların başına <b>\"Hazz\"</b> denilen yöneticiler atamıştır<br>• <b>Günümüzde Hazar:</b> Hazar Türkleri günümüzde <b>Karay Türkleri</b> olarak Kırım, Rusya, Ukrayna, Polonya, Litvanya ve Kazakistan'da varlıklarını sürdürmektedirler"
+        }
+      ],
+      "sorular": [
+        {
+          "soru": "Hazarlar tarih sahnesine hangi Türk topluluğunun devamı olarak çıkmıştır?",
+          "secenekler": ["Kumanlar", "Peçenekler", "Sabar Türkleri", "Avarlar", "Bulgarlar"],
+          "dogru": 2,
+          "aciklama": "Hazarlar tarih sahnesine Sabar Türklerinin devamı olarak çıkmıştır.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Müslüman Araplarla ilk kez savaşan Hazarlar hangi savaşı yapmıştır?",
+          "secenekler": ["Talas Savaşı", "Belencer Savaşı", "Dandanakan Savaşı", "Kösedağ Savaşı", "Malazgirt Savaşı"],
+          "dogru": 1,
+          "aciklama": "Hz. Osman Zamanı'nda Müslüman Araplarla ilk kez Belencer Savaşı'nda karşılaşmışlardır.",
+          "kartIndex": 0
+        },
+        {
+          "soru": "Türk tarihinde ordusuna ücretli asker alan ilk Türk devleti hangisidir?",
+          "secenekler": ["Asya Hun Devleti", "Göktürk Devleti", "Uygur Devleti", "Hazar Devleti", "Avrupa Hun Devleti"],
+          "dogru": 3,
+          "aciklama": "Hazarlar ordularına ücretli asker alarak Türk tarihinde ordusuna ücretli asker alan ilk Türk devleti olmuştur.",
+          "kartIndex": 1
+        },
+        {
+          "soru": "Hazar Devleti hangi yıl sona ermiştir?",
+          "secenekler": ["840", "920", "968", "1040", "1071"],
+          "dogru": 2,
+          "aciklama": "968 yılında Ruslar, Hazar Hakanlığı'na son vermiştir.",
+          "kartIndex": 1
+        },
+        {
+          "soru": "Pax Hazaria (Hazar Barış Çağı) hangi yüzyıllar arasında yaşanmıştır?",
+          "secenekler": ["V-VI. yüzyıllar", "VI-VII. yüzyıllar", "VII-IX. yüzyıllar", "X-XI. yüzyıllar", "XI-XII. yüzyıllar"],
+          "dogru": 2,
+          "aciklama": "Hazar Barış Çağı VII. ve IX. yüzyıllar arasında yaşanmıştır.",
+          "kartIndex": 2
+        },
+        {
+          "soru": "Hazarlar hangi ticaret yolu üzerinde ticaret yaparak zenginleşmiştir?",
+          "secenekler": ["İpek Yolu", "Baharat Yolu", "Kürk Yolu", "Kral Yolu", "Tuz Yolu"],
+          "dogru": 2,
+          "aciklama": "Hazarlar \"Kürk Yolu\" üzerinde ticaret yaparak zenginleşmiştir.",
+          "kartIndex": 3
+        },
+        {
+          "soru": "Hazarların adaletli ve hoşgörülü olduğundan bahseden ünlü seyyah kimdir?",
+          "secenekler": ["İbn-i Batuta", "İbn-i Havkal", "Evliya Çelebi", "Marco Polo", "İbn-i Fadlan"],
+          "dogru": 1,
+          "aciklama": "İbn-i Havkal, Hazarların adaletli ve hoşgörülü yönetiminden bahsetmiştir.",
+          "kartIndex": 3
+        },
+        {
+          "soru": "Günümüzde Hazar Türkleri hangi isimle anılmaktadır?",
+          "secenekler": ["Yakut Türkleri", "Karay Türkleri", "Kuman Türkleri", "Peçenek Türkleri", "Avar Türkleri"],
+          "dogru": 1,
+          "aciklama": "Hazar Türkleri günümüzde Karay Türkleri olarak varlıklarını sürdürmektedirler.",
+          "kartIndex": 4
         }
       ]
     }
