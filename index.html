@@ -1088,7 +1088,7 @@ function renderQuestion(){
   const wrap = $("optionsList");
   wrap.innerHTML = "";
   const indexed = q.secenekler.map((text, i) => ({ text, isCorrect: i === q.dogru }));
-  const mixed = shuffle(indexed);
+  const mixed = q.gorsel ? indexed : shuffle(indexed);
   mixed.forEach((item, i) => {
     const btn = document.createElement("button");
     btn.type = "button"; btn.className = "option";
