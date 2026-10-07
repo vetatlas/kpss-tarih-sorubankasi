@@ -18,25 +18,6 @@
       "gorsel": null,
       "eklenme": 1791394793971,
       "kaynak": "telegram-anket"
-    },
-    {
-      "id": "tg_1791393531860_j0mdoo",
-      "ders": "Tarih",
-      "kategori": "İslamiyet Öncesi Türk Tarihi",
-      "seviye": "Ortaöğretim",
-      "soru": "Görseldeki sorunun doğru cevabı?",
-      "secenekler": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
-      "dogru": 4,
-      "aciklama": ".",
-      "gorsel": "https://api.telegram.org/file/bot8996849772:AAGT8m9pcPybVgdLtcacYr09JzYX30GxgkQ/photos/file_0.jpg",
-      "eklenme": 1791393531860,
-      "kaynak": "telegram"
     }
   ]
 }
