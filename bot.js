@@ -296,10 +296,17 @@ async function handleUpdate(update) {
       case 'kategori':
         state.kategori = text;
         state.step = 'seviye';
+        // 💾 Kategori cache'ine kaydet
+        const cache = loadCache();
+        if (!cache.kategoriler[state.ders]) cache.kategoriler[state.ders] = [];
+        if (!cache.kategoriler[state.ders].includes(text)) {
+          cache.kategoriler[state.ders].push(text);
+          saveCache(cache);
+        }
         return send(chatId, `✅ Kategori: *${text}*\n\n🎓 Seviye seç:`, {
           reply_markup: { inline_keyboard: SEVIYELER.map(s => [{ text: s, callback_data: 'seviye_' + s }]) }
         });
-
+        
       case 'soru':
         state.soru = text;
         state.step = 'secenek';
