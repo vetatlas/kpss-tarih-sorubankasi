@@ -724,7 +724,7 @@ async function fetchJSON(fileName){
   let lastErr = null;
   for(const base of bases){
     try{
-      const res = await fetch(base + fileName, { cache: "no-cache" });
+      const res = await fetch(base + fileName + "?v=" + Date.now(), { cache: "no-store" });
       if(!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
       try{ localStorage.setItem(cacheKey, JSON.stringify({ t: Date.now(), d: data })); }catch(e){}
