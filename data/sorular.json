@@ -1,6 +1,44 @@
 {
   "sorular": [
     {
+      "id": "tg_1791405240268_lx3c9b",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Orhun Yazıtları ile ilgili olarak;\nI. II. Göktürk Devleti döneminde dikilmiştir\nII. Türk dilinin ilk yazılı belgesidir\nIII. 38 harfli Göktürk alfabesiyle yazılmıştır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Orhun Yazıtları II. Göktürk döneminde dikilmiş, Türk dilinin ilk yazılı belgesidir ve 38 harfli Göktürk alfabesiyle yazılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791405240268,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405240268_vu7iiq",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Göktürk Devleti'nin yıkılışından sonra Türklerin bağımsızlığını yeniden kazanmasını sağlayan ve 682'de kurulan devlet aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "I. Göktürk Devleti",
+        "II. Göktürk (Kutluk) Devleti",
+        "Uygur Devleti",
+        "Hazar Devleti",
+        "Avrupa Hun Devleti"
+      ],
+      "dogru": 1,
+      "aciklama": "682'de Kutluk (İlteriş) Kağan tarafından kurulan II. Göktürk Devleti, Türklerin yeniden bağımsızlığını sağlamıştır.",
+      "gorsel": null,
+      "eklenme": 1791405240268,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791405143727_dl9294",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
