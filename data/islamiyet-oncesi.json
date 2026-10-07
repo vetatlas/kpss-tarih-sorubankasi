@@ -3,17 +3,458 @@
   "sorular": [
     {
       "id": 1,
-      "soru": "Türk tarihinin ilk yazılı belgesi hangisidir?",
-      "secenekler": ["Kutadgu Bilig", "Orhun Yazıtları", "Divanü Lügati't-Türk", "Atabetü'l-Hakayık"],
+      "soru": "Tarihte bilinen ilk teşkilatlı Türk devleti hangisidir?",
+      "secenekler": [
+        "Göktürk Devleti",
+        "Asya Hun Devleti",
+        "Uygur Devleti",
+        "Avar Devleti",
+        "Hazar Devleti"
+      ],
       "dogru": 1,
-      "aciklama": "Orhun Yazıtları, II. Göktürk Devleti döneminde yazılmıştır."
+      "aciklama": "MÖ 220'de Teoman tarafından kurulan Asya Hun Devleti, tarihte bilinen ilk teşkilatlı Türk devletidir."
     },
     {
       "id": 2,
-      "soru": "Osmanlı Devleti'nin kurucusu kimdir?",
-      "secenekler": ["Ertuğrul Gazi", "Osman Bey", "Orhan Bey", "I. Murat"],
+      "soru": "Türk ordusunu onluk sisteme göre teşkilatlandıran ve Çin'i vergiye bağlayan Asya Hun hükümdarı kimdir?",
+      "secenekler": [
+        "Teoman",
+        "Mete Han",
+        "Ki-ok",
+        "Ho-han-ye",
+        "Tanhu"
+      ],
       "dogru": 1,
-      "aciklama": "Osman Bey, 1299'da bağımsızlığını ilan etmiştir."
+      "aciklama": "Mete Han (MÖ 209-174), orduyu 10, 100, 1000 ve 10.000 kişilik birimlere ayırmış; Çin'i vergiye bağlamıştır. Bu sistem modern ordulara örnek olmuştur."
+    },
+    {
+      "id": 3,
+      "soru": "Kavimler Göçü'nün başlangıcı kabul edilen ve Batı Hunlarının Avrupa'ya göç ettiği yıl hangisidir?",
+      "secenekler": [
+        "375",
+        "395",
+        "476",
+        "552",
+        "751"
+      ],
+      "dogru": 0,
+      "aciklama": "375 yılında Batı Hunlarının Avrupa'ya göçüyle Kavimler Göçü başlamıştır."
+    },
+    {
+      "id": 4,
+      "soru": "Kavimler Göçü sonucunda Batı Roma İmparatorluğu'nun yıkıldığı yıl hangisidir?",
+      "secenekler": [
+        "375",
+        "395",
+        "476",
+        "552",
+        "630"
+      ],
+      "dogru": 2,
+      "aciklama": "476'da Batı Roma'nın yıkılışıyla İlk Çağ kapanmış, Orta Çağ başlamıştır."
+    },
+    {
+      "id": 5,
+      "soru": "\"Türk\" adını bir devlet adı olarak ilk kez kullanan Türk devleti hangisidir?",
+      "secenekler": [
+        "Asya Hun Devleti",
+        "Avar Devleti",
+        "I. Göktürk Devleti",
+        "Uygur Devleti",
+        "Hazar Devleti"
+      ],
+      "dogru": 2,
+      "aciklama": "552'de Bumin Kağan tarafından kurulan I. Göktürk Devleti, tarihte \"Türk\" adını taşıyan ilk devlettir."
+    },
+    {
+      "id": 6,
+      "soru": "I. Göktürk Devleti'nin kurucusu kimdir?",
+      "secenekler": [
+        "Bilge Kağan",
+        "Bumin Kağan",
+        "İstemi Yabgu",
+        "Kapgan Kağan",
+        "Kutluk Kağan"
+      ],
+      "dogru": 1,
+      "aciklama": "552'de Bumin Kağan tarafından kurulmuş, kardeşi İstemi Yabgu batı kanadının yönetimini üstlenmiştir."
+    },
+    {
+      "id": 7,
+      "soru": "Türk dilinin ilk yazılı belgesi kabul edilen Orhun Yazıtları hangi devlet döneminde dikilmiştir?",
+      "secenekler": [
+        "Asya Hun Devleti",
+        "I. Göktürk Devleti",
+        "II. Göktürk (Kutluk) Devleti",
+        "Uygur Devleti",
+        "Avar Devleti"
+      ],
+      "dogru": 2,
+      "aciklama": "Orhun Yazıtları, II. Göktürk (Kutluk) Devleti döneminde 720-735 yılları arasında dikilmiştir."
+    },
+    {
+      "id": 8,
+      "soru": "Orhun Yazıtları hangi alfabeyle yazılmıştır?",
+      "secenekler": [
+        "Uygur alfabesi",
+        "Göktürk alfabesi",
+        "Arap alfabesi",
+        "Kiril alfabesi",
+        "Latin alfabesi"
+      ],
+      "dogru": 1,
+      "aciklama": "Orhun Yazıtları, Türklerin ilk millî alfabesi olan 38 harfli Göktürk alfabesiyle yazılmıştır."
+    },
+    {
+      "id": 9,
+      "soru": "Orhun Yazıtları'nı yazan kişi kimdir?",
+      "secenekler": [
+        "Yolluğ Tigin",
+        "Vezir Tonyukuk",
+        "Bilge Kağan",
+        "Kültigin",
+        "Bumin Kağan"
+      ],
+      "dogru": 0,
+      "aciklama": "Yazıtları Bilge Kağan'ın yeğeni Yolluğ Tigin yazmıştır. Yazıtlar Bilge Kağan, Kültigin ve Vezir Tonyukuk adına dikilmiştir."
+    },
+    {
+      "id": 10,
+      "soru": "II. Göktürk (Kutluk) Devleti'nin kurucusu kimdir?",
+      "secenekler": [
+        "Bilge Kağan",
+        "Kapgan Kağan",
+        "Kutluk (İlteriş) Kağan",
+        "İstemi Yabgu",
+        "Kültigin"
+      ],
+      "dogru": 2,
+      "aciklama": "682'de Kutluk (İlteriş) Kağan tarafından kurulmuştur. En parlak dönemi Bilge Kağan, Kültigin ve Tonyukuk dönemidir."
+    },
+    {
+      "id": 11,
+      "soru": "Yerleşik hayata geçen ilk Türk topluluğu hangisidir?",
+      "secenekler": [
+        "Hunlar",
+        "Göktürkler",
+        "Uygurlar",
+        "Kırgızlar",
+        "Peçenekler"
+      ],
+      "dogru": 2,
+      "aciklama": "Uygurlar, Mani dinini kabul ettikten sonra et yemek yasaklandığı için tarım ve ticarete yönelmiş, yerleşik hayata geçmiştir."
+    },
+    {
+      "id": 12,
+      "soru": "Uygurların yerleşik hayata geçmesinde etkili olan din hangisidir?",
+      "secenekler": [
+        "Budizm",
+        "Hristiyanlık",
+        "İslamiyet",
+        "Mani dini",
+        "Musevilik"
+      ],
+      "dogru": 3,
+      "aciklama": "Mani dini, canlılara zarar vermeyi ve et yemeyi yasakladığı için Uygurlar tarım ve şehir hayatına yönelmiştir."
+    },
+    {
+      "id": 13,
+      "soru": "Türk tarihinde Museviliği resmî din olarak kabul eden tek devlet hangisidir?",
+      "secenekler": [
+        "Uygurlar",
+        "Hazarlar",
+        "Bulgarlar",
+        "Peçenekler",
+        "Avarlar"
+      ],
+      "dogru": 1,
+      "aciklama": "Hazarlar, Museviliği resmî din olarak kabul eden tek Türk devletidir."
+    },
+    {
+      "id": 14,
+      "soru": "Hazarların en önemli özelliği aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Yerleşik hayata geçen ilk Türkler olmaları",
+        "Türk adını ilk kez kullanmaları",
+        "Din ve inanç özgürlüğüne geniş yer vermeleri",
+        "İlk parayı basmaları",
+        "İlk yazılı belgeyi bırakmaları"
+      ],
+      "dogru": 2,
+      "aciklama": "Hazarlar, farklı dinlere mensup toplulukların bir arada yaşadığı, din ve inanç özgürlüğüne geniş yer veren bir devlettir."
+    },
+    {
+      "id": 15,
+      "soru": "Tuna Bulgarları hangi dinin etkisiyle Slavlaşmıştır?",
+      "secenekler": [
+        "İslamiyet",
+        "Musevilik",
+        "Hristiyanlık",
+        "Mani dini",
+        "Budizm"
+      ],
+      "dogru": 2,
+      "aciklama": "Tuna Bulgarları, Boris Han döneminde Hristiyanlığı kabul etmiş ve zamanla Slavlaşmıştır."
+    },
+    {
+      "id": 16,
+      "soru": "İtil (Volga) Bulgarları hangi dini kabul etmiştir?",
+      "secenekler": [
+        "Hristiyanlık",
+        "Musevilik",
+        "İslamiyet",
+        "Mani dini",
+        "Budizm"
+      ],
+      "dogru": 2,
+      "aciklama": "İtil Bulgarları 922'de İslamiyet'i kabul etmiştir. Tuna Bulgarları ise Hristiyanlığı seçmiştir."
+    },
+    {
+      "id": 17,
+      "soru": "Avarların 626 yılında gerçekleştirdiği, Doğu Roma (Bizans) başkentine yönelik kuşatma hangi şehre yapılmıştır?",
+      "secenekler": [
+        "Roma",
+        "İstanbul",
+        "Atina",
+        "Selanik",
+        "Venedik"
+      ],
+      "dogru": 1,
+      "aciklama": "Avarlar 626'da Sasanilerle birlikte İstanbul'u kuşatmış ancak şehri alamamıştır."
+    },
+    {
+      "id": 18,
+      "soru": "1071 Malazgirt Savaşı öncesinde Bizans ordusunda yer alan Türk topluluğu hangisidir?",
+      "secenekler": [
+        "Kumanlar",
+        "Peçenekler",
+        "Oğuzlar",
+        "Kırgızlar",
+        "Bulgarlar"
+      ],
+      "dogru": 1,
+      "aciklama": "Peçenekler, Malazgirt Savaşı sırasında Bizans ordusunda yer almış ancak savaş sırasında Selçukluların tarafına geçmiştir."
+    },
+    {
+      "id": 19,
+      "soru": "Kuman (Kıpçak)lara ait olduğu düşünülen Codex Cumanicus adlı eser hangi amaçla yazılmıştır?",
+      "secenekler": [
+        "Türk destanlarını derlemek",
+        "Kuman dilini öğretmek ve Hristiyanlığı yaymak",
+        "İslamiyet'i yaymak",
+        "Ticaret anlaşmaları yapmak",
+        "Türk tarihini yazmak"
+      ],
+      "dogru": 1,
+      "aciklama": "Codex Cumanicus, Kuman dilini öğretmek ve Hristiyanlığı yaymak amacıyla Latin harfleriyle yazılmış bir eserdir."
+    },
+    {
+      "id": 20,
+      "soru": "Büyük Selçuklu Devleti'ni kuran Oğuz boyu hangisidir?",
+      "secenekler": [
+        "Kayı",
+        "Kınık",
+        "Bayat",
+        "Avşar",
+        "Dodurga"
+      ],
+      "dogru": 1,
+      "aciklama": "Büyük Selçuklu Devleti, Oğuzların Üçok koluna bağlı Kınık boyu tarafından kurulmuştur."
+    },
+    {
+      "id": 21,
+      "soru": "Talas Savaşı hangi yıl yapılmıştır?",
+      "secenekler": [
+        "375",
+        "552",
+        "630",
+        "751",
+        "1040"
+      ],
+      "dogru": 3,
+      "aciklama": "751 Talas Savaşı, Türk-Arap yakınlaşmasını sağlamış ve Türklerin İslamiyet'i kabul sürecini hızlandırmıştır."
+    },
+    {
+      "id": 22,
+      "soru": "Talas Savaşı'nda Türkler hangi devletin yanında Çinlilere karşı savaşmıştır?",
+      "secenekler": [
+        "Bizans",
+        "Sasani",
+        "Abbasiler",
+        "Emeviler",
+        "Hazarlar"
+      ],
+      "dogru": 2,
+      "aciklama": "751 Talas Savaşı'nda Karluk Türkleri, Abbasilerin yanında Çinlilere karşı savaşmıştır."
+    },
+    {
+      "id": 23,
+      "soru": "Türklerin İslamiyet'i kabul sürecini hızlandıran ve Türk-Arap yakınlaşmasını sağlayan savaş hangisidir?",
+      "secenekler": [
+        "Dandanakan",
+        "Malazgirt",
+        "Talas",
+        "Pasinler",
+        "Katvan"
+      ],
+      "dogru": 2,
+      "aciklama": "751 Talas Savaşı'ndan sonra Türkler ile Araplar arasında ticari, siyasi ve kültürel ilişkiler gelişmiş; İslamiyet Türkler arasında hızla yayılmaya başlamıştır."
+    },
+    {
+      "id": 24,
+      "soru": "Türklerin kullandığı ilk millî alfabenin adı nedir?",
+      "secenekler": [
+        "Uygur alfabesi",
+        "Göktürk alfabesi",
+        "Arap alfabesi",
+        "Kiril alfabesi",
+        "Latin alfabesi"
+      ],
+      "dogru": 1,
+      "aciklama": "38 harfli Göktürk alfabesi, Türklerin kullandığı ilk millî alfabedir."
+    },
+    {
+      "id": 25,
+      "soru": "Göktürk alfabesi kaç harften oluşmaktadır?",
+      "secenekler": [
+        "26",
+        "29",
+        "32",
+        "38",
+        "42"
+      ],
+      "dogru": 3,
+      "aciklama": "Göktürk alfabesi 38 harften oluşur; 4 sesli, 34 sessiz harf içerir."
+    },
+    {
+      "id": 26,
+      "soru": "Türklerin kullandığı On İki Hayvanlı Takvim'de yılbaşı hangi mevsimde başlar?",
+      "secenekler": [
+        "İlkbahar",
+        "Yaz",
+        "Sonbahar",
+        "Kış",
+        "Değişkendir"
+      ],
+      "dogru": 0,
+      "aciklama": "On İki Hayvanlı Türk Takvimi'nde yılbaşı, 21 Mart'ta (Nevruz) yani ilkbaharda başlar."
+    },
+    {
+      "id": 27,
+      "soru": "İslamiyet öncesi Türklerde devlet yönetiminde söz sahibi olan meclisin adı nedir?",
+      "secenekler": [
+        "Şura",
+        "Divan",
+        "Kurultay (Toy)",
+        "Meclis",
+        "Senato"
+      ],
+      "dogru": 2,
+      "aciklama": "Kurultay (Toy), devlet yönetiminde önemli kararların alındığı ve hükümdarın danıştığı meclistir."
+    },
+    {
+      "id": 28,
+      "soru": "İslamiyet öncesi Türklerde \"Kut\" anlayışı neyi ifade eder?",
+      "secenekler": [
+        "Askeri gücü",
+        "Yönetme yetkisinin Tanrı tarafından verildiğini",
+        "Ticari zenginliği",
+        "Toprak mülkiyetini",
+        "Din adamlarının yetkisini"
+      ],
+      "dogru": 1,
+      "aciklama": "Kut anlayışına göre yönetme yetkisi Tanrı tarafından hükümdara verilmiştir. Bu yetkiyi kötüye kullanan hükümdarın kutunun geri alınacağına inanılırdı."
+    },
+    {
+      "id": 29,
+      "soru": "İslamiyet öncesi Türklerde kadının yönetimdeki rolünü ifade eden unvan hangisidir?",
+      "secenekler": [
+        "Hatun",
+        "Kadın Bey",
+        "Valide Sultan",
+        "Begüm",
+        "Hanım"
+      ],
+      "dogru": 0,
+      "aciklama": "Hatun, hükümdarın eşi olarak devlet yönetiminde söz sahibi olan kadınlara verilen unvandır."
+    },
+    {
+      "id": 30,
+      "soru": "İslamiyet öncesi Türklerde ölen kişinin mezarına dikilen taş heykellere ne ad verilir?",
+      "secenekler": [
+        "Kurgan",
+        "Balbal",
+        "Kümbet",
+        "Türbe",
+        "Anıt"
+      ],
+      "dogru": 1,
+      "aciklama": "Balbal, ölen kişinin mezarına dikilen ve hayatta iken öldürdüğü düşman sayısını simgeleyen taş heykellerdir."
+    },
+    {
+      "id": 31,
+      "soru": "İslamiyet öncesi Türklerde hükümdarların gömüldüğü anıt mezarlara ne ad verilir?",
+      "secenekler": [
+        "Balbal",
+        "Kurgan",
+        "Kümbet",
+        "Türbe",
+        "Ziggurat"
+      ],
+      "dogru": 1,
+      "aciklama": "Kurgan, İslamiyet öncesi Türklerde hükümdar ve önemli kişilerin gömüldüğü anıt mezarlardır. En ünlüsü Esik Kurganı'dır."
+    },
+    {
+      "id": 32,
+      "soru": "İslamiyet öncesi Türklerde doğa ruhlarına tapınma ve Şaman (Kam) adı verilen din adamları etrafında şekillenen inanç sistemi hangisidir?",
+      "secenekler": [
+        "Şamanizm",
+        "Budizm",
+        "Maniheizm",
+        "Zerdüştlük",
+        "Tengricilik"
+      ],
+      "dogru": 0,
+      "aciklama": "Şamanizm, İslamiyet öncesi Türklerin doğa ruhlarına tapınma ve Şaman (Kam) adı verilen din adamları etrafında şekillenen inanç sistemidir."
+    },
+    {
+      "id": 33,
+      "soru": "İslamiyet öncesi Türk edebiyatında ölen kişinin ardından söylenen ağıtlara ne ad verilir?",
+      "secenekler": [
+        "Koşuk",
+        "Sagu",
+        "Destan",
+        "Sav",
+        "Mani"
+      ],
+      "dogru": 1,
+      "aciklama": "Sagu, ölen kişinin ardından söylenen ağıtlardır. Koşuk ise doğa ve aşk konulu şiirlerdir."
+    },
+    {
+      "id": 34,
+      "soru": "İslamiyet öncesi Türk edebiyatında atasözü niteliğindeki özlü sözlere ne ad verilir?",
+      "secenekler": [
+        "Koşuk",
+        "Sagu",
+        "Sav",
+        "Destan",
+        "Mani"
+      ],
+      "dogru": 2,
+      "aciklama": "Sav, İslamiyet öncesi Türk edebiyatında atasözü niteliğindeki özlü sözlerdir."
+    },
+    {
+      "id": 35,
+      "soru": "Orhun Yazıtları hangi yıllar arasında dikilmiştir?",
+      "secenekler": [
+        "720-735",
+        "630-650",
+        "552-580",
+        "840-850",
+        "920-950"
+      ],
+      "dogru": 0,
+      "aciklama": "Orhun Yazıtları 720-735 yılları arasında dikilmiştir. Tonyukuk Yazıtı 720, Kültigin Yazıtı 732, Bilge Kağan Yazıtı 735 yılında dikilmiştir."
     }
   ]
 }
