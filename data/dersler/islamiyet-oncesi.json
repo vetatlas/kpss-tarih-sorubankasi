@@ -1,0 +1,46 @@
+{
+  "kategori": "İslamiyet Öncesi Türk Tarihi",
+  "dersler": [
+    {
+      "id": "io-1",
+      "baslik": "Asya Hun Devleti",
+      "ikon": "🏹",
+      "ozet": "Bilinen ilk teşkilatlı Türk devleti",
+      "kartlar": [
+        {
+          "tip": "kavram",
+          "ikon": "🏛️",
+          "baslik": "Kuruluş",
+          "icerik": "Asya Hun Devleti, <strong>MÖ 220</strong>'de <b>Teoman</b> tarafından kurulmuştur. Başkenti <b>Ötüken</b>'dir."
+        },
+        {
+          "tip": "onemli",
+          "ikon": "⚔️",
+          "baslik": "Mete Han Dönemi",
+          "icerik": "Mete Han (MÖ 209-174), Türk ordusunu <b>onluk sisteme</b> göre teşkilatlandırdı."
+        },
+        {
+          "tip": "ornek",
+          "ikon": "💡",
+          "baslik": "Hatırlatma",
+          "icerik": "Asya Hun = <b>İlk teşkilatlı Türk devleti</b>"
+        }
+      ],
+      "sorular": [
+        {
+          "soru": "Tarihte bilinen ilk teşkilatlı Türk devleti hangisidir?",
+          "secenekler": [
+            "Göktürk Devleti",
+            "Asya Hun Devleti",
+            "Uygur Devleti",
+            "Avar Devleti",
+            "Hazar Devleti"
+          ],
+          "dogru": 1,
+          "aciklama": "Asya Hun Devleti, MÖ 220'de Teoman tarafından kurulmuştur.",
+          "kartIndex": 0
+        }
+      ]
+    }
+  ]
+}
