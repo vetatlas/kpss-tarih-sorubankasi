@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791407248070_23wm8q",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"Gök Tanrı\" inancıyla ilgili olarak;\nI. Tek tanrılı bir inançtır\nII. Kağana yönetme yetkisinin Tanrı tarafından verildiğine inanılır\nIII. Ölümden sonra hayata inanılır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Gök Tanrı inancı tek tanrılıdır, kut anlayışını doğurmuştur ve ölümden sonra hayata inanılır.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248070_5fi9hu",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde askeri birliklerin küçükten büyüğe doğru sıralaması aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Takım - Bölük - Tabur - Tümen",
+        "Tümen - Tabur - Bölük - Takım",
+        "Bölük - Takım - Tabur - Tümen",
+        "Tabur - Takım - Bölük - Tümen",
+        "Takım - Tabur - Bölük - Tümen"
+      ],
+      "dogru": 0,
+      "aciklama": "Takım (10), Bölük (100), Tabur (1000), Tümen (10.000) şeklindedir.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248070_cniaeh",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde 10.000 kişilik askeri birliğe verilen ad aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Tümen",
+        "Tabur",
+        "Bölük",
+        "Takım",
+        "Onbaşı"
+      ],
+      "dogru": 0,
+      "aciklama": "10.000 kişilik askeri birliğe \"tümen\" adı verilir.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248070_x0muxl",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde ordu teşkilatı ile ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Onluk sistem uygulanırdı",
+        "Ordu-millet anlayışı vardır",
+        "Herkes savaş zamanı asker sayılırdı",
+        "Ücretli askerlik ilk kez Uygurlarda görüldü",
+        "Mete Han tarafından düzenlenmiştir"
+      ],
+      "dogru": 3,
+      "aciklama": "Ücretli askerlik ilk kez Hazarlarda görülmüştür, Uygurlarda değil.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248070_fbxsb4",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde ordu ile ilgili olarak;\nI. \"Ordu-millet\" anlayışı vardır\nII. Onluk sistem uygulanmıştır\nIII. Ücretli askerlik ilk kez Göktürklerde görülmüştür\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 2,
+      "aciklama": "Ordu-millet anlayışı ve onluk sistem vardır. Ücretli askerlik ilk kez Hazarlarda görülmüştür.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248070_uz7v7c",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde kadının sosyal hayattaki yeriyle ilgili olarak aşağıdakilerden hangisi söylenemez?",
+      "secenekler": [
+        "Kurultaya katılabilirdi",
+        "Elçileri kabul edebilirdi",
+        "Savaşlara katılırdı",
+        "Miras hakkı vardı",
+        "Devlet başkanı olurdu"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletlerinde kadınlar yönetimde söz sahibi olsalar da kağanlık yapmamışlardır.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248070_0qnmx4",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde hukuk ile ilgili olarak;\nI. Töre yazısız hukuk kurallarıdır\nII. Yargu adı verilen mahkemeler bulunmaktadır\nIII. Kağan da töreye uymak zorundadır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Töre yazısız hukuk kurallarıdır, yargu mahkemeleri vardır ve kağan da töreye uymak zorundadır.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248070_nh05pk",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"yargu\" adı verilen kurumla ilgili olarak aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Vergi toplama kurumudur",
+        "Adalet işlerini yürüten mahkemedir",
+        "Ordu karargâhıdır",
+        "Din adamları meclisidir",
+        "Ticaret odasıdır"
+      ],
+      "dogru": 1,
+      "aciklama": "Yargu, ilk Türk devletlerinde adalet işlerini yürüten mahkemedir.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248070_e5iew5",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"töre\"nin oluşumunda etkili olan unsurlar arasında aşağıdakilerden hangisi yer almaz?",
+      "secenekler": [
+        "Kağanın koyduğu kurallar",
+        "Kurultay kararları",
+        "Toplumun gelenekleri",
+        "Örfler ve âdetler",
+        "Yabancı devletlerin kanunları"
+      ],
+      "dogru": 4,
+      "aciklama": "Töre, kağanın kuralları, kurultay kararları, gelenekler ve örflerden oluşur. Yabancı devletlerin kanunları töreyi etkilememiştir.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407248069_gkthjz",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"töre\" ile ilgili olarak;\nI. Yazısız hukuk kurallarıdır\nII. Kağan da töreye uymak zorundadır\nIII. Zamanla değişebilen kurallardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Töre yazısız hukuk kurallarıdır, kağan da töreye uymak zorundadır ve töre zamanla değişebilir.",
+      "gorsel": null,
+      "eklenme": 1791407248070,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791407230344_ozb2se",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
