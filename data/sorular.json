@@ -17,25 +17,6 @@
       "kaynak": "telegram-anket"
     },
     {
-      "id": "tg_1791400509220_b1carx",
-      "ders": "Tarih",
-      "kategori": "İslamiyet öncesi Türk tarihi",
-      "seviye": "Ortaöğretim",
-      "soru": "Görseldeki soruyu cevapla",
-      "secenekler": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
-      "dogru": 2,
-      "aciklama": "",
-      "gorsel": "https://api.telegram.org/file/bot8996849772:AAG1HvXApp23fdjAanD7B_lIRW8_u4NKaXI/photos/file_15.jpg",
-      "eklenme": 1791400509220,
-      "kaynak": "telegram-seri"
-    },
-    {
       "id": "tg_1791400370216_iymgc4",
       "ders": "Tarih",
       "kategori": "Karışık 🔀",
