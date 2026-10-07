@@ -1,3 +1,232 @@
 {
-  "sorular": []
+  "sorular": [
+    {
+      "id": "tg_1791401260731_3e2gp3",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Mete Han'ın Çin'i vergiye bağlaması sonucu aşağıdakilerden hangisi ortaya çıkmıştır?",
+      "secenekler": [
+        "İpek Yolu'nun kapanması",
+        "Çin'in Türklere asker göndermesi",
+        "İpek Yolu ticaretinin güvenli hale gelmesi",
+        "Çin seddinin yıkılması",
+        "Türklerin Çin'e yerleşmesi"
+      ],
+      "dogru": 2,
+      "aciklama": "Mete Han'ın Çin'i vergiye bağlaması, İpek Yolu ticaretinin güvenli hale gelmesini sağlamıştır.",
+      "gorsel": null,
+      "eklenme": 1791401260732,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_1zpvr0",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Türk tarihinde ilk kez \"ordu-millet\" anlayışını ortaya koyan ve orduyu onluk sisteme göre teşkilatlandıran hükümdar kimdir?",
+      "secenekler": [
+        "Teoman",
+        "Mete Han",
+        "Bumin Kağan",
+        "Bilge Kağan",
+        "Kutluk Kağan"
+      ],
+      "dogru": 1,
+      "aciklama": "Mete Han, orduyu onluk sisteme göre teşkilatlandırmış ve ordu-millet anlayışını ortaya koymuştur.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_9cs1ug",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Asya Hun Devleti'nin kurucusu ve başkenti sırasıyla aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Mete Han - Ötüken",
+        "Teoman - Ötüken",
+        "Bumin Kağan - Ötüken",
+        "Teoman - Karabalgasun",
+        "Mete Han - Karabalgasun"
+      ],
+      "dogru": 1,
+      "aciklama": "Asya Hun Devleti MÖ 220'de Teoman tarafından Ötüken merkezli kurulmuştur.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_ujn1za",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Tarihte bilinen ilk teşkilatlı Türk devleti aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Göktürk Devleti",
+        "Uygur Devleti",
+        "Asya Hun Devleti",
+        "Avrupa Hun Devleti",
+        "Hazar Devleti"
+      ],
+      "dogru": 2,
+      "aciklama": "Asya Hun Devleti, MÖ 220'de Teoman tarafından kurulan ilk teşkilatlı Türk devletidir.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_b1jtb1",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İskitlerle ilgili olarak;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İskitler maden işlemeciliğinde ileri gitmiş, Hayvan Üslubu'nu geliştirmiş ve geniş coğrafyaya akınlar düzenlemiştir.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_kijkqc",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İskitlerle ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Alp Er Tunga destanı İskitlere aittir",
+        "Tomris Hatun İskit hükümdarıdır",
+        "Sasani Devleti'ni yıkmışlardır",
+        "Yunan kaynaklarında \"Saka\" olarak geçerler",
+        "Bozkırın kuyumcuları olarak bilinirler"
+      ],
+      "dogru": 2,
+      "aciklama": "İskitler Sasani Devleti'ni yıkmamıştır. Sasani Devleti daha sonra kurulmuştur.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_54jabd",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Demir madeninin ilk işlendiği kültür merkezi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Anav",
+        "Afanasyevo",
+        "Andronova",
+        "Karasuk",
+        "Tagar"
+      ],
+      "dogru": 3,
+      "aciklama": "Karasuk, demir madeninin ilk işlendiği kültür merkezidir.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_d7swcg",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Orta Asya'da yaşayan en eski kültür merkezi ile Türklere ait en eski kültür merkezi sırasıyla aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Anav - Afanasyevo",
+        "Afanasyevo - Anav",
+        "Karasuk - Tagar",
+        "Andronova - Afanasyevo",
+        "Kelteminar - Anav"
+      ],
+      "dogru": 0,
+      "aciklama": "En eski kültür merkezi Anav, Türklere ait en eski kültür merkezi ise Afanasyevo'dur.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_nckepd",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Atı ilk kez evcilleştiren ve yaygın olarak kullanan kültür çevresi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Anav",
+        "Afanasyevo",
+        "Andronova",
+        "Karasuk",
+        "Kelteminar"
+      ],
+      "dogru": 2,
+      "aciklama": "Andronova kültürü, atı ilk evcilleştiren ve geniş alana yayan kültürdür.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_q6ma3e",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Aşağıdakilerden hangisi Orta Asya'nın en eski kültür merkezi olarak kabul edilmektedir?",
+      "secenekler": [
+        "Afanasyevo",
+        "Andronova",
+        "Anav",
+        "Karasuk",
+        "Tagar"
+      ],
+      "dogru": 2,
+      "aciklama": "Anav, Orta Asya'nın en eski kültür merkezidir.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_0el9ir",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "\"Türk\" kelimesi Çin kaynaklarında hangi anlamda kullanılmıştır?",
+      "secenekler": [
+        "Güç, kuvvet",
+        "Miğfer",
+        "Olgunluk çağı",
+        "Devlete bağlı halk",
+        "Türemek"
+      ],
+      "dogru": 1,
+      "aciklama": "Çin kaynaklarında \"Türk\" kelimesi \"miğfer\" anlamında kullanılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401260731_jyo48v",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Türk adının anlamıyla ilgili olarak aşağıdaki kaynaklardan hangisi \"Türk\" kelimesini \"güç, kuvvet\" anlamında kullanmıştır?",
+      "secenekler": [
+        "Kaşgarlı Mahmud - Divanü Lügati't-Türk",
+        "Ziya Gökalp - Türkçülüğün Esasları",
+        "Uygur kaynakları",
+        "İran kaynakları",
+        "Wambery - Türklerin Tarihi"
+      ],
+      "dogru": 2,
+      "aciklama": "Uygur kaynaklarında \"Türk\" kelimesi \"güç, kuvvet\" anlamında kullanılmıştır.",
+      "gorsel": null,
+      "eklenme": 1791401260731,
+      "kaynak": "telegram-bulk"
+    }
+  ]
 }
