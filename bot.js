@@ -6,8 +6,6 @@ const path = require('path');
 // ⚠️ BURAYA KENDİ BOT TOKENİNİ YAZ
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-// ⚠️ BURAYA KENDİ GITHUB TOKENİNİ YAZ
-const GITHUB_TOKEN = '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';
 const GITHUB_OWNER = 'vetatlas';
 const GITHUB_REPO = 'kpss-tarih-sorubankasi';
 const GITHUB_FILE = 'data/sorular.json';
