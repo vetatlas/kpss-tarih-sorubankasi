@@ -2,6 +2,7 @@
 const TOKEN = '8996849772:AAGT8m9pcPybVgdLtcacYr09JzYX30GxgkQ';
 const API = `https://api.telegram.org/bot${TOKEN}`;
 const fs = require('fs');
+const { execSync } = require('child_process');
 const path = require('path');
 
 const DATA_FILE = path.join(__dirname, 'data', 'sorular.json');
