@@ -1,22 +1,6 @@
 {
   "sorular": [
     {
-      "id": "tg_1791400640255_gyolvq",
-      "ders": "Vatandaşlık",
-      "kategori": "Karışık 🔀",
-      "seviye": "Ortaöğretim",
-      "soru": "[2/67] Konya şehir belediyesi-beyşehir belediyesi",
-      "secenekler": [
-        "Hiyerarşi",
-        "Vesayet"
-      ],
-      "dogru": 1,
-      "aciklama": "",
-      "gorsel": null,
-      "eklenme": 1791400640255,
-      "kaynak": "telegram-anket"
-    },
-    {
       "id": "tg_1791400370216_iymgc4",
       "ders": "Tarih",
       "kategori": "Karışık 🔀",
