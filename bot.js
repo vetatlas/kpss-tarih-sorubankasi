@@ -1,12 +1,17 @@
 // bot.js — KPSS BilgiMatik Telegram Bot
-// Otomatik GitHub push + görsel destekli
-const { execSync } = require('child_process');
+// GitHub API ile otomatik push + görsel destekli
 const fs = require('fs');
 const path = require('path');
 
-// ⚠️ BURAYA KENDİ TOKENİNİ YAZ
-const TOKEN = 'BURAYA_TOKEN_YAZ';
-const API = `https://api.telegram.org/bot${TOKEN}`;
+// ⚠️ BURAYA KENDİ BOT TOKENİNİ YAZ
+const TELEGRAM_TOKEN = '8996849772:AAGT8m9pcPybVgdLtcacYr09JzYX30GxgkQ';
+const TELEGRAM_API = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`;
+
+// ⚠️ BURAYA KENDİ GITHUB TOKENİNİ YAZ
+const GITHUB_TOKEN = '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';
+const GITHUB_OWNER = 'vetatlas';
+const GITHUB_REPO = 'kpss-tarih-sorubankasi';
+const GITHUB_FILE = 'data/sorular.json';
 
 const DATA_FILE = path.join(__dirname, 'data', 'sorular.json');
 const userStates = {};
@@ -44,7 +49,7 @@ function stepName(state) {
 
 async function tg(method, body) {
   try {
-    const res = await fetch(`${API}/${method}`, {
+    const res = await fetch(`${TELEGRAM_API}/${method}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
@@ -60,7 +65,7 @@ async function send(chatId, text, extra = {}) {
 async function getFileUrl(fileId) {
   const d = await tg('getFile', { file_id: fileId });
   if (!d || !d.ok) return null;
-  return `https://api.telegram.org/file/bot${TOKEN}/${d.result.file_path}`;
+  return `https://api.telegram.org/file/bot${TELEGRAM_TOKEN}/${d.result.file_path}`;
 }
 
 function mainMenu() {
@@ -70,16 +75,53 @@ function mainMenu() {
   ] } };
 }
 
-/* ═══════════ OTOMATİK GITHUB PUSH ═══════════ */
-function autoPush(count) {
+/* ═══════════ OTOMATİK GITHUB PUSH (API) ═══════════ */
+async function autoPushToGithub(data) {
   try {
-    execSync('git add data/sorular.json', { cwd: __dirname, stdio: 'pipe' });
-    execSync(`git commit -m "Bot: ${count}. soru eklendi"`, { cwd: __dirname, stdio: 'pipe' });
-    execSync('git push origin main', { cwd: __dirname, stdio: 'pipe' });
-    console.log(`✅ GitHub'a push edildi (${count} soru)`);
+    const content = JSON.stringify(data, null, 2);
+    const encodedContent = Buffer.from(content).toString('base64');
+
+    // Önce mevcut dosyanın sha'sını al (güncelleme için gerekli)
+    let sha = null;
+    const getRes = await fetch(
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`,
+      { headers: { 'Authorization': `token ${GITHUB_TOKEN}`, 'User-Agent': 'Koyeb-Bot' } }
+    );
+    if (getRes.ok) {
+      const fileInfo = await getRes.json();
+      sha = fileInfo.sha;
+    }
+
+    // Dosyayı oluştur veya güncelle
+    const body = {
+      message: `Bot: ${data.sorular.length}. soru eklendi`,
+      content: encodedContent,
+      branch: 'main'
+    };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${GITHUB_TOKEN}`,
+          'Content-Type': 'application/json',
+          'User-Agent': 'Koyeb-Bot'
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    if (!putRes.ok) {
+      const err = await putRes.text();
+      console.error('GitHub API hatası:', err);
+      return false;
+    }
+    console.log(`✅ GitHub'a push edildi (${data.sorular.length} soru)`);
     return true;
   } catch (e) {
-    console.log('⚠️ Push hatası:', e.message.split('\n')[0]);
+    console.error('Push hatası:', e.message);
     return false;
   }
 }
@@ -115,9 +157,9 @@ async function finish(chatId) {
   saveQuestions(data);
   delete userStates[chatId];
 
-  // 🚀 Otomatik push
-  const pushed = autoPush(data.sorular.length);
-  const pushMsg = pushed ? '✅ Siteye gönderildi' : '⚠️ Otomatik gönderilemedi (Codespaces kapalı olabilir)';
+  // 🚀 Otomatik GitHub API push
+  const pushed = await autoPushToGithub(data);
+  const pushMsg = pushed ? '✅ Siteye gönderildi' : '⚠️ Otomatik gönderilemedi (GitHub tokenini kontrol et)';
 
   send(chatId,
     `🎉 *Soru kaydedildi!*\n\n` +
@@ -154,7 +196,6 @@ async function sendStats(chatId) {
 
 /* ═══════════ UPDATE HANDLER ═══════════ */
 async function handleUpdate(update) {
-  // ─── CALLBACK (buton) ───
   if (update.callback_query) {
     const q = update.callback_query;
     const chatId = q.message.chat.id;
@@ -188,7 +229,6 @@ async function handleUpdate(update) {
     if (data === 'gorsel_hayir') return finish(chatId);
   }
 
-  // ─── METİN ───
   if (update.message && update.message.text) {
     const msg = update.message;
     const chatId = msg.chat.id;
@@ -263,7 +303,6 @@ async function handleUpdate(update) {
     }
   }
 
-  // ─── FOTOĞRAF ───
   if (update.message && update.message.photo) {
     const chatId = update.message.chat.id;
     const state = userStates[chatId];
@@ -290,7 +329,7 @@ async function handleUpdate(update) {
 /* ═══════════ LONG POLLING ═══════════ */
 let offset = 0;
 async function poll() {
-  console.log('🤖 Bot çalışıyor... Telegram\'dan /soru yaz');
+  console.log('🤖 Bot çalışıyor...');
   while (true) {
     try {
       const res = await tg('getUpdates', { offset, timeout: 30 });
@@ -307,8 +346,12 @@ async function poll() {
   }
 }
 
-if (!TOKEN || TOKEN === 'BURAYA_TOKEN_YAZ') {
-  console.log('❌ Önce bot.js içindeki TOKEN kısmına bot tokenini yaz!');
+if (!TELEGRAM_TOKEN || TELEGRAM_TOKEN === 'BURAYA_TELEGRAM_TOKEN') {
+  console.log('❌ Telegram tokenini yaz!');
+  process.exit(1);
+}
+if (!GITHUB_TOKEN || GITHUB_TOKEN === 'BURAYA_GITHUB_TOKEN') {
+  console.log('❌ GitHub tokenini yaz!');
   process.exit(1);
 }
 
