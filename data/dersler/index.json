@@ -1,0 +1,20 @@
+{
+  "paketler": [
+    {
+      "id": "islamiyet-oncesi",
+      "baslik": "İslamiyet Öncesi Türk Tarihi",
+      "ders": "Tarih",
+      "ikon": "📜",
+      "ozet": "İslamiyet öncesi Türk devletleri ve kültürü",
+      "dosya": "islamiyet-oncesi.json"
+    },
+    {
+      "id": "i-slamiyet-sonrasi-i-lk-turk-devletleri-l",
+      "baslik": "İslamiyet Sonrası İlk Türk Devletleri l",
+      "ders": "Tarih",
+      "ikon": "📖",
+      "ozet": "",
+      "dosya": "i-slamiyet-sonrasi-i-lk-turk-devletleri-l.json"
+    }
+  ]
+}
