@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791405532080_wu80k6",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde kullanılan \"kımız\" ile ilgili olarak aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Kısrak sütünden yapılan içecektir",
+        "İnek sütünden yapılan peynirdir",
+        "Koyun etinden yapılan yemektir",
+        "Buğdaydan yapılan içkidir",
+        "Üzümden yapılan şaraptır"
+      ],
+      "dogru": 0,
+      "aciklama": "Kımız, kısrak sütünün mayalanmasıyla elde edilen geleneksel bir içecektir.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_xlal9g",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde görülen \"kımız\", \"kurut\" ve \"yoğurt\" gibi ürünlerin ortaya çıkmasında etkili olan temel ekonomik faaliyet aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Tarım",
+        "Hayvancılık",
+        "Ticaret",
+        "Madencilik",
+        "Balıkçılık"
+      ],
+      "dogru": 1,
+      "aciklama": "Kımız, kurut ve yoğurt hayvancılık faaliyetlerinin ürünleridir.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_cukp3s",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"balbal\" adı verilen yapıların amacı aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Tapınak olarak kullanmak",
+        "Savaşta öldürülen düşmanları simgeleyen heykel dikmek",
+        "Yol işareti olarak kullanmak",
+        "Su kuyusu açmak",
+        "Sınır belirlemek"
+      ],
+      "dogru": 1,
+      "aciklama": "Balbal, ölen kişinin mezarına savaştığı düşmanları simgeleyen heykelciklerdir.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_pm50g1",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde kadın-erkek ilişkileriyle ilgili olarak;\nI. Tek eşlilik esastır\nII. Kadın toplumda söz sahibidir\nIII. Kadının miras hakkı vardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletlerinde tek eşlilik esastır, kadın toplumda söz sahibidir ve miras hakkı vardır.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_c4ydix",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde ölüm sonrası yapılan törene verilen ad aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Şölen",
+        "Sığır",
+        "Yuğ",
+        "Toy",
+        "Kurultay"
+      ],
+      "dogru": 2,
+      "aciklama": "Yuğ, ölüm sonrası yapılan yas törenidir.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_9kxgdg",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"şölen\", \"yuğ\" ve \"sığır\" gibi törenlerin ortak özelliği aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Sadece dini törenler olmaları",
+        "Toplumsal birlik ve dayanışmayı güçlendirmeleri",
+        "Sadece savaş öncesi yapılmaları",
+        "Sadece kağan ailesine özel olmaları",
+        "Sadece ekonomik amaçlı düzenlenmeleri"
+      ],
+      "dogru": 1,
+      "aciklama": "Bu törenler toplumsal birlik ve dayanışmayı güçlendiren etkinliklerdir.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_0x2vij",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Aşağıdaki destan-devlet eşleştirmelerinden hangisi yanlıştır?",
+      "secenekler": [
+        "Alp Er Tunga - İskitler",
+        "Oğuz Kağan - Asya Hunları",
+        "Ergenekon - Kök Türkler",
+        "Türeyiş - Uygurlar",
+        "Manas - Hazarlar"
+      ],
+      "dogru": 4,
+      "aciklama": "Manas Destanı Kırgızlara aittir, Hazarlara değil.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_na09tm",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde sözlü edebiyat ürünleri ile ilgili olarak;\nI. Sav - Atasözü\nII. Sağu - Ağıt\nIII. Koşuk - Şiir\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Sav atasözü, Sağu ağıt, Koşuk şiir anlamına gelir.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_flkk8a",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Türklerin kullandığı alfabeler arasında aşağıdakilerden hangisi yer almaz?",
+      "secenekler": [
+        "Kök Türk (Orhon)",
+        "Uygur",
+        "Soğd",
+        "Latin",
+        "Sanskrit"
+      ],
+      "dogru": 4,
+      "aciklama": "Türkler Kök Türk, Uygur, Soğd, Fars, Arap, Kiril ve Latin alfabelerini kullanmışlardır; Sanskrit alfabesini kullanmamışlardır.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405532080_moabr7",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde yazı ile ilgili olarak;\nI. Kök Türk alfabesi 38 harflidir\nII. Uygur alfabesi 18 harflidir\nIII. Kök Türk alfabesi Türklerin ilk milli alfabesidir\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Kök Türk alfabesi 38 harfli ilk milli alfabedir, Uygur alfabesi 18 harflidir.",
+      "gorsel": null,
+      "eklenme": 1791405532080,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791405520540_3yrpo5",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
