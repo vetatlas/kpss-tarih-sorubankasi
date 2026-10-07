@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791405520540_3yrpo5",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde bilim, sanat ve edebiyat ile ilgili olarak;\nI. Uygurlar minyatür sanatında gelişmiştir\nII. Türkler \"Hayvan Üslubu\" denilen bir sanat tarzı geliştirmiştir\nIII. Orhun Yazıtları yazılı edebiyatın ilk örneğidir\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Uygurlar minyatürde gelişmiş, Türkler Hayvan Üslubu'nu geliştirmiş ve Orhun Yazıtları yazılı edebiyatın ilk örneğidir.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_evkqbk",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurlarla ilgili olarak;\nI. Matbaayı geliştirmişlerdir\nII. Hareketli harfleri kullanmışlardır\nIII. Yerleşik hayata geçmişlerdir\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Uygurlar matbaayı geliştirmiş, hareketli harfleri kullanmış ve yerleşik hayata geçmiştir.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_knlqtk",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurların \"Karabar\" adı verilen ticaret vergisi almaları aşağıdakilerden hangisinin göstergesidir?",
+      "secenekler": [
+        "Savaşçı özelliklerinin",
+        "Ekonomik faaliyetlerinin gelişmiş olduğunun",
+        "Göçebe yaşamı sürdürdüklerinin",
+        "Dini inançlarının değişmediğinin",
+        "Askeri gücünün zayıfladığının"
+      ],
+      "dogru": 1,
+      "aciklama": "Karabar, Uygurların ticaretten vergi alacak kadar ekonomik faaliyetlerinin geliştiğini gösterir.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_qoh74y",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde ticaretle ilgili olarak;\nI. İpek Yolu ticareti yapılmıştır\nII. Kürk Yolu ticareti yapılmıştır\nIII. Uygurlar Kırgızlar ile ticaret yapmıştır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletleri hem İpek Yolu hem Kürk Yolu ticaretini yapmış, farklı topluluklarla ticaret yapmışlardır.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_fs37gm",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde kullanılan para türleri ile ilgili olarak;\nI. Yarmak - Madeni para\nII. Kamdu - Bez para\nIII. Satır - Gümüş para\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Yarmak madeni para, Kamdu bez para, Satır gümüş paradır.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_65umri",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde İpek Yolu'nun kontrolü için mücadele edilmesinin temel sebebi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Askeri üstünlük kurmak",
+        "Kültürel etkileşim",
+        "Ekonomik gelir elde etmek",
+        "Din yaymak",
+        "Nüfusu artırmak"
+      ],
+      "dogru": 2,
+      "aciklama": "İpek Yolu'nun kontrolü, ekonomik gelir elde etmek amacıyla önemliydi.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_0dyfa6",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde ekonominin temelini oluşturan iki unsur aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Tarım - Sanayi",
+        "Hayvancılık - Ticaret",
+        "Madencilik - Denizcilik",
+        "Sanayi - Ticaret",
+        "Tarım - Denizcilik"
+      ],
+      "dogru": 1,
+      "aciklama": "İlk Türk devletlerinde ekonominin temelini hayvancılık ve ticaret oluşturur.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_aule1b",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurların yerleşik hayata geçmesinde etkili olan temel ekonomik faaliyet aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Hayvancılık",
+        "Tarım",
+        "Madencilik",
+        "Denizcilik",
+        "Yağmacılık"
+      ],
+      "dogru": 1,
+      "aciklama": "Uygurlar yerleşik hayata geçtikten sonra tarımla uğraşmışlardır.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_5dpzxv",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"Şamanizm\" ile ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Kam adı verilen din adamları vardır",
+        "Doğaüstü güçlere inanılır",
+        "Türkler arasında yaygındır",
+        "Tek tanrılı bir inançtır",
+        "Şamanlar hastaları tedavi ederdi"
+      ],
+      "dogru": 3,
+      "aciklama": "Şamanizm çok tanrılı/doğaüstü güçlere dayalı bir inançtır; tek tanrılı değildir.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791405520540_2s0cbj",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde görülen inanç sistemleri ile ilgili olarak;\nI. Gök Tanrı inancı yaygındır\nII. Şamanizm inancı görülmüştür\nIII. Budizm'i kabul eden Türk toplulukları olmuştur\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletlerinde Gök Tanrı inancı, Şamanizm ve Budizm gibi farklı inançlar görülmüştür.",
+      "gorsel": null,
+      "eklenme": 1791405520540,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791405509460_wunam3",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
