@@ -13,6 +13,19 @@ const GITHUB_FILE = 'data/sorular.json';
 
 const DATA_FILE = path.join(__dirname, 'data', 'sorular.json');
 const userStates = {};
+// 💾 Kayıtlı kategorileri sakla (cihazda)
+const CACHE_FILE = path.join(__dirname, 'data', 'bot-cache.json');
+function loadCache() {
+  try {
+    if (!fs.existsSync(CACHE_FILE)) return { kategoriler: {}, seviyeler: {} };
+    return JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
+  } catch (e) { return { kategoriler: {}, seviyeler: {} }; }
+}
+function saveCache(c) {
+  const dir = path.dirname(CACHE_FILE);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(CACHE_FILE, JSON.stringify(c, null, 2));
+}
 
 const DERSLER = ['Tarih', 'Coğrafya', 'Vatandaşlık', 'Türkçe', 'Matematik', 'Güncel'];
 const SEVIYELER = ['Ortaöğretim', 'Önlisans', 'Lisans'];
