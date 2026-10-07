@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791407269203_b9k8rl",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurlarla ilgili olarak;\nI. Matbaayı geliştirmişlerdir\nII. Hareketli harfleri kullanmışlardır\nIII. Yerleşik hayata geçmişlerdir\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Uygurlar matbaayı geliştirmiş, hareketli harfleri kullanmış ve yerleşik hayata geçmiştir.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_a4vw9h",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurların \"Karabar\" adı verilen ticaret vergisi almaları aşağıdakilerden hangisinin göstergesidir?",
+      "secenekler": [
+        "Savaşçı özelliklerinin",
+        "Ekonomik faaliyetlerinin gelişmiş olduğunun",
+        "Göçebe yaşamı sürdürdüklerinin",
+        "Dini inançlarının değişmediğinin",
+        "Askeri gücünün zayıfladığının"
+      ],
+      "dogru": 1,
+      "aciklama": "Karabar, Uygurların ticaretten vergi alacak kadar ekonomik faaliyetlerinin geliştiğini gösterir.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_mp1bnl",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde ticaretle ilgili olarak;\nI. İpek Yolu ticareti yapılmıştır\nII. Kürk Yolu ticareti yapılmıştır\nIII. Uygurlar Kırgızlar ile ticaret yapmıştır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletleri hem İpek Yolu hem Kürk Yolu ticaretini yapmış, farklı topluluklarla ticaret yapmışlardır.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_l5keus",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde kullanılan para türleri ile ilgili olarak;\nI. Yarmak - Madeni para\nII. Kamdu - Bez para\nIII. Satır - Gümüş para\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Yarmak madeni para, Kamdu bez para, Satır gümüş paradır.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_xp4mxx",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde İpek Yolu'nun kontrolü için mücadele edilmesinin temel sebebi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Askeri üstünlük kurmak",
+        "Kültürel etkileşim",
+        "Ekonomik gelir elde etmek",
+        "Din yaymak",
+        "Nüfusu artırmak"
+      ],
+      "dogru": 2,
+      "aciklama": "İpek Yolu'nun kontrolü, ekonomik gelir elde etmek amacıyla önemliydi.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_7vm4p2",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde ekonominin temelini oluşturan iki unsur aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Tarım - Sanayi",
+        "Hayvancılık - Ticaret",
+        "Madencilik - Denizcilik",
+        "Sanayi - Ticaret",
+        "Tarım - Denizcilik"
+      ],
+      "dogru": 1,
+      "aciklama": "İlk Türk devletlerinde ekonominin temelini hayvancılık ve ticaret oluşturur.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_peykie",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Uygurların yerleşik hayata geçmesinde etkili olan temel ekonomik faaliyet aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Hayvancılık",
+        "Tarım",
+        "Madencilik",
+        "Denizcilik",
+        "Yağmacılık"
+      ],
+      "dogru": 1,
+      "aciklama": "Uygurlar yerleşik hayata geçtikten sonra tarımla uğraşmışlardır.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_5n18ch",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"Şamanizm\" ile ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Kam adı verilen din adamları vardır",
+        "Doğaüstü güçlere inanılır",
+        "Türkler arasında yaygındır",
+        "Tek tanrılı bir inançtır",
+        "Şamanlar hastaları tedavi ederdi"
+      ],
+      "dogru": 3,
+      "aciklama": "Şamanizm çok tanrılı/doğaüstü güçlere dayalı bir inançtır; tek tanrılı değildir.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_x7ffs5",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde görülen inanç sistemleri ile ilgili olarak;\nI. Gök Tanrı inancı yaygındır\nII. Şamanizm inancı görülmüştür\nIII. Budizm'i kabul eden Türk toplulukları olmuştur\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletlerinde Gök Tanrı inancı, Şamanizm ve Budizm gibi farklı inançlar görülmüştür.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407269203_29ny0k",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde ölülerin eşyalarıyla birlikte gömülmesinin temel sebebi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Ekonomik gelenek",
+        "Ölümden sonraki hayata inanç",
+        "Savaş geleneği",
+        "Sosyal statü göstergesi",
+        "Aile bağlılığı"
+      ],
+      "dogru": 1,
+      "aciklama": "Ölülerin eşyalarıyla gömülmesi, ölümden sonraki hayata inancın bir göstergesidir.",
+      "gorsel": null,
+      "eklenme": 1791407269203,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791407248070_23wm8q",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
