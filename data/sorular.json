@@ -1,6 +1,177 @@
 {
   "sorular": [
     {
+      "id": "tg_1791401890635_ochlhz",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"töre\" ile ilgili olarak aşağıdakilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Yazısız hukuk kurallarıdır",
+        "Kağan tarafından konulur",
+        "Zamanla değişebilir",
+        "Toplumun ortak kurallarıdır",
+        "Sadece savaş zamanı uygulanır"
+      ],
+      "dogru": 4,
+      "aciklama": "Töre, sadece savaş zamanı değil her zaman uygulanan yazısız hukuk kurallarıdır.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401890635_5uuw97",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde toplumun sosyal yapısı ile ilgili aşağıdaki sıralamalardan hangisi doğrudur?",
+      "secenekler": [
+        "Aile - Boy - Urug - Budun - İl",
+        "Aile - Urug - Boy - Budun - İl",
+        "Aile - Budun - Boy - Urug - İl",
+        "Urug - Aile - Boy - Budun - İl",
+        "Boy - Aile - Urug - Budun - İl"
+      ],
+      "dogru": 1,
+      "aciklama": "Sosyal yapı sıralaması: Aile → Urug → Boy → Budun → İl.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401890635_5w3w0s",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde sosyal yapı ile ilgili olarak;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletlerinde sosyal yapı aile → urug → boy → budun → il şeklindedir.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401890635_xdid1r",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"ikili teşkilat\" sistemi ile ilgili olarak;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 2,
+      "aciklama": "İkili teşkilatta ülke doğu ve batı olarak ikiye ayrılır, doğu kanadı daha üstündür. Uygurlar da bu sistemi kullanmıştır.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401890635_5ihqck",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"ikili teşkilat\" uygulamasının sonuçları arasında aşağıdakilerden hangisi yer almaz?",
+      "secenekler": [
+        "Ülkenin hanedanın ortak malı sayılması",
+        "Yönetimin daha kolay hale gelmesi",
+        "Taht kavgalarının yaşanması",
+        "Devletin kısa sürede parçalanması",
+        "Merkezi otoritenin güçlenmesi"
+      ],
+      "dogru": 4,
+      "aciklama": "İkili teşkilat, merkezi otoriteyi zayıflatmış ve devletin parçalanmasına yol açmıştır.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401890635_41y3fa",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"tigin\" kavramı ile ilgili olarak aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Hükümdarın kız çocuklarına verilen unvandır",
+        "Hükümdarın erkek çocuklarına verilen unvandır",
+        "Ordu komutanına verilen unvandır",
+        "Vergi toplayıcısına verilen unvandır",
+        "Din adamlarına verilen unvandır"
+      ],
+      "dogru": 1,
+      "aciklama": "Tigin, ilk Türk devletlerinde kağanın erkek çocuklarına verilen unvandır.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401890635_782d4r",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Aşağıdakilerden hangisi ilk Türk devletlerinde hükümdar eşlerinin yönetimde etkili olduğuna kanıt olarak gösterilemez?",
+      "secenekler": [
+        "Kurultaya katılanlar arasında yer alması",
+        "Farklı zamanlarda elçileri kabul etmesi",
+        "Hakan sefere gittiğinde naip olarak görev alması",
+        "Hakandan ayrı saraylarının da bulunması",
+        "Devlet yönetiminde ikili yapının benimsenmesi"
+      ],
+      "dogru": 4,
+      "aciklama": "İkili yapının benimsenmesi, doğrudan hükümdar eşlerinin yönetimde etkili olduğunun kanıtı değildir.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401890635_d3uz5x",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"hatun\" unvanıyla ilgili aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Sadece sarayda yaşardı",
+        "Devlet yönetiminde söz sahibiydi",
+        "Yönetimden tamamen uzaktı",
+        "Elçileri kabul edemezdi",
+        "Sadece dini törenleri yönetirdi"
+      ],
+      "dogru": 1,
+      "aciklama": "Hatun, kağanın eşi olarak devlet yönetiminde söz sahibiydi, elçileri kabul edebilir ve kağan sefere çıktığında naip olarak görev yapabilirdi.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791401890635_i77dez",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde devletin yönetiminde etkili olan \"kurultay\" (toy) ile ilgili olarak;",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 2,
+      "aciklama": "Kurultay devlet işlerinin görüşüldüğü danışma meclisidir ve kağanın olmadığı durumlarda ayuki başkanlık eder. Kurultay sadece savaş kararları almaz.",
+      "gorsel": null,
+      "eklenme": 1791401890635,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791401822008_ymxz2h",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
