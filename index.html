@@ -654,8 +654,8 @@ const CONFIG = {
 function buildBases(){
   const u = CONFIG.githubUser, r = CONFIG.githubRepo, b = CONFIG.branch, d = CONFIG.dataFolder;
   return [
-    `https://cdn.jsdelivr.net/gh/${u}/${r}@${b}/${d}/`,
-    `https://raw.githubusercontent.com/${u}/${r}/${b}/${d}/`
+    `https://raw.githubusercontent.com/${u}/${r}/${b}/${d}/`,
+    `https://cdn.jsdelivr.net/gh/${u}/${r}@${b}/${d}/`
   ];
 }
 
