@@ -5,6 +5,7 @@ const path = require('path');
 
 // ⚠️ BURAYA KENDİ BOT TOKENİNİ YAZ
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
+const TELEGRAM_API = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_OWNER = 'vetatlas';
 const GITHUB_REPO = 'kpss-tarih-sorubankasi';
