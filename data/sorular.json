@@ -1,6 +1,44 @@
 {
   "sorular": [
     {
+      "id": "tg_1791404983966_y5ilgh",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Kavimler Göçü sonucunda Avrupa'da kurulan ve en ünlü hükümdarı Attila olan Türk devleti aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Asya Hun Devleti",
+        "Avrupa Hun Devleti",
+        "Göktürk Devleti",
+        "Hazar Devleti",
+        "Uygur Devleti"
+      ],
+      "dogru": 1,
+      "aciklama": "Kavimler Göçü sonrasında Avrupa'da Avrupa Hun Devleti kurulmuş, en ünlü hükümdarı Attila olmuştur.",
+      "gorsel": null,
+      "eklenme": 1791404983966,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791404983966_y48mmk",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Kavimler Göçü'nün sonuçları arasında aşağıdakilerden hangisi yer almaz?",
+      "secenekler": [
+        "Roma İmparatorluğu ikiye ayrıldı",
+        "Avrupa Hun Devleti kuruldu",
+        "Feodalite (derebeylik) ortaya çıktı",
+        "İlk Çağ sona erdi, Orta Çağ başladı",
+        "İslamiyet Avrupa'da yayıldı"
+      ],
+      "dogru": 4,
+      "aciklama": "İslamiyet, Kavimler Göçü'nden sonra 7. yüzyılda Arap Yarımadası'nda doğmuştur.",
+      "gorsel": null,
+      "eklenme": 1791404983966,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791404947325_6w4vm8",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
