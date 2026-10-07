@@ -1,6 +1,196 @@
 {
   "sorular": [
     {
+      "id": "tg_1791407163664_5o6uwb",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde yönetimle ilgili olarak;\nI. Devlet \"il\" veya \"el\" olarak adlandırılmıştır\nII. Yönetme yetkisi kağana Tanrı tarafından verilmiştir\nIII. Kağanın yanında \"ayuki\" adı verilen bir hükümet bulunmaktadır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "İlk Türk devletlerinde devlet \"il/el\" olarak adlandırılır, yönetme yetkisi kağana Tanrı tarafından verilir ve kağanın yanında \"ayuki\" adı verilen hükümet bulunur.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_saerms",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Oğuzlarla ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Oğuz Kağan Destanı'na sahiptirler",
+        "İslamiyet'i kabul eden ilk Türk topluluğudur",
+        "Selçuklu Devleti'nin kuruluşunda etkili olmuşlardır",
+        "24 boydan oluşmuşlardır",
+        "Boy yapısına sahiptirler"
+      ],
+      "dogru": 1,
+      "aciklama": "Oğuzlar İslamiyet'i kabul eden ilk Türk topluluğu değildir; Karahanlılar ilk Müslüman Türk devletidir.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_rhd66p",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Peçenekler ile ilgili olarak;\nI. Göçebe yaşamışlardır\nII. Devlet kuramamışlardır\nIII. Bizans ve Ruslarla mücadele etmişlerdir\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Peçenekler göçebe yaşamış, devlet kuramamış ve Bizans ile Ruslarla mücadele etmiştir.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_y20wkj",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Peçeneklerle ilgili aşağıdaki bilgilerden hangisi doğrudur?",
+      "secenekler": [
+        "Göçebe yaşamı benimsemişlerdir",
+        "İslamiyet'i kabul etmişlerdir",
+        "Yerleşik hayata geçen ilk Türk topluluğudur",
+        "Mani dinini benimsemişlerdir",
+        "Orhun Yazıtları'nı bırakmışlardır"
+      ],
+      "dogru": 0,
+      "aciklama": "Peçenekler göçebe yaşamı benimsemiş, devlet kuramamış bir Türk topluluğudur.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_79j3gs",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Tuna Bulgarları ile ilgili olarak;\nI. Hristiyanlığı kabul etmişlerdir\nII. Slavlaşmışlardır\nIII. Türk kültürünü günümüze taşımışlardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 2,
+      "aciklama": "Tuna Bulgarları Hristiyanlığı kabul etmiş ve zamanla Slavlaşmıştır. Türk kültürünü günümüze taşıyamamışlardır.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_j37ixq",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Bulgarlarla ilgili olarak;\nI. Volga Bulgarları İslamiyet'i kabul etmiştir\nII. Tuna Bulgarları Hristiyanlığı kabul etmiştir\nIII. Kubrat Han tarafından kurulmuşlardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Volga Bulgarları İslamiyet'i, Tuna Bulgarları Hristiyanlığı kabul etmiş ve Kubrat Han tarafından kurulmuştur.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_bmpnqo",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Macarlarla ilgili aşağıdaki bilgilerden hangisi doğrudur?",
+      "secenekler": [
+        "Attila soyundan geldiklerini kabul ederler",
+        "Göktürkler tarafından kurulmuştur",
+        "Bizans'ın resmi dini olan Ortodoksluğu kabul etmişlerdir",
+        "Ural-Altay dil ailesine mensup değildirler",
+        "Kavimler Göçü'ne katılmamışlardır"
+      ],
+      "dogru": 0,
+      "aciklama": "Macarlar, Attila soyundan geldiklerini kabul etmektedir.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_slvbet",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avarlarla ilgili olarak;\nI. İstanbul'u kuşatmışlardır\nII. Slavlar ve Germenler üzerinde etkili olmuşlardır\nIII. Bizans'ın \"Türk\" kavramını kullanmasına neden olmuşlardır\nyargılarından hangileri doğrudur?",
+      "secenekler": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "dogru": 4,
+      "aciklama": "Avarlar İstanbul'u kuşatmış, Slav ve Germenleri etkilemiş ve Bizans'ın Türk kavramını kullanmasına neden olmuştur.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_vsouy4",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avarların İstanbul'u kuşatmasının temel amacı aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Bizans'ı ortadan kaldırmak",
+        "Ticaret yollarını kontrol etmek",
+        "Hristiyanlığı yaymak",
+        "Perslerle ittifak yapmak",
+        "Rusları durdurmak"
+      ],
+      "dogru": 0,
+      "aciklama": "Avarlar, Bizans'ı ortadan kaldırmak amacıyla İstanbul'u kuşatmıştır.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
+      "id": "tg_1791407163664_75t0tn",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "Avarlarla ilgili aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "İstanbul'u kuşatmışlardır",
+        "Slavları ve Germenleri etkilemişlerdir",
+        "Bayan Han döneminde güçlenmişlerdir",
+        "Hazarlar tarafından yıkılmışlardır",
+        "Hristiyanlığı kabul etmişlerdir"
+      ],
+      "dogru": 4,
+      "aciklama": "Avarlar Hristiyanlığı kabul etmemiştir.",
+      "gorsel": null,
+      "eklenme": 1791407163664,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791407149142_ams8sm",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
