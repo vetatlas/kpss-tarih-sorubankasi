@@ -346,13 +346,22 @@ async function poll() {
   }
 }
 
-if (!TELEGRAM_TOKEN || TELEGRAM_TOKEN === 'BURAYA_TELEGRAM_TOKEN') {
+if (!TELEGRAM_TOKEN || TELEGRAM_TOKEN === '8996849772:AAGT8m9pcPybVgdLtcacYr09JzYX30GxgkQ') {
   console.log('❌ Telegram tokenini yaz!');
   process.exit(1);
 }
-if (!GITHUB_TOKEN || GITHUB_TOKEN === 'BURAYA_GITHUB_TOKEN') {
+if (!GITHUB_TOKEN || GITHUB_TOKEN === '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) {
   console.log('❌ GitHub tokenini yaz!');
   process.exit(1);
 }
 
 poll();
+// ─── Render için sağlık kontrolü (HTTP server) ───
+const http = require('http');
+const PORT = process.env.PORT || 3000;
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('KPSS BilgiMatik Bot aktif');
+}).listen(PORT, () => {
+  console.log(`🌐 HTTP server ${PORT} portunda dinliyor`);
+});
