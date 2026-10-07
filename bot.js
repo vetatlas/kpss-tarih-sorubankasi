@@ -218,9 +218,33 @@ async function handleUpdate(update) {
     if (data === 'stats') return sendStats(chatId);
 
     if (data.startsWith('ders_')) {
-      userStates[chatId].ders = data.replace('ders_', '');
+      const ders = data.replace('ders_', '');
+      userStates[chatId].ders = ders;
       userStates[chatId].step = 'kategori';
-      return send(chatId, `✅ Ders: *${userStates[chatId].ders}*\n\n📂 Kategori yaz:`);
+
+      // Kayıtlı kategorileri buton yap
+      const cache = loadCache();
+      const cats = cache.kategoriler[ders] || [];
+      const buttons = cats.slice(0, 6).map(c => [{ text: '📂 ' + c, callback_data: 'kat_' + c }]);
+      buttons.push([{ text: '➕ Yeni kategori yaz', callback_data: 'kat_yeni' }]);
+
+      return send(chatId, `✅ Ders: *${ders}*\n\n📂 Kategori seç veya yeni yaz:`, {
+        reply_markup: { inline_keyboard: buttons }
+      });
+    }
+
+    if (data === 'kat_yeni') {
+      userStates[chatId].step = 'kategori';
+      return send(chatId, `📂 Yeni kategori adını yaz:`);
+    }
+
+    if (data.startsWith('kat_')) {
+      const kat = data.replace('kat_', '');
+      userStates[chatId].kategori = kat;
+      userStates[chatId].step = 'seviye';
+      return send(chatId, `✅ Kategori: *${kat}*\n\n🎓 Seviye seç:`, {
+        reply_markup: { inline_keyboard: SEVIYELER.map(s => [{ text: s, callback_data: 'seviye_' + s }]) }
+      });
     }
     if (data.startsWith('seviye_')) {
       userStates[chatId].seviye = data.replace('seviye_', '');
