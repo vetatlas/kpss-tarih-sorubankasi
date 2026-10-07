@@ -1,6 +1,25 @@
 {
   "sorular": [
     {
+      "id": "tg_1791407230344_ozb2se",
+      "ders": "Tarih",
+      "kategori": "İslamiyet Öncesi",
+      "seviye": "Lisans",
+      "soru": "İlk Türk devletlerinde \"töre\" ile ilgili olarak aşağıdakilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Yazısız hukuk kurallarıdır",
+        "Kağan tarafından konulur",
+        "Zamanla değişebilir",
+        "Toplumun ortak kurallarıdır",
+        "Sadece savaş zamanı uygulanır"
+      ],
+      "dogru": 4,
+      "aciklama": "Töre, sadece savaş zamanı değil her zaman uygulanan yazısız hukuk kurallarıdır.",
+      "gorsel": null,
+      "eklenme": 1791407230344,
+      "kaynak": "telegram-bulk"
+    },
+    {
       "id": "tg_1791407189458_2jvehe",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
