@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yönetim Paneli</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e1a;--bg-2:#0f1524;--panel:#141b2e;--panel-2:#1a2338;
+  --gold:#e6c455;--gold-2:#c9a227;
+  --line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.15);
+  --text:#eef2f8;--text-2:#b9c6da;--muted:#6b7b93;
+  --green:#34d399;--green-bg:rgba(52,211,153,.12);
+  --red:#f87171;--red-bg:rgba(248,113,113,.12);
+  --yellow:#fbbf24;--yellow-bg:rgba(251,191,36,.12);
+  --blue:#60a5fa;--blue-bg:rgba(96,165,250,.12);
+  --purple:#a78bfa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);
+  line-height:1.5;font-size:14px;min-height:100vh}
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px;
+  background:radial-gradient(circle at 50% 30%,rgba(201,162,39,.15),transparent 60%)}
+.login-card{background:var(--panel);border:1px solid var(--line-2);border-radius:20px;
+  padding:36px 30px;max-width:400px;width:100%;text-align:center;
+  box-shadow:0 40px 100px -30px rgba(0,0,0,.9)}
+.login-card .lc-icon{width:70px;height:70px;border-radius:18px;margin:0 auto 20px;
+  background:linear-gradient(145deg,var(--gold),var(--gold-2));display:grid;place-items:center;
+  font-size:32px;box-shadow:0 12px 40px -12px rgba(201,162,39,.6)}
+.login-card h1{font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:-.3px}
+.login-card p{color:var(--muted);font-size:13px;margin-bottom:24px}
+.login-card input{width:100%;padding:14px 16px;background:rgba(0,0,0,.35);
+  border:1px solid var(--line-2);border-radius:12px;color:#fff;font-family:inherit;
+  font-size:15px;text-align:center;letter-spacing:2px;outline:none;margin-bottom:14px}
+.login-card input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+.login-card button{width:100%;padding:14px;background:linear-gradient(145deg,var(--gold),var(--gold-2));
+  color:#141005;border:none;border-radius:12px;font-family:inherit;font-size:14px;font-weight:800;
+  cursor:pointer;letter-spacing:.3px;transition:transform .2s}
+.login-card button:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(201,162,39,.6)}
+.login-hint{margin-top:16px;font-size:11.5px;color:var(--muted);line-height:1.6}
+.app{display:none;min-height:100vh;flex-direction:column}
+.app.show{display:flex}
+.top-bar{background:var(--panel);border-bottom:1px solid var(--line);
+  padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  position:sticky;top:0;z-index:50}
+.top-brand{display:flex;align-items:center;gap:10px}
+.top-brand .logo{width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(145deg,var(--gold),var(--gold-2));display:grid;place-items:center;
+  font-size:16px;font-weight:800;color:#141005}
+.top-brand h1{font-size:15px;font-weight:800;color:#fff;line-height:1.1}
+.top-brand span{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{padding:9px 16px;border-radius:10px;border:1px solid var(--line-2);
+  background:rgba(255,255,255,.04);color:var(--text);font-family:inherit;font-size:12.5px;
+  font-weight:700;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;
+  letter-spacing:.1px;text-decoration:none}
+.btn:hover{background:rgba(255,255,255,.08);transform:translateY(-1px);text-decoration:none}
+.btn-primary{background:linear-gradient(145deg,var(--gold),var(--gold-2));color:#141005;border-color:transparent}
+.btn-primary:hover{box-shadow:0 8px 20px -8px rgba(201,162,39,.6)}
+.btn-danger{background:var(--red-bg);border-color:rgba(248,113,113,.3);color:var(--red)}
+.btn-danger:hover{background:rgba(248,113,113,.2)}
+.btn-green{background:linear-gradient(145deg,#4ade80,#22c55e);color:#052e1a;border-color:transparent}
+.btn-blue{background:var(--blue-bg);border-color:rgba(96,165,250,.3);color:var(--blue)}
+.btn-blue:hover{background:rgba(96,165,250,.2)}
+.btn-site{background:linear-gradient(145deg,rgba(96,165,250,.15),rgba(96,165,250,.05));
+  border-color:rgba(96,165,250,.35);color:var(--blue)}
+.btn-site:hover{background:linear-gradient(145deg,rgba(96,165,250,.25),rgba(96,165,250,.1));
+  border-color:rgba(96,165,250,.55);color:#93c5fd}
+.btn-sm{padding:6px 12px;font-size:11.5px;border-radius:8px}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.tabs{background:var(--panel);border-bottom:1px solid var(--line);
+  padding:0 20px;display:flex;gap:4px;overflow-x:auto;position:sticky;top:60px;z-index:49}
+.tab{padding:12px 18px;background:transparent;border:none;color:var(--muted);cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:700;position:relative;white-space:nowrap;transition:color .2s}
+.tab:hover{color:var(--text-2)}
+.tab.active{color:var(--gold)}
+.tab.active::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.main{flex:1;padding:20px;max-width:1400px;margin:0 auto;width:100%}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.filters{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:16px;margin-bottom:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:10px}
+.filters select,.filters input{padding:9px 12px;background:rgba(0,0,0,.35);
+  border:1px solid var(--line-2);border-radius:9px;color:#fff;font-family:inherit;
+  font-size:12.5px;outline:none;transition:border-color .2s}
+.filters select:focus,.filters input:focus{border-color:var(--gold)}
+.filters label{font-size:10.5px;font-weight:800;color:var(--muted);
+  letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:5px}
+.filter-item{display:flex;flex-direction:column}
+.stats-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.stat-chip{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:10px 16px;display:flex;align-items:center;gap:10px}
+.stat-chip .sc-num{font-size:18px;font-weight:800;color:var(--gold);line-height:1}
+.stat-chip .sc-lbl{font-size:10px;font-weight:800;color:var(--muted);
+  letter-spacing:1.2px;text-transform:uppercase}
+.table-wrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.table-actions{padding:12px 16px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bulk-info{font-size:12.5px;color:var(--gold);font-weight:700;display:none}
+.bulk-info.show{display:block}
+.table-scroll{overflow-x:auto;max-height:70vh;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+thead{position:sticky;top:0;background:var(--panel-2);z-index:2}
+th{padding:11px 12px;text-align:left;font-size:10.5px;font-weight:800;color:var(--muted);
+  letter-spacing:1.2px;text-transform:uppercase;border-bottom:1px solid var(--line)}
+th.center{text-align:center}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+td.center{text-align:center}
+tr:hover td{background:rgba(255,255,255,.02)}
+tr.selected td{background:rgba(201,162,39,.08)}
+.q-text{font-weight:600;color:#fff;line-height:1.4;white-space:pre-line;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:400px}
+.q-text img{max-width:40px;max-height:40px;vertical-align:middle;border-radius:6px;margin-right:6px}
+.tag{display:inline-block;font-size:10px;font-weight:800;padding:3px 8px;border-radius:6px;
+  letter-spacing:.3px;text-transform:uppercase;white-space:nowrap}
+.tag.kolay{background:var(--green-bg);color:var(--green);border:1px solid rgba(52,211,153,.3)}
+.tag.orta{background:var(--yellow-bg);color:var(--yellow);border:1px solid rgba(251,191,36,.3)}
+.tag.zor{background:var(--red-bg);color:var(--red);border:1px solid rgba(248,113,113,.3)}
+.tag.none{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--line-2)}
+.tag.altkonu{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(96,165,250,.3)}
+.tag.ders{background:rgba(167,139,250,.12);color:var(--purple);border:1px solid rgba(167,139,250,.3)}
+.tag.lesson{background:rgba(96,165,250,.12);color:var(--blue);border:1px solid rgba(96,165,250,.3)}
+.row-check{width:16px;height:16px;accent-color:var(--gold);cursor:pointer}
+.row-actions{display:flex;gap:5px}
+.row-btn{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--text-2);cursor:pointer;
+  display:grid;place-items:center;font-size:13px;transition:all .2s}
+.row-btn:hover{border-color:var(--line-2);background:rgba(255,255,255,.08)}
+.row-btn.danger:hover{border-color:rgba(248,113,113,.5);color:var(--red);background:var(--red-bg)}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:16px}
+.lesson-card-admin{background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.012));
+  border:1px solid var(--line);border-radius:14px;padding:16px;
+  display:flex;flex-direction:column;gap:10px;transition:all .3s;position:relative}
+.lesson-card-admin:hover{border-color:var(--line-2);transform:translateY(-2px);
+  box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
+.lesson-card-admin .la-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.lesson-card-admin .la-ico{width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(145deg,rgba(96,165,250,.2),rgba(96,165,250,.05));
+  border:1px solid rgba(96,165,250,.35);display:grid;place-items:center;font-size:22px;flex:0 0 auto}
+.lesson-card-admin .la-title{font-size:14px;font-weight:800;color:#fff;line-height:1.3;margin-top:2px}
+.lesson-card-admin .la-desc{font-size:11.5px;color:var(--muted);line-height:1.5;flex:1}
+.lesson-card-admin .la-meta{display:flex;gap:8px;font-size:10.5px;font-weight:700;color:var(--muted);flex-wrap:wrap}
+.lesson-card-admin .la-meta b{color:var(--blue);font-weight:800}
+.lesson-card-admin .la-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;
+  padding-top:10px;border-top:1px solid var(--line)}
+.lesson-card-admin .la-id{font-size:9.5px;font-weight:700;color:var(--muted);
+  font-family:'JetBrains Mono',monospace;background:rgba(0,0,0,.25);padding:2px 6px;border-radius:4px}
+/* PACK CARDS */
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.pack-card{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  border:1px solid var(--line);border-radius:14px;padding:18px;
+  display:flex;flex-direction:column;gap:12px;transition:all .3s;position:relative;overflow:hidden}
+.pack-card::before{content:"";position:absolute;top:-50%;right:-30%;width:180px;height:180px;
+  border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.15),transparent 65%);
+  opacity:.6;transition:opacity .3s;pointer-events:none}
+.pack-card:hover{border-color:rgba(201,162,39,.4);transform:translateY(-3px);
+  box-shadow:0 16px 40px -14px rgba(201,162,39,.25)}
+.pack-card:hover::before{opacity:1}
+.pack-top{display:flex;gap:12px;align-items:flex-start;position:relative;z-index:1}
+.pack-ico{width:52px;height:52px;border-radius:14px;flex:0 0 auto;
+  background:linear-gradient(145deg,rgba(201,162,39,.22),rgba(201,162,39,.05));
+  border:1px solid rgba(201,162,39,.35);display:grid;place-items:center;font-size:26px}
+.pack-title{font-size:15px;font-weight:800;color:#fff;line-height:1.3}
+.pack-ders{font-size:10.5px;font-weight:800;color:var(--gold-2);letter-spacing:1.2px;
+  text-transform:uppercase;margin-top:3px}
+.pack-desc{font-size:11.5px;color:var(--muted);line-height:1.5;position:relative;z-index:1;flex:1}
+.pack-meta{display:flex;gap:14px;font-size:11px;font-weight:700;color:var(--muted);
+  position:relative;z-index:1;flex-wrap:wrap}
+.pack-meta b{color:var(--gold-2);font-weight:800}
+.pack-file{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);
+  background:rgba(0,0,0,.25);padding:3px 8px;border-radius:6px;
+  position:relative;z-index:1;display:inline-block;width:fit-content}
+.pack-actions{display:flex;gap:6px;flex-wrap:wrap;position:relative;z-index:1;
+  margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.pack-badge{position:absolute;top:12px;right:12px;font-size:9.5px;font-weight:800;
+  padding:3px 8px;border-radius:6px;background:var(--green-bg);color:var(--green);
+  border:1px solid rgba(52,211,153,.3);z-index:2}
+/* MODAL */
+.modal-backdrop{position:fixed;inset:0;background:rgba(4,8,16,.8);backdrop-filter:blur(8px);
+  z-index:100;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-backdrop.show{display:flex}
+.modal{background:var(--panel);border:1px solid var(--line-2);border-radius:18px;
+  max-width:640px;width:100%;max-height:90vh;overflow-y:auto;
+  box-shadow:0 40px 100px -30px rgba(0,0,0,.9);animation:modalIn .3s}
+.modal.modal-lg{max-width:900px}
+.modal.modal-sm{max-width:460px}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+.modal-header{padding:18px 22px;border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;
+  background:var(--panel);z-index:3;border-radius:18px 18px 0 0}
+.modal-header h3{font-size:16px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.modal-close{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);
+  background:transparent;color:var(--muted);cursor:pointer;font-size:16px}
+.modal-close:hover{color:var(--red);border-color:var(--red)}
+.modal-body{padding:22px}
+.modal-footer{padding:16px 22px;border-top:1px solid var(--line);
+  display:flex;justify-content:flex-end;gap:8px;position:sticky;bottom:0;
+  background:var(--panel);border-radius:0 0 18px 18px;flex-wrap:wrap}
+.form-group{margin-bottom:14px}
+.form-group label{font-size:11px;font-weight:800;color:var(--muted);
+  letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:11px 14px;
+  background:rgba(0,0,0,.35);border:1px solid var(--line-2);border-radius:10px;
+  color:#fff;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+.form-group textarea{resize:vertical;min-height:80px;line-height:1.5;white-space:pre-line;font-family:inherit}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-row-3{display:grid;grid-template-columns:80px 1fr 1fr;gap:12px}
+@media(max-width:640px){.form-row,.form-row-3{grid-template-columns:1fr}}
+.opts-row{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.opts-row .letter{width:32px;height:32px;background:var(--panel-2);border:1px solid var(--line-2);
+  border-radius:8px;display:grid;place-items:center;font-weight:800;font-size:12px;color:var(--gold)}
+.opts-row input{flex:1}
+.opts-row .correct-btn{width:32px;height:32px;border-radius:50%;border:2px solid var(--line-2);
+  background:transparent;cursor:pointer;transition:all .2s;flex-shrink:0}
+.opts-row .correct-btn.active{background:var(--green);border-color:var(--green);
+  box-shadow:0 0 12px rgba(52,211,153,.5)}
+.zorluk-btns{display:flex;gap:8px;flex-wrap:wrap}
+.zorluk-btn{padding:8px 16px;border-radius:10px;border:1px solid var(--line-2);
+  background:rgba(255,255,255,.03);color:var(--text-2);cursor:pointer;
+  font-family:inherit;font-size:12.5px;font-weight:700;transition:all .2s}
+.zorluk-btn.active.kolay{background:var(--green-bg);color:var(--green);border-color:var(--green)}
+.zorluk-btn.active.orta{background:var(--yellow-bg);color:var(--yellow);border-color:var(--yellow)}
+.zorluk-btn.active.zor{background:var(--red-bg);color:var(--red);border-color:var(--red)}
+.sub-section{background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:12px;
+  padding:16px;margin-bottom:16px}
+.sub-section-header{display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:12px;gap:10px;flex-wrap:wrap}
+.sub-section-header h4{font-size:12px;font-weight:800;color:var(--gold-2);
+  letter-spacing:1.2px;text-transform:uppercase}
+.sub-section-header .count{font-size:11px;color:var(--muted);font-weight:700;
+  background:rgba(255,255,255,.04);padding:2px 8px;border-radius:6px}
+.card-edit-item{background:rgba(255,255,255,.025);border:1px solid var(--line);
+  border-radius:10px;padding:14px;margin-bottom:10px;position:relative}
+.card-edit-item .cei-del{position:absolute;top:8px;right:8px;width:26px;height:26px;
+  border-radius:6px;border:1px solid rgba(248,113,113,.3);background:var(--red-bg);
+  color:var(--red);cursor:pointer;font-size:12px;font-family:inherit}
+.card-edit-item .cei-del:hover{background:rgba(248,113,113,.25)}
+.card-edit-item .cei-head{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.card-edit-item .cei-num{font-size:10.5px;font-weight:800;color:var(--gold-2);
+  background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);
+  padding:2px 8px;border-radius:6px;font-family:'JetBrains Mono',monospace}
+.card-edit-item .cei-type{font-size:10px;font-weight:800;padding:2px 8px;border-radius:6px}
+.card-edit-item .cei-type.kavram{background:rgba(201,162,39,.15);color:var(--gold-2)}
+.card-edit-item .cei-type.onemli{background:var(--blue-bg);color:var(--blue)}
+.card-edit-item .cei-type.ornek{background:rgba(167,139,250,.15);color:var(--purple)}
+.card-edit-item .cei-type.uyari{background:var(--red-bg);color:var(--red)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.stat-card .sc-title{font-size:10.5px;font-weight:800;color:var(--muted);
+  letter-spacing:1.2px;text-transform:uppercase;margin-bottom:10px}
+.stat-card .sc-value{font-size:28px;font-weight:800;color:var(--gold);line-height:1}
+.bar-chart{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:flex;align-items:center;gap:10px;font-size:12.5px}
+.bar-row .bl{flex:0 0 130px;color:var(--text-2);font-weight:600;font-size:12px}
+.bar-row .bt{flex:1;height:10px;background:rgba(255,255,255,.05);border-radius:100px;overflow:hidden}
+.bar-row .bf{height:100%;background:linear-gradient(90deg,var(--gold-2),var(--gold));
+  border-radius:100px;transition:width .8s}
+.bar-row .bv{flex:0 0 40px;text-align:right;font-weight:800;color:var(--gold);font-size:12px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--panel);border:1px solid var(--green);color:var(--green);
+  padding:12px 22px;border-radius:12px;font-weight:700;font-size:13px;
+  box-shadow:0 20px 40px -15px rgba(0,0,0,.5);z-index:200;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.error{border-color:var(--red);color:var(--red)}
+.empty{padding:60px 20px;text-align:center;color:var(--muted)}
+.empty .ico{font-size:48px;margin-bottom:12px;opacity:.5}
+@media(max-width:768px){
+  .top-bar{padding:10px 12px;flex-wrap:wrap}
+  .top-brand h1{font-size:13px}
+  .top-actions{width:100%;justify-content:flex-end}
+  .btn{padding:8px 12px;font-size:11.5px}
+  .main{padding:12px}
+  .filters{grid-template-columns:1fr}
+  th,td{padding:8px 6px;font-size:11.5px}
+  .q-text{max-width:180px;font-size:11px}
+  .lesson-grid,.pack-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-card">
+    <div class="lc-icon">🔐</div>
+    <h1>Yönetim Paneli</h1>
+    <p id="loginSub">Devam etmek için şifreyi gir</p>
+    <input type="password" id="loginPass" placeholder="••••••••" autocomplete="off">
+    <button onclick="handleLogin()">Giriş Yap</button>
+    <div class="login-hint" id="loginHint"></div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app">
+  <div class="top-bar">
+    <div class="top-brand">
+      <div class="logo">KB</div>
+      <div>
+        <h1>Yönetim Paneli</h1>
+        <span>KPSS BilgiMatik</span>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span id="statusBadge" style="padding:8px 14px;font-size:11.5px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px"></span>
+      <a class="btn btn-site" href="https://vetatlas.github.io/kpss-tarih-sorubankasi/" target="_blank">🌐 Siteyi Aç</a>
+      <button class="btn" onclick="reloadFromGithub()">🔄 Yenile</button>
+      <button class="btn btn-primary" onclick="saveToGithub()" id="saveBtn">💾 GitHub'a Kaydet</button>
+      <button class="btn" onclick="logout()">🚪 Çıkış</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="list" onclick="switchTab('list')">📋 Sorular</button>
+    <button class="tab" data-tab="add" onclick="switchTab('add')">➕ Yeni Soru</button>
+    <button class="tab" data-tab="lessons" onclick="switchTab('lessons')">📚 Ders Paketleri</button>
+    <button class="tab" data-tab="stats" onclick="switchTab('stats')">📊 İstatistik</button>
+    <button class="tab" data-tab="settings" onclick="switchTab('settings')">⚙️ Ayarlar</button>
+  </div>
+
+  <div class="main">
+    <!-- SORULAR -->
+    <div class="tab-content active" data-tab-content="list">
+      <div class="stats-bar" id="statsBar"></div>
+      <div class="filters">
+        <div class="filter-item"><label>Ders</label>
+          <select id="fDers" onchange="applyFilters()">
+            <option value="">Tümü</option>
+            <option>Tarih</option><option>Coğrafya</option><option>Vatandaşlık</option>
+            <option>Türkçe</option><option>Matematik</option><option>Güncel</option>
+          </select>
+        </div>
+        <div class="filter-item"><label>Kategori</label>
+          <select id="fKategori" onchange="applyFilters()"><option value="">Tümü</option></select>
+        </div>
+        <div class="filter-item"><label>Zorluk</label>
+          <select id="fZorluk" onchange="applyFilters()">
+            <option value="">Tümü</option>
+            <option value="Kolay">Kolay</option><option value="Orta">Orta</option>
+            <option value="Zor">Zor</option><option value="__none">Etiketsiz</option>
+          </select>
+        </div>
+        <div class="filter-item"><label>Alt Konu</label>
+          <input id="fAltKonu" placeholder="Örn: Orhun" oninput="applyFilters()">
+        </div>
+        <div class="filter-item"><label>Arama</label>
+          <input id="fSearch" placeholder="Soru içinde ara..." oninput="applyFilters()">
+        </div>
+      </div>
+      <div class="table-wrap">
+        <div class="table-actions">
+          <span class="bulk-info" id="bulkInfo">0 seçili</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="btn btn-danger" onclick="bulkDelete()" id="bulkDeleteBtn" disabled>🗑 Seçilileri Sil</button>
+            <button class="btn" onclick="openBulkTag()" id="bulkTagBtn" disabled>🏷 Etiket Ata</button>
+            <button class="btn" onclick="exportJSON()">⬇️ JSON İndir</button>
+            <button class="btn" onclick="document.getElementById('importFile').click()">⬆️ JSON Yükle</button>
+            <input type="file" id="importFile" accept=".json" style="display:none" onchange="importJSON(event)">
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:34px"><input type="checkbox" id="selectAll" onclick="toggleAll(this)" style="accent-color:var(--gold)"></th>
+                <th style="width:40px">#</th>
+                <th>Soru</th>
+                <th style="width:80px">Ders</th>
+                <th style="width:100px">Kategori</th>
+                <th style="width:80px">Zorluk</th>
+                <th style="width:100px">Alt Konu</th>
+                <th style="width:80px">İşlem</th>
+              </tr>
+            </thead>
+            <tbody id="qTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- YENİ SORU -->
+    <div class="tab-content" data-tab-content="add">
+      <div class="table-wrap" style="padding:24px">
+        <h2 style="font-size:18px;font-weight:800;color:#fff;margin-bottom:18px">➕ Yeni Soru Ekle</h2>
+        <div id="addForm"></div>
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:18px">
+          <button class="btn" onclick="resetAddForm()">🗑 Temizle</button>
+          <button class="btn btn-primary" onclick="addNewQuestion()">➕ Ekle</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DERS PAKETLERİ -->
+    <div class="tab-content" data-tab-content="lessons">
+
+      <!-- VIEW 1: Paket Listesi -->
+      <div id="packListView">
+        <div class="stats-bar" id="packStatsBar"></div>
+        <div class="table-wrap">
+          <div class="table-actions">
+            <div style="font-size:12px;color:var(--muted);font-weight:600">
+              Dizin: <b style="color:var(--gold-2);font-family:'JetBrains Mono',monospace">data/dersler/index.json</b>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <button class="btn btn-primary" onclick="openNewPackModal()">➕ Yeni Ders Paketi</button>
+              <button class="btn" onclick="loadPacksFromGithub()">🔄 Yenile</button>
+              <button class="btn btn-green" onclick="savePackIndexToGithub()" id="saveIndexBtn">💾 Paket Listesini Kaydet</button>
+            </div>
+          </div>
+          <div id="packListContainer" style="padding:16px"></div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: Paket Detay (ders listesi) -->
+      <div id="packDetailView" style="display:none">
+        <div class="stats-bar" id="lessonStatsBar">
+          <div class="stat-chip"><span class="sc-num" id="lsTotal">0</span><span class="sc-lbl">Ders</span></div>
+          <div class="stat-chip"><span class="sc-num" id="lsCards">0</span><span class="sc-lbl">Kart</span></div>
+          <div class="stat-chip"><span class="sc-num" id="lsQs">0</span><span class="sc-lbl">Soru</span></div>
+        </div>
+        <div class="table-wrap">
+          <div class="table-actions">
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <button class="btn" onclick="backToPackList()">← Paketler</button>
+              <div>
+                <div style="font-size:13px;font-weight:800;color:#fff" id="packTitleLabel">—</div>
+                <div style="font-size:10.5px;color:var(--muted);font-family:'JetBrains Mono',monospace" id="packFileLabel">—</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <button class="btn btn-primary" onclick="openLessonEdit(-1)">➕ Yeni Ders</button>
+              <button class="btn" onclick="exportLessonsJSON()">⬇️ JSON İndir</button>
+              <button class="btn" onclick="document.getElementById('lessonImportFile').click()">⬆️ JSON Yükle</button>
+              <input type="file" id="lessonImportFile" accept=".json" style="display:none" onchange="importLessonsJSON(event)">
+              <button class="btn btn-green" onclick="saveCurrentPackToGithub()" id="savePackBtn">💾 Bu Paketi Kaydet</button>
+            </div>
+          </div>
+          <div class="lesson-grid" id="lessonGrid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- İSTATİSTİK -->
+    <div class="tab-content" data-tab-content="stats">
+      <div class="stats-grid" id="statsGrid"></div>
+      <div class="table-wrap" style="padding:22px;margin-bottom:16px">
+        <div class="sc-title" style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px">ZORLUK DAĞILIMI</div>
+        <div class="bar-chart" id="zorlukChart"></div>
+      </div>
+      <div class="table-wrap" style="padding:22px;margin-bottom:16px">
+        <div class="sc-title" style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px">ALT KONU DAĞILIMI (Top 15)</div>
+        <div class="bar-chart" id="altKonuChart"></div>
+      </div>
+      <div class="table-wrap" style="padding:22px">
+        <div class="sc-title" style="font-size:11px;font-weight:800;color:var(--muted);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px">DERS DAĞILIMI</div>
+        <div class="bar-chart" id="dersChart"></div>
+      </div>
+    </div>
+
+    <!-- AYARLAR -->
+    <div class="tab-content" data-tab-content="settings">
+      <div class="table-wrap" style="padding:24px;margin-bottom:16px">
+        <h2 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:16px">🔑 GitHub Token</h2>
+        <p style="color:var(--muted);font-size:12.5px;margin-bottom:14px;line-height:1.6">
+          Soruları ve ders paketlerini GitHub'a kaydetmek için <b style="color:var(--gold)">Contents: Read and write</b> izinli bir Personal Access Token gerekir.
+        </p>
+        <div class="form-group"><label>Token</label>
+          <input type="password" id="setToken" placeholder="github_pat_...">
+        </div>
+        <button class="btn btn-primary" onclick="saveToken()">💾 Kaydet</button>
+        <span id="tokenStatus" style="margin-left:12px;font-size:12px;color:var(--muted)"></span>
+      </div>
+      <div class="table-wrap" style="padding:24px">
+        <h2 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:16px">🔐 Şifre Değiştir</h2>
+        <div class="form-group"><label>Yeni Şifre</label>
+          <input type="password" id="setNewPass" placeholder="••••••••">
+        </div>
+        <button class="btn btn-primary" onclick="changePassword()">💾 Kaydet</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-backdrop" id="editModal" onclick="if(event.target===this)closeModal('editModal')">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="editTitle">✏️ Soruyu Düzenle</h3>
+      <button class="modal-close" onclick="closeModal('editModal')">✕</button>
+    </div>
+    <div class="modal-body" id="editFormBody"></div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal('editModal')">İptal</button>
+      <button class="btn btn-primary" onclick="saveEdit()">💾 Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<!-- BULK TAG MODAL -->
+<div class="modal-backdrop" id="bulkTagModal" onclick="if(event.target===this)closeModal('bulkTagModal')">
+  <div class="modal" style="max-width:420px">
+    <div class="modal-header">
+      <h3>🏷 Etiket Ata</h3>
+      <button class="modal-close" onclick="closeModal('bulkTagModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--muted);font-size:12.5px;margin-bottom:14px" id="bulkTagInfo"></p>
+      <div class="form-group"><label>Zorluk</label>
+        <div class="zorluk-btns" id="bulkZorlukBtns">
+          <button class="zorluk-btn kolay" onclick="setBulkZorluk('Kolay')">Kolay</button>
+          <button class="zorluk-btn orta" onclick="setBulkZorluk('Orta')">Orta</button>
+          <button class="zorluk-btn zor" onclick="setBulkZorluk('Zor')">Zor</button>
+          <button class="zorluk-btn" onclick="setBulkZorluk('')">Temizle</button>
+        </div>
+      </div>
+      <div class="form-group"><label>Alt Konu</label>
+        <input id="bulkAltKonu" placeholder="Örn: Orhun (boş = değiştirme)">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal('bulkTagModal')">İptal</button>
+      <button class="btn btn-primary" onclick="applyBulkTag()">🏷 Uygula</button>
+    </div>
+  </div>
+</div>
+
+<!-- LESSON EDIT MODAL -->
+<div class="modal-backdrop" id="lessonEditModal" onclick="if(event.target===this)closeModal('lessonEditModal')">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 id="lessonEditTitle">✏️ Dersi Düzenle</h3>
+      <button class="modal-close" onclick="closeModal('lessonEditModal')">✕</button>
+    </div>
+    <div class="modal-body" id="lessonEditBody"></div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal('lessonEditModal')">İptal</button>
+      <button class="btn btn-primary" onclick="saveLessonEdit()">💾 Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<!-- NEW PACK MODAL -->
+<div class="modal-backdrop" id="newPackModal" onclick="if(event.target===this)closeModal('newPackModal')">
+  <div class="modal modal-sm">
+    <div class="modal-header">
+      <h3>📚 Yeni Ders Paketi</h3>
+      <button class="modal-close" onclick="closeModal('newPackModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Paket Başlığı *</label>
+        <input id="npBaslik" placeholder="Örn: İslamiyet Sonrası İlk Türk Devletleri">
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Ders *</label>
+          <select id="npDers">
+            <option>Tarih</option><option>Coğrafya</option><option>Vatandaşlık</option>
+            <option>Türkçe</option><option>Matematik</option><option>Güncel</option>
+          </select>
+        </div>
+        <div class="form-group"><label>İkon</label>
+          <input id="npIkon" placeholder="📖" value="📖" maxlength="4">
+        </div>
+      </div>
+      <div class="form-group"><label>Kısa Açıklama (opsiyonel)</label>
+        <input id="npOzet" placeholder="Örn: Karahanlılar, Gazneliler, Selçuklular...">
+      </div>
+      <div style="background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.3);
+        border-radius:10px;padding:12px;font-size:11.5px;color:var(--text-2);line-height:1.6">
+        💡 Paket oluşturulunca GitHub'da otomatik <b style="color:var(--blue);font-family:'JetBrains Mono',monospace">data/dersler/&lt;slug&gt;.json</b> dosyası açılacak ve <b>index.json</b>'a eklenecek.
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" onclick="closeModal('newPackModal')">İptal</button>
+      <button class="btn btn-primary" onclick="createNewPack()" id="createPackBtn">🚀 Oluştur ve Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════ CONFIG ═══════════ */
+const GITHUB = {
+  owner: 'vetatlas',
+  repo: 'kpss-tarih-sorubankasi',
+  file: 'data/sorular.json',
+  packsIndexFile: 'data/dersler/index.json',
+  packsFolder: 'data/dersler',
+  branch: 'main'
+};
+const RAW_BASE = `https://raw.githubusercontent.com/${GITHUB.owner}/${GITHUB.repo}/${GITHUB.branch}/`;
+const LS_PASS = 'kpss_admin_pass_v1';
+const LS_TOKEN = 'kpss_admin_token_v1';
+const LS_SESSION = 'kpss_admin_session_v1';
+
+let QUESTIONS = [];
+let SELECTED = new Set();
+let EDIT_INDEX = -1;
+let BULK_ZORLUK = '';
+
+/* PACK STATE */
+let PACKS_INDEX = [];          // [{id, baslik, ders, ikon, ozet, dosya}]
+let CURRENT_PACK = null;        // aktif paket objesi (index'ten)
+let CURRENT_PACK_DATA = null;   // {kategori, dersler:[...]}
+let LESSON_EDIT_IDX = -1;
+let LFORM = null;
+
+const $ = id => document.getElementById(id);
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function toast(msg, isErr){
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isErr ? ' error' : '');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.className = 'toast', 3000);
+}
+function hash(s){
+  let h = 0;
+  for(let i=0;i<s.length;i++){ h = ((h<<5)-h) + s.charCodeAt(i); h |= 0; }
+  return String(h);
+}
+function uid(prefix){ return (prefix || 'x_') + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+function slugify(str){
+  const map = {'ç':'c','ğ':'g','ı':'i','İ':'i','ö':'o','ş':'s','ü':'u','Ç':'c','Ğ':'g','Ö':'o','Ş':'s','Ü':'u'};
+  return String(str).toLowerCase()
+    .replace(/[çğıöşüÇĞİÖŞÜ]/g, c => map[c] || c)
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .substring(0, 50) || 'paket';
+}
+function setStatus(text, cls){
+  const el = $('statusBadge');
+  el.textContent = text;
+  el.style.color = cls === 'ok' ? 'var(--green)' : cls === 'err' ? 'var(--red)' : cls === 'warn' ? 'var(--yellow)' : 'var(--muted)';
+}
+
+/* ═══════════ GITHUB FILE API ═══════════ */
+async function githubReadFile(filePath, token){
+  const url = `https://api.github.com/repos/${GITHUB.owner}/${GITHUB.repo}/contents/${filePath}?ref=${GITHUB.branch}`;
+  const headers = { 'User-Agent': 'KPSS-Admin' };
+  if(token) headers['Authorization'] = `token ${token}`;
+  const res = await fetch(url, { headers, cache: 'no-store' });
+  if(res.status === 404) return { notFound: true };
+  if(!res.ok) throw new Error('HTTP ' + res.status);
+  const info = await res.json();
+  const content = decodeURIComponent(escape(atob(info.content)));
+  return { sha: info.sha, data: JSON.parse(content) };
+}
+async function githubWriteFile(filePath, contentObj, message, token){
+  const url = `https://api.github.com/repos/${GITHUB.owner}/${GITHUB.repo}/contents/${filePath}`;
+  // SHA al (varsa)
+  let sha = null;
+  const getRes = await fetch(url + `?ref=${GITHUB.branch}`, {
+    headers: { 'Authorization': `token ${token}`, 'User-Agent': 'KPSS-Admin' }
+  });
+  if(getRes.ok){ const info = await getRes.json(); sha = info.sha; }
+  const content = JSON.stringify(contentObj, null, 2);
+  const encoded = btoa(unescape(encodeURIComponent(content)));
+  const body = { message, content: encoded, branch: GITHUB.branch };
+  if(sha) body.sha = sha;
+  const putRes = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${token}`,
+      'Content-Type': 'application/json',
+      'User-Agent': 'KPSS-Admin'
+    },
+    body: JSON.stringify(body)
+  });
+  if(!putRes.ok){
+    const err = await putRes.text();
+    throw new Error('HTTP ' + putRes.status + ': ' + err.substring(0, 120));
+  }
+  return putRes.json();
+}
+
+/* ═══════════ LOGIN ═══════════ */
+function initLogin(){
+  const saved = localStorage.getItem(LS_PASS);
+  if(saved){
+    $('loginSub').textContent = 'Devam etmek için şifreyi gir';
+    $('loginHint').innerHTML = 'Şifreyi unuttuysan tarayıcı önbelleğini temizleyip yeniden kur.';
+  } else {
+    $('loginSub').textContent = 'İlk kullanım — bir şifre belirle';
+    $('loginHint').innerHTML = '⚠️ Bu şifre <b style="color:var(--gold)">tarayıcıda</b> saklanır.';
+  }
+  $('loginPass').addEventListener('keydown', e => { if(e.key === 'Enter') handleLogin(); });
+  if(localStorage.getItem(LS_SESSION) === 'ok'){ startApp(); }
+}
+function handleLogin(){
+  const pass = $('loginPass').value.trim();
+  if(pass.length < 4){ toast('En az 4 karakter olmalı', true); return; }
+  const saved = localStorage.getItem(LS_PASS);
+  if(!saved){
+    localStorage.setItem(LS_PASS, hash(pass));
+    localStorage.setItem(LS_SESSION, 'ok');
+    toast('✅ Şifre belirlendi!');
+    startApp();
+    return;
+  }
+  if(hash(pass) === saved){
+    localStorage.setItem(LS_SESSION, 'ok');
+    startApp();
+  } else {
+    toast('❌ Şifre yanlış', true);
+    $('loginPass').value = '';
+  }
+}
+function logout(){ localStorage.removeItem(LS_SESSION); location.reload(); }
+function startApp(){
+  $('loginWrap').style.display = 'none';
+  $('app').classList.add('show');
+  const token = localStorage.getItem(LS_TOKEN);
+  if(token) $('setToken').value = '•'.repeat(20);
+  loadQuestions();
+}
+function changePassword(){
+  const np = $('setNewPass').value.trim();
+  if(np.length < 4){ toast('En az 4 karakter', true); return; }
+  localStorage.setItem(LS_PASS, hash(np));
+  $('setNewPass').value = '';
+  toast('✅ Şifre değiştirildi');
+}
+function saveToken(){
+  const t = $('setToken').value.trim();
+  if(!t || t.startsWith('•')){ toast('Token gir', true); return; }
+  localStorage.setItem(LS_TOKEN, t);
+  $('setToken').value = '•'.repeat(20);
+  toast('✅ Token kaydedildi');
+  loadQuestions();
+}
+
+/* ═══════════ QUESTIONS (SORULAR) ═══════════ */
+async function loadQuestions(){
+  setStatus('🔄 Yükleniyor...', '');
+  const token = localStorage.getItem(LS_TOKEN);
+  try{
+    let data;
+    const r = await githubReadFile(GITHUB.file, token);
+    if(r.notFound) throw new Error('sorular.json bulunamadı');
+    data = r.data;
+    QUESTIONS = (data.sorular || []).filter(q => q && q.soru);
+    QUESTIONS.forEach((q, i) => q._idx = i);
+    renderTable();
+    renderStats();
+    setStatus(`✅ ${QUESTIONS.length} soru yüklendi`, 'ok');
+  }catch(e){
+    console.error(e);
+    const backup = localStorage.getItem('kpss_admin_backup');
+    if(backup){
+      QUESTIONS = JSON.parse(backup);
+      renderTable(); renderStats();
+      setStatus('⚠️ Yedekten yüklendi', 'warn');
+    } else {
+      setStatus('❌ Yüklenemedi: ' + e.message, 'err');
+    }
+  }
+}
+function reloadFromGithub(){
+  if(confirm('Kaydedilmemiş değişiklikler kaybolur. Devam?')) loadQuestions();
+}
+async function saveToGithub(){
+  const token = localStorage.getItem(LS_TOKEN);
+  if(!token){ toast('⚠️ Önce Ayarlar sekmesinden GitHub tokeni gir', true); switchTab('settings'); return; }
+  if(!confirm(`${QUESTIONS.length} soru GitHub'a kaydedilecek. Devam?`)) return;
+  $('saveBtn').disabled = true;
+  setStatus('💾 Kaydediliyor...', '');
+  try{
+    const cleanList = QUESTIONS.map(q => { const c = {...q}; delete c._idx; return c; });
+    await githubWriteFile(GITHUB.file, { sorular: cleanList }, `Admin: ${QUESTIONS.length} soru güncellendi`, token);
+    localStorage.setItem('kpss_admin_backup', JSON.stringify(QUESTIONS));
+    setStatus(`✅ ${new Date().toLocaleTimeString('tr-TR')} kaydedildi`, 'ok');
+    toast(`✅ ${QUESTIONS.length} soru GitHub'a kaydedildi!`);
+  }catch(e){
+    console.error(e);
+    setStatus('❌ ' + e.message, 'err');
+    toast('Hata: ' + e.message, true);
+  }finally{ $('saveBtn').disabled = false; }
+}
+
+/* ═══════════ TABS ═══════════ */
+function switchTab(t){
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('active', x.dataset.tab === t));
+  document.querySelectorAll('.tab-content').forEach(x => x.classList.toggle('active', x.dataset.tabContent === t));
+  if(t === 'stats') renderStats();
+  if(t === 'add') renderAddForm();
+  if(t === 'lessons') { backToPackList(); loadPacksFromGithub(); }
+}
+
+/* ═══════════ QUESTIONS TABLE ═══════════ */
+function getFiltered(){
+  const fD = $('fDers').value, fK = $('fKategori').value, fZ = $('fZorluk').value;
+  const fA = $('fAltKonu').value.toLowerCase().trim();
+  const fS = $('fSearch').value.toLowerCase().trim();
+  return QUESTIONS.filter(q => {
+    if(fD && q.ders !== fD) return false;
+    if(fK && q.kategori !== fK) return false;
+    if(fZ === '__none'){ if(q.zorluk) return false; }
+    else if(fZ && q.zorluk !== fZ) return false;
+    if(fA && !(q.altKonu || '').toLowerCase().includes(fA)) return false;
+    if(fS && !(q.soru || '').toLowerCase().includes(fS)) return false;
+    return true;
+  });
+}
+function applyFilters(){ renderTable(); updateKategoriFilter(); }
+function updateKategoriFilter(){
+  const fD = $('fDers').value;
+  const cats = new Set();
+  QUESTIONS.forEach(q => { if(!fD || q.ders === fD) cats.add(q.kategori || 'Genel'); });
+  const sel = $('fKategori');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">Tümü</option>' + [...cats].sort().map(c => `<option${c === cur ? ' selected' : ''}>${esc(c)}</option>`).join('');
+}
+function renderTable(){
+  const tbody = $('qTableBody');
+  const list = getFiltered();
+  if(list.length === 0){
+    tbody.innerHTML = `<tr><td colspan="8"><div class="empty"><div class="ico">📭</div>Sonuç yok</div></td></tr>`;
+  } else {
+    tbody.innerHTML = list.map(q => {
+      const idx = q._idx, z = q.zorluk || '';
+      const zCls = z === 'Kolay' ? 'kolay' : z === 'Orta' ? 'orta' : z === 'Zor' ? 'zor' : 'none';
+      const zTxt = z || 'Etiketsiz';
+      const img = q.gorsel ? `<img src="${esc(q.gorsel)}" alt="">` : '';
+      const sel = SELECTED.has(idx) ? 'checked' : '';
+      const rowSel = SELECTED.has(idx) ? 'selected' : '';
+      return `<tr class="${rowSel}" data-idx="${idx}">
+        <td class="center"><input type="checkbox" class="row-check" ${sel} onclick="toggleSelect(${idx}, this)"></td>
+        <td class="center" style="color:var(--muted);font-family:'JetBrains Mono',monospace">${idx + 1}</td>
+        <td><div class="q-text">${img}${esc(q.soru)}</div></td>
+        <td><span class="tag ders">${esc(q.ders || '-')}</span></td>
+        <td style="font-size:11.5px;color:var(--text-2)">${esc(q.kategori || '-')}</td>
+        <td><span class="tag ${zCls}">${zTxt}</span></td>
+        <td>${q.altKonu ? `<span class="tag altkonu">${esc(q.altKonu)}</span>` : '<span style="color:var(--muted)">—</span>'}</td>
+        <td><div class="row-actions">
+          <button class="row-btn" onclick="openEdit(${idx})" title="Düzenle">✏️</button>
+          <button class="row-btn danger" onclick="deleteOne(${idx})" title="Sil">🗑</button>
+        </div></td>
+      </tr>`;
+    }).join('');
+  }
+  updateBulkInfo(); updateStatsBar();
+}
+function updateStatsBar(){
+  const total = QUESTIONS.length;
+  const kolay = QUESTIONS.filter(q => q.zorluk === 'Kolay').length;
+  const orta = QUESTIONS.filter(q => q.zorluk === 'Orta').length;
+  const zor = QUESTIONS.filter(q => q.zorluk === 'Zor').length;
+  const none = total - kolay - orta - zor;
+  $('statsBar').innerHTML = `
+    <div class="stat-chip"><span class="sc-num">${total}</span><span class="sc-lbl">Toplam</span></div>
+    <div class="stat-chip"><span class="sc-num" style="color:var(--green)">${kolay}</span><span class="sc-lbl">Kolay</span></div>
+    <div class="stat-chip"><span class="sc-num" style="color:var(--yellow)">${orta}</span><span class="sc-lbl">Orta</span></div>
+    <div class="stat-chip"><span class="sc-num" style="color:var(--red)">${zor}</span><span class="sc-lbl">Zor</span></div>
+    <div class="stat-chip"><span class="sc-num" style="color:var(--muted)">${none}</span><span class="sc-lbl">Etiketsiz</span></div>
+  `;
+}
+function toggleSelect(idx, cb){
+  if(cb.checked) SELECTED.add(idx); else SELECTED.delete(idx);
+  cb.closest('tr').classList.toggle('selected', cb.checked);
+  updateBulkInfo();
+}
+function toggleAll(cb){
+  getFiltered().forEach(q => { if(cb.checked) SELECTED.add(q._idx); else SELECTED.delete(q._idx); });
+  renderTable();
+}
+function updateBulkInfo(){
+  const el = $('bulkInfo'), n = SELECTED.size;
+  if(n > 0){ el.textContent = `${n} seçili`; el.classList.add('show'); }
+  else el.classList.remove('show');
+  $('bulkDeleteBtn').disabled = n === 0;
+  $('bulkTagBtn').disabled = n === 0;
+}
+
+/* ═══════════ QUESTIONS CRUD ═══════════ */
+function openEdit(idx){
+  EDIT_INDEX = idx;
+  const q = QUESTIONS[idx];
+  $('editTitle').textContent = `✏️ Soru #${idx + 1} Düzenle`;
+  $('editFormBody').innerHTML = renderQForm(q, 'edit');
+  closeModal('bulkTagModal');
+  setTimeout(() => {
+    document.querySelectorAll('#editFormBody .correct-btn').forEach((b, i) => {
+      if(i === q.dogru) b.classList.add('active');
+      b.onclick = () => {
+        document.querySelectorAll('#editFormBody .correct-btn').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+      };
+    });
+  }, 10);
+  $('editModal').classList.add('show');
+}
+function closeModal(id){ $(id).classList.remove('show'); }
+function renderQForm(q, prefix){
+  q = q || {};
+  const letters = ['A','B','C','D','E'];
+  return `
+    <div class="form-row">
+      <div class="form-group"><label>Ders</label>
+        <select id="${prefix}Ders">
+          ${['Tarih','Coğrafya','Vatandaşlık','Türkçe','Matematik','Güncel'].map(d =>
+            `<option${d === q.ders ? ' selected' : ''}>${d}</option>`).join('')}
+        </select>
+      </div>
+      <div class="form-group"><label>Kategori</label>
+        <input id="${prefix}Kategori" value="${esc(q.kategori || 'İslamiyet Öncesi')}">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Seviye</label>
+        <select id="${prefix}Seviye">
+          ${['Ortaöğretim','Önlisans','Lisans'].map(s =>
+            `<option${s === q.seviye ? ' selected' : ''}>${s}</option>`).join('')}
+        </select>
+      </div>
+      <div class="form-group"><label>Alt Konu</label>
+        <input id="${prefix}AltKonu" value="${esc(q.altKonu || '')}" placeholder="Örn: Orhun">
+      </div>
+    </div>
+    <div class="form-group"><label>Soru Metni</label>
+      <textarea id="${prefix}Soru">${esc(q.soru || '')}</textarea>
+    </div>
+    <div class="form-group"><label>Seçenekler (doğru cevabı işaretle)</label>
+      ${letters.map((L, i) => `
+        <div class="opts-row">
+          <span class="letter">${L}</span>
+          <input type="text" id="${prefix}Opt${i}" value="${esc((q.secenekler || [])[i] || '')}">
+          <button class="correct-btn${i === q.dogru ? ' active' : ''}" data-i="${i}" type="button"></button>
+        </div>`).join('')}
+    </div>
+    <div class="form-group"><label>Açıklama (opsiyonel)</label>
+      <textarea id="${prefix}Aciklama">${esc(q.aciklama || '')}</textarea>
+    </div>
+    <div class="form-group"><label>Görsel URL (opsiyonel)</label>
+      <input id="${prefix}Gorsel" value="${esc(q.gorsel || '')}" placeholder="https://...">
+    </div>
+    <div class="form-group"><label>Zorluk</label>
+      <div class="zorluk-btns" id="${prefix}ZorlukBtns">
+        <button class="zorluk-btn kolay${q.zorluk === 'Kolay' ? ' active' : ''}" data-v="Kolay" onclick="setFormZorluk(this)">Kolay</button>
+        <button class="zorluk-btn orta${q.zorluk === 'Orta' ? ' active' : ''}" data-v="Orta" onclick="setFormZorluk(this)">Orta</button>
+        <button class="zorluk-btn zor${q.zorluk === 'Zor' ? ' active' : ''}" data-v="Zor" onclick="setFormZorluk(this)">Zor</button>
+        <button class="zorluk-btn${!q.zorluk ? ' active' : ''}" data-v="" onclick="setFormZorluk(this)">Yok</button>
+      </div>
+    </div>
+  `;
+}
+function setFormZorluk(btn){
+  btn.parentElement.querySelectorAll('.zorluk-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function collectForm(prefix){
+  const q = {
+    ders: $(prefix + 'Ders').value,
+    kategori: $(prefix + 'Kategori').value.trim() || 'Genel',
+    seviye: $(prefix + 'Seviye').value,
+    altKonu: $(prefix + 'AltKonu').value.trim(),
+    soru: $(prefix + 'Soru').value.trim(),
+    secenekler: [0,1,2,3,4].map(i => $(prefix + 'Opt' + i).value.trim()),
+    aciklama: $(prefix + 'Aciklama').value.trim(),
+    gorsel: $(prefix + 'Gorsel').value.trim() || null,
+    zorluk: (document.querySelector(`#${prefix}ZorlukBtns .zorluk-btn.active`) || {}).dataset?.v || ''
+  };
+  let correct = 0;
+  const scope = prefix === 'edit' ? 'editFormBody' : 'addForm';
+  document.querySelectorAll(`#${scope} .correct-btn`).forEach((b, i) => { if(b.classList.contains('active')) correct = i; });
+  q.dogru = correct;
+  return q;
+}
+function saveEdit(){
+  const q = collectForm('edit');
+  if(!q.soru){ toast('Soru metni boş', true); return; }
+  if(q.secenekler.some(s => !s)){ toast('Tüm seçenekler dolu olmalı', true); return; }
+  q._idx = EDIT_INDEX;
+  q.id = QUESTIONS[EDIT_INDEX].id || ('admin_' + Date.now());
+  QUESTIONS[EDIT_INDEX] = q;
+  closeModal('editModal');
+  renderTable();
+  toast('✅ Düzenlendi (kaydetmek için 💾 GitHub\'a Kaydet)');
+}
+function deleteOne(idx){
+  if(!confirm(`Soru #${idx + 1} silinsin mi?`)) return;
+  QUESTIONS.splice(idx, 1);
+  QUESTIONS.forEach((q, i) => q._idx = i);
+  SELECTED.clear();
+  renderTable(); renderStats();
+  toast('🗑 Silindi (kaydetmek için 💾)');
+}
+function bulkDelete(){
+  if(SELECTED.size === 0) return;
+  if(!confirm(`${SELECTED.size} soru silinsin mi?`)) return;
+  const n = SELECTED.size;
+  QUESTIONS = QUESTIONS.filter(q => !SELECTED.has(q._idx));
+  QUESTIONS.forEach((q, i) => q._idx = i);
+  SELECTED.clear();
+  renderTable(); renderStats();
+  toast(`🗑 ${n} soru silindi`);
+}
+function openBulkTag(){
+  if(SELECTED.size === 0) return;
+  BULK_ZORLUK = '';
+  document.querySelectorAll('#bulkZorlukBtns .zorluk-btn').forEach(b => b.classList.remove('active'));
+  $('bulkAltKonu').value = '';
+  $('bulkTagInfo').textContent = `${SELECTED.size} soruya etiket atanacak`;
+  $('bulkTagModal').classList.add('show');
+}
+function setBulkZorluk(v){
+  BULK_ZORLUK = v;
+  document.querySelectorAll('#bulkZorlukBtns .zorluk-btn').forEach(b => b.classList.remove('active'));
+  const btn = [...document.querySelectorAll('#bulkZorlukBtns .zorluk-btn')].find(b => {
+    const t = b.textContent.toLowerCase();
+    return (v === 'Kolay' && t === 'kolay') || (v === 'Orta' && t === 'orta') ||
+           (v === 'Zor' && t === 'zor') || (v === '' && t === 'temizle');
+  });
+  if(btn) btn.classList.add('active');
+}
+function applyBulkTag(){
+  const altKonu = $('bulkAltKonu').value.trim();
+  let n = 0;
+  QUESTIONS.forEach(q => {
+    if(SELECTED.has(q._idx)){
+      if(BULK_ZORLUK !== undefined) q.zorluk = BULK_ZORLUK;
+      if(altKonu) q.altKonu = altKonu;
+      n++;
+    }
+  });
+  closeModal('bulkTagModal');
+  renderTable(); renderStats();
+  toast(`🏷 ${n} soru etiketlendi`);
+}
+function renderAddForm(){
+  $('addForm').innerHTML = renderQForm({}, 'add');
+  setTimeout(() => {
+    document.querySelectorAll('#addForm .correct-btn').forEach(b => {
+      b.onclick = () => {
+        document.querySelectorAll('#addForm .correct-btn').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+      };
+    });
+    const btns = document.querySelectorAll('#addForm .correct-btn');
+    if(btns[1]) btns[1].classList.add('active');
+  }, 10);
+}
+function resetAddForm(){ renderAddForm(); }
+function addNewQuestion(){
+  const q = collectForm('add');
+  if(!q.soru){ toast('Soru metni boş', true); return; }
+  if(q.secenekler.some(s => !s)){ toast('Tüm seçenekler dolu olmalı', true); return; }
+  q.id = 'admin_' + Date.now();
+  q.eklenme = Date.now();
+  q.kaynak = 'admin-panel';
+  QUESTIONS.unshift(q);
+  QUESTIONS.forEach((qq, i) => qq._idx = i);
+  renderAddForm();
+  renderTable();
+  toast('✅ Soru eklendi (kaydetmek için 💾)');
+  switchTab('list');
+}
+
+/* ═══════════ STATS (QUESTIONS) ═══════════ */
+function renderStats(){
+  const total = QUESTIONS.length;
+  const imgs = QUESTIONS.filter(q => q.gorsel).length;
+  const withTag = QUESTIONS.filter(q => q.zorluk).length;
+  $('statsGrid').innerHTML = `
+    <div class="stat-card"><div class="sc-title">Toplam Soru</div><div class="sc-value">${total}</div></div>
+    <div class="stat-card"><div class="sc-title">Görselli</div><div class="sc-value" style="color:var(--blue)">${imgs}</div></div>
+    <div class="stat-card"><div class="sc-title">Etiketli</div><div class="sc-value" style="color:var(--green)">${withTag}</div></div>
+    <div class="stat-card"><div class="sc-title">Etiketsiz</div><div class="sc-value" style="color:var(--muted)">${total - withTag}</div></div>
+  `;
+  const z = { Kolay: 0, Orta: 0, Zor: 0, Etiketsiz: 0 };
+  QUESTIONS.forEach(q => { z[q.zorluk || 'Etiketsiz']++; });
+  $('zorlukChart').innerHTML = Object.entries(z).map(([k, v]) => {
+    const p = total ? Math.round(v / total * 100) : 0;
+    return `<div class="bar-row"><div class="bl">${k}</div><div class="bt"><div class="bf" style="width:${p}%"></div></div><div class="bv">${v}</div></div>`;
+  }).join('');
+  const ak = {};
+  QUESTIONS.forEach(q => { const k = q.altKonu || 'Etiketsiz'; ak[k] = (ak[k] || 0) + 1; });
+  const akArr = Object.entries(ak).sort((a, b) => b[1] - a[1]).slice(0, 15);
+  const maxAK = Math.max(...akArr.map(x => x[1]), 1);
+  $('altKonuChart').innerHTML = akArr.map(([k, v]) =>
+    `<div class="bar-row"><div class="bl">${esc(k)}</div><div class="bt"><div class="bf" style="width:${Math.round(v/maxAK*100)}%"></div></div><div class="bv">${v}</div></div>`
+  ).join('');
+  const dk = {};
+  QUESTIONS.forEach(q => { dk[q.ders || 'Diğer'] = (dk[q.ders || 'Diğer'] || 0) + 1; });
+  const dkArr = Object.entries(dk).sort((a, b) => b[1] - a[1]);
+  const maxDK = Math.max(...dkArr.map(x => x[1]), 1);
+  $('dersChart').innerHTML = dkArr.map(([k, v]) =>
+    `<div class="bar-row"><div class="bl">${esc(k)}</div><div class="bt"><div class="bf" style="width:${Math.round(v/maxDK*100)}%"></div></div><div class="bv">${v}</div></div>`
+  ).join('');
+}
+
+/* ═══════════ IMPORT / EXPORT (QUESTIONS) ═══════════ */
+function exportJSON(){
+  const clean = QUESTIONS.map(q => { const c = {...q}; delete c._idx; return c; });
+  const blob = new Blob([JSON.stringify({ sorular: clean }, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'sorular-' + new Date().toISOString().slice(0, 10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('⬇️ JSON indirildi');
+}
+function importJSON(e){
+  const f = e.target.files[0];
+  if(!f) return;
+  const r = new FileReader();
+  r.onload = ev => {
+    try{
+      const data = JSON.parse(ev.target.result);
+      const list = Array.isArray(data) ? data : (data.sorular || []);
+      if(!Array.isArray(list)) throw new Error('Geçersiz format');
+      if(!confirm(`${list.length} soru mevcut soruların üzerine yazılacak. Devam?`)) return;
+      QUESTIONS = list.map((q, i) => ({ ...q, _idx: i }));
+      SELECTED.clear();
+      renderTable(); renderStats();
+      toast(`✅ ${list.length} soru yüklendi`);
+    }catch(err){ toast('❌ ' + err.message, true); }
+  };
+  r.readAsText(f);
+  e.target.value = '';
+}
+
+/* ═════════════════════════════════════════════════════
+   📚 DERS PAKETLERİ SİSTEMİ
+   ═════════════════════════════════════════════════════ */
+
+/* ---- PAKET LİSTESİ ---- */
+async function loadPacksFromGithub(){
+  setStatus('🔄 Ders paketleri yükleniyor...', '');
+  const token = localStorage.getItem(LS_TOKEN);
+  try{
+    const r = await githubReadFile(GITHUB.packsIndexFile, token);
+    if(r.notFound){
+      // İlk kullanım — eski dosyadan migrasyon
+      PACKS_INDEX = [{
+        id: 'islamiyet-oncesi',
+        baslik: 'İslamiyet Öncesi Türk Tarihi',
+        ders: 'Tarih',
+        ikon: '📜',
+        ozet: 'İslamiyet öncesi Türk devletleri ve kültürü',
+        dosya: 'islamiyet-oncesi.json'
+      }];
+      localStorage.setItem('kpss_admin_packs_index_backup', JSON.stringify(PACKS_INDEX));
+      renderPackList();
+      setStatus('ℹ️ Dizin bulunamadı, varsayılan oluşturuldu', 'warn');
+      return;
+    }
+    PACKS_INDEX = Array.isArray(r.data.paketler) ? r.data.paketler : [];
+    localStorage.setItem('kpss_admin_packs_index_backup', JSON.stringify(PACKS_INDEX));
+    renderPackList();
+    setStatus(`✅ ${PACKS_INDEX.length} paket yüklendi`, 'ok');
+  }catch(e){
+    console.error(e);
+    const backup = localStorage.getItem('kpss_admin_packs_index_backup');
+    if(backup){
+      PACKS_INDEX = JSON.parse(backup);
+      renderPackList();
+      setStatus('⚠️ Yedekten yüklendi', 'warn');
+    } else {
+      setStatus('❌ Paketler yüklenemedi: ' + e.message, 'err');
+    }
+  }
+}
+
+function renderPackList(){
+  const c = $('packListContainer');
+  // İstatistik çubuğu
+  const totalDers = PACKS_INDEX.length;
+  $('packStatsBar').innerHTML = `
+    <div class="stat-chip"><span class="sc-num">${totalDers}</span><span class="sc-lbl">Paket</span></div>
+    <div class="stat-chip"><span class="sc-num" style="color:var(--blue)">${PACKS_INDEX.filter(p => p.ders === 'Tarih').length}</span><span class="sc-lbl">Tarih</span></div>
+    <div class="stat-chip"><span class="sc-num" style="color:var(--purple)">${PACKS_INDEX.filter(p => p.ders === 'Coğrafya').length}</span><span class="sc-lbl">Coğrafya</span></div>
+    <div class="stat-chip"><span class="sc-num" style="color:var(--green)">${PACKS_INDEX.filter(p => p.ders === 'Vatandaşlık').length}</span><span class="sc-lbl">Vatandaşlık</span></div>
+  `;
+
+  if(PACKS_INDEX.length === 0){
+    c.innerHTML = `<div class="empty"><div class="ico">📚</div>
+      <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px">Henüz ders paketi yok</div>
+      <div>Yukarıdan "➕ Yeni Ders Paketi" butonuna bas</div>
+    </div>`;
+    return;
+  }
+
+  c.innerHTML = `<div class="pack-grid">${PACKS_INDEX.map((p, i) => `
+    <div class="pack-card">
+      <div class="pack-top">
+        <div class="pack-ico">${esc(p.ikon || '📖')}</div>
+        <div style="flex:1;min-width:0">
+          <div class="pack-title">${esc(p.baslik)}</div>
+          <div class="pack-ders">${esc(p.ders || 'Ders')}</div>
+        </div>
+      </div>
+      <div class="pack-desc">${esc(p.ozet || '—')}</div>
+      <div class="pack-file">📄 ${esc(p.dosya)}</div>
+      <div class="pack-actions">
+        <button class="btn btn-sm btn-primary" onclick="openPack(${i})">📂 Aç</button>
+        <button class="btn btn-sm" onclick="editPackMeta(${i})">✏️ Bilgi</button>
+        <button class="btn btn-sm btn-danger" onclick="deletePack(${i})">🗑 Sil</button>
+      </div>
+    </div>
+  `).join('')}</div>`;
+}
+
+async function openPack(idx){
+  CURRENT_PACK = PACKS_INDEX[idx];
+  const token = localStorage.getItem(LS_TOKEN);
+  try{
+    const r = await githubReadFile(GITHUB.packsFolder + '/' + CURRENT_PACK.dosya, token);
+    if(r.notFound){
+      CURRENT_PACK_DATA = { kategori: CURRENT_PACK.baslik, dersler: [] };
+    } else {
+      CURRENT_PACK_DATA = {
+        kategori: r.data.kategori || CURRENT_PACK.baslik,
+        dersler: Array.isArray(r.data.dersler) ? r.data.dersler : []
+      };
+    }
+    $('packTitleLabel').textContent = CURRENT_PACK.ikon + ' ' + CURRENT_PACK.baslik;
+    $('packFileLabel').textContent = '📄 data/dersler/' + CURRENT_PACK.dosya;
+    $('packListView').style.display = 'none';
+    $('packDetailView').style.display = 'block';
+    renderLessonsTab();
+  }catch(e){
+    toast('Paket açılamadı: ' + e.message, true);
+  }
+}
+
+function backToPackList(){
+  $('packDetailView').style.display = 'none';
+  $('packListView').style.display = 'block';
+  CURRENT_PACK = null;
+  CURRENT_PACK_DATA = null;
+}
+
+function renderLessonsTab(){
+  if(!CURRENT_PACK_DATA) return;
+  const grid = $('lessonGrid');
+  const dersler = CURRENT_PACK_DATA.dersler || [];
+  const totalCards = dersler.reduce((s, d) => s + ((d.kartlar || []).length), 0);
+  const totalQs = dersler.reduce((s, d) => s + ((d.sorular || []).length), 0);
+  $('lsTotal').textContent = dersler.length;
+  $('lsCards').textContent = totalCards;
+  $('lsQs').textContent = totalQs;
+
+  if(dersler.length === 0){
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1">
+      <div class="ico">📚</div>
+      <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:6px">Bu pakette henüz ders yok</div>
+      <div>Yukarıdan "➕ Yeni Ders" butonuna bas</div>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = "";
+  dersler.forEach((ders, i) => {
+    const cardCount = (ders.kartlar || []).length;
+    const qCount = (ders.sorular || []).length;
+    const div = document.createElement("div");
+    div.className = "lesson-card-admin";
+    div.innerHTML = `
+      <div class="la-top">
+        <div style="display:flex;gap:10px;flex:1;min-width:0">
+          <div class="la-ico">${ders.ikon || "📖"}</div>
+          <div style="flex:1;min-width:0">
+            <div class="la-title">${esc(ders.baslik || "(başlıksız)")}</div>
+            <span class="la-id">${esc(ders.id || "-")}</span>
+          </div>
+        </div>
+      </div>
+      <div class="la-desc">${esc(ders.ozet || "—")}</div>
+      <div class="la-meta">
+        <span>📇 <b>${cardCount}</b> kart</span>
+        <span>✍️ <b>${qCount}</b> soru</span>
+      </div>
+      <div class="la-actions">
+        <button class="btn btn-sm" onclick="openLessonEdit(${i})">✏️ Düzenle</button>
+        <button class="btn btn-sm btn-blue" onclick="duplicateLesson(${i})">📋 Kopyala</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteLesson(${i})">🗑 Sil</button>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+/* ---- YENİ PAKET OLUŞTUR ---- */
+function openNewPackModal(){
+  $('npBaslik').value = '';
+  $('npDers').value = 'Tarih';
+  $('npIkon').value = '📖';
+  $('npOzet').value = '';
+  $('newPackModal').classList.add('show');
+  setTimeout(() => $('npBaslik').focus(), 100);
+}
+
+async function createNewPack(){
+  const baslik = $('npBaslik').value.trim();
+  const ders = $('npDers').value;
+  const ikon = $('npIkon').value.trim() || '📖';
+  const ozet = $('npOzet').value.trim();
+  if(!baslik){ toast('Paket başlığı gerekli', true); return; }
+  const token = localStorage.getItem(LS_TOKEN);
+  if(!token){ toast('⚠️ Önce Ayarlar sekmesinden GitHub tokeni gir', true); switchTab('settings'); return; }
+
+  let slug = slugify(baslik);
+  while(PACKS_INDEX.some(p => p.dosya === slug + '.json')) slug = slug + '-' + Math.floor(Math.random() * 1000);
+  const dosya = slug + '.json';
+
+  const newPack = { id: slug, baslik, ders, ikon, ozet, dosya };
+
+  $('createPackBtn').disabled = true;
+  $('createPackBtn').textContent = '💾 Oluşturuluyor...';
+  setStatus('💾 Paket oluşturuluyor...', '');
+  try{
+    // 1) Paket dosyası oluştur
+    await githubWriteFile(
+      GITHUB.packsFolder + '/' + dosya,
+      { kategori: baslik, ders, dersler: [] },
+      `Admin: yeni ders paketi oluşturuldu — ${baslik}`,
+      token
+    );
+
+    // 2) index.json güncelle
+    PACKS_INDEX.push(newPack);
+    await githubWriteFile(
+      GITHUB.packsIndexFile,
+      { paketler: PACKS_INDEX },
+      `Admin: ders paketi eklendi — ${baslik}`,
+      token
+    );
+
+    localStorage.setItem('kpss_admin_packs_index_backup', JSON.stringify(PACKS_INDEX));
+    closeModal('newPackModal');
+    toast('✅ Paket oluşturuldu! GitHub\'da dosya açıldı.');
+    setStatus('✅ Paket oluşturuldu', 'ok');
+    renderPackList();
+
+    // Otomatik paket içine gir
+    setTimeout(() => openPack(PACKS_INDEX.length - 1), 300);
+  }catch(e){
+    console.error(e);
+    // Rollback
+    PACKS_INDEX = PACKS_INDEX.filter(p => p.dosya !== dosya);
+    setStatus('❌ ' + e.message, 'err');
+    toast('Hata: ' + e.message, true);
+  }finally{
+    $('createPackBtn').disabled = false;
+    $('createPackBtn').textContent = '🚀 Oluştur ve Kaydet';
+  }
+}
+
+function editPackMeta(idx){
+  const p = PACKS_INDEX[idx];
+  const newBaslik = prompt('Yeni başlık:', p.baslik);
+  if(newBaslik === null) return;
+  const newOzet = prompt('Yeni açıklama:', p.ozet || '');
+  if(newOzet === null) return;
+  p.baslik = newBaslik.trim() || p.baslik;
+  p.ozet = newOzet.trim();
+  localStorage.setItem('kpss_admin_packs_index_backup', JSON.stringify(PACKS_INDEX));
+  renderPackList();
+  toast('✏️ Değişiklik alındı (kaydetmek için 💾 Paket Listesini Kaydet)');
+}
+
+async function deletePack(idx){
+  const p = PACKS_INDEX[idx];
+  if(!confirm(`"${p.baslik}" paketi listeden çıkarılsın mı?\n\n⚠️ GitHub'daki ${p.dosya} dosyası SİLİNMEZ, sadece listeden kaldırılır. İstersen GitHub'dan manuel silebilirsin.`)) return;
+  PACKS_INDEX.splice(idx, 1);
+  localStorage.setItem('kpss_admin_packs_index_backup', JSON.stringify(PACKS_INDEX));
+  renderPackList();
+  toast('🗑 Paket listeden çıkarıldı (kaydetmek için 💾 Paket Listesini Kaydet)');
+}
+
+async function savePackIndexToGithub(){
+  const token = localStorage.getItem(LS_TOKEN);
+  if(!token){ toast('⚠️ Token gerekli', true); switchTab('settings'); return; }
+  if(!confirm(`Paket listesi (${PACKS_INDEX.length} paket) kaydedilecek. Devam?`)) return;
+  $('saveIndexBtn').disabled = true;
+  setStatus('💾 Paket listesi kaydediliyor...', '');
+  try{
+    await githubWriteFile(
+      GITHUB.packsIndexFile,
+      { paketler: PACKS_INDEX },
+      `Admin: paket listesi güncellendi (${PACKS_INDEX.length} paket)`,
+      token
+    );
+    setStatus(`✅ ${new Date().toLocaleTimeString('tr-TR')} kaydedildi`, 'ok');
+    toast('✅ Paket listesi kaydedildi');
+  }catch(e){
+    setStatus('❌ ' + e.message, 'err');
+    toast('Hata: ' + e.message, true);
+  }finally{ $('saveIndexBtn').disabled = false; }
+}
+
+/* ---- DERS DÜZENLEME (paket içi) ---- */
+function openLessonEdit(idx){
+  if(!CURRENT_PACK_DATA) return;
+  LESSON_EDIT_IDX = idx;
+  if(idx === -1){
+    LFORM = { id: uid("d_"), baslik: "", ikon: "📖", ozet: "", kartlar: [], sorular: [] };
+    $('lessonEditTitle').textContent = "➕ Yeni Ders";
+  } else {
+    LFORM = JSON.parse(JSON.stringify(CURRENT_PACK_DATA.dersler[idx]));
+    if(!LFORM.kartlar) LFORM.kartlar = [];
+    if(!LFORM.sorular) LFORM.sorular = [];
+    $('lessonEditTitle').textContent = `✏️ Düzenle: ${LFORM.baslik || "(başlıksız)"}`;
+  }
+  renderLessonForm();
+  $('lessonEditModal').classList.add('show');
+}
+
+function renderLessonForm(){
+  const f = LFORM;
+  const body = $('lessonEditBody');
+  let cardsHTML = '';
+  if(f.kartlar.length === 0){
+    cardsHTML = `<div style="padding:14px;text-align:center;color:var(--muted);font-size:12px;background:rgba(0,0,0,.15);border-radius:8px">Henüz kart yok — "➕ Kart Ekle" ile başla</div>`;
+  } else {
+    f.kartlar.forEach((k, ki) => {
+      const tip = k.tip || 'kavram';
+      cardsHTML += `
+        <div class="card-edit-item" data-card-idx="${ki}">
+          <button class="cei-del" type="button" onclick="removeCardFromForm(${ki})">🗑</button>
+          <div class="cei-head">
+            <span class="cei-num">Kart ${ki + 1}</span>
+            <span class="cei-type ${tip}">${tip}</span>
+          </div>
+          <div class="form-row-3" style="margin-bottom:10px">
+            <div class="form-group" style="margin-bottom:0"><label>Tip</label>
+              <select onchange="updateCardField(${ki}, 'tip', this.value)">
+                <option value="kavram"${tip === 'kavram' ? ' selected' : ''}>📖 Kavram</option>
+                <option value="onemli"${tip === 'onemli' ? ' selected' : ''}>⭐ Önemli</option>
+                <option value="ornek"${tip === 'ornek' ? ' selected' : ''}>💡 Örnek</option>
+                <option value="uyari"${tip === 'uyari' ? ' selected' : ''}>⚠️ Uyarı</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0"><label>İkon</label>
+              <input value="${esc(k.ikon || '📘')}" oninput="updateCardField(${ki}, 'ikon', this.value)" maxlength="4">
+            </div>
+            <div class="form-group" style="margin-bottom:0"><label>Başlık</label>
+              <input value="${esc(k.baslik || '')}" oninput="updateCardField(${ki}, 'baslik', this.value)">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:0"><label>İçerik (HTML destekli)</label>
+            <textarea oninput="updateCardField(${ki}, 'icerik', this.value)">${esc(k.icerik || '')}</textarea>
+          </div>
+        </div>`;
+    });
+  }
+  let qsHTML = '';
+  if(f.sorular.length === 0){
+    qsHTML = `<div style="padding:14px;text-align:center;color:var(--muted);font-size:12px;background:rgba(0,0,0,.15);border-radius:8px">Henüz soru yok — "➕ Soru Ekle" ile başla</div>`;
+  } else {
+    f.sorular.forEach((q, qi) => {
+      const letters = ['A','B','C','D','E'];
+      qsHTML += `
+        <div class="card-edit-item" data-q-idx="${qi}">
+          <button class="cei-del" type="button" onclick="removeQuestionFromForm(${qi})">🗑</button>
+          <div class="cei-head">
+            <span class="cei-num">Soru ${qi + 1}</span>
+            ${q.kartIndex !== undefined ? `<span class="cei-type kavram">🎯 Kart ${parseInt(q.kartIndex) + 1}</span>` : ''}
+          </div>
+          <div class="form-group" style="margin-bottom:10px"><label>Soru Metni</label>
+            <textarea oninput="updateQuestionField(${qi}, 'soru', this.value)">${esc(q.soru || '')}</textarea>
+          </div>
+          ${letters.map((L, li) => `
+            <div class="opts-row">
+              <span class="letter">${L}</span>
+              <input value="${esc((q.secenekler || [])[li] || '')}" oninput="updateOptionField(${qi}, ${li}, this.value)">
+              <button class="correct-btn${q.dogru === li ? ' active' : ''}" type="button" onclick="setQuestionCorrect(${qi}, ${li}, this)"></button>
+            </div>
+          `).join('')}
+          <div class="form-row" style="margin-top:10px">
+            <div class="form-group" style="margin-bottom:10px"><label>İlgili Kart</label>
+              <select onchange="updateQuestionField(${qi}, 'kartIndex', this.value)">
+                <option value="">— Seçilmedi —</option>
+                ${f.kartlar.map((k, ki) => `<option value="${ki}"${parseInt(q.kartIndex) === ki ? ' selected' : ''}>Kart ${ki + 1}: ${esc(k.baslik || '-')}</option>`).join('')}
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:10px"><label>Alt Konu</label>
+              <input value="${esc(q.altKonu || '')}" oninput="updateQuestionField(${qi}, 'altKonu', this.value)">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:0"><label>Açıklama</label>
+            <textarea oninput="updateQuestionField(${qi}, 'aciklama', this.value)">${esc(q.aciklama || '')}</textarea>
+          </div>
+        </div>`;
+    });
+  }
+  body.innerHTML = `
+    <div class="sub-section">
+      <div class="sub-section-header"><h4>📘 Ders Bilgileri</h4></div>
+      <div class="form-row-3">
+        <div class="form-group" style="margin-bottom:10px"><label>İkon</label>
+          <input value="${esc(f.ikon)}" oninput="LFORM.ikon = this.value" maxlength="4">
+        </div>
+        <div class="form-group" style="margin-bottom:10px"><label>Başlık</label>
+          <input value="${esc(f.baslik)}" oninput="LFORM.baslik = this.value">
+        </div>
+        <div class="form-group" style="margin-bottom:10px"><label>ID</label>
+          <input value="${esc(f.id)}" readonly style="font-family:'JetBrains Mono',monospace;font-size:11.5px;opacity:.7">
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:0"><label>Özet</label>
+        <input value="${esc(f.ozet)}" oninput="LFORM.ozet = this.value">
+      </div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-section-header">
+        <h4>📇 Kartlar</h4>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="count">${f.kartlar.length} kart</span>
+          <button class="btn btn-sm btn-blue" type="button" onclick="addCardToForm()">➕ Kart Ekle</button>
+        </div>
+      </div>
+      <div id="cardsContainer">${cardsHTML}</div>
+    </div>
+    <div class="sub-section">
+      <div class="sub-section-header">
+        <h4>✍️ Sorular</h4>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="count">${f.sorular.length} soru</span>
+          <button class="btn btn-sm btn-blue" type="button" onclick="addQuestionToForm()">➕ Soru Ekle</button>
+        </div>
+      </div>
+      <div id="questionsContainer">${qsHTML}</div>
+    </div>
+  `;
+}
+
+function addCardToForm(){ LFORM.kartlar.push({ tip: "kavram", ikon: "📘", baslik: "", icerik: "" }); renderLessonForm(); }
+function removeCardFromForm(i){ if(!confirm("Kart silinsin mi?")) return; LFORM.kartlar.splice(i, 1); renderLessonForm(); }
+function updateCardField(i, field, value){ LFORM.kartlar[i][field] = value; if(field === "tip") renderLessonForm(); }
+function addQuestionToForm(){
+  LFORM.sorular.push({ soru: "", secenekler: ["", "", "", "", ""], dogru: 0, aciklama: "", kartIndex: LFORM.kartlar.length > 0 ? 0 : undefined, altKonu: "" });
+  renderLessonForm();
+}
+function removeQuestionFromForm(i){ if(!confirm("Soru silinsin mi?")) return; LFORM.sorular.splice(i, 1); renderLessonForm(); }
+function updateQuestionField(i, field, value){
+  LFORM.sorular[i][field] = value;
+  if(field === "kartIndex" && value !== "") LFORM.sorular[i].kartIndex = parseInt(value, 10);
+  else if(field === "kartIndex" && value === "") delete LFORM.sorular[i].kartIndex;
+}
+function updateOptionField(qi, oi, value){
+  if(!LFORM.sorular[qi].secenekler) LFORM.sorular[qi].secenekler = ["", "", "", "", ""];
+  LFORM.sorular[qi].secenekler[oi] = value;
+}
+function setQuestionCorrect(qi, oi, btn){
+  LFORM.sorular[qi].dogru = oi;
+  btn.closest(".card-edit-item").querySelectorAll(".correct-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+}
+
+function saveLessonEdit(){
+  if(!LFORM.baslik.trim()){ toast("Ders başlığı boş olamaz", true); return; }
+  if(LFORM.kartlar.some(k => !k.baslik.trim() || !k.icerik.trim())){ toast("Kart başlıkları ve içerikleri boş olamaz", true); return; }
+  if(LFORM.sorular.some(q => !q.soru.trim() || q.secenekler.some(s => !s.trim()))){ toast("Soru metni ve tüm seçenekler dolu olmalı", true); return; }
+  LFORM.sorular.forEach(q => { if(q.altKonu === "") delete q.altKonu; });
+  if(LESSON_EDIT_IDX === -1){
+    CURRENT_PACK_DATA.dersler.push(JSON.parse(JSON.stringify(LFORM)));
+    toast("✅ Ders eklendi (kaydetmek için 💾 Bu Paketi Kaydet)");
+  } else {
+    CURRENT_PACK_DATA.dersler[LESSON_EDIT_IDX] = JSON.parse(JSON.stringify(LFORM));
+    toast("✅ Ders güncellendi (kaydetmek için 💾 Bu Paketi Kaydet)");
+  }
+  closeModal("lessonEditModal");
+  renderLessonsTab();
+}
+function deleteLesson(i){
+  const d = CURRENT_PACK_DATA.dersler[i];
+  if(!confirm(`"${d.baslik}" dersi silinsin mi?`)) return;
+  CURRENT_PACK_DATA.dersler.splice(i, 1);
+  renderLessonsTab();
+  toast("🗑 Ders silindi (kaydetmek için 💾 Bu Paketi Kaydet)");
+}
+function duplicateLesson(i){
+  const d = CURRENT_PACK_DATA.dersler[i];
+  const copy = JSON.parse(JSON.stringify(d));
+  copy.id = uid("d_");
+  copy.baslik = d.baslik + " (kopya)";
+  CURRENT_PACK_DATA.dersler.splice(i + 1, 0, copy);
+  renderLessonsTab();
+  toast("📋 Ders kopyalandı");
+}
+
+async function saveCurrentPackToGithub(){
+  if(!CURRENT_PACK || !CURRENT_PACK_DATA){ toast("Aktif paket yok", true); return; }
+  const token = localStorage.getItem(LS_TOKEN);
+  if(!token){ toast("⚠️ Token gerekli", true); switchTab("settings"); return; }
+  if(!confirm(`"${CURRENT_PACK.baslik}" paketi (${CURRENT_PACK_DATA.dersler.length} ders) kaydedilecek. Devam?`)) return;
+  $('savePackBtn').disabled = true;
+  setStatus("💾 Paket kaydediliyor...", "");
+  try{
+    await githubWriteFile(
+      GITHUB.packsFolder + '/' + CURRENT_PACK.dosya,
+      { kategori: CURRENT_PACK_DATA.kategori || CURRENT_PACK.baslik, ders: CURRENT_PACK.ders, dersler: CURRENT_PACK_DATA.dersler },
+      `Admin: ${CURRENT_PACK.baslik} güncellendi (${CURRENT_PACK_DATA.dersler.length} ders)`,
+      token
+    );
+    localStorage.setItem('kpss_admin_pack_' + CURRENT_PACK.id + '_backup', JSON.stringify(CURRENT_PACK_DATA));
+    setStatus(`✅ ${new Date().toLocaleTimeString("tr-TR")} kaydedildi`, "ok");
+    toast(`✅ Paket GitHub'a kaydedildi!`);
+  }catch(e){
+    console.error(e);
+    setStatus("❌ " + e.message, "err");
+    toast("Hata: " + e.message, true);
+  }finally{ $('savePackBtn').disabled = false; }
+}
+
+function exportLessonsJSON(){
+  if(!CURRENT_PACK_DATA) return;
+  const blob = new Blob([JSON.stringify(CURRENT_PACK_DATA, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = (CURRENT_PACK ? CURRENT_PACK.dosya : "dersler.json");
+  a.click();
+  URL.revokeObjectURL(url);
+  toast("⬇️ JSON indirildi");
+}
+function importLessonsJSON(e){
+  const f = e.target.files[0];
+  if(!f || !CURRENT_PACK_DATA) return;
+  const r = new FileReader();
+  r.onload = ev => {
+    try{
+      const data = JSON.parse(ev.target.result);
+      const dersler = Array.isArray(data) ? data : (data.dersler || []);
+      if(!Array.isArray(dersler)) throw new Error("Geçersiz format");
+      if(!confirm(`${dersler.length} ders mevcut derslerin üzerine yazılacak. Devam?`)) return;
+      CURRENT_PACK_DATA = {
+        kategori: data.kategori || CURRENT_PACK.baslik,
+        dersler: dersler
+      };
+      renderLessonsTab();
+      toast(`✅ ${dersler.length} ders yüklendi`);
+    }catch(err){ toast("❌ " + err.message, true); }
+  };
+  r.readAsText(f);
+  e.target.value = "";
+}
+
+/* ═══════════ INIT ═══════════ */
+initLogin();
+</script>
+</body>
+</html>
