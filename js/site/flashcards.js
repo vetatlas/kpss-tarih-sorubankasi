@@ -19,7 +19,7 @@ function backFromStudyCenter(){
 
 function startTopicStudy(){
   if(!LP.cards.length){
-    toast && toast('Bu konuda henüz konu anlatımı kartı bulunmuyor.');
+    if(typeof toast==='function') toast('Bu konuda henüz konu anlatımı kartı bulunmuyor.');
     return;
   }
   startLesson(LP.lessonIdx);
