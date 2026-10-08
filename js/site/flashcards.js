@@ -20,7 +20,7 @@ async function openStudyCenterFromPack(pack){
 }
 
 /* ═══════════ KONU ÇALIŞMA MERKEZİ + FLASH KARTLAR ═══════════ */
-let FLASH_STUDY = { idx:0, flipped:false, cards:[], sourceCount:0 };
+let FLASH_STUDY = { idx:0, flipped:false, cards:[], allCards:[], sourceCount:0, group:'all' };
 
 function openStudyCenter(idx){
   if(!LP.lessons || !LP.lessons[idx]) return;
@@ -65,6 +65,47 @@ function flashText(value){
 /* Kısa, ezberlenebilir flash kartlar üretir.
    Soru bankasındaki soruları kullanmaz; yalnızca konu anlatımındaki
    kartların bilgi parçalarını atomik tekrar kartlarına dönüştürür. */
+function flashGroup(card){
+  const text=(flashText(card?.baslik||'')+' '+flashText(card?.icerik||'')).toLocaleLowerCase('tr-TR');
+  const tip=String(card?.tip||'').toLocaleLowerCase('tr-TR');
+  if(/\b(ilk|ilk kez|ilk defa|ilk türk|ilk Türk)\b/i.test(text)) return 'ilkler';
+  if(tip==='tarih' || /\b(\d{3,4}|yıl|savaşı|antlaşması|antlaşma|kuruluş|yıkılış)\b/i.test(text)) return 'tarihler';
+  if(tip==='eslestirme' || /\b(kim|hangi eser|eseri|kurucusu|hükümdarı|merkezi|ait)\b/i.test(text)) return 'karistirilanlar';
+  return 'cekirdek';
+}
+
+function flashGroupLabel(key){
+  return ({
+    all:'Tümü',
+    cekirdek:'Çekirdek bilgiler',
+    tarihler:'Kritik tarihler',
+    karistirilanlar:'Karıştırılanlar',
+    ilkler:'İlkler'
+  })[key]||'Tümü';
+}
+
+function renderFlashGroups(){
+  const bar=$('flashGroupBar');
+  if(!bar) return;
+  const cards=FLASH_STUDY.allCards||[];
+  const keys=['all','cekirdek','tarihler','karistirilanlar','ilkler'];
+  bar.innerHTML=keys.map(key=>{
+    const count=key==='all'?cards.length:cards.filter(c=>c.group===key).length;
+    if(key!=='all' && !count) return '';
+    return '<button type="button" class="flash-group-chip '+(FLASH_STUDY.group===key?'active':'')+'" onclick="selectFlashGroup(\''+key+'\')">'+flashGroupLabel(key)+' <span>'+count+'</span></button>';
+  }).join('');
+}
+
+function selectFlashGroup(group){
+  FLASH_STUDY.group=group;
+  const all=FLASH_STUDY.allCards||[];
+  FLASH_STUDY.cards=group==='all'?all:all.filter(c=>c.group===group);
+  FLASH_STUDY.idx=0;
+  FLASH_STUDY.flipped=false;
+  renderFlashGroups();
+  renderFlashcard();
+}
+
 function buildMicroFlashcards(source){
   const result=[];
   (Array.isArray(source)?source:[]).forEach(card=>{
@@ -125,12 +166,15 @@ function startTopicFlashcards(){
     if(typeof toast==='function') toast('Bu konuda henüz flash kart bulunmuyor.',true);
     return;
   }
-  FLASH_STUDY.cards=cards;
+  FLASH_STUDY.allCards=cards.map(c=>({...c,group:flashGroup(c)}));
+  FLASH_STUDY.cards=FLASH_STUDY.allCards;
   FLASH_STUDY.sourceCount=source.length;
   FLASH_STUDY.idx=0;
+  FLASH_STUDY.group='all';
   FLASH_STUDY.flipped=false;
   $('flashTopicTitle').textContent=LP.catName||'Flash Kartlar';
   showScreen('flashcardView');
+  renderFlashGroups();
   renderFlashcard();
 }
 
