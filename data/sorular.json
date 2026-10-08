@@ -1,27 +1,6 @@
 {
   "sorular": [
     {
-      "ders": "Tarih",
-      "kategori": "İslamiyet Öncesi",
-      "seviye": "Ortaöğretim",
-      "altKonu": "",
-      "soru": "....",
-      "secenekler": [
-        ".",
-        ".",
-        ".",
-        ".",
-        "."
-      ],
-      "aciklama": "",
-      "gorsel": null,
-      "zorluk": "",
-      "dogru": 1,
-      "id": "admin_1791447175661",
-      "eklenme": 1791447175661,
-      "kaynak": "admin-panel"
-    },
-    {
       "id": "tg_1791407326016_5h4xco",
       "ders": "Tarih",
       "kategori": "İslamiyet Öncesi",
