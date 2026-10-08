@@ -63,8 +63,10 @@ async function initHome(){
       </div>
       <h3>${escapeHtml(s.key)}</h3>
       <p>${escapeHtml(s.aciklama)}</p>
-      <div class="subj-meta">Konu anlatımı ve soru çözümü</div>
-      <div class="subj-cta">Başla <span>→</span></div>
+      <div class="subj-cta">
+        <span>Çalışmaya başla</span>
+        <span class="subj-cta-arrow" aria-hidden="true">→</span>
+      </div>
     `;
     card.onclick = () => openSubject(s);
     grid.appendChild(card);
