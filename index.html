@@ -330,28 +330,44 @@
   </div>
 </div>
 
-<!-- SORU SAYISI MODALI -->
+<!-- SORU ÇÖZÜM AYARLARI -->
 <div class="modal-backdrop" id="countModal">
-  <div class="modal">
-    <div class="modal-icon">Soru</div>
-    <h3 id="countModalTitle">Soru Çöz</h3>
-    <p class="modal-sub">Çözeceğin soru sayısını seç</p>
-    <div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;letter-spacing:1.4px">SORU SAYISI</div>
-    <div class="count-options" id="countOptions">
-      <button class="count-opt" data-count="5">5</button>
-      <button class="count-opt active" data-count="10">10</button>
-      <button class="count-opt" data-count="20">20</button>
+  <div class="modal quiz-setup-modal">
+    <div class="setup-kicker"><span class="setup-kicker-line"></span> ÇALIŞMA AYARLARI</div>
+    <div class="setup-head">
+      <div>
+        <h3 id="countModalTitle">Soru Çöz</h3>
+        <p class="modal-sub">Bu konu için çalışma şeklini belirle.</p>
+      </div>
+      <button class="setup-close" type="button" onclick="closeCountModal()" aria-label="Kapat">×</button>
     </div>
-    <div style="font-size:11px;font-weight:800;color:var(--muted);margin:16px 0 8px;letter-spacing:1.4px">ZORLUK</div>
-    <div class="difficulty-row" id="countDiffOptions" style="justify-content:flex-start;margin-bottom:8px">
-      <button class="diff-btn active" data-diff="">Tümü</button>
-      <button class="diff-btn kolay" data-diff="Kolay">Kolay</button>
-      <button class="diff-btn orta" data-diff="Orta">Orta</button>
-      <button class="diff-btn zor" data-diff="Zor">Zor</button>
+
+    <div class="setup-section">
+      <div class="setup-label"><span>01</span><div><b>Soru sayısı</b><small>Bu oturumda kaç soru çözmek istiyorsun?</small></div></div>
+      <div class="count-options setup-count-options" id="countOptions">
+        <button class="count-opt" data-count="5"><strong>5</strong><span>kısa tekrar</span></button>
+        <button class="count-opt active" data-count="10"><strong>10</strong><span>standart</span></button>
+        <button class="count-opt" data-count="20"><strong>20</strong><span>yoğun çalışma</span></button>
+      </div>
     </div>
-    <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="closeCountModal()">İptal</button>
-      <button class="btn btn-primary" onclick="confirmStartQuiz()">Başlat →</button>
+
+    <div class="setup-section">
+      <div class="setup-label"><span>02</span><div><b>Zorluk seviyesi</b><small>Soruların seviyesini seç.</small></div></div>
+      <div class="difficulty-row setup-difficulty" id="countDiffOptions">
+        <button class="diff-btn active" data-diff=""><span class="diff-dot all"></span>Tümü</button>
+        <button class="diff-btn kolay" data-diff="Kolay"><span class="diff-dot"></span>Kolay</button>
+        <button class="diff-btn orta" data-diff="Orta"><span class="diff-dot"></span>Orta</button>
+        <button class="diff-btn zor" data-diff="Zor"><span class="diff-dot"></span>Zor</button>
+      </div>
+    </div>
+
+    <div class="setup-summary">
+      <div class="setup-summary-icon">→</div>
+      <div><small>OTURUM ÖZETİ</small><strong id="countSetupSummary">10 soru · Tüm seviyeler</strong></div>
+    </div>
+    <div class="modal-actions setup-actions">
+      <button class="btn btn-ghost" onclick="closeCountModal()">Vazgeç</button>
+      <button class="btn btn-primary setup-start-btn" onclick="confirmStartQuiz()"><span>Çalışmaya başla</span><b>→</b></button>
     </div>
   </div>
 </div>
