@@ -309,7 +309,11 @@ document.addEventListener('DOMContentLoaded', function(){
   const btn = document.getElementById('loginBtn');
   if(btn) btn.addEventListener('click', function(){
     if(typeof handleLogin === 'function') handleLogin();
-    else alert('Yönetim paneli JavaScript dosyası yüklenemedi. Sayfayı yenileyin.');
+    else {
+      alert(window.__adminJsError
+        ? 'Yönetim paneli JS dosyası sunucudan yüklenemedi. Render dağıtımı kontrol ediliyor.'
+        : 'Yönetim paneli JS dosyası yüklenemedi veya çalıştırılamadı.');
+    }
   });
 });
 </script>
@@ -320,6 +324,6 @@ document.addEventListener('DOMContentLoaded', function(){
 <script src="js/core/storage.js?v=20261008-1"></script>
 <script src="js/core/ui.js?v=20261008-1"></script>
 <script src="js/core/api.js?v=20261008-1"></script>
-<script src="js/admin.js?v=20261008-1"></script>
+<script src="/js/admin.js?v=20261008-2" onerror="window.__adminJsError=true"></script>
 </body>
 </html>
