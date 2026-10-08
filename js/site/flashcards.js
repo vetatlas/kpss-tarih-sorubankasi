@@ -113,7 +113,14 @@ function buildMicroFlashcards(source){
 
 function startTopicFlashcards(){
   const source=Array.isArray(LP.cards)?LP.cards:[];
-  const cards=buildMicroFlashcards(source);
+  const cards=source
+    .filter(c=>c && flashText(c.baslik||'') && flashText(c.icerik||''))
+    .map(c=>({
+      baslik:flashText(c.baslik||''),
+      icerik:flashText(c.icerik||''),
+      tip:c.tip||'kavram',
+      ikon:c.ikon||'📘'
+    }));
   if(!cards.length){
     if(typeof toast==='function') toast('Bu konuda henüz flash kart bulunmuyor.',true);
     return;
