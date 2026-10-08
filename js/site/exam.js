@@ -58,7 +58,6 @@ async function startExam(){
   S.cat = { ad: `Deneme (${label}, ${examDuration} dk)` };
   S.examTimeLeft = examDuration * 60;
   S.examStartTime = Date.now();
-  $("qTotal").textContent = S.list.length;
   showScreen("quiz");
   startExamTimer();
   renderQuestion();
