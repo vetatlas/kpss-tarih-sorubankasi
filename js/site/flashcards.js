@@ -43,7 +43,8 @@ function startTopicStudy(){
     if(typeof toast==='function') toast('Bu konuda henüz konu anlatımı kartı bulunmuyor.');
     return;
   }
-  startLesson(LP.lessonIdx);
+  if(LP.pack && typeof openLessonPathFromPack === "function") openLessonPathFromPack(LP.pack);
+  else startLesson(LP.lessonIdx);
 }
 
 function startTopicQuestions(){
