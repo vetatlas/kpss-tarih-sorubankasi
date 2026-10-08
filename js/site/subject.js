@@ -1,5 +1,5 @@
 /* ═══════════ SUBJECT ═══════════ */
-let pendingSubj = null, pendingCatName = null;
+let pendingSubj = null, pendingCatName = null, selectedCount = 10, selectedDiff = "";
 
 function openSubject(subj){
   currentSubject = subj;
@@ -91,12 +91,43 @@ function openSubject(subj){
 function openCountModal(subj, catName){
   pendingSubj = subj;
   pendingCatName = catName;
-  let list = questionsByDers(subj.key).filter(q => (q.kategori || "Genel") === catName);
-  list = shuffle(list);
-  /* Öğrenciye soru havuzunun büyüklüğü gösterilmez. Sistem uygun bir çalışma seti seçer. */
-  const studySetSize = 20;
-  if(list.length > studySetSize) list = list.slice(0, studySetSize);
-  startQuiz(subj, catName, list);
+  selectedCount = 10;
+  selectedDiff = "";
+  const title = $("countModalTitle");
+  if(title) title.textContent = catName;
+  document.querySelectorAll("#countOptions .count-opt").forEach(b => b.classList.toggle("active", parseInt(b.dataset.count,10) === selectedCount));
+  document.querySelectorAll("#countDiffOptions .diff-btn").forEach(b => b.classList.toggle("active", b.dataset.diff === ""));
+  $("countModal").classList.add("show");
+  document.body.style.overflow = "hidden";
 }
-function closeCountModal(){}
-function confirmStartQuiz(){ openCountModal(pendingSubj, pendingCatName); }
+function closeCountModal(){
+  $("countModal").classList.remove("show");
+  document.body.style.overflow = "";
+}
+if($("countModal")){
+  $("countModal").addEventListener("click", e => {
+    if(e.target === $("countModal")) closeCountModal();
+  });
+}
+document.querySelectorAll("#countOptions .count-opt").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll("#countOptions .count-opt").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    selectedCount = parseInt(btn.dataset.count,10);
+  };
+});
+document.querySelectorAll("#countDiffOptions .diff-btn").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll("#countDiffOptions .diff-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    selectedDiff = btn.dataset.diff || "";
+  };
+});
+function confirmStartQuiz(){
+  if(!pendingSubj || !pendingCatName) return;
+  let list = questionsByDers(pendingSubj.key).filter(q => (q.kategori || "Genel") === pendingCatName);
+  if(selectedDiff) list = list.filter(q => q.zorluk === selectedDiff);
+  list = shuffle(list).slice(0, selectedCount);
+  closeCountModal();
+  startQuiz(pendingSubj, pendingCatName, list);
+}
