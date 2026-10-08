@@ -4,7 +4,10 @@ const LP = {
   lessons: [], lessonIdx: 0,
   cards: [], cardIdx: 0,
   questions: [], qIdx: 0,
-  correct: 0, wrong: 0, startTime: 0, qAnswered: false
+  correct: 0, wrong: 0, startTime: 0, qAnswered: false,
+  activeQuestion: null,
+  usedRecallQuestions: new Set(),
+  recallQueue: []
 };
 
 async function openLessonPathFromPack(pack){
