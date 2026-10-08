@@ -8,10 +8,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(6,11,22,.72);
 .brand-mark{width:36px;height:36px;border-radius:10px;flex:0 0 auto;
   background:linear-gradient(145deg,var(--gold-2),#9a7a15);display:grid;place-items:center;
   font-family:'Playfair Display',serif;font-weight:800;font-size:14px;color:#0f0c04;
-  box-shadow:0 5px 16px -6px rgba(201,162,39,.8);position:relative;overflow:hidden}
+  box-shadow:0 3px 10px -6px rgba(201,162,39,.45);position:relative;overflow:hidden}
 .brand-mark::after{content:"";position:absolute;inset:0;
   background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
-  transform:translateX(-120%);animation:shine 4s ease-in-out infinite}
+  transform:none;animation:none}
 .brand-text h1{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;line-height:1.15;color:#fff}
 .brand-text span{font-size:9px;color:var(--muted);letter-spacing:1.8px;text-transform:uppercase;font-weight:700}
 .header-right{display:flex;align-items:center;gap:10px}
