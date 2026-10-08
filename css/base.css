@@ -1,0 +1,38 @@
+/* ═══════════ BASE — Değişkenler, Reset, Ambient ═══════════ */
+:root{
+  --bg:#060b16;--bg-2:#0a1120;--gold:#c9a227;--gold-2:#e6c455;--gold-3:#f7e9b8;
+  --card:rgba(255,255,255,.028);--card-h:rgba(255,255,255,.055);
+  --line:rgba(255,255,255,.075);--line-2:rgba(255,255,255,.13);
+  --text:#eef2f8;--text-2:#b9c6da;--muted:#6b7b93;
+  --green:#34d399;--green-bg:rgba(52,211,153,.1);--green-line:rgba(52,211,153,.38);
+  --red:#f87171;--red-bg:rgba(248,113,113,.1);--red-line:rgba(248,113,113,.38);
+  --blue:#60a5fa;--blue-bg:rgba(96,165,250,.1);
+  --purple:#a78bfa;--orange:#fb923c;
+  --shadow-lg:0 24px 70px -22px rgba(0,0,0,.75);
+  --shadow-gold:0 16px 50px -18px rgba(201,162,39,.55);
+}
+html{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+button,a,.option,.btn,.mod-card,.subj-card,.cat-card,.dp-node,.lesson-node,.count-opt,.duration-opt,.diff-btn,.q-tool,.icon-btn{
+  -webkit-tap-highlight-color:transparent;outline:none;user-select:none;
+  -webkit-user-select:none;-webkit-touch-callout:none
+}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;
+  display:flex;flex-direction:column;overflow-x:hidden;font-size:14px
+}
+.hidden{display:none !important}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(201,162,39,.28);border-radius:10px}
+
+/* Ambient background */
+.ambient{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.45;animation:float 24s ease-in-out infinite}
+.orb.o1{width:480px;height:480px;background:radial-gradient(circle,rgba(201,162,39,.26),transparent 65%);top:-180px;left:-140px}
+.orb.o2{width:420px;height:420px;background:radial-gradient(circle,rgba(30,50,82,.85),transparent 65%);top:42%;right:-160px}
+.orb.o3{width:380px;height:380px;background:radial-gradient(circle,rgba(201,162,39,.14),transparent 65%);bottom:-140px;left:25%}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
