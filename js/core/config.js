@@ -8,6 +8,8 @@ const SUBJECTS = [
   { key:"Güncel",      ikon:"🌐", renk:"orange", aciklama:"Güncel bilgiler" }
 ];
 
+const ADMIN_API_BASE = "https://kpss-tarih-sorubankasi.onrender.com";
+
 const GITHUB = {
   user: "vetatlas",
   repo: "kpss-tarih-sorubankasi",
