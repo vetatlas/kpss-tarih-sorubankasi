@@ -636,15 +636,13 @@ async function createNewPack(){
     await githubWriteFile(
       GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + dosya,
       { kategori: baslik, ders, dersler: [] },
-      `Admin: yeni ders paketi oluşturuldu — ${baslik}`,
-      token
+      `Admin: yeni ders paketi oluşturuldu — ${baslik}`
     );
     PACKS_INDEX.push(newPack);
     await githubWriteFile(
       GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + PACKS_INDEX_FILE,
       { paketler: PACKS_INDEX },
-      `Admin: ders paketi eklendi — ${baslik}`,
-      token
+      `Admin: ders paketi eklendi — ${baslik}`
     );
     localStorage.setItem('kpss_admin_packs_index_backup', JSON.stringify(PACKS_INDEX));
     closeModal('newPackModal');
@@ -690,8 +688,7 @@ async function savePackIndexToGithub(){
     await githubWriteFile(
       GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + PACKS_INDEX_FILE,
       { paketler: PACKS_INDEX },
-      `Admin: paket listesi güncellendi (${PACKS_INDEX.length} paket)`,
-      token
+      `Admin: paket listesi güncellendi (${PACKS_INDEX.length} paket)`
     );
     setStatus(`✅ ${new Date().toLocaleTimeString('tr-TR')} kaydedildi`, 'ok');
     toast('✅ Paket listesi kaydedildi');
@@ -897,8 +894,7 @@ async function saveCurrentPackToGithub(){
     await githubWriteFile(
       GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + CURRENT_PACK.dosya,
       { kategori: CURRENT_PACK_DATA.kategori || CURRENT_PACK.baslik, ders: CURRENT_PACK.ders, dersler: CURRENT_PACK_DATA.dersler },
-      `Admin: ${CURRENT_PACK.baslik} güncellendi (${CURRENT_PACK_DATA.dersler.length} ders)`,
-      token
+      `Admin: ${CURRENT_PACK.baslik} güncellendi (${CURRENT_PACK_DATA.dersler.length} ders)`
     );
     localStorage.setItem('kpss_admin_pack_' + CURRENT_PACK.id + '_backup', JSON.stringify(CURRENT_PACK_DATA));
     setStatus(`✅ ${new Date().toLocaleTimeString("tr-TR")} kaydedildi`, "ok");
