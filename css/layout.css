@@ -35,3 +35,17 @@ footer b{color:var(--gold-2);font-weight:700}
 .page-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px;flex-wrap:wrap;position:relative}
 .page-header h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,26px);color:#fff}
   .page-header p{font-size:12.5px;color:var(--muted);margin-top:3px}
+
+
+/* MOBILE */
+@media(max-width:560px){
+  .header-inner{padding:9px 12px;gap:8px}
+  .brand{gap:8px}
+  .brand-mark{width:32px;height:32px;font-size:11px}
+  .brand-text h1{font-size:13px}
+  .brand-text span{font-size:8px;letter-spacing:1.3px}
+  .header-right{gap:3px}
+  .xp-chip,.streak-chip{display:none}
+  .icon-btn{width:32px;height:32px;border-radius:8px;font-size:14px}
+  main{padding:18px 12px 40px}
+}
