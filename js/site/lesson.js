@@ -84,9 +84,7 @@ function renderLessonPath(){
     const isLocked = !done && i > firstUndoneIdx;
     const offCls = "dp-offset-" + (i % 5);
     const circleCls = "dp-circle" + (done ? " done" : "") + (isActive ? " active" : "") + (isLocked ? " locked" : "");
-    const cardCount = (ders.kartlar || []).length;
-    const qCount = (ders.sorular || []).length;
-    const title = ders.baslik || "(başlıksız)";
+      const title = ders.baslik || "(başlıksız)";
     const shortTitle = title.length > 32 ? title.substring(0, 32) + "…" : title;
     html += `
       <div class="dp-node-wrap ${offCls}" style="animation-delay:${i * 80}ms">
@@ -98,7 +96,7 @@ function renderLessonPath(){
             <div class="dp-num">${i + 1}</div>
           </div>
           <div class="dp-title">${escapeHtml(shortTitle)}</div>
-          <div class="dp-meta">📇 <b>${cardCount}</b> kart • ✍️ <b>${qCount}</b> soru</div>
+          <div class="dp-meta">Konu anlatımı ve sorular</div>
         </div>
       </div>
     `;
