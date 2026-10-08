@@ -189,17 +189,13 @@
     <!-- AYARLAR -->
     <div class="tab-content" data-tab-content="settings">
       <div class="table-wrap" style="padding:24px;margin-bottom:16px">
-        <h2 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:16px">🔑 GitHub Token</h2>
-        <p style="color:var(--muted);font-size:12.5px;margin-bottom:14px;line-height:1.6">
-          Soruları ve ders paketlerini GitHub'a kaydetmek için <b style="color:var(--gold-2)">Contents: Read and write</b> izinli bir Personal Access Token gerekir.
+        <h2 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:16px">🔐 Güvenli Yönetim</h2>
+        <p style="color:var(--muted);font-size:12.5px;line-height:1.7">
+          GitHub erişim anahtarı artık tarayıcıda tutulmaz. Tüm okuma/yazma işlemleri Render sunucusu üzerinden, oturum doğrulamasıyla yapılır.
+          Yönetici şifresi ve Telegram yetkisi Render Environment Variables üzerinden yönetilir.
         </p>
-        <div class="form-group"><label>Token</label>
-          <input type="password" id="setToken" placeholder="github_pat_...">
-        </div>
-        <button class="btn btn-primary" onclick="saveToken()">💾 Kaydet</button>
-        <span id="tokenStatus" style="margin-left:12px;font-size:12px;color:var(--muted)"></span>
       </div>
-      <div class="table-wrap" style="padding:24px">
+            <div class="table-wrap" style="padding:24px">
         <h2 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:16px">🔐 Şifre Değiştir</h2>
         <div class="form-group"><label>Yeni Şifre</label>
           <input type="password" id="setNewPass" placeholder="••••••••">
