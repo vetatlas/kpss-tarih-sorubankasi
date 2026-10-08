@@ -108,7 +108,6 @@ function openPackCountModal(pack){
   pendingPack = pack;
   pendingSubj = { key: pack.ders || currentSubject?.key || "Tarih", ikon: pack.ikon || "", aciklama: pack.ozet || "" };
   pendingCatName = pack.baslik || "Konu";
-  pendingPackQuestions = null;
   selectedCount = 10;
   selectedDiff = "";
   const title = $("countModalTitle");
