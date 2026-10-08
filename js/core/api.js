@@ -1,47 +1,46 @@
-/* ═══════════ GITHUB API — Sadece admin panelde kullanılır ═══════════ */
-
-async function githubReadFile(filePath, token){
-  const url = `https://api.github.com/repos/${GITHUB.user}/${GITHUB.repo}/contents/${filePath}?ref=${GITHUB.branch}`;
-  const headers = { 'User-Agent': 'KPSS-Admin' };
-  if(token) headers['Authorization'] = `token ${token}`;
-  const res = await fetch(url, { headers, cache: 'no-store' });
-  if(res.status === 404) return { notFound: true };
-  if(!res.ok) throw new Error('HTTP ' + res.status);
-  const info = await res.json();
-  const content = decodeURIComponent(escape(atob(info.content)));
-  return { sha: info.sha, data: JSON.parse(content) };
-}
-
-async function githubWriteFile(filePath, contentObj, message, token){
-  const url = `https://api.github.com/repos/${GITHUB.user}/${GITHUB.repo}/contents/${filePath}`;
-  let sha = null;
-  const getRes = await fetch(url + `?ref=${GITHUB.branch}`, {
-    headers: { 'Authorization': `token ${token}`, 'User-Agent': 'KPSS-Admin' }
-  });
-  if(getRes.ok){ const info = await getRes.json(); sha = info.sha; }
-
-  const content = JSON.stringify(contentObj, null, 2);
-  const encoded = btoa(unescape(encodeURIComponent(content)));
-  const body = { message, content: encoded, branch: GITHUB.branch };
-  if(sha) body.sha = sha;
-
-  const putRes = await fetch(url, {
-    method: 'PUT',
+/* ═══════════ GÜVENLİ ADMIN API ═══════════ */
+async function adminRequest(path, options = {}) {
+  const res = await fetch(ADMIN_API_BASE + path, {
+    credentials: 'include',
+    ...options,
     headers: {
-      'Authorization': `token ${token}`,
       'Content-Type': 'application/json',
-      'User-Agent': 'KPSS-Admin'
-    },
-    body: JSON.stringify(body)
+      ...(options.headers || {})
+    }
   });
-  if(!putRes.ok){
-    const err = await putRes.text();
-    throw new Error('HTTP ' + putRes.status + ': ' + err.substring(0, 120));
-  }
-  return putRes.json();
+  let data = {};
+  try { data = await res.json(); } catch {}
+  if(!res.ok) throw new Error(data.error || ('HTTP ' + res.status));
+  return data;
 }
 
-/* ─── SORULARI YÜKLE (hataya dayanıklı) ─── */
+async function adminLogin(password) {
+  return adminRequest('/api/login', {
+    method: 'POST',
+    body: JSON.stringify({ password })
+  });
+}
+
+async function adminLogout() {
+  try { await adminRequest('/api/logout', { method: 'POST' }); } catch {}
+}
+
+async function githubReadFile(filePath){
+  return adminRequest('/api/data?path=' + encodeURIComponent(filePath));
+}
+
+async function githubWriteFile(filePath, contentObj, message){
+  return adminRequest('/api/data?path=' + encodeURIComponent(filePath), {
+    method: 'PUT',
+    body: JSON.stringify({ path: filePath, content: contentObj, message })
+  });
+}
+
+async function adminHealth(){
+  return adminRequest('/api/health');
+}
+
+/* ─── SORULARI YÜKLE ─── */
 async function loadAllQuestions(){
   try{
     const data = await fetchJSON(SORULAR_FILE);
@@ -57,12 +56,11 @@ async function loadAllQuestions(){
   }catch(e){
     console.error("❌ Sorular yüklenemedi:", e.message);
     ALL_QUESTIONS = [];
-    throw e; // home.js'e bildir
+    throw e;
   }
   return ALL_QUESTIONS;
 }
 
-/* ─── PAKET İNDEKSİ YÜKLE (hataya dayanıklı) ─── */
 async function loadPacksIndex(){
   try{
     const data = await fetchJSON(PACKS_INDEX_FILE, PACKS_FOLDER);
@@ -73,12 +71,10 @@ async function loadPacksIndex(){
     console.warn("⚠️ Paket indeksi yüklenemedi:", e.message);
     PACKS_INDEX = [];
     PACKS_LOADED = true;
-    // Paket yoksa sorun değil, hata fırlatma
   }
   return PACKS_INDEX;
 }
 
-/* ─── YARDIMCILAR ─── */
 function questionsByDers(ders){
   return ALL_QUESTIONS.filter(q => (q.ders || "Genel") === ders);
 }

@@ -3,7 +3,6 @@
    ═════════════════════════════════════════════════════ */
 
 const LS_PASS = 'kpss_admin_pass_v1';
-const LS_TOKEN = 'kpss_admin_token_v1';
 const LS_SESSION = 'kpss_admin_session_v1';
 
 let QUESTIONS = [];
@@ -47,68 +46,50 @@ function setStatus(text, cls){
 }
 function closeModal(id){ $(id).classList.remove('show'); }
 
-/* ═══════════ LOGIN ═══════════ */
-function initLogin(){
-  const saved = localStorage.getItem(LS_PASS);
-  if(saved){
-    $('loginSub').textContent = 'Devam etmek için şifreyi gir';
-    $('loginHint').innerHTML = 'Şifreyi unuttuysan tarayıcı önbelleğini temizleyip yeniden kur.';
-  } else {
-    $('loginSub').textContent = 'İlk kullanım — bir şifre belirle';
-    $('loginHint').innerHTML = '⚠️ Bu şifre <b style="color:var(--gold-2)">tarayıcıda</b> saklanır.';
-  }
+/* ═══════════ LOGIN — Render backend ═══════════ */
+async function initLogin(){
+  $('loginSub').textContent = 'Devam etmek için yönetici şifresini gir';
+  $('loginHint').innerHTML = '🔒 Şifre tarayıcıda saklanmaz; Render sunucusunda doğrulanır.';
   $('loginPass').addEventListener('keydown', e => { if(e.key === 'Enter') handleLogin(); });
-  if(localStorage.getItem(LS_SESSION) === 'ok'){ startApp(); }
-}
-function handleLogin(){
-  const pass = $('loginPass').value.trim();
-  if(pass.length < 4){ toast('En az 4 karakter olmalı', true); return; }
-  const saved = localStorage.getItem(LS_PASS);
-  if(!saved){
-    localStorage.setItem(LS_PASS, hash(pass));
-    localStorage.setItem(LS_SESSION, 'ok');
-    toast('✅ Şifre belirlendi!');
-    startApp();
-    return;
+  try{
+    const h = await adminHealth();
+    if(!h.adminConfigured) $('loginHint').innerHTML = '⚠️ Render üzerinde ADMIN_PASSWORD tanımlı değil.';
+  }catch(e){
+    $('loginHint').innerHTML = '❌ Yönetim sunucusuna bağlanılamadı.';
   }
-  if(hash(pass) === saved){
-    localStorage.setItem(LS_SESSION, 'ok');
+}
+async function handleLogin(){
+  const pass = $('loginPass').value;
+  if(pass.length < 4){ toast('En az 4 karakter olmalı', true); return; }
+  try{
+    await adminLogin(pass);
+    $('loginPass').value = '';
     startApp();
-  } else {
-    toast('❌ Şifre yanlış', true);
+  }catch(e){
+    toast('❌ ' + e.message, true);
     $('loginPass').value = '';
   }
 }
-function logout(){ localStorage.removeItem(LS_SESSION); location.reload(); }
+async function logout(){
+  await adminLogout();
+  location.reload();
+}
 function startApp(){
   $('loginWrap').style.display = 'none';
   $('app').classList.add('show');
-  const token = localStorage.getItem(LS_TOKEN);
-  if(token) $('setToken').value = '•'.repeat(20);
   loadQuestions();
 }
 function changePassword(){
-  const np = $('setNewPass').value.trim();
-  if(np.length < 4){ toast('En az 4 karakter', true); return; }
-  localStorage.setItem(LS_PASS, hash(np));
-  $('setNewPass').value = '';
-  toast('✅ Şifre değiştirildi');
+  toast('🔐 Şifre Render Environment Variables içinden değiştirilir.', false);
 }
 function saveToken(){
-  const t = $('setToken').value.trim();
-  if(!t || t.startsWith('•')){ toast('Token gir', true); return; }
-  localStorage.setItem(LS_TOKEN, t);
-  $('setToken').value = '•'.repeat(20);
-  toast('✅ Token kaydedildi');
-  loadQuestions();
+  toast('🔐 GitHub Token artık tarayıcıda tutulmuyor.', false);
 }
-
 /* ═══════════ SORULAR — Yükle / Kaydet ═══════════ */
 async function loadQuestions(){
   setStatus('🔄 Yükleniyor...', '');
-  const token = localStorage.getItem(LS_TOKEN);
-  try{
-    const r = await githubReadFile(GITHUB.dataFolder + '/sorular.json', token);
+    try{
+    const r = await githubReadFile(GITHUB.dataFolder + '/sorular.json');
     if(r.notFound) throw new Error('sorular.json bulunamadı');
     QUESTIONS = (r.data.sorular || []).filter(q => q && q.soru);
     QUESTIONS.forEach((q, i) => q._idx = i);
@@ -131,14 +112,12 @@ function reloadFromGithub(){
   if(confirm('Kaydedilmemiş değişiklikler kaybolur. Devam?')) loadQuestions();
 }
 async function saveToGithub(){
-  const token = localStorage.getItem(LS_TOKEN);
-  if(!token){ toast('⚠️ Önce Ayarlar sekmesinden GitHub tokeni gir', true); switchTab('settings'); return; }
-  if(!confirm(`${QUESTIONS.length} soru GitHub'a kaydedilecek. Devam?`)) return;
+      if(!confirm(`${QUESTIONS.length} soru GitHub'a kaydedilecek. Devam?`)) return;
   $('saveBtn').disabled = true;
   setStatus('💾 Kaydediliyor...', '');
   try{
     const cleanList = QUESTIONS.map(q => { const c = {...q}; delete c._idx; return c; });
-    await githubWriteFile(GITHUB.dataFolder + '/sorular.json', { sorular: cleanList }, `Admin: ${QUESTIONS.length} soru güncellendi`, token);
+    await githubWriteFile(GITHUB.dataFolder + '/sorular.json', { sorular: cleanList }, `Admin: ${QUESTIONS.length} soru güncellendi`);
     localStorage.setItem('kpss_admin_backup', JSON.stringify(QUESTIONS));
     setStatus(`✅ ${new Date().toLocaleTimeString('tr-TR')} kaydedildi`, 'ok');
     toast(`✅ ${QUESTIONS.length} soru GitHub'a kaydedildi!`);
@@ -494,9 +473,8 @@ function importJSON(e){
 /* ═══════════ DERS PAKETLERİ ═══════════ */
 async function loadPacksFromGithub(){
   setStatus('🔄 Ders paketleri yükleniyor...', '');
-  const token = localStorage.getItem(LS_TOKEN);
-  try{
-    const r = await githubReadFile(GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + PACKS_INDEX_FILE, token);
+    try{
+    const r = await githubReadFile(GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + PACKS_INDEX_FILE);
     if(r.notFound){
       PACKS_INDEX = [];
       localStorage.setItem('kpss_admin_packs_index_backup', JSON.stringify(PACKS_INDEX));
@@ -557,9 +535,8 @@ function renderPackList(){
 }
 async function openPack(idx){
   CURRENT_PACK = PACKS_INDEX[idx];
-  const token = localStorage.getItem(LS_TOKEN);
-  try{
-    const r = await githubReadFile(GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + CURRENT_PACK.dosya, token);
+    try{
+    const r = await githubReadFile(GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + CURRENT_PACK.dosya);
     if(r.notFound){
       CURRENT_PACK_DATA = { kategori: CURRENT_PACK.baslik, dersler: [] };
     } else {
@@ -646,9 +623,7 @@ async function createNewPack(){
   const ikon = $('npIkon').value.trim() || '📖';
   const ozet = $('npOzet').value.trim();
   if(!baslik){ toast('Paket başlığı gerekli', true); return; }
-  const token = localStorage.getItem(LS_TOKEN);
-  if(!token){ toast('⚠️ Önce Ayarlar sekmesinden GitHub tokeni gir', true); switchTab('settings'); return; }
-
+    
   let slug = slugify(baslik);
   while(PACKS_INDEX.some(p => p.dosya === slug + '.json')) slug = slug + '-' + Math.floor(Math.random() * 1000);
   const dosya = slug + '.json';
@@ -661,15 +636,13 @@ async function createNewPack(){
     await githubWriteFile(
       GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + dosya,
       { kategori: baslik, ders, dersler: [] },
-      `Admin: yeni ders paketi oluşturuldu — ${baslik}`,
-      token
+      `Admin: yeni ders paketi oluşturuldu — ${baslik}`
     );
     PACKS_INDEX.push(newPack);
     await githubWriteFile(
       GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + PACKS_INDEX_FILE,
       { paketler: PACKS_INDEX },
-      `Admin: ders paketi eklendi — ${baslik}`,
-      token
+      `Admin: ders paketi eklendi — ${baslik}`
     );
     localStorage.setItem('kpss_admin_packs_index_backup', JSON.stringify(PACKS_INDEX));
     closeModal('newPackModal');
@@ -708,17 +681,14 @@ async function deletePack(idx){
   toast('🗑 Paket listeden çıkarıldı (kaydetmek için 💾)');
 }
 async function savePackIndexToGithub(){
-  const token = localStorage.getItem(LS_TOKEN);
-  if(!token){ toast('⚠️ Token gerekli', true); switchTab('settings'); return; }
-  if(!confirm(`Paket listesi (${PACKS_INDEX.length} paket) kaydedilecek. Devam?`)) return;
+      if(!confirm(`Paket listesi (${PACKS_INDEX.length} paket) kaydedilecek. Devam?`)) return;
   $('saveIndexBtn').disabled = true;
   setStatus('💾 Paket listesi kaydediliyor...', '');
   try{
     await githubWriteFile(
       GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + PACKS_INDEX_FILE,
       { paketler: PACKS_INDEX },
-      `Admin: paket listesi güncellendi (${PACKS_INDEX.length} paket)`,
-      token
+      `Admin: paket listesi güncellendi (${PACKS_INDEX.length} paket)`
     );
     setStatus(`✅ ${new Date().toLocaleTimeString('tr-TR')} kaydedildi`, 'ok');
     toast('✅ Paket listesi kaydedildi');
@@ -917,17 +887,14 @@ function duplicateLesson(i){
 }
 async function saveCurrentPackToGithub(){
   if(!CURRENT_PACK || !CURRENT_PACK_DATA){ toast("Aktif paket yok", true); return; }
-  const token = localStorage.getItem(LS_TOKEN);
-  if(!token){ toast("⚠️ Token gerekli", true); switchTab("settings"); return; }
-  if(!confirm(`"${CURRENT_PACK.baslik}" paketi (${CURRENT_PACK_DATA.dersler.length} ders) kaydedilecek. Devam?`)) return;
+      if(!confirm(`"${CURRENT_PACK.baslik}" paketi (${CURRENT_PACK_DATA.dersler.length} ders) kaydedilecek. Devam?`)) return;
   $('savePackBtn').disabled = true;
   setStatus("💾 Paket kaydediliyor...", "");
   try{
     await githubWriteFile(
       GITHUB.dataFolder + '/' + PACKS_FOLDER + '/' + CURRENT_PACK.dosya,
       { kategori: CURRENT_PACK_DATA.kategori || CURRENT_PACK.baslik, ders: CURRENT_PACK.ders, dersler: CURRENT_PACK_DATA.dersler },
-      `Admin: ${CURRENT_PACK.baslik} güncellendi (${CURRENT_PACK_DATA.dersler.length} ders)`,
-      token
+      `Admin: ${CURRENT_PACK.baslik} güncellendi (${CURRENT_PACK_DATA.dersler.length} ders)`
     );
     localStorage.setItem('kpss_admin_pack_' + CURRENT_PACK.id + '_backup', JSON.stringify(CURRENT_PACK_DATA));
     setStatus(`✅ ${new Date().toLocaleTimeString("tr-TR")} kaydedildi`, "ok");

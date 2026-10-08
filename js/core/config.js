@@ -8,6 +8,8 @@ const SUBJECTS = [
   { key:"Güncel",      ikon:"🌐", renk:"orange", aciklama:"Güncel bilgiler" }
 ];
 
+const ADMIN_API_BASE = window.location.origin;
+
 const GITHUB = {
   user: "vetatlas",
   repo: "kpss-tarih-sorubankasi",
