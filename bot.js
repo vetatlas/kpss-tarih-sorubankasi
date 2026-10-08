@@ -109,7 +109,7 @@ async function handleAdminApi(req, res) {
   if (!url.pathname.startsWith('/api/') && (req.method === 'GET' || req.method === 'HEAD')) {
     const requested = url.pathname === '/' ? 'index.html'
       : url.pathname === '/admin' ? 'panel-k7x9m.html'
-      : url.pathname.replace(/^\\/+/, '');
+      : url.pathname.replace(/^\/+/, '');
     if (requested.includes('..') || requested.includes('\\\\')) {
       return jsonRes(req, res, 400, { ok: false, error: 'Geçersiz yol.' });
     }
