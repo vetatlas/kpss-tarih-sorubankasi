@@ -139,15 +139,6 @@ function startLesson(idx){
     ? ders.sorular.map(q => JSON.parse(JSON.stringify(q)))
     : [];
 
-  /*
-   * Aktif öğrenme akışı:
-   * 1) Kısa bilgi
-   * 2) Bilgiyi hemen hatırlatacak mini soru
-   * 3) Anında geri bildirim
-   * 4) Sonraki bilgi
-   *
-   * Böylece "Konu Çalış" flash kartların ardışık okunması olmaktan çıkar.
-   */
   LP.cardIdx = 0;
   LP.qIdx = 0;
   LP.correct = 0;
@@ -156,9 +147,9 @@ function startLesson(idx){
   LP.qAnswered = false;
   LP.phase = "learn";
   LP.activeQuestion = null;
+  LP.usedRecallQuestions = new Set();
 
   if(!LP.cards.length){
-    // Kart yoksa mevcut soru akışını koru.
     startLessonQuestions();
     return;
   }
@@ -167,17 +158,52 @@ function startLesson(idx){
   renderLessonCard();
 }
 
-function getLessonQuestionForCard(cardIndex){
-  if(!LP.questions.length) return null;
-
-  const exact = LP.questions.find(q =>
-    Number.isInteger(q.kartIndex) && q.kartIndex === cardIndex
-  );
-  if(exact) return exact;
-
-  return LP.questions[cardIndex] || null;
+function normalizeStudyText(value){
+  return String(value || "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/[“”"'’‘.,:;!?()\[\]{}]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLocaleLowerCase("tr-TR");
 }
 
+function getLessonQuestionForCard(cardIndex){
+  const card = LP.cards[cardIndex];
+  if(!card || !LP.questions.length) return null;
+
+  const answer = normalizeStudyText(card.icerik);
+  const title = normalizeStudyText(card.baslik);
+  const candidates = LP.questions.filter(q => !LP.usedRecallQuestions.has(q));
+
+  // Önce cevabı doğrudan kart bilgisini karşılayan soruyu bul.
+  let exact = candidates.find(q => {
+    const correctText = normalizeStudyText(q.secenekler?.[q.dogru]);
+    return answer && correctText && (
+      correctText === answer ||
+      correctText.includes(answer) ||
+      answer.includes(correctText)
+    );
+  });
+
+  // Aynı bilgi birden fazla yerde geçiyorsa başlıkla ikinci bir eşleşme yap.
+  if(!exact && title){
+    const titleParts = title.split(/\s+/).filter(x => x.length >= 4);
+    exact = candidates.find(q => {
+      const questionText = normalizeStudyText(q.soru);
+      return titleParts.filter(part => questionText.includes(part)).length >= Math.min(2, titleParts.length);
+    });
+  }
+
+  // Eski veri setlerinde kartIndex güvenilir bir eşleştirme değilse
+  // kullanılmamış ilk soruyu güvenli geri dönüş olarak kullan.
+  if(!exact){
+    exact = candidates.find(q => Number.isInteger(q.kartIndex) && q.kartIndex === cardIndex);
+  }
+  if(!exact) exact = candidates[0] || null;
+
+  if(exact) LP.usedRecallQuestions.add(exact);
+  return exact;
+}
 function renderLessonCard(){
   const card = LP.cards[LP.cardIdx];
   if(!card){
