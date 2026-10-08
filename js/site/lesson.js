@@ -117,7 +117,9 @@ function handleNodeClick(idx, isLocked){
     }
     return;
   }
-  if(typeof openStudyCenter === "function") openStudyCenter(idx); else startLesson(idx);
+  // Harita içindeki alt başlıklar doğrudan derse açılır.
+  // Üçlü seçim ekranı yalnızca ana konu kartında gösterilir.
+  startLesson(idx);
 }
 
 function backFromPath(){
