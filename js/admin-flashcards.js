@@ -66,7 +66,7 @@ function renderFlashcardsAdmin(){
 function renderFlashPack(pack,pi){
   const lessons = pack.dersler || [];
   const count = lessons.reduce((n,d)=>n+(Array.isArray(d.kartlar)?d.kartlar.length:0),0);
-  return '<div class="flash-admin-pack">'+
+  return '<div class="flash-admin-pack open">'+
     '<div class="flash-admin-pack-head" onclick="toggleFlashPack(this)">'+
       '<div class="flash-admin-pack-title">'+
         '<div class="flash-admin-pack-ico">'+esc(pack.ikon||'K')+'</div>'+
@@ -82,8 +82,12 @@ function renderFlashPack(pack,pi){
 }
 
 function renderFlashLesson(pack,pi,d,di){
-  const cards=Array.isArray(d.kartlar)?d.kartlar:[];
-  return '<div class="flash-admin-lesson">'+
+  const cards=Array.isArray(d.kartlar)?d.kartlar.map(c=>({
+      ...c,
+      baslik:String(c?.baslik||c?.front||'').trim(),
+      icerik:String(c?.icerik||c?.back||'').trim()
+    })).filter(c=>c.baslik&&c.icerik):[];
+  return '<div class="flash-admin-lesson open">'+
     '<div class="flash-admin-lesson-head" onclick="toggleFlashLesson(this)">'+
       '<div class="flash-admin-lesson-info"><span class="flash-admin-sub-kicker">ALT BAŞLIK</span><strong>'+esc(d.baslik||'(başlıksız)')+'</strong>'+
       '<small>'+cards.length+' flash kart</small></div>'+
@@ -180,3 +184,11 @@ async function importFlashcardsJSON(e){
   }
 }
 
+
+function copyFlashJSONTemplate(){
+  const el=$('flashJSONTemplate'); if(!el) return;
+  const done=()=>{ if(typeof toast==='function') toast('✓ Flash kart JSON şablonu kopyalandı'); };
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(el.value).then(done).catch(()=>{el.focus();el.select();document.execCommand('copy');done();});
+  }else{el.focus();el.select();document.execCommand('copy');done();}
+}
