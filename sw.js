@@ -4,7 +4,7 @@
    ✅ sw.js'i elle güncellemene gerek yok — sadece dosyaları push et
    ════════════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'kpssbm-cache-v1';
+const CACHE_NAME = 'kpssbm-cache-v2';   // ⚠️ v1 → v2 (ESKİ CACHE SİLİNİR)
 
 /* Kurulum — hemen devreye gir */
 self.addEventListener('install', e => {
@@ -30,7 +30,7 @@ self.addEventListener('fetch', e => {
   // Sadece GET isteklerini işle
   if(req.method !== 'GET') return;
 
-  // ═══ 1) Fontlar + görseller → CACHE-FIRST (hızlı olsun, nadiren değişir)
+  // ═══ 1) Fontlar + görseller → CACHE-FIRST
   const isFont = url.hostname.includes('fonts.googleapis.com') ||
                  url.hostname.includes('fonts.gstatic.com');
   const isImage = url.pathname.match(/\.(png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|eot)$/i);
@@ -48,12 +48,10 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // ═══ 2) Diğer her şey (HTML, CSS, JS, JSON) → NETWORK-FIRST
-  //         İnternet varsa güncel al, yoksa cache'ten ver
+  // ═══ 2) Diğer her şey → NETWORK-FIRST
   e.respondWith(
     fetch(req)
       .then(res => {
-        // Başarılı yanıtı cache'e güncelle
         if(res.ok && res.status === 200){
           const clone = res.clone();
           caches.open(CACHE_NAME).then(c => c.put(req, clone));
@@ -61,10 +59,8 @@ self.addEventListener('fetch', e => {
         return res;
       })
       .catch(() => {
-        // İnternet yok → cache'ten ver
         return caches.match(req).then(cached => {
           if(cached) return cached;
-          // index.html fallback (SPA davranışı)
           if(req.mode === 'navigate') return caches.match('./index.html');
           return new Response('Offline', { status: 503 });
         });
