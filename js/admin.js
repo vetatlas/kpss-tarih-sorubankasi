@@ -55,7 +55,8 @@ async function initLogin(){
     const h = await adminHealth();
     if(!h.adminConfigured) $('loginHint').innerHTML = '⚠️ Render üzerinde ADMIN_PASSWORD tanımlı değil.';
   }catch(e){
-    $('loginHint').innerHTML = '❌ Yönetim sunucusuna bağlanılamadı.';
+    console.error('Admin health bağlantı hatası:', e);
+    $('loginHint').innerHTML = '❌ Yönetim sunucusuna bağlanılamadı. <small style="display:block;margin-top:6px;opacity:.75">' + String(e && e.message || 'Bağlantı hatası') + '</small>';
   }
 }
 async function handleLogin(){
