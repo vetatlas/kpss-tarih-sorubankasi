@@ -200,9 +200,10 @@ function retry(){
   if(S.isFavMode) startFavoritesQuiz();
   else if(S.isWrongMode) startWrongsQuiz();
   else if(S.subject && S.cat) {
+    const returnToStudy = S.returnToStudyCenter;
     let list = questionsByDers(S.subject.key).filter(q => (q.kategori || "Genel") === S.cat.ad);
     list = shuffle(list);
     if(S.list.length < list.length) list = list.slice(0, S.list.length);
-    startQuiz(S.subject, S.cat.ad, list);
+    startQuiz(S.subject, S.cat.ad, list, {returnToStudyCenter:returnToStudy});
   } else goHome();
 }
