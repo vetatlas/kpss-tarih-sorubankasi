@@ -29,35 +29,4 @@ function qId(q){
    İlk yanıt veren kazanır. Her ikisi de 8 saniye içinde yanıt vermezse hata.
    → Yavaş yükleme sorunu çözülür.
    ═══════════════════════════════════════════════════════════════ */
-async function fetchJSON(fileName, subFolder){
-  const folder = subFolder ? (GITHUB.dataFolder + "/" + subFolder + "/") : (GITHUB.dataFolder + "/");
-  const urls = [
-    `https://raw.githubusercontent.com/${GITHUB.user}/${GITHUB.repo}/${GITHUB.branch}/${folder}${fileName}?v=${Date.now()}`,
-    `https://cdn.jsdelivr.net/gh/${GITHUB.user}/${GITHUB.repo}@${GITHUB.branch}/${folder}${fileName}`
-  ];
-
-  // Timeout'lu fetch (ms içinde yanıt gelmezse reject)
-  function fetchWithTimeout(url, ms){
-    return new Promise((resolve, reject) => {
-      const timer = setTimeout(() => reject(new Error("⏱ timeout")), ms);
-      fetch(url, { cache: "no-store" })
-        .then(res => {
-          clearTimeout(timer);
-          if(!res.ok) throw new Error("HTTP " + res.status);
-          return res.json();
-        })
-        .then(resolve)
-        .catch(err => { clearTimeout(timer); reject(err); });
-    });
-  }
-
-  // Paralel dene — hangisi önce gelirse
-  try{
-    return await Promise.any([
-      fetchWithTimeout(urls[0], 8000),
-      fetchWithTimeout(urls[1], 8000)
-    ]);
-  }catch(e){
-    throw new Error("Bağlantı hatası — içerik yüklenemedi");
-  }
-}
+async function fetchJSON(fileName, subFolder){\n  const folder = subFolder ? (GITHUB.dataFolder + "/" + subFolder + "/") : (GITHUB.dataFolder + "/");\n  const path = folder + fileName;\n  const base = window.location.href.replace(/[^/]*$/, "");\n  const urls = [\n    new URL(path, base).href,\n    "https://raw.githubusercontent.com/" + GITHUB.user + "/" + GITHUB.repo + "/" + GITHUB.branch + "/" + path,\n    "https://cdn.jsdelivr.net/gh/" + GITHUB.user + "/" + GITHUB.repo + "@" + GITHUB.branch + "/" + path\n  ];\n\n  function fetchWithTimeout(url, ms){\n    const controller = new AbortController();\n    const timer = setTimeout(() => controller.abort(), ms);\n    return fetch(url, {cache:"no-store", signal:controller.signal})\n      .then(res => { if(!res.ok) throw new Error("HTTP " + res.status); return res.json(); })\n      .finally(() => clearTimeout(timer));\n  }\n\n  let lastError = null;\n  for(const url of urls){\n    try{\n      const data = await fetchWithTimeout(url, 6000);\n      console.log("✅ Veri kaynağı:", url);\n      return data;\n    }catch(e){ lastError = e; console.warn("Veri kaynağı başarısız:", url, e.message); }\n  }\n  throw new Error("Bağlantı hatası — içerik yüklenemedi" + (lastError ? ": " + lastError.message : ""));\n}\n
