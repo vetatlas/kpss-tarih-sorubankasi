@@ -3,7 +3,7 @@ const S = {
   list: [], idx: 0, correct: 0, wrong: [],
   answered: false, subject: null, cat: null, t0: 0, timerId: null,
   isFavMode: false, isWrongMode: false,
-  isExamMode: false, examTimeLeft: 0, examStartTime: 0
+  isExamMode: false, examTimeLeft: 0, examStartTime: 0, returnToStudyCenter: false
 };
 
 function resetQuizFlags(){
@@ -13,8 +13,9 @@ function resetQuizFlags(){
 }
 function stopTimer(){ if(S.timerId) clearInterval(S.timerId); S.timerId = null; }
 
-function startQuiz(subj, catName, list){
+function startQuiz(subj, catName, list, opts){
   resetQuizFlags();
+  S.returnToStudyCenter = !!(opts && opts.returnToStudyCenter);
   if(!list || list.length === 0){
     kbConfirm("Bu kriterlerle soru bulunamadı.", {icon:"📭", title:"Soru Yok", okText:"Tamam", cancelText:"Kapat"});
     return;
@@ -130,10 +131,12 @@ function quitQuiz(){
 
 function doQuit(){
   stopTimer();
-  const wasFav = S.isFavMode, wasWrong = S.isWrongMode;
+  const wasFav = S.isFavMode, wasWrong = S.isWrongMode, returnToStudy = S.returnToStudyCenter;
   resetQuizFlags();
+  S.returnToStudyCenter = false;
   if(wasFav) showScreen("favorites");
   else if(wasWrong) showScreen("wrongs");
+  else if(returnToStudy) showScreen("studyCenter");
   else if(currentSubject) openSubject(currentSubject);
   else goHome();
 }
