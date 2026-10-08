@@ -23,7 +23,6 @@ function startQuiz(subj, catName, list){
   S.idx = 0; S.correct = 0; S.wrong = []; S.answered = false;
   S.subject = subj;
   S.cat = { ad: catName, key: catName };
-  $("qTotal").textContent = S.list.length;
   showScreen("quiz");
   startTimer();
   renderQuestion();
