@@ -167,6 +167,54 @@
   <!-- FLASHCARD VIEW -->
   <section id="flashcardView" class="screen hidden">
     <div class="flash-study-top">
+      <button class="lesson-exit" onclick="exitFlashcards()" title="Çıkış" aria-label="Flash kartlardan çık">×</button>
+      <div class="flash-study-title">
+        <span>HIZLI TEKRAR</span>
+        <strong id="flashTopicTitle">Konu</strong>
+      </div>
+      <div class="flash-study-count" id="flashCount">1/1</div>
+    </div>
+    <div class="flash-progress"><div id="flashProgressFill"></div></div>
+    <div class="flash-stage" id="flashStage" onclick="flipFlashcard()">
+      <div class="flash-card-inner">
+        <div class="flash-face flash-front">
+          <span class="flash-face-label">HATIRLA</span>
+          <h2 id="flashFront">Yükleniyor…</h2>
+          <small>Yanıtı görmek için karta dokun</small>
+        </div>
+        <div class="flash-face flash-back">
+          <span class="flash-face-label">KISA NOT</span>
+          <div id="flashBack"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flash-actions">
+      <button class="btn btn-ghost" onclick="prevFlashcard()">← Önceki</button>
+      <button class="btn btn-primary" onclick="nextFlashcard()">Sonraki →</button>
+    </div>
+  </section>
+
+  <!-- FLASHCARD COMPLETE -->
+  <section id="flashComplete" class="screen hidden">
+    <div class="flash-complete-wrap">
+      <div class="flash-complete-mark">✓</div>
+      <span class="flash-complete-kicker">TEKRAR TAMAMLANDI</span>
+      <h2>Flash kart oturumu tamamlandı.</h2>
+      <p>Bu oturumda öğrendiklerini kısa bir tekrar ile pekiştirdin.</p>
+      <div class="flash-complete-stats">
+        <div><strong id="flashCompleteCount">0</strong><span>Kart</span></div>
+        <div><strong id="flashCompleteTopic">—</strong><span>Konu</span></div>
+      </div>
+      <div class="flash-complete-actions">
+        <button class="btn btn-primary" onclick="returnToStudyCenterAfterFlash()">Çalışma merkezine dön</button>
+        <button class="btn btn-ghost" onclick="backFromStudyCenter()">Konu listesine dön</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LESSON QUIZ -->
+  <section id="lessonQuiz" class="screen hidden">
+    <div class="flash-study-top">
       <button class="lesson-exit" onclick="exitFlashcards()" title="Çıkış">×</button>
       <div class="flash-study-title">
         <span>FLASH KARTLAR</span>
