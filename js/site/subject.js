@@ -97,7 +97,7 @@ function openCountModal(subj, catName){
   if(title) title.textContent = catName;
   document.querySelectorAll("#countOptions .count-opt").forEach(b => b.classList.toggle("active", parseInt(b.dataset.count,10) === selectedCount));
   document.querySelectorAll("#countDiffOptions .diff-btn").forEach(b => b.classList.toggle("active", b.dataset.diff === ""));
-  $("countModal").classList.add("show");
+  updateCountSetupSummary();\n  $("countModal").classList.add("show");
   document.body.style.overflow = "hidden";
 }
 function closeCountModal(){
@@ -113,16 +113,22 @@ document.querySelectorAll("#countOptions .count-opt").forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll("#countOptions .count-opt").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    selectedCount = parseInt(btn.dataset.count,10);
+    selectedCount = parseInt(btn.dataset.count,10);\n    updateCountSetupSummary();
   };
 });
 document.querySelectorAll("#countDiffOptions .diff-btn").forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll("#countDiffOptions .diff-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    selectedDiff = btn.dataset.diff || "";
+    selectedDiff = btn.dataset.diff || "";\n    updateCountSetupSummary();
   };
 });
+function updateCountSetupSummary(){
+  const el = $("countSetupSummary");
+  if(!el) return;
+  const diff = selectedDiff || "Tüm seviyeler";
+  el.textContent = selectedCount + " soru · " + diff;
+}
 function confirmStartQuiz(){
   if(!pendingSubj || !pendingCatName) return;
   let list = questionsByDers(pendingSubj.key).filter(q => (q.kategori || "Genel") === pendingCatName);
