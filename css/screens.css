@@ -17,9 +17,9 @@
   background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 
 /* MODÜL KARTLARI */
-.modules-row{display:grid;gap:10px;grid-template-columns:repeat(2,1fr);margin-bottom:28px}
+.modules-row{display:grid;gap:10px;grid-template-columns:repeat(2,1fr);margin-bottom:34px}
 @media(min-width:700px){.modules-row{grid-template-columns:repeat(4,1fr)}}
-.mod-card{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+.mod-card{background:rgba(255,255,255,.025);
   border:1px solid var(--line);border-radius:14px;padding:14px 12px;cursor:pointer;
   font-family:inherit;text-align:left;display:flex;flex-direction:column;gap:8px;
   position:relative;overflow:hidden;min-height:120px;
@@ -42,10 +42,10 @@
 /* DERS KARTLARI */
 .subjects-grid{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin-bottom:28px}
 @media(min-width:640px){.subjects-grid{grid-template-columns:repeat(3,1fr)}}
-.subj-card{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
-  border:1px solid var(--line);border-radius:16px;padding:20px 18px;cursor:pointer;
+.subj-card{background:rgba(255,255,255,.035);
+  border:1px solid var(--line);border-radius:16px;padding:22px 18px;cursor:pointer;
   font-family:inherit;text-align:left;display:flex;flex-direction:column;gap:12px;
-  position:relative;overflow:hidden;min-height:170px;
+  position:relative;overflow:hidden;min-height:180px;
   transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .4s;
   animation:cardIn .5s cubic-bezier(.16,1,.3,1) backwards}
 .subj-card::before{content:"";position:absolute;top:-50%;right:-30%;width:200px;height:200px;
