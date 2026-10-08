@@ -137,7 +137,7 @@ function exportFlashLessonJSON(pi,di){
   toast('⬇️ Flash kart JSON indirildi');
 }
 
-async async function importFlashcardsJSON(e){
+async function importFlashcardsJSON(e){
   const f=e.target.files?.[0];
   if(!f) return;
   try{
