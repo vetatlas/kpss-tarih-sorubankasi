@@ -134,45 +134,135 @@ function backFromComplete(){
 function startLesson(idx){
   LP.lessonIdx = idx;
   const ders = LP.lessons[idx];
-  LP.cards = ders.kartlar || [];
-  LP.questions = shuffle((ders.sorular || []).map(q => JSON.parse(JSON.stringify(q))));
+  LP.cards = Array.isArray(ders.kartlar) ? ders.kartlar : [];
+  LP.questions = Array.isArray(ders.sorular)
+    ? ders.sorular.map(q => JSON.parse(JSON.stringify(q)))
+    : [];
+
+  /*
+   * Aktif öğrenme akışı:
+   * 1) Kısa bilgi
+   * 2) Bilgiyi hemen hatırlatacak mini soru
+   * 3) Anında geri bildirim
+   * 4) Sonraki bilgi
+   *
+   * Böylece "Konu Çalış" flash kartların ardışık okunması olmaktan çıkar.
+   */
   LP.cardIdx = 0;
   LP.qIdx = 0;
   LP.correct = 0;
   LP.wrong = 0;
   LP.startTime = Date.now();
   LP.qAnswered = false;
+  LP.phase = "learn";
+  LP.activeQuestion = null;
+
+  if(!LP.cards.length){
+    // Kart yoksa mevcut soru akışını koru.
+    startLessonQuestions();
+    return;
+  }
+
   showScreen("lessonCardView");
   renderLessonCard();
 }
 
+function getLessonQuestionForCard(cardIndex){
+  if(!LP.questions.length) return null;
+
+  const exact = LP.questions.find(q =>
+    Number.isInteger(q.kartIndex) && q.kartIndex === cardIndex
+  );
+  if(exact) return exact;
+
+  return LP.questions[cardIndex] || null;
+}
+
 function renderLessonCard(){
   const card = LP.cards[LP.cardIdx];
+  if(!card){
+    startLessonQuestions();
+    return;
+  }
+
   const total = LP.cards.length;
   const pct = Math.round((LP.cardIdx / total) * 100);
   $("lcProgress").style.width = pct + "%";
   $("lcCount").textContent = `${LP.cardIdx + 1}/${total}`;
+
   const tip = card.tip || "kavram";
-  const tipLabels = { kavram: "📖 Kavram", onemli: "⭐ Önemli", ornek: "💡 Örnek", uyari: "⚠️ Uyarı" };
-  const tipIcons = { kavram: "📖", onemli: "⭐", ornek: "💡", uyari: "⚠️" };
+  const tipLabels = {
+    kavram: "KAVRAM",
+    onemli: "ÖNEMLİ",
+    ornek: "ÖRNEK",
+    uyari: "UYARI",
+    tarih: "KRİTİK BİLGİ",
+    "neden-sonuc": "NEDEN / SONUÇ",
+    eslestirme: "EŞLEŞTİRME"
+  };
+  const tipIcons = {
+    kavram: "K",
+    onemli: "!",
+    ornek: "Ö",
+    uyari: "U",
+    tarih: "T",
+    "neden-sonuc": "→",
+    eslestirme: "↔"
+  };
+
   $("lcCardWrap").innerHTML = `
-    <div class="lc-card ${tip}">
-      <span class="lc-tag">${tipLabels[tip] || "📖"}</span>
-      <div class="lc-icon">${card.ikon || tipIcons[tip] || "📘"}</div>
+    <div class="lc-card active-learning-card ${tip}">
+      <div class="al-card-meta">
+        <span class="lc-tag">${tipLabels[tip] || "BİLGİ"}</span>
+        <span class="al-phase">ÖNCE ÖĞREN</span>
+      </div>
+      <div class="lc-icon">${escapeHtml(tipIcons[tip] || "K")}</div>
       <div class="lc-title">${escapeHtml(card.baslik || "")}</div>
       <div class="lc-body">${card.icerik || ""}</div>
+      <div class="al-prompt">Bu bilgiyi aklında tut. Bir sonraki adımda hatırlamanı isteyeceğiz.</div>
     </div>
   `;
+
   const btn = $("lcNextBtn");
   btn.style.display = "inline-flex";
-  btn.textContent = (LP.cardIdx === total - 1) ? "Sorulara geç" : "Devam →";
-  if(!card._xpGiven){ card._xpGiven = true; addXP(2); }
+  btn.textContent = "Hatırlamayı dene →";
+  if(!card._xpGiven){
+    card._xpGiven = true;
+    addXP(1);
+  }
 }
 
 function nextLessonCard(){
+  const question = getLessonQuestionForCard(LP.cardIdx);
+
+  if(question){
+    LP.activeQuestion = question;
+    LP.phase = "recall";
+    showScreen("lessonQuiz");
+    renderLessonQuestion();
+    return;
+  }
+
   LP.cardIdx++;
-  if(LP.cardIdx >= LP.cards.length) startLessonQuestions();
-  else renderLessonCard();
+  if(LP.cardIdx >= LP.cards.length){
+    finishLesson();
+  }else{
+    LP.phase = "learn";
+    renderLessonCard();
+  }
+}
+
+function advanceActiveLearning(){
+  LP.cardIdx++;
+  LP.activeQuestion = null;
+
+  if(LP.cardIdx >= LP.cards.length){
+    finishLesson();
+  }else{
+    LP.phase = "learn";
+    renderLessonCard();
+    showScreen("lessonCardView");
+  }
 }
 
 function exitLesson(){
@@ -187,74 +277,114 @@ function exitLesson(){
 }
 
 function startLessonQuestions(){
+  // Yalnızca kartına bağlı olmayan sorular kaldıysa final pekiştirme olarak kullan.
+  const remaining = LP.questions.filter(q => !Number.isInteger(q.kartIndex));
+  LP.questions = shuffle(remaining);
   LP.qIdx = 0;
+  LP.phase = "final";
+  LP.activeQuestion = null;
+
+  if(!LP.questions.length){
+    finishLesson();
+    return;
+  }
+
   showScreen("lessonQuiz");
   renderLessonQuestion();
 }
 
 function renderLessonQuestion(){
-  if(LP.qIdx >= LP.questions.length){ finishLesson(); return; }
-  const q = LP.questions[LP.qIdx];
-  if(!q){ finishLesson(); return; }
-  const total = LP.questions.length;
-  const pct = Math.round((LP.qIdx / total) * 100);
+  const q = LP.activeQuestion || LP.questions[LP.qIdx];
+  if(!q){
+    if(LP.phase === "recall") advanceActiveLearning();
+    else finishLesson();
+    return;
+  }
+
+  const isRecall = LP.phase === "recall";
+  const total = isRecall ? LP.cards.length : LP.questions.length;
+  const current = isRecall ? LP.cardIdx : LP.qIdx;
+  const pct = Math.round((current / Math.max(total,1)) * 100);
+
   $("lqProgress").style.width = pct + "%";
-  $("lqCount").textContent = `${LP.qIdx + 1}/${total}`;
+  $("lqCount").textContent = `${current + 1}/${total}`;
+  $("lqBadge").textContent = isRecall ? "Aktif Hatırlama" : "Pekiştirme Sorusu";
   $("lqText").textContent = q.soru;
+
   const slot = $("lqImageSlot");
   slot.innerHTML = "";
   if(q.gorsel){
     slot.innerHTML = `<div class="q-image-wrap"><img src="${q.gorsel}" alt="Soru görseli" onclick="this.parentNode.classList.toggle('zoomed')"></div>`;
   }
+
   const favBtn = $("lqFav");
   if(isFav(q)) favBtn.classList.add("fav-active");
   else favBtn.classList.remove("fav-active");
+
   const wrap = $("lqOptions");
   wrap.innerHTML = "";
   const indexed = q.secenekler.map((text, i) => ({ text, isCorrect: i === q.dogru }));
   const mixed = q.gorsel ? indexed : shuffle(indexed);
+
   mixed.forEach((item, i) => {
     const btn = document.createElement("button");
-    btn.type = "button"; btn.className = "option";
+    btn.type = "button";
+    btn.className = "option";
     btn.dataset.correct = item.isCorrect ? "1" : "0";
-    btn.style.animationDelay = (i * 70) + "ms";
+    btn.style.animationDelay = (i * 55) + "ms";
     btn.innerHTML = `<span class="letter">${LETTERS[i]}</span><span class="opt-text">${escapeHtml(item.text)}</span><span class="mark"></span>`;
     btn.onclick = () => selectLessonOption(btn, item.isCorrect, q);
     wrap.appendChild(btn);
   });
+
   const fb = $("lqFeedback");
-  fb.className = "feedback"; fb.innerHTML = "";
+  fb.className = "feedback";
+  fb.innerHTML = "";
   $("lqNextBtn").classList.add("hidden");
+  $("lqNextBtn").textContent = isRecall ? "Devam →" : "Sonraki →";
   LP.qAnswered = false;
 }
+
 
 function selectLessonOption(btn, isCorrect, q){
   if(LP.qAnswered) return;
   LP.qAnswered = true;
+
   const all = document.querySelectorAll("#lqOptions .option");
   const fb = $("lqFeedback");
+
   all.forEach(el => {
     el.classList.add("disabled");
-    if(el.dataset.correct === "1"){ el.classList.add("correct"); el.querySelector(".mark").textContent = "✓"; }
-    else if(el !== btn){ el.classList.add("dim"); }
+    if(el.dataset.correct === "1"){
+      el.classList.add("correct");
+      el.querySelector(".mark").textContent = "✓";
+    }else if(el !== btn){
+      el.classList.add("dim");
+    }
   });
+
   if(isCorrect){
     playCorrectSound();
     LP.correct++;
     trackAnswer(LP.subj?.key, true);
-    addXP(3);
+    addXP(2);
     fb.className = "feedback show correct";
-    fb.innerHTML = `<div class="fb-title"><span class="ic">✓</span> Doğru!</div>${q.aciklama ? `<div class="fb-body">${escapeHtml(q.aciklama)}</div>` : ''}`;
-    if(LP.correct > 0 && LP.correct % 3 === 0) showBigSuccess("MÜKEMMEL!");
-  } else {
+    fb.innerHTML = `<div class="fb-title"><span class="ic">✓</span> Doğru hatırladın.</div>
+      <div class="fb-body">${q.aciklama ? escapeHtml(q.aciklama) : "Bilgi doğru şekilde geri çağrıldı."}</div>`;
+  }else{
     playWrongSound();
     LP.wrong++;
-    btn.classList.remove("dim"); btn.classList.add("wrong");
+    btn.classList.remove("dim");
+    btn.classList.add("wrong");
     btn.querySelector(".mark").textContent = "✕";
     trackAnswer(LP.subj?.key, false);
     addWrong(q, LP.catName, LP.catName);
+
     fb.className = "feedback show wrong";
-    fb.innerHTML = `<div class="fb-title"><span class="ic">✕</span> Yanlış — Konuyu tekrar edelim</div><div class="fb-body">Doğru: <strong>${escapeHtml(q.secenekler[q.dogru])}</strong>${q.aciklama ? '<br>' + escapeHtml(q.aciklama) : ''}</div>`;
+    fb.innerHTML = `<div class="fb-title"><span class="ic">✕</span> Tekrar et.</div>
+      <div class="fb-body">Doğru cevap: <strong>${escapeHtml(q.secenekler[q.dogru])}</strong>
+      ${q.aciklama ? "<br>" + escapeHtml(q.aciklama) : ""}</div>`;
+
     const kartIdx = q.kartIndex;
     if(kartIdx !== undefined && LP.cards[kartIdx]){
       const k = LP.cards[kartIdx];
@@ -263,24 +393,28 @@ function selectLessonOption(btn, isCorrect, q){
       recall.innerHTML = `
         <div class="rc-h">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 3 3 9 9 9"/></svg>
-          Konuyu hatırla
+          Az önce öğrendiğin bilgi
         </div>
         <div class="rc-title">${escapeHtml(k.baslik || "")}</div>
         <div class="rc-body">${k.icerik || ""}</div>
       `;
       fb.appendChild(recall);
     }
-    if(!q._retry){
-      q._retry = true;
-      const copy = JSON.parse(JSON.stringify(q));
-      copy._retry = true;
-      LP.questions.push(copy);
-    }
   }
+
   $("lqNextBtn").classList.remove("hidden");
 }
 
-function nextLessonQuestion(){ LP.qIdx++; renderLessonQuestion(); }
+
+function nextLessonQuestion(){
+  if(LP.phase === "recall"){
+    advanceActiveLearning();
+    return;
+  }
+  LP.qIdx++;
+  renderLessonQuestion();
+}
+
 
 function toggleLessonFav(){
   const q = LP.questions[LP.qIdx];
