@@ -17,7 +17,7 @@ function openSubject(subj){
   if(packs.length === 0 && catKeys.length === 0){
     grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
       <div class="es-ico">📭</div><h4>Bu derste içerik yok</h4>
-      <p>Admin panelden "${subj.key}" dersine paket veya soru ekle.</p>
+      <p>Bu ders için henüz içerik bulunmuyor.</p>
     </div>`;
     showScreen("subjectScreen");
     return;
@@ -27,7 +27,7 @@ function openSubject(subj){
   if(packs.length > 0){
     const lab = document.createElement("div");
     lab.className = "section-label grid-section-label";
-    lab.textContent = "📚 Ders Paketleri — Öğren";
+    lab.textContent = "Konu anlatımı";
     grid.appendChild(lab);
 
     packs.forEach((pack, i) => {
@@ -64,7 +64,7 @@ function openSubject(subj){
   if(catKeys.length > 0){
     const lab = document.createElement("div");
     lab.className = "section-label grid-section-label";
-    lab.textContent = "🎯 Konular — Test Çöz";
+    lab.textContent = "Soru çöz";
     grid.appendChild(lab);
 
     catKeys.forEach((catName, i) => {
