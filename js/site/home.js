@@ -19,8 +19,8 @@ async function initHome(){
     if($("heroBadge")) $("heroBadge").textContent = "Yükleme zaman aşımı";
     if(grid) grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
       <div class="es-ico">⏱️</div>
-      <h4>İçerik yüklenmesi uzun sürdü</h4>
-      <p>Bağlantı veya önbellek nedeniyle veri alınamadı.</p>
+      <h4>İçerik yükleniyor</h4>
+      <p>İçerik şu anda görüntülenemiyor. Lütfen tekrar deneyin.</p>
       <button class="btn btn-primary" style="margin-top:14px" onclick="location.reload()">🔄 Yenile</button>
     </div>`;
     return;
@@ -30,15 +30,15 @@ async function initHome(){
   const qErr = results[0].status === "rejected" ? results[0].reason : null;
   const pErr = results[1].status === "rejected" ? results[1].reason : null;
   if(qErr) console.warn("Sorular yüklenemedi:", qErr);
-  if(pErr) console.warn("Paketler yüklenemedi:", pErr);
+  if(pErr) console.warn("Ders içerikleri yüklenemedi:", pErr);
 
   // Hiç içerik yoksa hata ekranı
   if(ALL_QUESTIONS.length === 0 && PACKS_INDEX.length === 0){
-    if($("heroBadge")) $("heroBadge").textContent = "İçerik yüklenemedi";
+    if($("heroBadge")) $("heroBadge").textContent = "İçerik görüntülenemedi";
     if(grid) grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
       <div class="es-ico">⚠️</div>
       <h4>İçerik yüklenemedi</h4>
-      <p>İnternet bağlantını kontrol et ve tekrar dene.</p>
+      <p>Lütfen bağlantını kontrol edip tekrar dene.</p>
       <button class="btn btn-primary" style="margin-top:14px" onclick="initHome()">🔄 Tekrar Dene</button>
     </div>`;
     return;
@@ -47,7 +47,7 @@ async function initHome(){
   // Başarılı yükleme
   const total = ALL_QUESTIONS.length;
   const packCount = PACKS_INDEX.length;
-  if($("heroBadge")) $("heroBadge").textContent = `${total} soru • ${packCount} ders paketi hazır`;
+  if($("heroBadge")) $("heroBadge").textContent = `${total} soru • ${packCount} konu hazır`;
 
   if(!grid) return;
   grid.innerHTML = "";
@@ -66,8 +66,8 @@ async function initHome(){
       <h3>${escapeHtml(s.key)}</h3>
       <p>${escapeHtml(s.aciklama)}</p>
       <div class="subj-stats">
-        <span>📚 <b>${pCount}</b> paket</span>
-        <span>🎯 <b>${Object.keys(categoriesOfDers(s.key)).length}</b> konu</span>
+        <span><b>${pCount}</b> konu</span>
+        <span><b>${Object.keys(categoriesOfDers(s.key)).length}</b> başlık</span>
       </div>
       <div class="subj-cta">Başla <span>→</span></div>
     `;
