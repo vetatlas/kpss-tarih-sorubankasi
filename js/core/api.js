@@ -14,7 +14,6 @@ async function githubReadFile(filePath, token){
 
 async function githubWriteFile(filePath, contentObj, message, token){
   const url = `https://api.github.com/repos/${GITHUB.user}/${GITHUB.repo}/contents/${filePath}`;
-  // SHA varsa al
   let sha = null;
   const getRes = await fetch(url + `?ref=${GITHUB.branch}`, {
     headers: { 'Authorization': `token ${token}`, 'User-Agent': 'KPSS-Admin' }
@@ -42,7 +41,7 @@ async function githubWriteFile(filePath, contentObj, message, token){
   return putRes.json();
 }
 
-/* ─── SORULARI YÜKLE ─── */
+/* ─── SORULARI YÜKLE (hataya dayanıklı) ─── */
 async function loadAllQuestions(){
   try{
     const data = await fetchJSON(SORULAR_FILE);
@@ -54,23 +53,27 @@ async function loadAllQuestions(){
     } else if(Array.isArray(data)){
       ALL_QUESTIONS = data.filter(q => q && q.soru && Array.isArray(q.secenekler));
     }
+    console.log(`✅ ${ALL_QUESTIONS.length} soru yüklendi`);
   }catch(e){
-    console.warn("Sorular yüklenemedi:", e.message);
+    console.error("❌ Sorular yüklenemedi:", e.message);
     ALL_QUESTIONS = [];
+    throw e; // home.js'e bildir
   }
   return ALL_QUESTIONS;
 }
 
-/* ─── PAKET İNDEKSİ YÜKLE ─── */
+/* ─── PAKET İNDEKSİ YÜKLE (hataya dayanıklı) ─── */
 async function loadPacksIndex(){
   try{
     const data = await fetchJSON(PACKS_INDEX_FILE, PACKS_FOLDER);
     PACKS_INDEX = Array.isArray(data.paketler) ? data.paketler : [];
     PACKS_LOADED = true;
+    console.log(`✅ ${PACKS_INDEX.length} paket yüklendi`);
   }catch(e){
-    console.warn("Paket indeksi yüklenemedi:", e.message);
+    console.warn("⚠️ Paket indeksi yüklenemedi:", e.message);
     PACKS_INDEX = [];
     PACKS_LOADED = true;
+    // Paket yoksa sorun değil, hata fırlatma
   }
   return PACKS_INDEX;
 }
