@@ -325,3 +325,12 @@ tr.selected td{background:rgba(201,162,39,.08)}
   .flash-admin-card .flash-admin-actions{grid-column:2}
   .flash-admin-pack-head{align-items:flex-start}
 }
+
+.flash-admin-subject{margin-bottom:22px}
+.flash-admin-subject-head{display:flex;align-items:baseline;gap:10px;padding:4px 2px 9px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.flash-admin-subject-kicker,.flash-admin-pack-kicker,.flash-admin-sub-kicker{font-size:8px;letter-spacing:1.6px;font-weight:800;color:var(--gold-2)}
+.flash-admin-subject-head strong{font-size:16px;color:#fff}
+.flash-admin-subject-head>span:last-child{margin-left:auto;color:var(--muted);font-size:10px}
+.flash-admin-pack-kicker{display:block;margin-bottom:4px}
+.flash-admin-sub-kicker{display:block;margin-bottom:3px;color:var(--blue)}
+.flash-admin-chevron{color:var(--muted);font-size:15px}
