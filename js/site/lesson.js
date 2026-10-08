@@ -268,30 +268,11 @@ function finishLesson(){
     $("completeCorrect").textContent = LP.correct;
     $("completeStreak").textContent = xpData.streak;
     $("completeTitle").textContent = pct >= 80 ? "Mükemmel! 🏆" : pct >= 60 ? "Ders Tamamlandı! 🎉" : "Tekrar Gerekli 📚";
-    $("completeSub").textContent = pct >= 80 ? "Bu konuya hâkisin!" :
-                                     pct >= 60 ? "İyi iş! Sonraki derse geçebilirsin." :
-                                     "Biraz daha tekrar edelim.";
-    if(pct >= 60){
-      launchConfetti();
-      playCompleteSound();
-    }
+    $("completeSub").textContent = pct >= 80 ? "Bu konuya hâkimsin!" : pct >= 60 ? "İyi iş! Sonraki derse geçebilirsin." : "Biraz daha tekrar edelim.";
+    if(pct >= 60){ launchConfetti(); playCompleteSound(); }
     showScreen("lessonComplete");
   }catch(err){
     console.error("finishLesson hata:", err);
-    kbConfirm("Ders bitti ancak sonuç ekranı açılamadı.", {icon:"⚠️", title:"Hata", okText:"Tamam", cancelText:"Kapat"});
-    if(LP.pack) openLessonPathFromPack(LP.pack);
-    else goHome();
-  }
-}el! 🏆" : pct >= 60 ? "Ders Tamamlandı! 🎉" : "Tekrar Gerekli 📚";
-    $("completeSub").textContent = pct >= 80 ? "Bu konuya hâkimsin!" :
-                                     pct >= 60 ? "İyi iş! Sonraki derse geçebilirsin." :
-                                     "Biraz daha tekrar edelim.";
-    if(pct >= 60) launchConfetti();
-    showScreen("lessonComplete");
-  }catch(err){
-    console.error("finishLesson hata:", err);
-    kbConfirm("Ders bitti ancak sonuç ekranı açılamadı.", {icon:"⚠️", title:"Hata", okText:"Tamam", cancelText:"Kapat"});
-    if(LP.pack) openLessonPathFromPack(LP.pack);
-    else goHome();
+    if(LP.pack) openLessonPathFromPack(LP.pack); else goHome();
   }
 }
