@@ -55,7 +55,7 @@ async function startExam(){
   S.idx = 0; S.correct = 0; S.wrong = []; S.answered = false;
   S.subject = { key: examDers || "exam" };
   const label = (examDers || "Karışık") + (examDiff ? " / " + examDiff : "");
-  S.cat = { ad: `📝 Deneme (${label}, ${examDuration}dk)` };
+  S.cat = { ad: `Deneme (${label}, ${examDuration} dk)` };
   S.examTimeLeft = examDuration * 60;
   S.examStartTime = Date.now();
   $("qTotal").textContent = S.list.length;
