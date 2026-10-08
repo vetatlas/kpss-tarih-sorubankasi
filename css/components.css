@@ -132,3 +132,46 @@
 /* CONFETTI */
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
 .confetti i{position:absolute;width:8px;height:12px;top:-20px;animation:confFall linear forwards}
+
+
+/* ═══════════ PROFESSIONAL QUIZ SETUP ═══════════ */
+.quiz-setup-modal{max-width:560px;padding:28px 28px 24px;border-radius:24px;background:linear-gradient(155deg,rgba(20,30,48,.99),rgba(8,14,27,.99));border-color:rgba(255,255,255,.11)}
+.setup-kicker{display:flex;align-items:center;gap:8px;font-size:9px;font-weight:900;letter-spacing:2px;color:var(--gold-2);margin-bottom:18px}
+.setup-kicker-line{width:22px;height:1px;background:var(--gold-2);opacity:.7}
+.setup-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px}
+.setup-head h3{font-size:25px;letter-spacing:-.3px;margin:0 0 7px}
+.setup-head .modal-sub{margin:0;font-size:12.5px}
+.setup-close{width:34px;height:34px;flex:0 0 34px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--muted);font:500 22px/1 Inter,sans-serif;cursor:pointer;transition:all .2s}
+.setup-close:hover{color:#fff;border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);transform:rotate(4deg)}
+.setup-section{padding:18px 0;border-top:1px solid rgba(255,255,255,.07)}
+.setup-label{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px}
+.setup-label>span{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:rgba(201,162,39,.09);border:1px solid rgba(201,162,39,.2);color:var(--gold-2);font-size:9px;font-weight:900}
+.setup-label b{display:block;color:#fff;font-size:12px;line-height:1.3}
+.setup-label small{display:block;color:var(--muted);font-size:10.5px;margin-top:3px;line-height:1.4}
+.setup-count-options{grid-template-columns:repeat(3,1fr);gap:10px;margin:0}
+.setup-count-options .count-opt{min-height:86px;padding:13px 8px;border-radius:14px;align-items:flex-start;text-align:left;justify-content:center;gap:5px}
+.setup-count-options .count-opt strong{font-size:28px;line-height:1;color:#fff;letter-spacing:-1px}
+.setup-count-options .count-opt span{font-size:9.5px;color:var(--muted);font-weight:600}
+.setup-count-options .count-opt.active{box-shadow:0 0 0 1px rgba(201,162,39,.12),0 10px 28px -16px rgba(201,162,39,.65);transform:translateY(-1px)}
+.setup-count-options .count-opt.active strong{color:var(--gold-2)}
+.setup-count-options .count-opt.active:after{top:9px;right:10px;font-size:11px}
+.setup-difficulty{justify-content:stretch;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0}
+.setup-difficulty .diff-btn{height:42px;padding:0 8px;border-radius:11px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:10.5px}
+.diff-dot{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.75;box-shadow:0 0 8px currentColor}
+.diff-dot.all{opacity:.4}
+.setup-summary{display:flex;align-items:center;gap:11px;margin:18px 0 16px;padding:12px 13px;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:rgba(255,255,255,.025)}
+.setup-summary-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(201,162,39,.11);border:1px solid rgba(201,162,39,.2);color:var(--gold-2);font-size:15px;font-weight:800}
+.setup-summary small{display:block;font-size:8px;letter-spacing:1.5px;font-weight:900;color:var(--muted);margin-bottom:3px}
+.setup-summary strong{display:block;color:#fff;font-size:11.5px;font-weight:700}
+.setup-actions{margin-top:0;gap:10px}
+.setup-actions .btn{height:44px;border-radius:12px}
+.setup-start-btn{display:flex!important;align-items:center;justify-content:space-between;gap:18px;padding-left:18px!important;padding-right:12px!important}
+.setup-start-btn b{width:26px;height:26px;border-radius:8px;background:rgba(0,0,0,.16);display:grid;place-items:center;font-size:15px;transition:transform .25s}
+.setup-start-btn:hover b{transform:translateX(3px)}
+@media(max-width:560px){
+  .quiz-setup-modal{padding:23px 18px 18px;border-radius:20px}
+  .setup-head h3{font-size:22px}
+  .setup-count-options .count-opt{min-height:78px}
+  .setup-difficulty{grid-template-columns:repeat(2,1fr)}
+  .setup-difficulty .diff-btn{height:40px}
+}
