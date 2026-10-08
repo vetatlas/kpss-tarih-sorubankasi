@@ -20,7 +20,7 @@ async function openStudyCenterFromPack(pack){
 }
 
 /* ═══════════ KONU ÇALIŞMA MERKEZİ + FLASH KARTLAR ═══════════ */
-let FLASH_STUDY = { idx:0, flipped:false };
+let FLASH_STUDY = { idx:0, flipped:false, cards:[], sourceCount:0 };
 
 function openStudyCenter(idx){
   if(!LP.lessons || !LP.lessons[idx]) return;
@@ -56,12 +56,64 @@ function startTopicQuestions(){
   openPackCountModal(LP.pack);
 }
 
+/* Kısa, ezberlenebilir flash kartlar üretir.
+   Soru bankasındaki soruları kullanmaz; yalnızca konu anlatımındaki
+   kartların bilgi parçalarını atomik tekrar kartlarına dönüştürür. */
+function buildMicroFlashcards(source){
+  const result=[];
+  (Array.isArray(source)?source:[]).forEach(card=>{
+    const title=stripHtml(card.baslik||'').trim();
+    const raw=String(card.icerik||'');
+    const holder=document.createElement('div');
+    holder.innerHTML=raw;
+
+    let lines=[];
+    const brLines=raw.split(/<br\s*\/?>/i).map(x=>x.trim()).filter(Boolean);
+    if(brLines.length>1) lines=brLines;
+    else lines=[raw];
+
+    lines.forEach(lineHtml=>{
+      const node=document.createElement('div');
+      node.innerHTML=lineHtml;
+      const strong=node.querySelector('strong,b');
+      const plain=(node.textContent||'').replace(/\s+/g,' ').trim();
+      if(!plain) return;
+
+      let front='', back='';
+      if(strong){
+        front=(strong.textContent||'').replace(/\s+/g,' ').trim();
+        const clone=node.cloneNode(true);
+        clone.querySelectorAll('strong,b').forEach(el=>el.remove());
+        back=(clone.textContent||'').replace(/^[\s—:–-]+|[\s—:–-]+$/g,'').replace(/\s+/g,' ').trim();
+      }else{
+        const match=plain.match(/^(.{2,70}?)\s*[—–:]\s*(.+)$/);
+        if(match){
+          front=match[1].trim();
+          back=match[2].trim();
+        }else{
+          front=title || 'Bilgi';
+          back=plain;
+        }
+      }
+
+      if(!front || !back) return;
+      if(front.length>90) front=front.slice(0,87)+'…';
+      if(back.length>180) back=back.slice(0,177)+'…';
+      result.push({baslik:front,icerik:back});
+    });
+  });
+  return result;
+}
+
 function startTopicFlashcards(){
-  const cards=Array.isArray(LP.cards)?LP.cards:[];
+  const source=Array.isArray(LP.cards)?LP.cards:[];
+  const cards=buildMicroFlashcards(source);
   if(!cards.length){
     if(typeof toast==='function') toast('Bu konuda henüz flash kart bulunmuyor.',true);
     return;
   }
+  FLASH_STUDY.cards=cards;
+  FLASH_STUDY.sourceCount=source.length;
   FLASH_STUDY.idx=0;
   FLASH_STUDY.flipped=false;
   $('flashTopicTitle').textContent=LP.catName||'Flash Kartlar';
@@ -70,14 +122,15 @@ function startTopicFlashcards(){
 }
 
 function renderFlashcard(){
-  const card=LP.cards[FLASH_STUDY.idx];
+  const cards=FLASH_STUDY.cards||[];
+  const card=cards[FLASH_STUDY.idx];
   if(!card) return;
   FLASH_STUDY.flipped=false;
   $('flashStage').classList.remove('flipped');
   $('flashFront').textContent=card.baslik||'Bilgi';
-  $('flashBack').innerHTML=card.icerik||'';
-  $('flashCount').textContent=(FLASH_STUDY.idx+1)+'/'+LP.cards.length;
-  $('flashProgressFill').style.width=((FLASH_STUDY.idx+1)/LP.cards.length*100)+'%';
+  $('flashBack').textContent=stripHtml(card.icerik||'');
+  $('flashCount').textContent=(FLASH_STUDY.idx+1)+'/'+cards.length;
+  $('flashProgressFill').style.width=((FLASH_STUDY.idx+1)/cards.length*100)+'%';
 }
 
 function flipFlashcard(){
@@ -85,9 +138,16 @@ function flipFlashcard(){
   $('flashStage').classList.toggle('flipped',FLASH_STUDY.flipped);
 }
 
+function finishFlashcards(){
+  const total=(FLASH_STUDY.cards||[]).length;
+  $('flashCompleteCount').textContent=total;
+  $('flashCompleteTopic').textContent=LP.catName||'Konu';
+  showScreen('flashComplete');
+}
+
 function nextFlashcard(){
-  if(FLASH_STUDY.idx>=LP.cards.length-1){
-    backFromStudyCenter();
+  if(FLASH_STUDY.idx>=FLASH_STUDY.cards.length-1){
+    finishFlashcards();
     return;
   }
   FLASH_STUDY.idx++;
@@ -100,6 +160,14 @@ function prevFlashcard(){
   renderFlashcard();
 }
 
+function returnToStudyCenterAfterFlash(){
+  showScreen('studyCenter');
+}
+
 function exitFlashcards(){
-  backFromStudyCenter();
+  kbConfirm('Bu flash kart oturumundan çıkmak istediğine emin misin? Bu oturumun sonucu kaydedilmeyecek.',{
+    icon:'×',title:'Flash kartlardan çık?',okText:'Evet, çık',cancelText:'Devam et',danger:true
+  }).then(yes=>{
+    if(yes) showScreen('studyCenter');
+  });
 }
