@@ -5,10 +5,26 @@ async function initHome(){
   if($("heroBadge")) $("heroBadge").textContent = "Yükleniyor...";
 
   // Her ikisini paralel yükle — biri patlarsa diğeri devam eder
-  const results = await Promise.allSettled([
+  // Veri yükleme sonsuza kadar beklemesin.
+  // Ağ/CDN cevap vermese bile kullanıcıya mutlaka sonuç göster.
+  const timeout = new Promise(resolve => setTimeout(() => resolve("timeout"), 10000));
+  const loading = Promise.allSettled([
     loadAllQuestions(),
     loadPacksIndex()
   ]);
+  const results = await Promise.race([loading, timeout]);
+
+  if(results === "timeout"){
+    console.warn("Ana sayfa veri yükleme zaman aşımına uğradı.");
+    if($("heroBadge")) $("heroBadge").textContent = "Yükleme zaman aşımı";
+    if(grid) grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="es-ico">⏱️</div>
+      <h4>İçerik yüklenmesi uzun sürdü</h4>
+      <p>Bağlantı veya önbellek nedeniyle veri alınamadı.</p>
+      <button class="btn btn-primary" style="margin-top:14px" onclick="location.reload()">🔄 Yenile</button>
+    </div>`;
+    return;
+  }
 
   // Hata var mı kontrol et
   const qErr = results[0].status === "rejected" ? results[0].reason : null;
