@@ -1,0 +1,109 @@
+/* ═══════════ AÇIK TEMA OVERRIDE ═══════════ */
+[data-theme="light"]{
+  --bg:#f4f6fa;
+  --bg-2:#ffffff;
+  --gold:#b8891d;
+  --gold-2:#d4a934;
+  --gold-3:#8a6508;
+  --card:rgba(0,0,0,.03);
+  --card-h:rgba(0,0,0,.055);
+  --line:rgba(0,0,0,.08);
+  --line-2:rgba(0,0,0,.15);
+  --text:#1a2332;
+  --text-2:#4a5670;
+  --muted:#6b7b93;
+  --green:#059669;--green-bg:rgba(5,150,105,.1);--green-line:rgba(5,150,105,.35);
+  --red:#dc2626;--red-bg:rgba(220,38,38,.1);--red-line:rgba(220,38,38,.35);
+  --blue:#2563eb;--blue-bg:rgba(37,99,235,.1);
+  --purple:#7c3aed;--orange:#ea580c;
+  --shadow-lg:0 24px 70px -22px rgba(0,0,0,.18);
+  --shadow-gold:0 16px 50px -18px rgba(184,137,29,.35);
+}
+[data-theme="light"] body{background:var(--bg)}
+[data-theme="light"] .ambient .orb{opacity:.25;filter:blur(80px)}
+[data-theme="light"] .grain{opacity:.015}
+[data-theme="light"] header{background:rgba(255,255,255,.85)}
+[data-theme="light"] .brand-text h1{color:var(--text)}
+[data-theme="light"] .brand-text span{color:var(--muted)}
+[data-theme="light"] .brand-mark{color:#0f0c04}
+[data-theme="light"] .xp-chip{background:rgba(184,137,29,.12);border-color:rgba(184,137,29,.3);color:var(--gold-3)}
+[data-theme="light"] .streak-chip{background:rgba(234,88,12,.1);border-color:rgba(234,88,12,.28);color:var(--orange)}
+[data-theme="light"] .icon-btn{background:rgba(0,0,0,.03);border-color:var(--line);color:var(--text-2)}
+[data-theme="light"] .icon-btn:hover{border-color:var(--gold);color:var(--gold-3)}
+[data-theme="light"] .icon-btn .badge-count{border-color:#fff;background:var(--gold);color:#fff}
+[data-theme="light"] .hero h2{color:var(--text)}
+[data-theme="light"] .hero h2 em{background:linear-gradient(120deg,var(--gold-3),var(--gold),#8a6508,var(--gold-3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+[data-theme="light"] .mod-card{background:#fff;border-color:var(--line);color:var(--text)}
+[data-theme="light"] .mod-card:hover{border-color:var(--gold);background:#fffdf7}
+[data-theme="light"] .mod-card .m-title{color:var(--text)}
+[data-theme="light"] .subj-card{background:#fff;border-color:var(--line)}
+[data-theme="light"] .subj-card h3{color:var(--text)}
+[data-theme="light"] .cat-card{background:#fff;border-color:var(--line)}
+[data-theme="light"] .cat-card h3{color:var(--text)}
+[data-theme="light"] .cat-card:hover{background:#fffdf7}
+[data-theme="light"] .question-card{background:#fff;border-color:var(--line)}
+[data-theme="light"] .question-card h2{color:var(--text)}
+[data-theme="light"] .option{background:rgba(0,0,0,.02);border-color:var(--line);color:var(--text)}
+[data-theme="light"] .option:hover:not(.disabled){background:rgba(184,137,29,.06);border-color:rgba(184,137,29,.5)}
+[data-theme="light"] .option .letter{background:rgba(0,0,0,.05);border-color:var(--line-2);color:var(--text-2)}
+[data-theme="light"] .option.correct{background:var(--green-bg);border-color:var(--green-line)}
+[data-theme="light"] .option.correct .letter{background:var(--green);color:#fff;border-color:var(--green)}
+[data-theme="light"] .option.wrong{background:var(--red-bg);border-color:var(--red-line)}
+[data-theme="light"] .option.wrong .letter{background:var(--red);color:#fff;border-color:var(--red)}
+[data-theme="light"] .feedback.correct{color:#065f46}
+[data-theme="light"] .feedback.wrong{color:#7f1d1d}
+[data-theme="light"] .feedback .fb-body strong{color:var(--text)}
+[data-theme="light"] .modal{background:#fff;border-color:var(--line-2)}
+[data-theme="light"] .modal h3{color:var(--text)}
+[data-theme="light"] .modal-icon{background:rgba(184,137,29,.15);border-color:rgba(184,137,29,.3)}
+[data-theme="light"] .modal-backdrop{background:rgba(240,242,247,.7)}
+[data-theme="light"] .kb-confirm{background:#fff;border-color:var(--line-2)}
+[data-theme="light"] .kb-confirm h3{color:var(--text)}
+[data-theme="light"] .kb-confirm-backdrop{background:rgba(240,242,247,.8)}
+[data-theme="light"] .kb-confirm p{color:var(--text-2)}
+[data-theme="light"] .kb-confirm-cancel{background:rgba(0,0,0,.04);border-color:var(--line-2);color:var(--text)}
+[data-theme="light"] .lc-card{background:#fff;border-color:var(--line-2)}
+[data-theme="light"] .lc-title{color:var(--text)}
+[data-theme="light"] .lc-body{color:var(--text-2)}
+[data-theme="light"] .lc-body strong{color:var(--text)}
+[data-theme="light"] .lc-body b{color:var(--gold-3)}
+[data-theme="light"] .dp-title{color:var(--text)}
+[data-theme="light"] .dp-circle.locked{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.15);color:var(--muted)}
+[data-theme="light"] .dp-circle.done{color:#fff}
+[data-theme="light"] .result-card{background:#fff;border-color:var(--line)}
+[data-theme="light"] .result-card h2{color:var(--text)}
+[data-theme="light"] .score-ring::after{background:#fff}
+[data-theme="light"] .score-inner .pct{color:var(--text)}
+[data-theme="light"] .stat-box{background:rgba(0,0,0,.03);border-color:var(--line)}
+[data-theme="light"] .stat-box .num{color:var(--text)}
+[data-theme="light"] .fav-item,[data-theme="light"] .wrong-item{background:#fff;border-color:var(--line)}
+[data-theme="light"] .fav-item .fq,[data-theme="light"] .wrong-item .wi-q{color:var(--text)}
+[data-theme="light"] .fav-item .fopts{color:var(--text-2)}
+[data-theme="light"] .stats-section{background:#fff;border-color:var(--line)}
+[data-theme="light"] .stat-tile{background:#fff;border-color:var(--line)}
+[data-theme="light"] .stat-tile .st-num{color:var(--text)}
+[data-theme="light"] .complete-wrap h2{color:var(--text)}
+[data-theme="light"] .complete-stat{background:#fff;border-color:var(--line)}
+[data-theme="light"] .lesson-progress{background:rgba(0,0,0,.06);border-color:var(--line)}
+[data-theme="light"] .empty-state{background:rgba(0,0,0,.02);border-color:var(--line-2)}
+[data-theme="light"] .empty-state h4{color:var(--text)}
+[data-theme="light"] .btn-ghost{background:rgba(0,0,0,.04);border-color:var(--line-2);color:var(--text)}
+[data-theme="light"] .btn-ghost:hover{background:rgba(0,0,0,.08)}
+[data-theme="light"] .quiz-meta{color:var(--muted)}
+[data-theme="light"] .timer{background:rgba(0,0,0,.04);border-color:var(--line);color:var(--text-2)}
+[data-theme="light"] .timer b{color:var(--text)}
+[data-theme="light"] .badge{color:var(--gold-3);background:rgba(184,137,29,.1);border-color:rgba(184,137,29,.25)}
+[data-theme="light"] .page-header h2{color:var(--text)}
+[data-theme="light"] footer{background:rgba(255,255,255,.7);border-color:var(--line)}
+[data-theme="light"] .count-opt,[data-theme="light"] .duration-opt{background:rgba(0,0,0,.03);border-color:var(--line);color:var(--text-2)}
+[data-theme="light"] .count-opt .num,[data-theme="light"] .duration-opt .num{color:var(--text)}
+[data-theme="light"] .count-opt.active,[data-theme="light"] .duration-opt.active{background:rgba(184,137,29,.12);border-color:var(--gold)}
+[data-theme="light"] .count-opt.active .num,[data-theme="light"] .duration-opt.active .num,[data-theme="light"] .count-opt.active .lbl,[data-theme="light"] .duration-opt.active .lbl{color:var(--gold-3)}
+[data-theme="light"] .diff-btn{background:rgba(0,0,0,.03);border-color:var(--line-2);color:var(--text-2)}
+[data-theme="light"] .diff-btn.active{background:rgba(184,137,29,.12);border-color:var(--gold);color:var(--gold-3)}
+[data-theme="light"] .section-label{color:var(--muted)}
+[data-theme="light"] .hero-badge{color:var(--gold-3);background:rgba(184,137,29,.1);border-color:rgba(184,137,29,.3)}
+[data-theme="light"] .hero-badge::before{background:var(--gold)}
+[data-theme="light"] .recall-card{background:linear-gradient(160deg,rgba(37,99,235,.08),rgba(37,99,235,.02));border-color:rgba(37,99,235,.3)}
+[data-theme="light"] .recall-card .rc-title{color:var(--text)}
+[data-theme="light"] .recall-card .rc-body{color:var(--text-2)}
