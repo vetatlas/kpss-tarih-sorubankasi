@@ -24,20 +24,40 @@ function qId(q){
   return q.id || ("h_" + String(q.soru || "").substring(0, 40).replace(/\s/g, "_"));
 }
 
-/* GitHub raw fetch — 2 kaynak dener (raw + jsdelivr) */
+/* ═══════════ GitHub raw fetch — PARALEL + TIMEOUT ═══════════
+   İki kaynak (raw.githubusercontent.com + jsdelivr.net) AYNI ANDA denenir.
+   İlk yanıt veren kazanır. Her ikisi de 8 saniye içinde yanıt vermezse hata.
+   → Yavaş yükleme sorunu çözülür.
+   ═══════════════════════════════════════════════════════════════ */
 async function fetchJSON(fileName, subFolder){
   const folder = subFolder ? (GITHUB.dataFolder + "/" + subFolder + "/") : (GITHUB.dataFolder + "/");
-  const bases = [
-    `https://raw.githubusercontent.com/${GITHUB.user}/${GITHUB.repo}/${GITHUB.branch}/${folder}`,
-    `https://cdn.jsdelivr.net/gh/${GITHUB.user}/${GITHUB.repo}@${GITHUB.branch}/${folder}`
+  const urls = [
+    `https://raw.githubusercontent.com/${GITHUB.user}/${GITHUB.repo}/${GITHUB.branch}/${folder}${fileName}?v=${Date.now()}`,
+    `https://cdn.jsdelivr.net/gh/${GITHUB.user}/${GITHUB.repo}@${GITHUB.branch}/${folder}${fileName}`
   ];
-  let lastErr = null;
-  for(const base of bases){
-    try{
-      const res = await fetch(base + fileName + "?v=" + Date.now(), { cache: "no-store" });
-      if(!res.ok) throw new Error("HTTP " + res.status);
-      return await res.json();
-    }catch(err){ lastErr = err; }
+
+  // Timeout'lu fetch (ms içinde yanıt gelmezse reject)
+  function fetchWithTimeout(url, ms){
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error("⏱ timeout")), ms);
+      fetch(url, { cache: "no-store" })
+        .then(res => {
+          clearTimeout(timer);
+          if(!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(resolve)
+        .catch(err => { clearTimeout(timer); reject(err); });
+    });
   }
-  throw lastErr || new Error("Bağlantı hatası");
+
+  // Paralel dene — hangisi önce gelirse
+  try{
+    return await Promise.any([
+      fetchWithTimeout(urls[0], 8000),
+      fetchWithTimeout(urls[1], 8000)
+    ]);
+  }catch(e){
+    throw new Error("Bağlantı hatası — içerik yüklenemedi");
+  }
 }
