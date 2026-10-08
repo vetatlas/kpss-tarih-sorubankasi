@@ -14,7 +14,7 @@ async function openLessonPathFromPack(pack){
   try{
     LP.pack = pack || null;
     LP.subj = { key: (pack && pack.ders) || "Tarih" };
-    LP.catName = (pack && pack.baslik) || "Ders Paketi";
+    LP.catName = (pack && pack.baslik) || "Konu anlatımı";
 
     $("pathTitle").textContent = ((pack && pack.ikon) || "🎓") + " " + LP.catName;
     $("pathSub").textContent = (pack && pack.ozet) || "Ders seç — kart kart öğren, sonra pekiştir";
@@ -48,8 +48,8 @@ async function openLessonPathFromPack(pack){
       const detail = lastError ? `<small style="display:block;margin-top:10px;opacity:.7">Teknik bilgi: ${escapeHtml(lastError.message)}</small>` : "";
       list.innerHTML = `<div class="empty-state">
         <div class="es-ico">📭</div>
-        <h4>Bu pakette ders bulunamadı</h4>
-        <p>"${escapeHtml(LP.catName)}" paketi açıldı fakat ders içeriği okunamadı.</p>
+        <h4>Bu konuda içerik bulunamadı</h4>
+        <p>"${escapeHtml(LP.catName)}" açıldı fakat içerik görüntülenemedi.</p>
         ${detail}
         <button class="btn btn-ghost" style="margin-top:14px" onclick="backFromPath()">← Geri</button>
       </div>`;
@@ -64,8 +64,8 @@ async function openLessonPathFromPack(pack){
     if(list){
       list.innerHTML = `<div class="empty-state">
         <div class="es-ico">⚠️</div>
-        <h4>Ders paketi açılamadı</h4>
-        <p>Beklenmeyen bir hata oluştu.</p>
+        <h4>Konu açılamadı</h4>
+        <p>İçerik şu anda görüntülenemiyor. Lütfen tekrar deneyin.</p>
         <small style="display:block;margin-top:10px;opacity:.7">${escapeHtml(err.message || err)}</small>
         <button class="btn btn-ghost" style="margin-top:14px" onclick="backFromPath()">← Geri</button>
       </div>`;
@@ -165,7 +165,7 @@ function renderLessonCard(){
   `;
   const btn = $("lcNextBtn");
   btn.style.display = "inline-flex";
-  btn.textContent = (LP.cardIdx === total - 1) ? "🎯 Sorulara Geç" : "Devam →";
+  btn.textContent = (LP.cardIdx === total - 1) ? "Sorulara geç" : "Devam →";
   if(!card._xpGiven){ card._xpGiven = true; addXP(2); }
 }
 
@@ -304,8 +304,8 @@ function finishLesson(){
     $("completeXP").textContent = "+" + totalXp;
     $("completeCorrect").textContent = LP.correct;
     $("completeStreak").textContent = xpData.streak;
-    $("completeTitle").textContent = pct >= 80 ? "Mükemmel! 🏆" : pct >= 60 ? "Ders Tamamlandı! 🎉" : "Tekrar Gerekli 📚";
-    $("completeSub").textContent = pct >= 80 ? "Bu konuya hâkimsin!" : pct >= 60 ? "İyi iş! Sonraki derse geçebilirsin." : "Biraz daha tekrar edelim.";
+    $("completeTitle").textContent = pct >= 80 ? "Çok iyi performans" : pct >= 60 ? "Konu tamamlandı" : "Tekrar önerilir";
+    $("completeSub").textContent = pct >= 80 ? "Bu konuda iyi bir sonuç aldın." : pct >= 60 ? "Bu konuyu tamamladın. Sonraki konuya geçebilirsin." : "Bu konuyu tekrar çalışman faydalı olabilir.";
     if(pct >= 60){ launchConfetti(); playCompleteSound(); }
     showScreen("lessonComplete");
   }catch(err){
