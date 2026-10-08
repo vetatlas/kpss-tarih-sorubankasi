@@ -46,7 +46,7 @@ function renderWrongBadge(){
 function showXpPopup(n){
   const p = document.createElement("div");
   p.className = "xp-popup";
-  p.innerHTML = `<span>⭐</span> +${n} XP`;
+  p.innerHTML = `<span>+</span> ${n} XP`;
   document.body.appendChild(p);
   setTimeout(() => p.remove(), 1700);
 }
@@ -100,7 +100,7 @@ function kbConfirm(msg, opts){
     const msgEl = $("kbConfirmMsg");
     const okBtn = $("kbConfirmOk");
     const cancelBtn = $("kbConfirmCancel");
-    icon.textContent = opts.icon || "🤔";
+    icon.textContent = opts.icon || "?";
     title.textContent = opts.title || "Emin misin?";
     msgEl.textContent = msg || "Bu işlem geri alınamaz.";
     okBtn.textContent = opts.okText || "Tamam";
