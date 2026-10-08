@@ -117,7 +117,7 @@ function handleNodeClick(idx, isLocked){
     }
     return;
   }
-  startLesson(idx);
+  if(typeof openStudyCenter === "function") openStudyCenter(idx); else startLesson(idx);
 }
 
 function backFromPath(){
