@@ -107,7 +107,7 @@ function renderFlashLesson(pack,pi,d,di){
       (cards.length ? cards.map((c,ci)=>'<div class="flash-admin-card">'+
         '<div class="flash-admin-card-num">'+(ci+1)+'</div>'+
         '<div><strong>'+esc(c.baslik||'Kart')+' <span class="tag lesson">'+esc(c.tip||'kavram')+'</span></strong>'+
-        '<p>'+esc(stripHtml(c.icerik||''))+'</p></div>'+
+        '<p>'+esc(stripHtml(c.icerik||''))+'</p><div class="flash-card-quality"><span class="flash-quality-badge '+flashQualityLabel(c._quality.score).cls+'">'+flashQualityLabel(c._quality.score).text+'</span><span>'+c._quality.score+'/100</span></div></div>'+
       '</div>').join('') :
       '<div class="flash-admin-empty">Bu alt başlıkta henüz flash kart yok.</div>')+
     '</div>'+
