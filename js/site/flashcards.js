@@ -56,13 +56,19 @@ function startTopicQuestions(){
   openPackCountModal(LP.pack);
 }
 
+function flashText(value){
+  const box=document.createElement('div');
+  box.innerHTML=String(value||'');
+  return (box.textContent||box.innerText||'').replace(/\\s+/g,' ').trim();
+}
+
 /* Kısa, ezberlenebilir flash kartlar üretir.
    Soru bankasındaki soruları kullanmaz; yalnızca konu anlatımındaki
    kartların bilgi parçalarını atomik tekrar kartlarına dönüştürür. */
 function buildMicroFlashcards(source){
   const result=[];
   (Array.isArray(source)?source:[]).forEach(card=>{
-    const title=stripHtml(card.baslik||'').trim();
+    const title=flashText(card.baslik||'').trim();
     const raw=String(card.icerik||'');
     const holder=document.createElement('div');
     holder.innerHTML=raw;
@@ -128,7 +134,7 @@ function renderFlashcard(){
   FLASH_STUDY.flipped=false;
   $('flashStage').classList.remove('flipped');
   $('flashFront').textContent=card.baslik||'Bilgi';
-  $('flashBack').textContent=stripHtml(card.icerik||'');
+  $('flashBack').textContent=flashText(card.icerik||'');
   $('flashCount').textContent=(FLASH_STUDY.idx+1)+'/'+cards.length;
   $('flashProgressFill').style.width=((FLASH_STUDY.idx+1)/cards.length*100)+'%';
 }
