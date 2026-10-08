@@ -45,14 +45,12 @@ async function initHome(){
   }
 
   // Başarılı yükleme
-  const total = ALL_QUESTIONS.length;
   const packCount = PACKS_INDEX.length;
-  if($("heroBadge")) $("heroBadge").textContent = `${total} soru • ${packCount} konu hazır`;
+  if($("heroBadge")) $("heroBadge").textContent = `${packCount} konu hazır`;
 
   if(!grid) return;
   grid.innerHTML = "";
   SUBJECTS.forEach((s, i) => {
-    const qCount = questionsByDers(s.key).length;
     const pCount = packsOfDers(s.key).length;
     const card = document.createElement("button");
     card.className = `subj-card ${s.renk}`;
@@ -61,7 +59,7 @@ async function initHome(){
     card.innerHTML = `
       <div class="subj-top">
         <div class="subj-ico">${s.ikon}</div>
-        <span class="subj-badge">${qCount} soru</span>
+
       </div>
       <h3>${escapeHtml(s.key)}</h3>
       <p>${escapeHtml(s.aciklama)}</p>
