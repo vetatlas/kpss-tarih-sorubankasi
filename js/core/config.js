@@ -24,7 +24,7 @@ const PACKS_FOLDER = "dersler";            // data/dersler/
 const LETTERS = ["A","B","C","D","E"];
 
 /* Global state */
-let PACKS_INDEX = [];
+var PACKS_INDEX = [];
 let PACKS_LOADED = false;
 let ALL_QUESTIONS = [];
 let currentSubject = null;
