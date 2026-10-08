@@ -71,9 +71,28 @@
   position:relative;z-index:1;margin-top:auto}
 .subj-stats b{color:var(--subj-glow,var(--gold-2));font-weight:800}
 .subj-cta{font-size:11.5px;font-weight:800;color:var(--subj-glow,var(--gold-2));
-  display:flex;align-items:center;gap:5px;position:relative;z-index:1;
-  opacity:.7;transition:opacity .3s, gap .3s}
-.subj-card:hover .subj-cta{opacity:1;gap:9px}
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  position:relative;z-index:1;margin-top:2px;padding-top:10px;
+  border-top:1px solid rgba(255,255,255,.07);opacity:.82;
+  transition:opacity .3s, color .3s, transform .3s}
+.subj-cta-arrow{width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;flex:0 0 30px;
+  border:1px solid color-mix(in srgb,var(--subj-glow,var(--gold-2)) 42%, transparent);
+  background:color-mix(in srgb,var(--subj-glow,var(--gold-2)) 10%, transparent);
+  font-size:16px;line-height:1;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, background .35s}
+.subj-card:hover .subj-cta{opacity:1;transform:translateX(2px)}
+.subj-card:hover .subj-cta-arrow{transform:translateX(5px) scale(1.08);
+  background:color-mix(in srgb,var(--subj-glow,var(--gold-2)) 17%, transparent);
+  box-shadow:0 0 18px color-mix(in srgb,var(--subj-glow,var(--gold-2)) 24%, transparent)}
+.subj-card:active .subj-cta-arrow{transform:translateX(2px) scale(.94)}
+@media (prefers-reduced-motion:no-preference){
+  .subj-card:hover .subj-cta-arrow{animation:ctaArrowPulse 1.2s ease-in-out infinite}
+}
+@keyframes ctaArrowPulse{
+  0%,100%{transform:translateX(2px) scale(1)}
+  50%{transform:translateX(6px) scale(1.08)}
+}
 
 /* KATEGORİ / PAKET KARTLARI */
 .cat-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
