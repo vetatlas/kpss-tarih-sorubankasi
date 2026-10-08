@@ -182,6 +182,7 @@
           <div style="display:flex;gap:6px;flex-wrap:wrap">
             <button class="btn" onclick="loadFlashcardsAdmin()">↻ Yenile</button>
             <button class="btn btn-primary" onclick="document.getElementById('flashImportFile').click()">↑ JSON Yükle</button>
+            <span class="flash-upload-hint" title="JSON biçimi: ders + konu + konuId + kartlar[]">JSON biçimi: <b>ders + konu + kartlar[]</b></span>
             <input type="file" id="flashImportFile" accept=".json" style="display:none" onchange="importFlashcardsJSON(event)">
           </div>
         </div>
@@ -189,8 +190,8 @@
           <div class="flash-json-guide-head">
             <div>
               <span class="flash-json-guide-kicker">FLASH KART JSON ŞABLONU</span>
-              <h3>Yapay zekâya bu yapıyı ver</h3>
-              <p>Her alt başlık için <b>baslik + icerik</b> alanlarını kısa ve tek bilgili kartlar halinde doldur.</p>
+              <h3>Yüklenecek JSON biçimi</h3>
+              <p>JSON Yükle ile kullanacağın dosya bu yapıda olmalı. Yapay zekâya da aşağıdaki şablonu ver.</p>
             </div>
             <button class="btn btn-sm btn-blue" type="button" onclick="copyFlashJSONTemplate()">JSON'u Kopyala</button>
           </div>
