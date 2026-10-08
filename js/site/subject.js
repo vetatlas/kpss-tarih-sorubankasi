@@ -1,6 +1,5 @@
 /* ═══════════ SUBJECT ═══════════ */
 let pendingSubj = null, pendingCatName = null;
-let selectedCount = 20, selectedDiff = "";
 
 function openSubject(subj){
   currentSubject = subj;
@@ -75,7 +74,7 @@ function openSubject(subj){
       card.innerHTML = `
         <div class="cat-top">
           <div class="cat-icon">📂</div>
-          <div class="cat-count">${cats[catName]} soru</div>
+          <div class="cat-count">Soru çöz</div>
         </div>
         <h3>${escapeHtml(catName)}</h3>
         <div class="cat-cta">Test Çöz <span>→</span></div>
@@ -88,55 +87,16 @@ function openSubject(subj){
   showScreen("subjectScreen");
 }
 
-/* ─── COUNT MODAL ─── */
+/* ─── DIRECT QUIZ START ─── */
 function openCountModal(subj, catName){
   pendingSubj = subj;
   pendingCatName = catName;
-  selectedCount = 20;
-  selectedDiff = "";
-  const total = questionsByDers(subj.key).filter(q => (q.kategori || "Genel") === catName).length;
-  $("countSub").innerHTML = `Konu: <b>${escapeHtml(catName)}</b> (${total} soru)`;
-  document.querySelectorAll("#countOptions .count-opt").forEach(b => {
-    b.classList.toggle("active", b.dataset.count === "20");
-  });
-  document.querySelectorAll("#countModal .diff-btn").forEach(b => {
-    b.classList.toggle("active", b.dataset.diff === "");
-  });
-  $("countModal").classList.add("show");
-  document.body.style.overflow = "hidden";
-}
-function closeCountModal(){
-  $("countModal").classList.remove("show");
-  document.body.style.overflow = "";
-}
-function confirmStartQuiz(){
-  if(!pendingSubj || !pendingCatName) return;
-  let list = questionsByDers(pendingSubj.key).filter(q =>
-    (q.kategori || "Genel") === pendingCatName);
-  if(selectedDiff) list = list.filter(q => q.zorluk === selectedDiff);
+  let list = questionsByDers(subj.key).filter(q => (q.kategori || "Genel") === catName);
   list = shuffle(list);
-  if(selectedCount > 0 && list.length > selectedCount) list = list.slice(0, selectedCount);
-  const subj = pendingSubj;
-  const cat = pendingCatName;
-  closeCountModal();
-  startQuiz(subj, cat, list);
+  /* Öğrenciye soru havuzunun büyüklüğü gösterilmez. Sistem uygun bir çalışma seti seçer. */
+  const studySetSize = 20;
+  if(list.length > studySetSize) list = list.slice(0, studySetSize);
+  startQuiz(subj, catName, list);
 }
-
-/* Event listeners */
-$("countModal").addEventListener("click", e => {
-  if(e.target === $("countModal")) closeCountModal();
-});
-document.querySelectorAll("#countOptions .count-opt").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("#countOptions .count-opt").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    selectedCount = parseInt(btn.dataset.count, 10);
-  });
-});
-document.querySelectorAll("#countModal .diff-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("#countModal .diff-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    selectedDiff = btn.dataset.diff;
-  });
-});
+function closeCountModal(){}
+function confirmStartQuiz(){ openCountModal(pendingSubj, pendingCatName); }
