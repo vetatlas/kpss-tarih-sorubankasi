@@ -395,3 +395,26 @@
 .big-success .bs-text{font-family:'Playfair Display',serif;font-size:clamp(50px,10vw,90px);font-weight:900;
   color:var(--green);text-shadow:0 0 60px rgba(52,211,153,.9);
   animation:bsIn 1.4s cubic-bezier(.34,1.56,.64,1) forwards}
+
+
+/* MOBILE STUDY FLOW */
+@media(max-width:560px){
+  .hero{margin-bottom:22px}
+  .hero h2{font-size:27px;letter-spacing:-.4px}
+  .hero p{font-size:12px;padding:0 10px}
+  .modules-row{gap:8px;margin-bottom:28px}
+  .mod-card{min-height:104px;padding:12px 10px;border-radius:12px;gap:6px}
+  .mod-card .m-ico{width:31px;height:31px;border-radius:8px;font-size:14px}
+  .mod-card .m-title{font-size:11.5px}
+  .mod-card .m-desc{font-size:9.5px}
+  .subjects-grid{gap:9px}
+  .subj-card{min-height:150px;padding:16px 14px;border-radius:13px}
+  .quiz-top{gap:7px;margin-bottom:10px}
+  .question-card{border-radius:14px;padding:16px 13px}
+  .question-card h2{font-size:16px;line-height:1.5}
+  .q-actions{margin-top:14px}
+  .kbd-hint{display:none}
+  .q-actions .btn{width:100%}
+  .lesson-footer{padding:0 4px}
+  .lesson-footer .btn{min-width:0;width:100%}
+}
