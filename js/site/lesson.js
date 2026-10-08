@@ -149,6 +149,9 @@ function startLesson(idx){
   LP.activeQuestion = null;
   LP.usedRecallQuestions = new Set();
   LP.recallQueue = [];
+  LP.learnedCards = new Set();
+  LP.difficultCards = new Set();
+  LP.recallAttempts = 0;
 
   if(!LP.cards.length){
     startLessonQuestions();
@@ -159,6 +162,28 @@ function startLesson(idx){
   renderLessonCard();
 }
 
+function getLessonLearningStats(){
+  const total = Array.isArray(LP.cards) ? LP.cards.length : 0;
+  const learned = LP.learnedCards?.size || 0;
+  const difficult = LP.difficultCards?.size || 0;
+  const percent = total ? Math.round((learned / total) * 100) : 0;
+  return { total, learned, difficult, percent };
+}
+
+function renderLessonLearningProgress(){
+  const stats = getLessonLearningStats();
+  const fill = $("lessonLearningFill");
+  const text = $("lessonLearningText");
+  const meta = $("lessonLearningMeta");
+  if(fill) fill.style.width = Math.min(100, stats.percent) + "%";
+  if(text) text.textContent = stats.percent + "%";
+  if(meta){
+    meta.textContent = stats.difficult
+      ? stats.learned + " öğrenildi · " + stats.difficult + " tekrar"
+      : stats.learned + " öğrenildi";
+  }
+}
+ 
 function normalizeStudyText(value){
   return String(value || "")
     .replace(/<[^>]*>/g, " ")
@@ -393,6 +418,12 @@ function selectLessonOption(btn, isCorrect, q){
   if(isCorrect){
     playCorrectSound();
     LP.correct++;
+    if(LP.phase === "recall" || LP.phase === "recallRetry"){
+      const ci = Number.isInteger(LP.cardIdx) ? LP.cardIdx : -1;
+      if(ci >= 0) LP.learnedCards.add(ci);
+      if(ci >= 0) LP.difficultCards.delete(ci);
+      renderLessonLearningProgress();
+    }
     trackAnswer(LP.subj?.key, true);
     addXP(2);
     fb.className = "feedback show correct";
@@ -401,6 +432,11 @@ function selectLessonOption(btn, isCorrect, q){
   }else{
     playWrongSound();
     LP.wrong++;
+    if(LP.phase === "recall" || LP.phase === "recallRetry"){
+      const ci = Number.isInteger(LP.cardIdx) ? LP.cardIdx : -1;
+      if(ci >= 0){ LP.difficultCards.add(ci); LP.learnedCards.delete(ci); }
+      renderLessonLearningProgress();
+    }
     // Aktif öğrenmede yanlış cevaplanan bilgi kısa süre sonra yeniden sorulur.
     if(LP.phase === "recall" && q){
       if(!Array.isArray(LP.recallQueue)) LP.recallQueue = [];
