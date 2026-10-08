@@ -84,14 +84,22 @@
 
   <!-- SUBJECT -->
   <section id="subjectScreen" class="screen hidden">
-    <div class="page-header" style="position:relative">
-      <button class="btn btn-ghost" onclick="goHome()" style="padding:8px 14px;font-size:12px">← Geri</button>
-      <div style="text-align:center;flex:1">
+    <div class="subject-head">
+      <button class="subject-back" onclick="goHome()" type="button" aria-label="Derslere dön">← <span>Dersler</span></button>
+      <div class="subject-title-wrap">
+        <span class="subject-kicker">ÇALIŞMA ALANI</span>
         <h2 id="subjTitle">Ders</h2>
         <p id="subjSub">Konu seç</p>
       </div>
     </div>
-    <div class="grid" id="catGrid"></div>
+    <div class="subject-divider"><span></span></div>
+    <div class="subject-intro">
+      <div>
+        <span class="subject-intro-label">BUGÜN NE ÇALIŞACAKSIN?</span>
+        <h3>Konu anlatımını incele veya soru çöz.</h3>
+      </div>
+    </div>
+    <div class="grid subject-grid" id="catGrid"></div>
   </section>
 
   <!-- LESSON PATH -->
