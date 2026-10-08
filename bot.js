@@ -106,7 +106,16 @@ async function handleAdminApi(req, res) {
 
   const url = new URL(req.url, 'http://localhost');
 
-  if (!url.pathname.startsWith('/api/') && (req.method === 'GET' || req.method === 'HEAD')) {
+  if (url.pathname === '/__admin_script.js' && (req.method === 'GET' || req.method === 'HEAD')) {
+  const adminScript = path.join(__dirname, 'js', 'admin.js');
+  if (!fs.existsSync(adminScript)) return jsonRes(req, res, 404, { ok:false, error:'admin.js bulunamadı' });
+  setCors(req, res);
+  res.writeHead(200, { 'Content-Type':'application/javascript; charset=utf-8', 'Cache-Control':'no-store' });
+  if (req.method === 'HEAD') return res.end();
+  return res.end(fs.readFileSync(adminScript));
+}
+
+if (!url.pathname.startsWith('/api/') && (req.method === 'GET' || req.method === 'HEAD')) {
     const requested = url.pathname === '/' ? 'index.html'
       : url.pathname === '/admin' ? 'panel-k7x9m.html'
       : url.pathname.replace(/^\/+/, '');
