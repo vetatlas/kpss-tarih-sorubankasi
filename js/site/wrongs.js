@@ -50,14 +50,14 @@ function startWrongsQuiz(){
   resetQuizFlags();
   const wrongs = loadWrongs();
   if(wrongs.length === 0){
-    kbConfirm("Yanlış kaydı yok.", {icon:"🔁", title:"Kayıt Yok", okText:"Tamam", cancelText:"Kapat"});
+    kbConfirm("Yanlış kaydı yok.", {icon:"?", title:"Kayıt yok", okText:"Tamam", cancelText:"Kapat"});
     return;
   }
   S.isWrongMode = true;
   S.list = shuffle(wrongs.map(w => ({ ...w })));
   S.idx = 0; S.correct = 0; S.wrong = []; S.answered = false;
   S.subject = { key: "wrong" };
-  S.cat = { ad: "🔁 Yanlışlarım" };
+  S.cat = { ad: "Yanlışlarım" };
   $("qTotal").textContent = S.list.length;
   showScreen("quiz");
   startTimer();
