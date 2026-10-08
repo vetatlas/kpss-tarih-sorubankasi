@@ -116,36 +116,54 @@
 
   <!-- TOPIC STUDY CENTER -->
   <section id="studyCenter" class="screen hidden">
-    <div class="study-center-head">
-      <button class="subject-back" onclick="backFromStudyCenter()" type="button">← <span>Konu listesi</span></button>
-      <div class="study-center-title">
-        <span>KONU ÇALIŞMA MERKEZİ</span>
-        <h2 id="studyTopicTitle">Konu</h2>
-        <p id="studyTopicSub">Bu konuyu nasıl çalışmak istiyorsun?</p>
+    <div class="study-center-shell">
+      <div class="study-center-head">
+        <button class="study-back" onclick="backFromStudyCenter()" type="button" aria-label="Konu listesine dön">
+          <span class="study-back-arrow">←</span><span>Konu listesi</span>
+        </button>
+        <div class="study-center-title">
+          <span>ÇALIŞMA MERKEZİ</span>
+          <h2 id="studyTopicTitle">Konu</h2>
+          <p id="studyTopicSub">Bu konuyu nasıl çalışmak istiyorsun?</p>
+        </div>
+        <div class="study-center-index">01 / 01</div>
       </div>
-    </div>
-    <div class="study-choice-grid">
-      <button class="study-choice" onclick="startTopicStudy()">
-        <span class="study-choice-no">01</span>
-        <span class="study-choice-icon">01</span>
-        <strong>Konu Çalış</strong>
-        <small>Konu anlatımını adım adım incele.</small>
-        <span class="study-choice-arrow">→</span>
-      </button>
-      <button class="study-choice" onclick="startTopicQuestions()">
-        <span class="study-choice-no">02</span>
-        <span class="study-choice-icon">02</span>
-        <strong>Soru Çöz</strong>
-        <small>Öğrendiklerini konu sorularıyla pekiştir.</small>
-        <span class="study-choice-arrow">→</span>
-      </button>
-      <button class="study-choice" onclick="startTopicFlashcards()">
-        <span class="study-choice-no">03</span>
-        <span class="study-choice-icon">03</span>
-        <strong>Flash Kartlar</strong>
-        <small>Önemli bilgileri hızlı tekrar et.</small>
-        <span class="study-choice-arrow">→</span>
-      </button>
+
+      <div class="study-center-rule"><span></span></div>
+
+      <div class="study-center-intro">
+        <div>
+          <span class="study-center-eyebrow">ÇALIŞMA SEÇİMİ</span>
+          <h3>Bu konu için bir çalışma yöntemi seç.</h3>
+          <p>Her yöntem aynı konunun farklı bir öğrenme adımına odaklanır.</p>
+        </div>
+      </div>
+
+      <div class="study-choice-grid">
+        <button class="study-choice study-choice--learn" onclick="startTopicStudy()">
+          <span class="study-choice-top"><span class="study-choice-no">01</span><span class="study-choice-status">ÖĞREN</span></span>
+          <span class="study-choice-symbol">A</span>
+          <strong>Konu Çalış</strong>
+          <small>Alt başlıkları sırayla ilerleyerek öğren. Harita üzerinden konu anlatımına geç.</small>
+          <span class="study-choice-footer"><span>Öğrenme yolu</span><b>→</b></span>
+        </button>
+
+        <button class="study-choice study-choice--quiz" onclick="startTopicQuestions()">
+          <span class="study-choice-top"><span class="study-choice-no">02</span><span class="study-choice-status">PEKİŞTİR</span></span>
+          <span class="study-choice-symbol">?</span>
+          <strong>Soru Çöz</strong>
+          <small>Konuyu sorularla test et. Oturum sayısını ve zorluk seviyesini kendin belirle.</small>
+          <span class="study-choice-footer"><span>Test oturumu</span><b>→</b></span>
+        </button>
+
+        <button class="study-choice study-choice--flash" onclick="startTopicFlashcards()">
+          <span class="study-choice-top"><span class="study-choice-no">03</span><span class="study-choice-status">TEKRAR</span></span>
+          <span class="study-choice-symbol">↺</span>
+          <strong>Flash Kartlar</strong>
+          <small>Kısa ve akılda kalıcı bilgi kartlarıyla hızlı tekrar yap.</small>
+          <span class="study-choice-footer"><span>Hızlı tekrar</span><b>→</b></span>
+        </button>
+      </div>
     </div>
   </section>
 
