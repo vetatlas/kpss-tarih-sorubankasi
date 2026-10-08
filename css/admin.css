@@ -334,3 +334,17 @@ tr.selected td{background:rgba(201,162,39,.08)}
 .flash-admin-pack-kicker{display:block;margin-bottom:4px}
 .flash-admin-sub-kicker{display:block;margin-bottom:3px;color:var(--blue)}
 .flash-admin-chevron{color:var(--muted);font-size:15px}
+
+/* FLASHCARD ADMIN — GUIDE */
+.flash-json-guide{margin:0 16px;padding:16px;border:1px solid rgba(96,165,250,.22);border-radius:14px;background:linear-gradient(145deg,rgba(96,165,250,.075),rgba(255,255,255,.018))}
+.flash-json-guide-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px}
+.flash-json-guide-kicker{display:block;font-size:8px;letter-spacing:1.7px;font-weight:800;color:var(--blue);margin-bottom:5px}
+.flash-json-guide h3{margin:0;color:#fff;font-size:14px;font-weight:800}
+.flash-json-guide p{margin:5px 0 0;color:var(--muted);font-size:10.5px;line-height:1.55}
+.flash-json-template{width:100%;min-height:230px;resize:vertical;box-sizing:border-box;padding:13px 14px;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(0,0,0,.3);color:#dbeafe;font:11px/1.65 'JetBrains Mono',monospace;outline:none}
+.flash-quality-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.flash-quality-grid>div{padding:10px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.02)}
+.flash-quality-grid b{display:block;color:#fff;font-size:10px;margin-bottom:4px}
+.flash-quality-grid span{display:block;color:var(--muted);font-size:9.5px;line-height:1.45}
+@media(max-width:760px){.flash-json-guide{margin:0 10px}.flash-json-guide-head{flex-direction:column}.flash-json-guide-head .btn{justify-content:center}.flash-json-template{min-height:260px;font-size:10px}.flash-quality-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.flash-quality-grid{grid-template-columns:1fr}}
