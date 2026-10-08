@@ -185,6 +185,41 @@
             <input type="file" id="flashImportFile" accept=".json" style="display:none" onchange="importFlashcardsJSON(event)">
           </div>
         </div>
+        <div class="flash-json-guide">
+          <div class="flash-json-guide-head">
+            <div>
+              <span class="flash-json-guide-kicker">FLASH KART JSON ŞABLONU</span>
+              <h3>Yapay zekâya bu yapıyı ver</h3>
+              <p>Her alt başlık için <b>baslik + icerik</b> alanlarını kısa ve tek bilgili kartlar halinde doldur.</p>
+            </div>
+            <button class="btn btn-sm btn-blue" type="button" onclick="copyFlashJSONTemplate()">JSON'u Kopyala</button>
+          </div>
+          <textarea id="flashJSONTemplate" class="flash-json-template" readonly spellcheck="false">{
+  "ders": "Tarih",
+  "konu": "Türk Kelimesinin Anlamı",
+  "konuId": "io-1",
+  "kartlar": [
+    {
+      "tip": "kavram",
+      "ikon": "📘",
+      "baslik": "Türk adı — Kaşgarlı Mahmud",
+      "icerik": "Olgunluk çağı"
+    },
+    {
+      "tip": "onemli",
+      "ikon": "💡",
+      "baslik": "Türkiye adı",
+      "icerik": "Bizans kaynaklarında Orta Asya için kullanılmıştır."
+    }
+  ]
+}</textarea>
+          <div class="flash-quality-grid">
+            <div><b>01 · Tek bilgi</b><span>Bir kartta tek kavram, kişi, tarih veya ilişki.</span></div>
+            <div><b>02 · Kısa cevap</b><span>İdeal olarak 1–2 cümle; gereksiz paragraf yok.</span></div>
+            <div><b>03 · Soru bankasını kopyalama</b><span>Flash kart soru ve şıkların tekrarı değil, hızlı hatırlatma kartıdır.</span></div>
+            <div><b>04 · Sınav odaklı</b><span>Karıştırılan eşleştirme, kritik tarih, kişi-eser ve neden-sonuçları seç.</span></div>
+          </div>
+        </div>
         <div id="flashcardsAdminContainer" style="padding:16px"></div>
       </div>
     </div>
