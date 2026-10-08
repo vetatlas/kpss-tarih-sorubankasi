@@ -1,12 +1,13 @@
 /* ═══════════ GÜVENLİ ADMIN API ═══════════ */
 async function adminRequest(path, options = {}) {
+  const method = String(options.method || 'GET').toUpperCase();
+  const headers = { ...(options.headers || {}) };
+  if(method !== 'GET' && method !== 'HEAD') headers['Content-Type'] = 'application/json';
   const res = await fetch(ADMIN_API_BASE + path, {
     credentials: 'include',
     ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(options.headers || {})
-    }
+    method,
+    headers
   });
   let data = {};
   try { data = await res.json(); } catch {}
