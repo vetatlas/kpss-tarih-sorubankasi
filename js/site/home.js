@@ -46,7 +46,7 @@ async function initHome(){
 
   // Başarılı yükleme
   const packCount = PACKS_INDEX.length;
-  if($("heroBadge")) $("heroBadge").textContent = `${packCount} konu hazır`;
+  if($("heroBadge")) $("heroBadge").textContent = "Konu anlatımı ve soru çözümü";
 
   if(!grid) return;
   grid.innerHTML = "";
@@ -63,10 +63,7 @@ async function initHome(){
       </div>
       <h3>${escapeHtml(s.key)}</h3>
       <p>${escapeHtml(s.aciklama)}</p>
-      <div class="subj-stats">
-        <span><b>${pCount}</b> konu</span>
-        <span><b>${Object.keys(categoriesOfDers(s.key)).length}</b> başlık</span>
-      </div>
+      <div class="subj-meta">Konu anlatımı ve soru çözümü</div>
       <div class="subj-cta">Başla <span>→</span></div>
     `;
     card.onclick = () => openSubject(s);
