@@ -37,10 +37,10 @@ function openSubject(subj){
       card.innerHTML = `
         <div class="cat-top">
           <div class="cat-icon">${escapeHtml(pack.ikon || '📖')}</div>
-          <div class="cat-count">🎓 Öğren</div>
+          <div class="cat-count">KONU</div>
         </div>
         <h3>${escapeHtml(pack.baslik)}</h3>
-        <p>${escapeHtml(pack.ozet || 'Kart + sorularla öğren')}</p>
+        <p>${escapeHtml(pack.ozet || 'Konu anlatımını incele ve ardından sorularla pekiştir.')}</p>
         <div class="cat-cta">Derse Başla <span>→</span></div>
       `;
       card.onclick = async (event) => {
@@ -73,8 +73,8 @@ function openSubject(subj){
       card.type = "button";
       card.innerHTML = `
         <div class="cat-top">
-          <div class="cat-icon">📂</div>
-          <div class="cat-count">Soru çöz</div>
+          <div class="cat-icon">S</div>
+          <div class="cat-count">TEST</div>
         </div>
         <h3>${escapeHtml(catName)}</h3>
         <div class="cat-cta">Test Çöz <span>→</span></div>
