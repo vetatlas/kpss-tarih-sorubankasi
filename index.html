@@ -48,12 +48,12 @@
   <section id="home" class="screen">
     <div class="hero">
       <div class="hero-badge" id="heroBadge">Yükleniyor...</div>
-      <h2>Tarih, Coğrafya, Vatandaşlık... <em>hepsi bir arada.</em></h2>
+      <h2>Konu çalış, soru çöz, <em>eksiklerini gör.</em></h2>
       <p>Dersini seç ve çalışmaya başla. Konu çalış, soru çöz, eksiklerini gör.</p>
       <div class="hero-rule"></div>
     </div>
 
-    <div class="section-label">Çalışma Alanı</div>
+    <div class="section-label">Çalışmaya devam et</div>
     <div class="modules-row">
       <button class="mod-card" onclick="openWrongs()">
         <span class="m-badge hidden" id="wrongBadge">0</span>
@@ -156,8 +156,8 @@
   <section id="lessonComplete" class="screen hidden">
     <div class="complete-wrap">
       <div class="complete-ring"><div class="complete-inner">✓</div></div>
-      <h2 id="completeTitle">Ders Tamamlandı!</h2>
-      <p id="completeSub">Harika iş çıkardın.</p>
+      <h2 id="completeTitle">Konu tamamlandı</h2>
+      <p id="completeSub">Sonuçlarını inceleyebilirsin.</p>
       <div class="complete-stats">
         <div class="complete-stat"><div class="num" id="completeXP">+0</div><div class="lbl">XP</div></div>
         <div class="complete-stat"><div class="num" id="completeCorrect">0</div><div class="lbl">Doğru</div></div>
@@ -214,7 +214,7 @@
             <div class="sub">Başarı</div>
           </div>
         </div>
-        <h2 id="rTitle">Tur tamamlandı</h2>
+        <h2 id="rTitle">Test tamamlandı</h2>
         <p id="rMsg"></p>
         <div class="stat-row">
           <div class="stat-box"><div class="num g" id="rCorrect">0</div><div class="lbl">Doğru</div></div>
@@ -271,12 +271,12 @@
       <button class="btn btn-ghost" onclick="goHome()" style="padding:8px 14px;font-size:12px;position:absolute;left:0;top:0">← Geri</button>
       <div style="text-align:center;flex:1">
         <h2>İstatistik</h2>
-        <p>Çözüm geçmişin ve performansın</p>
+        <p>Çözüm geçmişin</p>
       </div>
     </div>
     <div class="stats-grid" id="statsTiles"></div>
     <div class="stats-section">
-      <h3>Ders Bazlı Başarı</h3>
+      <h3>Derslere göre başarı</h3>
       <div class="cat-bars" id="catBars"></div>
     </div>
   </section>
@@ -284,7 +284,7 @@
 
 <footer>
   <p><b>KPSS BilgiMatik</b><br>
-  Tarih • Coğrafya • Vatandaşlık • Türkçe • Matematik • Güncel</p>
+  KPSS hazırlık soru bankası</p>
 </footer>
 
 <!-- ═══════════ MODALS ═══════════ -->
@@ -293,7 +293,7 @@
   <div class="modal">
     <div class="modal-icon">Deneme</div>
     <h3>Deneme Sınavı</h3>
-    <p class="modal-sub">Karışık sorular + süreli</p>
+    <p class="modal-sub">Deneme ayarları</p>
     <div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;letter-spacing:1.4px">DERS</div>
     <div style="margin-bottom:16px">
       <select id="examDers" style="width:100%;padding:11px 14px;background:rgba(0,0,0,.35);border:1px solid var(--line-2);border-radius:10px;color:#fff;font-family:inherit;font-size:13px;outline:none">
