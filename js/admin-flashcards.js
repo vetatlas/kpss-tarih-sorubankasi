@@ -82,15 +82,21 @@ function renderFlashPack(pack,pi){
 }
 
 function renderFlashLesson(pack,pi,d,di){
-  const cards=Array.isArray(d.kartlar)?d.kartlar.map(c=>({
-      ...c,
-      baslik:String(c?.baslik||c?.front||'').trim(),
-      icerik:String(c?.icerik||c?.back||'').trim()
-    })).filter(c=>c.baslik&&c.icerik):[];
+  const cards=Array.isArray(d.kartlar)?d.kartlar.map(c=>{
+      const card={
+        ...c,
+        baslik:String(c?.baslik||c?.front||'').trim(),
+        icerik:String(c?.icerik||c?.back||'').trim()
+      };
+      card._quality=evaluateFlashCard(card);
+      return card;
+    }).filter(c=>c.baslik&&c.icerik):[];
+  const avgQuality=cards.length?Math.round(cards.reduce((n,c)=>n+c._quality.score,0)/cards.length):0;
+  const quality=flashQualityLabel(avgQuality);
   return '<div class="flash-admin-lesson open">'+
     '<div class="flash-admin-lesson-head" onclick="toggleFlashLesson(this)">'+
       '<div class="flash-admin-lesson-info"><span class="flash-admin-sub-kicker">ALT BAŞLIK</span><strong>'+esc(d.baslik||'(başlıksız)')+'</strong>'+
-      '<small>'+cards.length+' flash kart</small></div>'+
+      '<small>'+cards.length+' flash kart · kalite '+avgQuality+'/100</small></div>'+
       '<div class="flash-admin-actions">'+
         '<button class="btn btn-sm btn-blue" onclick="event.stopPropagation();exportFlashLessonJSON('+pi+','+di+')">JSON İndir</button>'+
         '<button class="btn btn-sm" onclick="event.stopPropagation();setFlashImportTarget('+pi+','+di+')">JSON Yükle</button>'+
@@ -106,6 +112,34 @@ function renderFlashLesson(pack,pi,d,di){
       '<div class="flash-admin-empty">Bu alt başlıkta henüz flash kart yok.</div>')+
     '</div>'+
   '</div>';
+}
+
+function evaluateFlashCard(card){
+  const front=stripHtml(card?.baslik||'').replace(/\s+/g,' ').trim();
+  const back=stripHtml(card?.icerik||'').replace(/\s+/g,' ').trim();
+  let score=100;
+  const issues=[];
+
+  if(!front || !back){ score=0; issues.push('eksik'); return {score,issues}; }
+  if(front.length>90){ score-=15; issues.push('uzun ön yüz'); }
+  if(back.length>180){ score-=25; issues.push('uzun cevap'); }
+  if(back.length>240){ score-=15; }
+  const sentences=(back.match(/[.!?](?:\s|$)/g)||[]).length;
+  if(sentences>2){ score-=10; issues.push('uzun açıklama'); }
+  if(/[A-E]\)/i.test(back) || /\b[A-E]\s*[.)]/i.test(back)){ score-=25; issues.push('şık benzeri içerik'); }
+  if(/^(a|b|c|d|e)[.)]/i.test(back)){ score-=25; issues.push('çoktan seçmeli içerik'); }
+  if((back.match(/[•;|]/g)||[]).length>=3){ score-=15; issues.push('birden fazla bilgi'); }
+  if(/\b(ve|ile|ayrıca)\b/gi.test(front) && front.length>55){ score-=8; issues.push('çoklu bilgi'); }
+  if(/\d{4}\s*[-–]\s*\d{4}/.test(front) && back.length>140){ score-=8; issues.push('gereksiz ayrıntı'); }
+
+  score=Math.max(0,Math.min(100,score));
+  return {score,issues};
+}
+
+function flashQualityLabel(score){
+  if(score>=90) return {text:'Mükemmel',cls:'excellent'};
+  if(score>=75) return {text:'İyi',cls:'good'};
+  return {text:'Revize',cls:'review'};
 }
 
 function stripHtml(s){
@@ -151,6 +185,18 @@ async function importFlashcardsJSON(e){
       icerik:String(c.icerik||c.back||'').trim()
     })).filter(c=>c.baslik && c.icerik);
     if(!cards.length) throw new Error('Geçerli flash kart bulunamadı');
+
+    const qualityReport=cards.map(evaluateFlashCard);
+    const avgQuality=Math.round(qualityReport.reduce((n,q)=>n+q.score,0)/qualityReport.length);
+    const weak=qualityReport.filter(q=>q.score<75);
+    if(avgQuality<75){
+      const examples=weak.slice(0,3).map(q=>q.issues.join(', ')).filter(Boolean).join(' · ');
+      throw new Error('Flash kart kalitesi düşük ('+avgQuality+'/100). Kartları kısalt ve tek bilgiye indir.'+(examples?' Örnek: '+examples:''));
+    }
+    if(weak.length){
+      const ok=confirm(cards.length+' kart yüklenecek. Ortalama kalite '+avgQuality+'/100. '+weak.length+' kart revizyon gerektiriyor. Yine de yüklemek istiyor musun?');
+      if(!ok) return;
+    }
 
     let target=FLASH_IMPORT_TARGET;
     if(!target){
