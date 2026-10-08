@@ -1,0 +1,22 @@
+/* ═══════════ ANIMATIONS ═══════════ */
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,30px) scale(.94)}}
+@keyframes shine{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes screenIn{from{opacity:0;transform:translateY(16px);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px) scale(.96);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes cardSlideIn{from{opacity:0;transform:translateY(18px) scale(.98);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes xpIn{0%{transform:translateY(-20px) scale(.6);opacity:0}20%{transform:translateY(0) scale(1.1);opacity:1}35%{transform:translateY(0) scale(1)}80%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(-30px) scale(.8);opacity:0}}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+@keyframes gradShift{0%,100%{background-position:0% center}50%{background-position:100% center}}
+@keyframes confFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@keyframes optIn{from{opacity:0;transform:translateX(-22px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes bsIn{0%{transform:scale(0) rotate(-30deg);opacity:0}40%{transform:scale(1.2) rotate(5deg);opacity:1}60%{transform:scale(1) rotate(0)}100%{transform:scale(1) rotate(0);opacity:0}}
+@keyframes bounceIn{0%{transform:scale(0) rotate(-180deg)}60%{transform:scale(1.15) rotate(10deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes completeIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes completePulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.15);opacity:1}}
+@keyframes dpIn{from{opacity:0;transform:translateY(40px) scale(.6)}to{opacity:1;transform:none}}
+@keyframes dpPulse{0%,100%{box-shadow:0 0 0 8px rgba(201,162,39,.18), 0 14px 40px -8px rgba(201,162,39,.7)}50%{box-shadow:0 0 0 20px rgba(201,162,39,.06), 0 14px 40px -8px rgba(201,162,39,.9)}}
+@keyframes dpNumPulse{0%,100%{transform:translateY(-50%) scale(1)}50%{transform:translateY(-50%) scale(1.15)}}
+@keyframes dpBubble{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
+@keyframes progShine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@keyframes lcIn{from{opacity:0;transform:translateX(40px) scale(.94);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes lcOut{to{opacity:0;transform:translateX(-50px) scale(.94);filter:blur(6px)}}
