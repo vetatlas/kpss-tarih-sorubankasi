@@ -95,6 +95,7 @@ function selectOption(btn, isCorrect, q){
   });
   const fb = $("feedback");
   if(isCorrect){
+    playCorrectSound();
     S.correct++;
     trackAnswer(S.subject?.key, true);
     addXP(2);
@@ -102,6 +103,7 @@ function selectOption(btn, isCorrect, q){
     fb.className = "feedback show correct";
     fb.innerHTML = `<div class="fb-title"><span class="ic">✓</span> Doğru!</div>${q.aciklama ? `<div class="fb-body">${escapeHtml(q.aciklama)}</div>` : ''}`;
   } else {
+    playWrongSound();
     btn.classList.remove("dim");
     btn.classList.add("wrong");
     btn.querySelector(".mark").textContent = "✕";
@@ -182,7 +184,7 @@ function finishQuiz(){
       list.appendChild(div);
     });
   }
-  if(pct >= 75) launchConfetti();
+  if(pct >= 75){ launchConfetti(); playCompleteSound(); }
   showScreen("result");
 }
 
