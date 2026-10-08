@@ -10,7 +10,7 @@ let SELECTED = new Set();
 let EDIT_INDEX = -1;
 let BULK_ZORLUK = '';
 
-let PACKS_INDEX = [];
+var PACKS_INDEX = window.PACKS_INDEX || [];
 let CURRENT_PACK = null;
 let CURRENT_PACK_DATA = null;
 let LESSON_EDIT_IDX = -1;
