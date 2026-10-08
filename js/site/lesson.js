@@ -17,7 +17,7 @@ async function openLessonPathFromPack(pack){
     LP.catName = (pack && pack.baslik) || "Konu anlatımı";
 
     $("pathTitle").textContent = ((pack && pack.ikon) || "🎓") + " " + LP.catName;
-    $("pathSub").textContent = (pack && pack.ozet) || "Ders seç — kart kart öğren, sonra pekiştir";
+    $("pathSub").textContent = (pack && pack.ozet) || "Alt başlıkları sırayla çalış, ardından konuyu pekiştir.";
 
     const list = $("lessonList");
     if(!list) throw new Error("lessonList alanı bulunamadı.");
