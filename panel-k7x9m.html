@@ -46,6 +46,7 @@
     <button class="tab active" data-tab="list" onclick="switchTab('list')">📋 Sorular</button>
     <button class="tab" data-tab="add" onclick="switchTab('add')">➕ Yeni Soru</button>
     <button class="tab" data-tab="lessons" onclick="switchTab('lessons')">📚 Ders Paketleri</button>
+    <button class="tab" data-tab="flashcards" onclick="switchTab('flashcards')">▣ Flash Kartlar</button>
     <button class="tab" data-tab="stats" onclick="switchTab('stats')">📊 İstatistik</button>
     <button class="tab" data-tab="settings" onclick="switchTab('settings')">⚙️ Ayarlar</button>
   </div>
@@ -166,6 +167,25 @@
           </div>
           <div class="lesson-grid" id="lessonGrid"></div>
         </div>
+      </div>
+    </div>
+
+    <!-- FLASH KARTLAR -->
+    <div class="tab-content" data-tab-content="flashcards">
+      <div class="stats-bar" id="flashStatsBar"></div>
+      <div class="table-wrap">
+        <div class="table-actions">
+          <div>
+            <div style="font-size:12px;color:#fff;font-weight:800">Flash kart kütüphanesi</div>
+            <div style="font-size:10.5px;color:var(--muted);margin-top:3px">Ders → konu → kartlar şeklinde yönetilir.</div>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="btn" onclick="loadFlashcardsAdmin()">↻ Yenile</button>
+            <button class="btn btn-primary" onclick="document.getElementById('flashImportFile').click()">↑ JSON Yükle</button>
+            <input type="file" id="flashImportFile" accept=".json" style="display:none" onchange="importFlashcardsJSON(event)">
+          </div>
+        </div>
+        <div id="flashcardsAdminContainer" style="padding:16px"></div>
       </div>
     </div>
 
@@ -325,5 +345,6 @@ document.addEventListener('DOMContentLoaded', function(){
 <script src="js/core/ui.js?v=20261008-1"></script>
 <script src="js/core/api.js?v=20261008-2"></script>
 <script src="js/admin.js?v=20261008-5" onerror="window.__adminJsError=true"></script>
+<script src="js/admin-flashcards.js?v=20261008-1"></script>
 </body>
 </html>
