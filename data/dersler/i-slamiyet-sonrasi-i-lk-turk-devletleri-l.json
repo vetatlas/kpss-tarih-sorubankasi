@@ -9,22 +9,46 @@
       "ozet": "Talas Savaşı, Türklerin İslamiyet'i kabulü ve İslam öncesi-sonrası farklar",
       "kartlar": [
         {
-          "tip": "kavram",
-          "ikon": "⚔️",
-          "baslik": "Talas Savaşı (751)",
-          "icerik": "<b>751</b> yılında <strong>Abbasiler + Karluklar</strong> ile <strong>Çinliler</strong> arasında yapıldı.\n\nTürkler, Abbasilerin yanında yer aldı ve savaşı <b>Abbasiler kazandı</b>.\n\n<b>Sonuç:</b> Türklerin kitleler hâlinde İslam'a girmesi başladı. Orta Asya, Çin hâkimiyetinden kurtuldu. Kâğıt üretimi Semerkant'tan İslam dünyasına yayıldı. Türkler ile Araplar arasında kültürel etkileşim başladı."
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Talas Savaşı",
+          "icerik": "751."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Talas Savaşı — Taraflar",
+          "icerik": "Abbasiler ve Karluklar ↔ Çin."
         },
         {
           "tip": "onemli",
-          "ikon": "🕌",
-          "baslik": "İslamiyet'i Kabul Eden İlk Türk Toplulukları",
-          "icerik": "• <b>Karluklar</b> — Orta Asya'da İslamiyet'i kabul eden ilk Türk topluluğu\n• <b>İdil (Volga) Bulgarları</b> — Doğu Avrupa'da İslamiyet'i kabul eden ilk Türk devleti\n• <b>Karahanlılar</b> — Orta Asya'da İslamiyet'i kabul eden ilk Türk devleti"
+          "ikon": "🎯",
+          "baslik": "Talas Savaşı — sonuç",
+          "icerik": "Çin'in Orta Asya'daki hâkimiyeti zayıfladı; Türk-Arap ilişkileri gelişti."
         },
         {
-          "tip": "kavram",
-          "ikon": "📊",
-          "baslik": "İslam Öncesi ve Sonrası Farklar",
-          "icerik": "<b>İslam Öncesi:</b> Gök Tanrı inancı • Hırsızlık, yalancılık, adaletsizlik günah • Cennet-cehennem inancı var • Temizliğe önem verilir • Ayrıcalıklı sınıf var\n\n<b>İslam Sonrası:</b> Tek Allah inancı • İslam ahlakı • Ahiret inancı • Temizlik imandandır • Ruhban sınıfı yok"
+          "tip": "onemli",
+          "ikon": "🎯",
+          "baslik": "Talas Savaşı — kültürel sonuç",
+          "icerik": "Kâğıt üretim tekniği Semerkant üzerinden İslam dünyasına yayıldı."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "İslamiyet'i kabul eden ilk Türk topluluğu",
+          "icerik": "Karluklar."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "İslamiyet'i kabul eden ilk Türk devleti",
+          "icerik": "Karahanlılar."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Doğu Avrupa'da İslamiyet'i kabul eden ilk Türk devleti",
+          "icerik": "İdil (Volga) Bulgarları."
         }
       ],
       "sorular": [
@@ -101,34 +125,52 @@
       "ozet": "İlk Türk-İslam devleti, kültür ve edebiyat eserleri",
       "kartlar": [
         {
-          "tip": "kavram",
-          "ikon": "🏛️",
-          "baslik": "Karahanlılar — Genel Bilgiler",
-          "icerik": "Orta Asya'da kurulan <strong>ilk Türk-İslam devleti</strong>.\n\n<b>Kuruluşta etkili boylar:</b> Karluk, Yağma, Çiğil, Tuhsi\n<b>Merkez:</b> Balasagun\n<b>Kurucu:</b> Bilge Kül Kadir Han\n<b>Resmî dil:</b> Türkçe\n\nHükümdarları <b>\"Han\"</b> unvanı kullandı. <strong>\"İslam'ın Romalıları\"</strong> ve <strong>\"Şehirlerin Şahı\"</strong> olarak anıldı."
-        },
-        {
           "tip": "onemli",
-          "ikon": "👑",
-          "baslik": "Önemli Hükümdarlar",
-          "icerik": "• <b>Bilge Kül Kadir Han</b> — Kurucu\n• <b>Satuk Buğra Han</b> — İslamiyet'i resmî din ilan etti, <b>Abdülkerim</b> adını aldı\n• <b>Yusuf Kadir Han</b> — Devletin en parlak dönemi"
+          "ikon": "🎯",
+          "baslik": "Karahanlılar",
+          "icerik": "Orta Asya'da kurulan ilk Türk-İslam devletidir."
         },
         {
-          "tip": "ornek",
-          "ikon": "📚",
-          "baslik": "Türk-İslam Edebiyatının İlk Eserleri",
-          "icerik": "• <b>Yusuf Has Hacip → Kutadgu Bilig</b> (Siyasetname, ilk Türk-İslam eseri)\n• <b>Kaşgarlı Mahmud → Divanü Lügati't-Türk</b> (İlk Türkçe ansiklopedik sözlük)\n• <b>Edip Ahmet Yükneki → Atabet'ül Hakayık</b> (Ahlak kitabı)\n• <b>Ahmet Yesevi → Divan-ı Hikmet</b> (İslamiyet'i tasavvufla anlatan ilk eser)"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Karahanlılar — Kurucu",
+          "icerik": "Bilge Kül Kadir Han."
         },
         {
-          "tip": "kavram",
-          "ikon": "🏥",
-          "baslik": "Kültür ve Medeniyet",
-          "icerik": "• <b>Bimarhane:</b> Hastane\n• <b>Medrese:</b> Eğitim kurumu\n• <b>Ribat:</b> Kervansaray\n• <b>Posta teşkilatı</b> kuruldu\n• <b>Burslu öğrencilik sistemi</b> ilk kez uygulandı\n• Semerkant'ta <b>ilk Türk-İslam medresesi</b> açıldı"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Satuk Buğra Han",
+          "icerik": "İslamiyet'i resmî din olarak kabul eden Karahanlı hükümdarıdır."
         },
         {
-          "tip": "uyari",
-          "ikon": "⚠️",
-          "baslik": "Yıkılış",
-          "icerik": "1040 <b>Dandanakan Savaşı</b> sonrası Doğu-Batı Karahanlı olarak ikiye ayrıldı.\n\n• Doğu Karahanlı → 1211'de yıkıldı\n• Batı Karahanlı → 1212'de yıkıldı"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Yusuf Has Hacip — Kutadgu Bilig",
+          "icerik": "İlk Türk-İslam siyasetnamesi."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Kaşgarlı Mahmud — Divanü Lügati't-Türk",
+          "icerik": "İlk Türkçe ansiklopedik sözlük."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Edip Ahmet Yükneki — Atabetü'l-Hakayık",
+          "icerik": "Ahlak ve öğüt kitabı."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Ahmet Yesevi — Divan-ı Hikmet",
+          "icerik": "Tasavvufi Türk edebiyatının önemli ilk eserlerinden."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Karahanlılar — Ribat",
+          "icerik": "Kervansaray niteliğindeki yapı."
         }
       ],
       "sorular": [
@@ -232,28 +274,52 @@
       "ozet": "Gazneli Mahmud'un Hindistan seferleri ve Dandanakan Savaşı",
       "kartlar": [
         {
-          "tip": "kavram",
-          "ikon": "⚔️",
-          "baslik": "Gazneliler — Genel Bilgiler",
-          "icerik": "<b>Kurucu:</b> Alp Tigin (Samaniler'in Herat valisi)\n<b>Gerçek kurucu:</b> Sebük Tigin\n<b>En parlak dönem:</b> Gazneli Mahmud\n\n<b>Önemli:</b> Gazneli Mahmud, <strong>'Sultan' unvanını kullanan ilk Türk hükümdarıdır</strong>."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Gazneliler — Kurucu",
+          "icerik": "Alp Tigin; devletin bağımsızlığını sağlayan Sebük Tigin'dir."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Gazneli Mahmud",
+          "icerik": "Sultan unvanını kullanan ilk Türk hükümdarı olarak bilinir."
+        },
+        {
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Gazneli Mahmud'un Hindistan seferleri",
+          "icerik": "17 sefer düzenledi."
+        },
+        {
+          "tip": "neden-sonuc",
+          "ikon": "→",
+          "baslik": "Hindistan seferlerinin sonucu",
+          "icerik": "İslamiyet'in Hindistan'da yayılmasını hızlandırdı."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Biruni",
+          "icerik": "Gazneli Mahmud döneminin önemli bilim insanıdır."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Firdevsi — Şehname",
+          "icerik": "Gazneli Mahmud döneminin önemli edebî eseridir."
+        },
+        {
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Dandanakan Savaşı",
+          "icerik": "1040; Büyük Selçuklular Gaznelileri yendi."
         },
         {
           "tip": "onemli",
-          "ikon": "🇮🇳",
-          "baslik": "Gazneli Mahmud'un Hindistan Seferleri",
-          "icerik": "Gazneli Mahmud, <b>Hindistan'a 17 sefer</b> düzenledi.\n\n<b>Sonuçları:</b>\n• İslamiyet Hindistan'da yayıldı\n• Kuzey Hindistan Gazne topraklarına katıldı\n• Günümüzdeki Pakistan, Afganistan ve Bangladeş'in temelleri atıldı\n• Hint kültürü İslam ile tanıştı"
-        },
-        {
-          "tip": "ornek",
-          "ikon": "📖",
-          "baslik": "Gazneli Sarayının Âlimleri",
-          "icerik": "Gazneli Mahmud'un sarayında bulunan âlimler:\n\n• <b>Biruni</b> — Büyük bilim insanı, astronom\n• <b>Firdevsi</b> — Şehname'nin yazarı\n\n<b>Sarayının en değerli hazinesi:</b> Firdevsi'nin Şehname'si olarak kabul edilir."
-        },
-        {
-          "tip": "uyari",
-          "ikon": "⚠️",
-          "baslik": "Dandanakan Savaşı (1040) ve Yıkılış",
-          "icerik": "<b>Dandanakan Savaşı (1040):</b> Gazneliler vs Büyük Selçuklular\n<b>Kazanan:</b> Büyük Selçuklu (Tuğrul Bey)\n<b>Sonuç:</b> Büyük Selçuklu Devleti resmen kuruldu, Gazneliler yıkılış sürecine girdi.\n\n<b>Yıkılış:</b> 1187'de Afgan asıllı <b>Gurlular</b> tarafından yıkıldı."
+          "ikon": "🎯",
+          "baslik": "Dandanakan'ın sonucu",
+          "icerik": "Büyük Selçuklu Devleti'nin kuruluşu kesinleşti; Gazneliler yıkılış sürecine girdi."
         }
       ],
       "sorular": [
@@ -344,28 +410,52 @@
       "ozet": "Malazgirt Savaşı, atabeylikler ve yıkılış nedenleri",
       "kartlar": [
         {
-          "tip": "kavram",
-          "ikon": "🐎",
-          "baslik": "Büyük Selçuklu — Kuruluş",
-          "icerik": "<b>Kurucu:</b> Tuğrul Bey (1040 Dandanakan Savaşı sonrası)\n\nTuğrul Bey'e Abbasi halifesi tarafından <strong>\"Doğu'nun ve Batı'nın Hükümdarı\"</strong> unvanı verilmiştir.\n\n<b>Önemli hükümdarlar:</b>\n• Tuğrul Bey — Kurucu\n• Alp Arslan — Malazgirt zaferi (1071)\n• Melikşah — En parlak dönem\n• Sultan Sencer — Son büyük hükümdar"
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Dandanakan Savaşı",
+          "icerik": "1040; Büyük Selçuklu Devleti'nin kuruluş sürecini kesinleştirdi."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Büyük Selçuklu — Kurucu",
+          "icerik": "Tuğrul Bey."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Tuğrul Bey",
+          "icerik": "Abbasi halifesinden Doğu'nun ve Batı'nın hükümdarı unvanını aldı."
+        },
+        {
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Malazgirt Savaşı",
+          "icerik": "1071."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Malazgirt — Selçuklu hükümdarı",
+          "icerik": "Alp Arslan."
         },
         {
           "tip": "onemli",
-          "ikon": "🏹",
-          "baslik": "Malazgirt Savaşı (1071)",
-          "icerik": "<b>Büyük Selçuklu (Alp Arslan)</b> vs <b>Bizans (Romen Diyojen)</b>\n\n<b>Sonuçları:</b>\n• Anadolu'nun kapıları Türklere açıldı\n• Bizans yıkılış sürecine girdi\n• Anadolu'da ilk Türk-İslam devletleri kurulmaya başlandı\n• <strong>\"Yurt Açan Savaşı\"</strong> olarak da bilinir"
+          "ikon": "🎯",
+          "baslik": "Malazgirt'in sonucu",
+          "icerik": "Anadolu'nun kapıları Türklere açıldı."
         },
         {
-          "tip": "uyari",
-          "ikon": "⚠️",
-          "baslik": "Yıkılış Nedenleri",
-          "icerik": "• <b>Haşhaşilik (Bâtınilik)</b> hareketi — Hasan Sabbah liderliğinde\n• <b>Katvan Savaşı (1141)</b> — Karahitaylara yenildi\n• <b>Oğuz isyanı</b>\n• <b>Sultan Sencer'in ölümü</b> (1157)\n• <b>Atabeylerin bağımsızlık ilanı</b>"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Melikşah",
+          "icerik": "Büyük Selçuklu Devleti'nin en parlak dönemini yaşattı."
         },
         {
-          "tip": "ornek",
-          "ikon": "🏰",
-          "baslik": "Büyük Selçuklu'nun Kurduğu Atabeylikler",
-          "icerik": "• İrak Selçukluları\n• Kirman Selçukluları\n• Suriye Selçukluları\n• <b>Türkiye Selçukluları</b>\n• Şam Atabeyliği (Böriler)\n• Musul ve Halep Atabeyliği (Zengiler)\n• Azerbaycan Atabeyliği (İldenizliler)\n• Fars Atabeyliği (Salgurlular)"
+          "tip": "neden-sonuc",
+          "ikon": "→",
+          "baslik": "Büyük Selçuklu'nun yıkılışında etkili olanlar",
+          "icerik": "Bâtınilik, Katvan yenilgisi, Oğuz İsyanı, atabeylerin bağımsızlaşması ve Sultan Sencer'in ölümü."
         }
       ],
       "sorular": [
@@ -456,28 +546,58 @@
       "ozet": "Tolunoğulları, Akşitler, Eyyübiler ve Memlükler",
       "kartlar": [
         {
-          "tip": "kavram",
-          "ikon": "🏜️",
-          "baslik": "Tolunoğulları (868-905)",
-          "icerik": "<b>Kurucu:</b> Tolunoğlu Ahmed\n<b>Unvan:</b> \"Tevaf-i Mülük\" (Meliklerin meliki)\n\n<strong>Mısır'da kurulan ilk Türk-İslam devletidir.</strong>\n\n<b>Önemli:</b>\n• <b>Maristan</b> — Hastane\n• <b>Eczane</b> — Ücretsiz ilaç dağıtımı\n\nAbbasiler tarafından yıkılmıştır."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Tolunoğulları",
+          "icerik": "Mısır'da kurulan ilk Türk-İslam devletidir."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Tolunoğlu Ahmed",
+          "icerik": "Tolunoğulları'nın kurucusudur."
         },
         {
           "tip": "kavram",
-          "ikon": "🕌",
-          "baslik": "Akşitler / İhşidler (935-969)",
-          "icerik": "<b>Kurucu:</b> Muhammed bin Toğaç\n\n<strong>\"İhşid\"</strong> = Prens anlamında\n<strong>\"Elçi\"</strong> unvanı halifeden alındı\n\nHicaz, Yemen, Suriye ve Filistin'e hâkim oldu."
+          "ikon": "📘",
+          "baslik": "Maristan",
+          "icerik": "Tolunoğullarında hastane."
         },
         {
-          "tip": "onemli",
-          "ikon": "⚔️",
-          "baslik": "Eyyübiler (1171-1252)",
-          "icerik": "<b>Kurucu:</b> Selahaddin Eyyubi\n\n• <b>Hıttin Savaşı (1187):</b> Haçlılar yenildi, Kudüs geri alındı\n• <b>\"Kudüs Fatihi\"</b> olarak anılır\n• <strong>\"Hadimü'l Harameyn\"</strong> (Mekke-Medine'nin hizmetkârı) unvanını kullanan ilk kişidir"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "İhşidler (Akşitler) — Kurucu",
+          "icerik": "Muhammed bin Toğaç."
         },
         {
-          "tip": "onemli",
-          "ikon": "🐎",
-          "baslik": "Memlükler (1250-1517)",
-          "icerik": "<b>Memlük</b> = \"Köle, kölemen\"\n<b>Kurucu:</b> Aybek\n\n<strong>Veraset sistemi yok</strong> — güçlü komutan hükümdar olur\n\n<b>Önemli:</b>\n• <b>Ayn Calud (1260)</b> — Moğollar yenildi\n• <b>Mercidabık (1516) ve Ridaniye (1517)</b> — Osmanlı'ya yenildi\n• Son hükümdar: Tomanbay\n• <b>Halifelik</b> Osmanlı'ya geçti"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Eyyübiler — Kurucu",
+          "icerik": "Selahaddin Eyyubi."
+        },
+        {
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Hıttin Savaşı",
+          "icerik": "1187; Selahaddin Eyyubi Haçlıları yenerek Kudüs'ü geri aldı."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Memlükler — Kurucu",
+          "icerik": "Aybek."
+        },
+        {
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Ayn Calut Savaşı",
+          "icerik": "1260; Memlükler Moğolları yendi."
+        },
+        {
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Mercidabık ve Ridaniye",
+          "icerik": "1516 Mercidabık, 1517 Ridaniye; Memlükler Osmanlı tarafından yıkıldı."
         }
       ],
       "sorular": [
@@ -568,34 +688,52 @@
       "ozet": "Danişmentliler, Saltuklular, Mengücekliler, Artuklular ve Çaka Beyliği",
       "kartlar": [
         {
-          "tip": "kavram",
-          "ikon": "🏰",
-          "baslik": "Danişmentliler",
-          "icerik": "<b>Merkez:</b> Kayseri, Sivas, Tokat\n<b>Kurucu:</b> Danişment Ahmet Gazi\n<b>Önemli eser:</b> Yağıbasan Medresesi (ilk medreselerden)\n\n<strong>Danişmentname</strong> — Anadolu Selçuklu Devleti tarafından yıkıldı."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Danişmentliler — Merkez",
+          "icerik": "Kayseri, Sivas ve Tokat."
         },
         {
-          "tip": "kavram",
-          "ikon": "🕌",
-          "baslik": "Saltuklular",
-          "icerik": "<b>Merkez:</b> Erzurum\n<b>Kurucu:</b> Ebul Kasım Saltuk\n\nAnadolu'daki ilk Türk devletlerindendir.\n\n<b>Önemli eserler:</b> Kale Camii, Tepsi Minare, Ulu Cami, Üç Kümbet, Mama Hatun Türbesi\n\nAnadolu Selçuklu Devleti tarafından yıkıldı."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Danişmentliler — Eser",
+          "icerik": "Yağıbasan Medresesi."
         },
         {
-          "tip": "kavram",
-          "ikon": "🕌",
-          "baslik": "Mengücekliler",
-          "icerik": "<b>Merkez:</b> Erzincan, Kemah, Divriği, Şebinkarahisar\n<b>Kurucu:</b> Mengücek Gazi\n\nGürcüler ve Rumlara karşı mücadele etti.\n\n<strong>Divriği Ulu Cami (1985 UNESCO Dünya Mirası)</strong> — En önemli eseri\n\nAnadolu Selçuklu Devleti tarafından yıkıldı."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Saltuklular — Merkez",
+          "icerik": "Erzurum."
         },
         {
-          "tip": "onemli",
-          "ikon": "🌉",
-          "baslik": "Artuklular ve El Cezeri",
-          "icerik": "<b>Merkez:</b> Mardin, Hasankeyf, Harput\n<b>Kurucu:</b> Artuk Bey\n\nÜç kola ayrıldı: Mardin, Hasankeyf, Harput Artukluları\n\n<b>Önemli eser:</b> Malabadi Köprüsü, Diyarbakır Ulu Cami, Mardin Ulu Cami\n\n<strong>El Cezeri</strong> — Sibernetik ve makine mühendisliğinin öncüsü. <strong>Kitab-ül Hiyel</strong> adlı eseri yazdı."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Mengücekliler — Eser",
+          "icerik": "Divriği Ulu Cami ve Darüşşifası."
         },
         {
-          "tip": "onemli",
-          "ikon": "⚓",
-          "baslik": "Çaka Beyliği — İlk Türk Denizcisi",
-          "icerik": "<b>Kurucu:</b> Çaka Bey\n<b>Merkez:</b> İzmir\n<b>Kuruluş:</b> 1081\n\n<strong>İlk Türk denizcisi</strong> ve <strong>ilk Türk donanmasının kurucusudur</strong>.\n\nBizans ve Peçeneklerle ittifak yaptı.\n\nAnadolu Selçuklu Devleti tarafından yıkıldı."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Artuklular — Bilim insanı",
+          "icerik": "El Cezeri; sibernetik ve mekanik alanında öncü."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "El Cezeri — Eser",
+          "icerik": "Kitabü'l-Hiyel."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Çaka Bey",
+          "icerik": "İlk Türk denizcisi ve ilk Türk donanmasının kurucusu."
+        },
+        {
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Çaka Beyliği",
+          "icerik": "1081'de İzmir merkezli olarak kuruldu."
         }
       ],
       "sorular": [
@@ -699,46 +837,70 @@
       "ozet": "Altınordu, Karakoyunlular, Akkoyunlular, Safeviler, Babür, Harzemşahlar, Timurlular, Cengiz İmparatorluğu",
       "kartlar": [
         {
-          "tip": "kavram",
-          "ikon": "🌏",
-          "baslik": "Altınordu Devleti (1350-1502)",
-          "icerik": "Karadeniz'in kuzeyinde kurulmuş ve Timur saldırıları sonucu parçalanmıştır.\n\n<b>Önemli:</b>\n• Kur'an-ı Kerim Türkçeye çevrildi\n• <b>Ali Kuşçu</b>, Celaleddin Devvani ve Isa Savu gibi bilim insanları yetişmiştir"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Karakoyunlular — Yıkan devlet",
+          "icerik": "Akkoyunlular."
         },
         {
-          "tip": "kavram",
-          "ikon": "🐑",
-          "baslik": "Karakoyunlular (1365-1469) ve Akkoyunlular",
-          "icerik": "<b>Karakoyunlular:</b> Bayram Hoca tarafından Erciş ve Erzurum'da kuruldu. <b>Akkoyunlular</b> tarafından yıkıldı.\n\n<b>Akkoyunlular:</b> Şiî karakterli Türk devleti. En önemli hükümdarı <b>Uzun Hasan</b>'dır."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Akkoyunlular — Hükümdar",
+          "icerik": "Uzun Hasan."
         },
         {
-          "tip": "onemli",
-          "ikon": "🕌",
-          "baslik": "Safeviler (1502-1736)",
-          "icerik": "İran'da kurulan Şiî karakterli bir devlettir.\n\n<b>Kurucusu:</b> Şah İsmail\n<b>1514 Çaldıran Savaşı:</b> Osmanlı Devleti'ne yenilmiştir."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Safeviler — Kurucu",
+          "icerik": "Şah İsmail."
         },
         {
-          "tip": "onemli",
-          "ikon": "🏛️",
-          "baslik": "Babür İmparatorluğu (1526-1858) ve Tac Mahal",
-          "icerik": "Hindistan'da Babür Şah tarafından kurulmuştur.\n\n<strong>Tac Mahal:</strong> Şah Cihan'ın eşi Ercümend Banu Begüm için yaptırdığı anıt. İslam türbe mimarisinin en önemli eserlerinden biridir."
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Çaldıran Savaşı",
+          "icerik": "1514; Osmanlı ile Safeviler arasında yapıldı."
         },
         {
-          "tip": "kavram",
-          "ikon": "⚔️",
-          "baslik": "Timurlular (1369-1507)",
-          "icerik": "<b>Kurucu:</b> Timur\n\n<b>1402 Ankara Savaşı:</b> Yıldırım Bayezid'i yenmiştir. Anadolu Selçuklu Devleti yıkılmış, Fetret Devri başlamıştır.\n\n<b>Önemli:</b> Timur'un kendi Türk yönetimi altında yazdığı <strong>Tüzükat-ı Timur</strong>, Orta Asya'da Ahlaki ve Hukuki bir belge niteliğindedir."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Babür İmparatorluğu — Kurucu",
+          "icerik": "Babür Şah."
         },
         {
-          "tip": "uyari",
-          "ikon": "🏇",
-          "baslik": "Cengiz (Moğol) İmparatorluğu (1206-1294)",
-          "icerik": "<b>Kurucu:</b> Cengiz Han\n\nCengiz Han'ın ölümünden sonra torunları kendi devletlerini kurmuştur: Altınordu, Çağatay, İlhanlı, Kubilay Hanlığı gibi devletler kurulmuştur.\n\n<strong>Kubilay Hanlığı:</strong> Çin'de kurulmuş, Budizm'i kabul ederek asimile olmuştur. Seyyah Marco Polo bu ülkeyi ziyaret etmiştir."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Tac Mahal",
+          "icerik": "Şah Cihan tarafından eşi Ercümend Banu Begüm için yaptırıldı."
         },
         {
-          "tip": "kavram",
-          "ikon": "🐅",
-          "baslik": "Harzemşahlar (1097-1231)",
-          "icerik": "Ahlat bölgesinde kurulmuştur.\n\nGünün önde gelen Türk devletlerinden biridir. En önemli hükümdarı <b>Celaleddin Harzemşah</b>'tır.\n\n1231 yılında Yassıçemen Savaşı'nda Anadolu Selçuklu Devleti'ne yenilmiştir."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Timurlular — Kurucu",
+          "icerik": "Timur."
+        },
+        {
+          "tip": "tarih",
+          "ikon": "📅",
+          "baslik": "Ankara Savaşı",
+          "icerik": "1402; Timur, Yıldırım Bayezid'i yendi ve Fetret Devri başladı."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Cengiz Han",
+          "icerik": "Moğol İmparatorluğu'nun kurucusudur."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Kubilay Hanlığı",
+          "icerik": "Çin'de kuruldu; Budizm etkisiyle Çinlileşti."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Harzemşahlar — Hükümdar",
+          "icerik": "Celaleddin Harzemşah."
         }
       ],
       "sorular": [
@@ -830,27 +992,63 @@
       "kartlar": [
         {
           "tip": "kavram",
-          "ikon": "👑",
-          "baslik": "Devlet Yönetimi — Divan",
-          "icerik": "Bugünkü Bakanlar Kurulu'na karşılık gelen kurumdur. Hükümdarın birinci derecede yardımcısı olan <b>vezir</b> tarafından yönetilir.\n\n<b>Divan başkanları:</b>\n• <b>Karahanlılar:</b> Yusuf\n• <b>Gazneliler:</b> Hâce-i Büzürg\n• <b>Büyük Selçuklu:</b> Sahib-i Divan-ı Devlet"
+          "ikon": "📘",
+          "baslik": "Divan",
+          "icerik": "İlk Türk-İslam devletlerinde devlet işlerinin görüşüldüğü yönetim organı."
         },
         {
-          "tip": "onemli",
-          "ikon": "🏵️",
-          "baslik": "Hükümdarlık Sembolleri",
-          "icerik": "• <b>Tıraz:</b> Halifenin gönderdiği elbise\n• <b>Hilat:</b> Halifenin gönderdiği hediyeler\n• <b>Çetr:</b> Saltanat şemsiyesi\n• <b>Hutbe:</b> Hükümdar adına okunması\n• <b>Mensur:</b> Halifelik onay belgesi\n• <b>Otağ, Orgın, Kılıç, Nevbet, Tuğ, Kur, Berge, Asa, Kama, Kotuz, Ordu, Yay, Toy, Para bastırma</b>"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Vezir",
+          "icerik": "Divanın başkanı ve hükümdarın başlıca yardımcısıdır."
         },
         {
-          "tip": "kavram",
-          "ikon": "🏆",
-          "baslik": "Hükümdarlık Unvanları",
-          "icerik": "<b>Karahanlılar:</b> Han, Tonga, Kılıç, Hakan, İlig, Terken, Buğra, Kadır, Tamgaç, Kara, Arslan\n\n<b>Gazneliler:</b> Sultan, Emir\n\n<b>Büyük Selçuklu:</b> Emir, Melik, Sultanü'l Azam, Sultanü'l Âlem"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Tıraz",
+          "icerik": "Halifenin hükümdara gönderdiği elbise."
         },
         {
-          "tip": "onemli",
-          "ikon": "🏛️",
-          "baslik": "Saray Görevlileri",
-          "icerik": "• <b>Hacib:</b> Hükümdar ile vezir arasındaki ilişkiyi düzenler\n• <b>Hares Emiri:</b> Hükümdara ve devlete karşı suç işleyenleri cezalandırır\n• <b>Vekil-i Hass:</b> Sultana ve ailesine ait işleri yapar\n• <b>Silahdar:</b> Silahlardan sorumludur\n• <b>Şerhenk:</b> Törenler ve hükümdarların yol güzergâhını düzenler\n• <b>Abdar:</b> Hükümdarın leğeni ve ibriğini taşır\n• <b>Çaşnigir:</b> Hükümdarın sofrasından sorumludur\n• <b>Şarabdar:</b> İçeceklerden sorumludur\n• <b>Camedar:</b> Hükümdarın elbiseleriyle ilgilenir\n• <b>Candar:</b> Sarayın ve hükümdarın güvenliğinden sorumludur\n• <b>Alemdar:</b> Hükümdarın bayrak ve sancağını taşır\n• <b>Hansalar:</b> Sarayın mutfağından sorumludur"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Hilat",
+          "icerik": "Halifenin hükümdara gönderdiği hediyeler."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Çetr",
+          "icerik": "Saltanat şemsiyesi."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Mensur",
+          "icerik": "Halifenin hükümdarlığı onaylayan belgesi."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Hutbe",
+          "icerik": "Hükümdarın egemenliğinin göstergelerinden biridir."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Çaşnigir",
+          "icerik": "Hükümdarın sofrasından sorumlu saray görevlisi."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Candar",
+          "icerik": "Saray ve hükümdarın güvenliğinden sorumlu görevli."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Alemdar",
+          "icerik": "Hükümdarın bayrak ve sancağını taşıyan görevli."
         }
       ],
       "sorular": [
@@ -941,34 +1139,64 @@
       "ozet": "Divanlar, taşra yönetimi ve hukuk sistemi (örfi ve şer'i)",
       "kartlar": [
         {
-          "tip": "kavram",
-          "ikon": "🏛️",
-          "baslik": "Divanlar (Karahanlılar)",
-          "icerik": "• <b>Divan-ı Ali:</b> Vezir başkanlığında toplanan ve devlet işlerinin görüşüldüğü divan\n• <b>Divan-ı Tuğra (İnşa):</b> Devlet iç ve dış yazışmalardan sorumlu\n• <b>Divan-ı İstifa:</b> Mali işlerden sorumlu\n• <b>Divan-ı İşraf:</b> Mali ve idari işleri denetleyen\n• <b>Divan-ı Arz:</b> Ordunun genel işlerini yürüten"
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Divan-ı Tuğra (İnşa)",
+          "icerik": "Devletin iç ve dış yazışmalarından sorumludur."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Divan-ı İstifa",
+          "icerik": "Mali işlerden sorumludur."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Divan-ı İşraf",
+          "icerik": "Mali ve idari denetimden sorumludur."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Divan-ı Arz",
+          "icerik": "Askerî işlerden sorumludur."
         },
         {
           "tip": "kavram",
-          "ikon": "🏛️",
-          "baslik": "Divanlar (Gazneliler)",
-          "icerik": "• <b>Divan-ı Vezaret:</b> Vezirin başkanlığında toplanan divan\n• <b>Divan-ı Risalet:</b> İç ve dış yazışmaları yürüten\n• <b>Divan-ı İstifa:</b> Devletin mali işlerine bakan\n• <b>Divan-ı İşraf:</b> Devletin mali ve idari işlerini denetleyen\n• <b>Divan-ı Arz:</b> Askeri işleri yürüten"
+          "ikon": "📘",
+          "baslik": "Divan-ı Mezalim",
+          "icerik": "Sultan başkanlığındaki yüksek mahkeme; kadı kararlarına itirazlar burada görülürdü."
         },
         {
-          "tip": "onemli",
-          "ikon": "⚖️",
-          "baslik": "Divanlar (Büyük Selçuklu) ve Divan-ı Mezalim",
-          "icerik": "• <b>Divan-ı Âlâ:</b> Büyük divan\n• <b>Divan-ı Tuğra:</b> Yazışmalar\n• <b>Divan-ı İstifa:</b> Mali işler\n• <b>Divan-ı İşraf:</b> Denetim\n• <b>Divan-ı Arz:</b> Askeri işler\n\n<strong>Divan-ı Mezalim:</strong> Sultan başkanlığında toplanan yüksek mahkemedir. Kadı kararlarına itiraz edilir, halkın şikâyetleri dinlenirdi."
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Şıhne",
+          "icerik": "Büyük Selçuklu taşrasında mülki/askerî yönetici."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Amil",
+          "icerik": "Mali işlerle ilgilenen taşra görevlisi."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Muhtesip",
+          "icerik": "Belediye ve çarşı-pazar düzeniyle ilgilenen görevli."
         },
         {
           "tip": "kavram",
-          "ikon": "📜",
-          "baslik": "Taşra Yönetimi",
-          "icerik": "<b>Karahanlılar:</b> Orta Asya geleni olan <b>İkili Devlet Teşkilatı</b> (Doğu-Batı) devam ettirilmiştir.\n\n<b>Gazneliler:</b> Üç yönetici vardı:\n• <b>Mülki idarede Sahib-i Divan</b>\n• <b>Askeri idarede Salar</b>\n• <b>Maliyede Amil</b>\n\n<b>Büyük Selçuklu:</b> Büyük Divana bağlı taşra teşkilatı vardı. Mülki idarede Askeri Vali Şıhne, adli idarede Kadı, mali işlerle Amil, belediye işleriyle Muhtesip ilgilenirdi."
+          "ikon": "📘",
+          "baslik": "Örfî hukuk",
+          "icerik": "Geleneklere dayalı; yönetim, maliye ve askerlikte etkili hukuk."
         },
         {
-          "tip": "onemli",
-          "ikon": "📖",
-          "baslik": "Hukuk Sistemi",
-          "icerik": "Türk-İslam devletlerinde hukuk iki kola ayrılır:\n\n<b>Örfî Hukuk:</b> Kaynağı Hun gelenekleri, Kök Türk, Uygur, Sasani. Uygulama alanı: Yönetim, Maliye, Askerlik.\n\n<b>Şer'î Hukuk:</b> Kaynağı Kur'an, Sünnet, İcma, Kıyas. Uygulama alanı: Müslümanların özel ilişkileri (evlenme, boşanma, miras, maliye)."
+          "tip": "kavram",
+          "ikon": "📘",
+          "baslik": "Şer'î hukuk",
+          "icerik": "Kur'an, sünnet, icma ve kıyasa dayanan hukuk."
         }
       ],
       "sorular": [
@@ -1060,33 +1288,75 @@
       "kartlar": [
         {
           "tip": "kavram",
-          "ikon": "🏹",
-          "baslik": "Ordu Yapısı (Büyük Selçuklu)",
-          "icerik": "Karahanlılar ordunun tamamı Türklerden oluşmuştur. Gazneliler'de ordu çok ulusluydu. Büyük Selçuklu'da ordu teşkilatlanmasına benzemektedir.\n\n<b>Sıralama:</b>\n1. İkta Askerleri\n2. Gulamlar (Hassa Ordusu + Gulaman-ı Saray)\n3. Bağlı Devletler\n4. Türkmenler"
-        },
-        {
-          "tip": "onemli",
-          "ikon": "👦",
-          "baslik": "Gulam Sistemi",
-          "icerik": "Küçük yaşta alınan çocukların yetiştirilerek devlet hizmetinde kullanılması sistemidir.\n\n<b>Amaç:</b> Yetenekli devlet adamları ve askerler yetiştirmek.\n\nSistemin kaynağı İslam öncesi Türk-İslam devletlerindeki gulam uygulamasıdır. Büyük Selçuklu ve Türkiye Selçuklu'da da uygulanmıştır."
-        },
-        {
-          "tip": "onemli",
-          "ikon": "🌾",
-          "baslik": "İkta Sistemi",
-          "icerik": "Hizmet karşılığında devlet memurlarına ve komutanlara toprak (ikta) tahsis edilmesi sistemidir.\n\n<b>Faydaları:</b>\n• Toprağın boş kalması engellenmiştir\n• Üretimde süreklilik sağlanmıştır\n• Devlet adamlarının maaşları ödenmiştir\n• Hazine para harcamadan ordu kurulmuştur\n• Bölgenin güvenliği sağlanmıştır\n\nSavaş zamanı sipahiler \"cebelü\" askeri getirirdi."
+          "ikon": "📘",
+          "baslik": "Gulam sistemi",
+          "icerik": "Küçük yaşta yetiştirilen kişilerin devlet hizmetinde kullanılması sistemi."
         },
         {
           "tip": "kavram",
-          "ikon": "🏘️",
-          "baslik": "Sosyal Hayat Kurumları",
-          "icerik": "• <b>İmarethane:</b> Aşevi\n• <b>Tabhane:</b> Misafirhane\n• <b>Debbahhane:</b> Deri işleyen yer\n• <b>Kapan:</b> Tek bir cins malın satıldığı yer\n• <b>Bedesten:</b> Her cins malın satıldığı yer\n• <b>Sebil:</b> Çeşme\n• <b>Tutmaç:</b> XI. yy'da Türklerin millî yemeği\n• <b>Kümbet:</b> Siyasiler, eşleri ve komutanlar için yapılan çadır şeklindeki anıt mezar\n• <b>Türbe:</b> Devlet ve din âlimlerinin mezarları\n• <b>Küllye:</b> Camii etrafında yapılan toplu yapılar\n• <b>Arasta:</b> Üstü kapalı çarşı\n• <b>Tekke, Zaviye:</b> Tekkelerin tarikattaki çıkış yerleri"
+          "ikon": "📘",
+          "baslik": "İkta sistemi",
+          "icerik": "Devlet gelirlerinin hizmet karşılığında memur ve komutanlara tahsis edilmesi sistemi."
         },
         {
-          "tip": "onemli",
-          "ikon": "🗺️",
-          "baslik": "Toprak Yönetimi",
-          "icerik": "Selçuklular'da toprak iki ana gruba ayrılır:\n\n<b>Miri Toprak (Devlet arazisi):</b>\n• <b>Has:</b> Geliri hükümdara ait olan topraklar\n• <b>Vakıf:</b> Geliri dinî ve sosyal kurumlara ayrılan topraklar\n• <b>İkta:</b> Devlet memuru ve komutanlara ayrılan topraklar\n\n<b>Mülk Toprak (Sahsa ait):</b>\n• <b>Öşri Toprak:</b> Müslümanlara ait topraklar\n• <b>Haracî Toprak:</b> Gayrimüslimlere ait topraklar"
+          "tip": "neden-sonuc",
+          "ikon": "→",
+          "baslik": "İkta sisteminin askerî faydası",
+          "icerik": "Devlet hazineden doğrudan ödeme yapmadan asker yetiştirebildi."
+        },
+        {
+          "tip": "neden-sonuc",
+          "ikon": "→",
+          "baslik": "İkta sisteminin ekonomik faydası",
+          "icerik": "Üretim sürdü, toprakların boş kalması önlendi."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "İmarethane",
+          "icerik": "Aşevi."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Tabhane",
+          "icerik": "Misafirhane."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Kapan",
+          "icerik": "Tek cins malın satıldığı ticaret yeri."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Bedesten",
+          "icerik": "Çeşitli malların satıldığı kapalı ticaret yeri."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Has",
+          "icerik": "Geliri hükümdara ayrılan miri toprak."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Vakıf",
+          "icerik": "Geliri dinî ve sosyal hizmetlere ayrılan toprak."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Öşri toprak",
+          "icerik": "Müslümanlara ait toprak."
+        },
+        {
+          "tip": "eslestirme",
+          "ikon": "↔️",
+          "baslik": "Haracî toprak",
+          "icerik": "Gayrimüslimlere ait toprak."
         }
       ],
       "sorular": [
