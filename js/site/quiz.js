@@ -124,7 +124,7 @@ function nextQuestion(){
 function quitQuiz(){
   if(S.idx === 0 && !S.answered){ doQuit(); return; }
   kbConfirm("Testten çıkmak istediğine emin misin? İlerleme kaydedilmez.", {
-    icon: "📝", title: "Testten Çık?", okText: "Evet, Çık", cancelText: "Devam Et", danger: true
+    icon: "?", title: "Testten çık?", okText: "Evet, Çık", cancelText: "Devam Et", danger: true
   }).then(yes => { if(yes) doQuit(); });
 }
 
@@ -169,7 +169,7 @@ function finishQuiz(){
   if(examMode){
     title = "Deneme Tamamlandı";
     msg = pct >= 75 ? "İyi bir performans. Sonuçlarını inceleyebilirsin." : "Sonuçlarını incele, eksiklerini belirle ve tekrar et.";
-  } else if(pct >= 90){ title = "Muhteşem! 🏆"; msg = "Bu konuya hâkimsin."; }
+  } else if(pct >= 90){ title = "Çok iyi performans"; msg = "Bu konuda çok iyi bir sonuç aldın."; }
   else if(pct >= 75){ title = "Çok iyi! 👏"; msg = "Güçlü performans."; }
   else if(pct >= 50){ title = "İyi gidiyorsun 💪"; msg = "Tekrar ile yükselirsin."; }
   else { title = "Tekrar gerekiyor 📚"; msg = "Yanlışlarını incele."; }
