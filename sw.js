@@ -4,7 +4,7 @@
    ✅ sw.js'i elle güncellemene gerek yok — sadece dosyaları push et
    ════════════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'kpssbm-cache-v2';   // ⚠️ v1 → v2 (ESKİ CACHE SİLİNİR)
+const CACHE_NAME = 'kpssbm-cache-v3';   // ⚠️ v1 → v2 (ESKİ CACHE SİLİNİR)
 
 /* Kurulum — hemen devreye gir */
 self.addEventListener('install', e => {
