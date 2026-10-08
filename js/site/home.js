@@ -1,19 +1,39 @@
 /* ═══════════ HOME ═══════════ */
 async function initHome(){
-  $("subjectGrid").innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)">📥 Yükleniyor...</div>`;
-  await Promise.all([loadAllQuestions(), loadPacksIndex()]);
+  const grid = $("subjectGrid");
+  if(grid) grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)">📥 Yükleniyor...</div>`;
+  if($("heroBadge")) $("heroBadge").textContent = "Yükleniyor...";
+
+  // Her ikisini paralel yükle — biri patlarsa diğeri devam eder
+  const results = await Promise.allSettled([
+    loadAllQuestions(),
+    loadPacksIndex()
+  ]);
+
+  // Hata var mı kontrol et
+  const qErr = results[0].status === "rejected" ? results[0].reason : null;
+  const pErr = results[1].status === "rejected" ? results[1].reason : null;
+  if(qErr) console.warn("Sorular yüklenemedi:", qErr);
+  if(pErr) console.warn("Paketler yüklenemedi:", pErr);
+
+  // Hiç içerik yoksa hata ekranı
   if(ALL_QUESTIONS.length === 0 && PACKS_INDEX.length === 0){
-    $("heroBadge").textContent = "Henüz içerik yok";
-    $("subjectGrid").innerHTML = `<div class="empty-state" style="grid-column:1/-1">
-      <div class="es-ico">📭</div><h4>Henüz içerik yok</h4>
-      <p>Admin panelden soru veya ders paketi ekle.</p>
+    if($("heroBadge")) $("heroBadge").textContent = "İçerik yüklenemedi";
+    if(grid) grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="es-ico">⚠️</div>
+      <h4>İçerik yüklenemedi</h4>
+      <p>İnternet bağlantını kontrol et ve tekrar dene.</p>
+      <button class="btn btn-primary" style="margin-top:14px" onclick="initHome()">🔄 Tekrar Dene</button>
     </div>`;
     return;
   }
+
+  // Başarılı yükleme
   const total = ALL_QUESTIONS.length;
   const packCount = PACKS_INDEX.length;
-  $("heroBadge").textContent = `${total} soru • ${packCount} ders paketi hazır`;
-  const grid = $("subjectGrid");
+  if($("heroBadge")) $("heroBadge").textContent = `${total} soru • ${packCount} ders paketi hazır`;
+
+  if(!grid) return;
   grid.innerHTML = "";
   SUBJECTS.forEach((s, i) => {
     const qCount = questionsByDers(s.key).length;
