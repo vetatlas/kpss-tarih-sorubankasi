@@ -1,6 +1,7 @@
 // bot.js — KPSS BilgiMatik Telegram Bot
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
 const TELEGRAM_API = `https://api.telegram.org/bot${TELEGRAM_TOKEN}`;
@@ -15,6 +16,156 @@ const userStates = {};
 const DERSLER = ['Tarih', 'Coğrafya', 'Vatandaşlık', 'Türkçe', 'Matematik', 'Güncel'];
 const SEVIYELER = ['Ortaöğretim', 'Önlisans', 'Lisans'];
 const LETTERS = 'ABCDE';
+
+const ADMIN_TELEGRAM_ID = String(process.env.ADMIN_TELEGRAM_ID || '').trim();
+const ADMIN_PASSWORD = String(process.env.ADMIN_PASSWORD || '');
+const ADMIN_SESSION_SECRET = String(process.env.ADMIN_SESSION_SECRET || process.env.ADMIN_PASSWORD || '').trim();
+const ADMIN_SESSION_TTL = 8 * 60 * 60 * 1000;
+
+function safeEqual(a, b) {
+  const aa = Buffer.from(String(a));
+  const bb = Buffer.from(String(b));
+  return aa.length === bb.length && crypto.timingSafeEqual(aa, bb);
+}
+
+function adminTelegramOnly(chatId) {
+  if (!ADMIN_TELEGRAM_ID) return false;
+  return String(chatId) === ADMIN_TELEGRAM_ID;
+}
+
+function signSession(payload) {
+  const raw = Buffer.from(JSON.stringify(payload)).toString('base64url');
+  const sig = crypto.createHmac('sha256', ADMIN_SESSION_SECRET).update(raw).digest('base64url');
+  return raw + '.' + sig;
+}
+
+function verifySession(token) {
+  try {
+    if (!token || !ADMIN_SESSION_SECRET) return false;
+    const [raw, sig] = String(token).split('.');
+    if (!raw || !sig) return false;
+    const expected = crypto.createHmac('sha256', ADMIN_SESSION_SECRET).update(raw).digest('base64url');
+    if (!safeEqual(sig, expected)) return false;
+    const payload = JSON.parse(Buffer.from(raw, 'base64url').toString('utf8'));
+    return payload.exp > Date.now();
+  } catch { return false; }
+}
+
+function parseCookies(req) {
+  const out = {};
+  String(req.headers.cookie || '').split(';').forEach(part => {
+    const i = part.indexOf('=');
+    if (i > 0) out[part.slice(0, i).trim()] = decodeURIComponent(part.slice(i + 1).trim());
+  });
+  return out;
+}
+
+function setCors(req, res) {
+  const origin = req.headers.origin;
+  if (origin) res.setHeader('Access-Control-Allow-Origin', origin);
+  res.setHeader('Vary', 'Origin');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,OPTIONS');
+}
+
+function jsonRes(req, res, status, body) {
+  setCors(req, res);
+  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+  res.end(JSON.stringify(body));
+}
+
+function authorizedPanel(req) {
+  return verifySession(parseCookies(req).kpss_admin_session);
+}
+
+function safeDataPath(p) {
+  const value = String(p || '').replace(/^\/+/, '');
+  if (!value.startsWith('data/') || value.includes('..') || value.includes('\\')) return null;
+  return value;
+}
+
+async function readRequestBody(req) {
+  return await new Promise((resolve, reject) => {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk;
+      if (body.length > 5 * 1024 * 1024) req.destroy(new Error('Payload too large'));
+    });
+    req.on('end', () => resolve(body));
+    req.on('error', reject);
+  });
+}
+
+async function handleAdminApi(req, res) {
+  if (req.method === 'OPTIONS') {
+    setCors(req, res);
+    res.writeHead(204);
+    return res.end();
+  }
+
+  const url = new URL(req.url, 'http://localhost');
+
+  if (url.pathname === '/api/health' && req.method === 'GET') {
+    return jsonRes(req, res, 200, { ok: true, service: 'KPSS BilgiMatik', adminConfigured: !!ADMIN_PASSWORD, telegramAdminConfigured: !!ADMIN_TELEGRAM_ID });
+  }
+
+  if (url.pathname === '/api/login' && req.method === 'POST') {
+    if (!ADMIN_PASSWORD || !ADMIN_SESSION_SECRET) {
+      return jsonRes(req, res, 503, { ok: false, error: 'Admin güvenliği Render Environment Variables ile yapılandırılmamış.' });
+    }
+    try {
+      const body = JSON.parse(await readRequestBody(req) || '{}');
+      if (!safeEqual(body.password || '', ADMIN_PASSWORD)) {
+        return jsonRes(req, res, 401, { ok: false, error: 'Şifre yanlış.' });
+      }
+      const token = signSession({ iat: Date.now(), exp: Date.now() + ADMIN_SESSION_TTL });
+      setCors(req, res);
+      res.setHeader('Set-Cookie', `kpss_admin_session=${encodeURIComponent(token)}; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=${Math.floor(ADMIN_SESSION_TTL / 1000)}`);
+      return jsonRes(req, res, 200, { ok: true });
+    } catch {
+      return jsonRes(req, res, 400, { ok: false, error: 'Geçersiz istek.' });
+    }
+  }
+
+  if (url.pathname === '/api/logout' && req.method === 'POST') {
+    setCors(req, res);
+    res.setHeader('Set-Cookie', 'kpss_admin_session=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0');
+    return jsonRes(req, res, 200, { ok: true });
+  }
+
+  if (url.pathname === '/api/data' && (req.method === 'GET' || req.method === 'PUT')) {
+    if (!authorizedPanel(req)) return jsonRes(req, res, 401, { ok: false, error: 'Yetkisiz erişim.' });
+    const p = safeDataPath(url.searchParams.get('path') || (req.method === 'PUT' ? JSON.parse(await readRequestBody(req) || '{}').path : ''));
+    if (!p) return jsonRes(req, res, 400, { ok: false, error: 'Geçersiz dosya yolu.' });
+
+    if (req.method === 'GET') {
+      try {
+        const full = path.join(__dirname, p);
+        if (!fs.existsSync(full)) return jsonRes(req, res, 404, { ok: false, error: 'Dosya bulunamadı.' });
+        return jsonRes(req, res, 200, { ok: true, path: p, data: JSON.parse(fs.readFileSync(full, 'utf8')) });
+      } catch {
+        return jsonRes(req, res, 500, { ok: false, error: 'Dosya okunamadı.' });
+      }
+    }
+
+    try {
+      const body = JSON.parse(await readRequestBody(req) || '{}');
+      if (!body.content || typeof body.content !== 'object') return jsonRes(req, res, 400, { ok: false, error: 'Geçersiz içerik.' });
+      const full = path.join(__dirname, p);
+      fs.mkdirSync(path.dirname(full), { recursive: true });
+      fs.writeFileSync(full, JSON.stringify(body.content, null, 2));
+      const pushed = await autoPushToGithubForPath(p, body.content, body.message || 'Admin panel güncellemesi');
+      if (!pushed) return jsonRes(req, res, 502, { ok: false, error: 'GitHub kaydı başarısız.' });
+      return jsonRes(req, res, 200, { ok: true });
+    } catch (e) {
+      return jsonRes(req, res, 400, { ok: false, error: e.message || 'Kaydetme başarısız.' });
+    }
+  }
+
+  return jsonRes(req, res, 404, { ok: false, error: 'Endpoint bulunamadı.' });
+}
+
 
 /* ═══════════ YARDIMCILAR ═══════════ */
 function loadQuestions() {
@@ -103,6 +254,29 @@ function backMenu() {
 }
 
 /* ═══════════ GITHUB PUSH ═══════════ */
+async function autoPushToGithubForPath(filePath, data, message) {
+  try {
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`;
+    const get = await fetch(url + '?ref=main', {
+      headers: { 'Authorization': 'token ' + GITHUB_TOKEN, 'User-Agent': 'KPSS-Bot' }
+    });
+    let sha = null;
+    if (get.ok) sha = (await get.json()).sha;
+    const encoded = Buffer.from(JSON.stringify(data, null, 2), 'utf8').toString('base64');
+    const body = { message, content: encoded, branch: 'main' };
+    if (sha) body.sha = sha;
+    const put = await fetch(url, {
+      method: 'PUT',
+      headers: { 'Authorization': 'token ' + GITHUB_TOKEN, 'User-Agent': 'KPSS-Bot', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    return put.ok;
+  } catch (e) {
+    console.error('Panel GitHub push hata:', e.message);
+    return false;
+  }
+}
+
 async function autoPushToGithub(data) {
   try {
     const content = JSON.stringify(data, null, 2);
@@ -795,6 +969,12 @@ async function handlePhoto(msg) {
 
 /* ═══════════ ROUTER ═══════════ */
 async function handleUpdate(update) {
+  if (update.message && update.message.chat && !adminTelegramOnly(update.message.chat.id)) {
+    return;
+  }
+  if (update.callback_query && update.callback_query.message && !adminTelegramOnly(update.callback_query.message.chat.id)) {
+    return;
+  }
   if (update.callback_query) return handleCallback(update.callback_query);
   if (update.message && update.message.poll) return handlePoll(update.message);
   if (update.message && update.message.text) return handleText(update.message);
@@ -831,8 +1011,12 @@ initFromGithub().then(() => {
 const http = require('http');
 const PORT = process.env.PORT || 3000;
 http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('KPSS BilgiMatik Bot aktif');
+  handleAdminApi(req, res).catch(e => {
+    console.error('Admin API:', e.message);
+    if (!res.headersSent) jsonRes(req, res, 500, { ok: false, error: 'Sunucu hatası.' });
+  });
 }).listen(PORT, () => {
   console.log(`🌐 HTTP ${PORT} portunda`);
+  console.log(`🔐 Admin panel API: ${ADMIN_PASSWORD ? 'hazır' : 'ADMIN_PASSWORD eksik'}`);
+  console.log(`🤖 Telegram admin: ${ADMIN_TELEGRAM_ID ? 'kilitli' : 'ADMIN_TELEGRAM_ID eksik'}`);
 });
