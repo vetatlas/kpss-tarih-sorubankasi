@@ -106,6 +106,30 @@ async function handleAdminApi(req, res) {
 
   const url = new URL(req.url, 'http://localhost');
 
+  if (!url.pathname.startsWith('/api/') && (req.method === 'GET' || req.method === 'HEAD')) {
+    const requested = url.pathname === '/' ? 'index.html'
+      : url.pathname === '/admin' ? 'panel-k7x9m.html'
+      : url.pathname.replace(/^\\/+/, '');
+    if (requested.includes('..') || requested.includes('\\\\')) {
+      return jsonRes(req, res, 400, { ok: false, error: 'Geçersiz yol.' });
+    }
+    const full = path.join(__dirname, requested);
+    if (!fs.existsSync(full) || !fs.statSync(full).isFile()) {
+      return jsonRes(req, res, 404, { ok: false, error: 'Sayfa bulunamadı.' });
+    }
+    const types = {
+      '.html':'text/html; charset=utf-8', '.js':'application/javascript; charset=utf-8',
+      '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8',
+      '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.svg':'image/svg+xml',
+      '.ico':'image/x-icon', '.webp':'image/webp', '.txt':'text/plain; charset=utf-8'
+    };
+    const ext = path.extname(full).toLowerCase();
+    setCors(req, res);
+    res.writeHead(200, { 'Content-Type': types[ext] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
+    if (req.method === 'HEAD') return res.end();
+    return res.end(fs.readFileSync(full));
+  }
+
   if (url.pathname === '/api/health' && req.method === 'GET') {
     return jsonRes(req, res, 200, { ok: true, service: 'KPSS BilgiMatik', adminConfigured: !!ADMIN_PASSWORD, telegramAdminConfigured: !!ADMIN_TELEGRAM_ID });
   }
