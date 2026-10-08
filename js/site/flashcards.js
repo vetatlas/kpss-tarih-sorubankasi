@@ -1,3 +1,24 @@
+async function openStudyCenterFromPack(pack){
+  try{
+    LP.pack = pack || null;
+    LP.subj = { key: (pack && pack.ders) || (currentSubject && currentSubject.key) || "Tarih", ikon: (pack && pack.ikon) || "" };
+    LP.catName = (pack && pack.baslik) || "Konu";
+    let data;
+    try{ data = await fetchJSON(pack.dosya, PACKS_FOLDER); }
+    catch(e){ data = await fetchJSON(pack.dosya); }
+    if(!data || !Array.isArray(data.dersler) || !data.dersler.length) throw new Error("Bu konuda henüz içerik bulunmuyor.");
+    LP.lessons = data.dersler;
+    LP.cards = LP.lessons.flatMap(d => Array.isArray(d.kartlar) ? d.kartlar : []);
+    LP.questions = LP.lessons.flatMap(d => Array.isArray(d.sorular) ? d.sorular.map(q => JSON.parse(JSON.stringify(q))) : []);
+    $("studyTopicTitle").textContent = LP.catName;
+    $("studyTopicSub").textContent = pack.ozet || "Bu konuyu nasıl çalışmak istiyorsun?";
+    showScreen("studyCenter");
+  }catch(err){
+    console.error("Çalışma merkezi yükleme hatası:", err);
+    if(typeof toast === "function") toast("Konu içeriği yüklenemedi.", true);
+  }
+}
+
 /* ═══════════ KONU ÇALIŞMA MERKEZİ + FLASH KARTLAR ═══════════ */
 let FLASH_STUDY = { idx:0, flipped:false };
 
@@ -26,30 +47,23 @@ function startTopicStudy(){
 }
 
 function startTopicQuestions(){
-  const ders=LP.lessons[LP.lessonIdx];
-  const questions=(ders?.sorular||[]).map(q=>JSON.parse(JSON.stringify(q)));
-  if(!questions.length){
+  if(!LP.questions.length){
     if(typeof toast==='function') toast('Bu konuda henüz soru bulunmuyor.',true);
     return;
   }
-  LP.cards=Array.isArray(ders.kartlar)?ders.kartlar:[];
-  LP.questions=shuffle(questions);
-  LP.qIdx=0; LP.correct=0; LP.wrong=0; LP.startTime=Date.now(); LP.qAnswered=false;
-  showScreen('lessonQuiz');
-  renderLessonQuestion();
+  pendingPackQuestions = LP.questions.slice();
+  openPackCountModal(LP.pack);
 }
 
 function startTopicFlashcards(){
-  const ders=LP.lessons[LP.lessonIdx];
-  const cards=Array.isArray(ders?.kartlar)?ders.kartlar:[];
+  const cards=Array.isArray(LP.cards)?LP.cards:[];
   if(!cards.length){
     if(typeof toast==='function') toast('Bu konuda henüz flash kart bulunmuyor.',true);
     return;
   }
-  LP.cards=cards;
   FLASH_STUDY.idx=0;
   FLASH_STUDY.flipped=false;
-  $('flashTopicTitle').textContent=ders.baslik||'Flash Kartlar';
+  $('flashTopicTitle').textContent=LP.catName||'Flash Kartlar';
   showScreen('flashcardView');
   renderFlashcard();
 }
