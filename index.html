@@ -57,22 +57,22 @@
     <div class="modules-row">
       <button class="mod-card" onclick="openWrongs()">
         <span class="m-badge hidden" id="wrongBadge">0</span>
-        <div class="m-ico">🔁</div>
+        <div class="m-ico">↺</div>
         <div class="m-title">Yanlışlarım</div>
         <div class="m-desc">Yanlışlarını tekrar çöz</div>
       </button>
       <button class="mod-card" onclick="openStats()">
-        <div class="m-ico">📊</div>
+        <div class="m-ico">%</div>
         <div class="m-title">İstatistik</div>
         <div class="m-desc">Performansını incele</div>
       </button>
       <button class="mod-card" onclick="openDenemeSetup()">
-        <div class="m-ico">📝</div>
+        <div class="m-ico">▤</div>
         <div class="m-title">Deneme Sınavı</div>
         <div class="m-desc">Süreli deneme çöz</div>
       </button>
       <button class="mod-card" onclick="openFavorites()">
-        <div class="m-ico">⭐</div>
+        <div class="m-ico">☆</div>
         <div class="m-title">Favorilerim</div>
         <div class="m-desc">Daha sonra çözmek için kaydet</div>
       </button>
@@ -146,7 +146,7 @@
       <div class="options-list" id="lqOptions"></div>
       <div class="feedback" id="lqFeedback"></div>
       <div class="q-actions">
-        <span class="kbd-hint">💡 <span class="kbd">1-5</span> / <span class="kbd">A-E</span></span>
+        <span class="kbd-hint"><span class="kbd">1-5</span> / <span class="kbd">A-E</span></span>
         <button class="btn btn-primary hidden" id="lqNextBtn" onclick="nextLessonQuestion()">Devam →</button>
       </div>
     </div>
@@ -176,7 +176,7 @@
       <button class="btn btn-ghost" style="padding:8px 14px;font-size:12px" onclick="quitQuiz()">← Çıkış</button>
       <div class="quiz-meta">
         <span><b id="qCounter">1</b> / <span id="qTotal">10</span></span>
-        <span class="timer">⏱ <b id="qTimer">00:00</b></span>
+        <span class="timer">Süre <b id="qTimer">00:00</b></span>
       </div>
     </div>
     <div class="bar"><div class="bar-fill" id="barFill"></div></div>
@@ -257,7 +257,7 @@
       </div>
       <div style="display:flex;gap:8px">
         <button class="btn btn-primary" id="wrongStartBtn" onclick="startWrongsQuiz()" style="padding:9px 16px;font-size:12px">Çöz</button>
-        <button class="btn btn-ghost" onclick="clearAllWrongs()" style="padding:9px 16px;font-size:12px">🗑 Temizle</button>
+        <button class="btn btn-ghost" onclick="clearAllWrongs()" style="padding:9px 16px;font-size:12px">Temizle</button>
         <button class="btn btn-ghost" onclick="goHome()" style="padding:9px 16px;font-size:12px">← Geri</button>
       </div>
     </div>
