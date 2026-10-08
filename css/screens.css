@@ -622,3 +622,52 @@
 .flash-group-chip span{opacity:.65;margin-left:3px}
 .flash-group-chip.active{color:#fff;border-color:rgba(96,165,250,.38);background:rgba(96,165,250,.10)}
 @media(max-width:600px){.flash-group-bar{margin:0 -2px;padding-top:8px}.flash-group-chip{font-size:8.5px;padding:6px 9px}}
+
+
+/* ═══════════ AKTİF ÖĞRENME — KONU ÇALIŞ ═══════════ */
+.active-learning-card{
+  position:relative;
+}
+.active-learning-card .al-card-meta{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+.active-learning-card .al-phase{
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  color:var(--muted);
+}
+.active-learning-card .lc-tag{
+  margin:0;
+}
+.active-learning-card .al-prompt{
+  margin-top:24px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.55;
+}
+.active-learning-card .lc-icon{
+  font-family:'JetBrains Mono',monospace;
+  font-size:20px;
+  font-weight:800;
+}
+#lessonQuiz .question-card{
+  transition:box-shadow .25s ease,border-color .25s ease;
+}
+#lessonQuiz .badge#lqBadge{
+  letter-spacing:1.1px;
+}
+#lessonQuiz .feedback .recall-card{
+  margin-top:14px;
+}
+@media(max-width:560px){
+  .active-learning-card .al-card-meta{margin-bottom:13px}
+  .active-learning-card .al-prompt{margin-top:18px;font-size:9.5px}
+}
