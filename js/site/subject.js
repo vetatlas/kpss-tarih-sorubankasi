@@ -131,7 +131,7 @@ function confirmStartQuiz(){
     const subj = pendingSubj || currentSubject;
     const cat = pendingCatName || pendingPack.baslik || "Konu";
     closeCountModal();
-    startQuiz(subj, cat, list);
+    startQuiz(subj, cat, list, {returnToStudyCenter:true});
     return;
   }
 
