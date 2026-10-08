@@ -352,3 +352,22 @@ tr.selected td{background:rgba(201,162,39,.08)}
 .flash-upload-hint{display:inline-flex;align-items:center;gap:4px;padding:7px 9px;border:1px solid rgba(96,165,250,.18);border-radius:8px;color:var(--muted);font-size:9px;background:rgba(96,165,250,.045)}
 .flash-upload-hint b{color:var(--blue)}
 @media(max-width:760px){.flash-upload-hint{width:100%;justify-content:center}}
+
+/* KPSS FLASH QUALITY */
+.flash-quality-standard{margin:0 16px 14px;padding:15px;border:1px solid rgba(52,211,153,.18);border-radius:14px;background:linear-gradient(145deg,rgba(52,211,153,.055),rgba(255,255,255,.015))}
+.flash-quality-standard-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.flash-quality-standard h3{margin:2px 0 4px;color:#fff;font-size:14px;font-weight:800}
+.flash-quality-standard p{margin:0;color:var(--muted);font-size:10.5px;line-height:1.5}
+.flash-standard-score{white-space:nowrap;padding:7px 9px;border:1px solid rgba(52,211,153,.25);border-radius:8px;color:var(--green);font-size:9px;font-weight:800}
+.flash-standard-score b{font-size:12px}
+.flash-standard-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:11px}
+.flash-standard-grid>div{padding:9px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.018)}
+.flash-standard-grid b{display:block;color:#fff;font-size:9.5px;margin-bottom:4px}
+.flash-standard-grid span{display:block;color:var(--muted);font-size:9px;line-height:1.45}
+.flash-card-quality{display:flex;align-items:center;gap:6px;margin-top:7px;font-size:9px;color:var(--muted)}
+.flash-quality-badge{display:inline-flex;padding:2px 6px;border-radius:5px;font-size:8px;font-weight:800}
+.flash-quality-badge.excellent{background:var(--green-bg);color:var(--green)}
+.flash-quality-badge.good{background:var(--blue-bg);color:var(--blue)}
+.flash-quality-badge.review{background:var(--red-bg);color:var(--red)}
+@media(max-width:760px){.flash-quality-standard{margin:0 10px 12px}.flash-standard-grid{grid-template-columns:1fr 1fr}.flash-quality-standard-head{flex-direction:column}}
+@media(max-width:460px){.flash-standard-grid{grid-template-columns:1fr}}
