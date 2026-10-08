@@ -49,11 +49,11 @@
     <div class="hero">
       <div class="hero-badge" id="heroBadge">Yükleniyor...</div>
       <h2>Tarih, Coğrafya, Vatandaşlık... <em>hepsi bir arada.</em></h2>
-      <p>Dersini seç, öğren veya test çöz. Yanlışlarını takip et, denemeyle kendini sına.</p>
+      <p>Dersini seç ve çalışmaya başla. Konu çalış, soru çöz, eksiklerini gör.</p>
       <div class="hero-rule"></div>
     </div>
 
-    <div class="section-label">Modüller</div>
+    <div class="section-label">Çalışma Alanı</div>
     <div class="modules-row">
       <button class="mod-card" onclick="openWrongs()">
         <span class="m-badge hidden" id="wrongBadge">0</span>
@@ -64,17 +64,17 @@
       <button class="mod-card" onclick="openStats()">
         <div class="m-ico">📊</div>
         <div class="m-title">İstatistik</div>
-        <div class="m-desc">Detaylı analiz</div>
+        <div class="m-desc">Performansını incele</div>
       </button>
       <button class="mod-card" onclick="openDenemeSetup()">
         <div class="m-ico">📝</div>
         <div class="m-title">Deneme Sınavı</div>
-        <div class="m-desc">Süreli karışık test</div>
+        <div class="m-desc">Süreli deneme çöz</div>
       </button>
       <button class="mod-card" onclick="openFavorites()">
         <div class="m-ico">⭐</div>
         <div class="m-title">Favorilerim</div>
-        <div class="m-desc">Kaydettiğin sorular</div>
+        <div class="m-desc">Daha sonra çözmek için kaydet</div>
       </button>
     </div>
 
@@ -88,7 +88,7 @@
       <button class="btn btn-ghost" onclick="goHome()" style="padding:8px 14px;font-size:12px">← Geri</button>
       <div style="text-align:center;flex:1">
         <h2 id="subjTitle">Ders</h2>
-        <p id="subjSub">Bölüm seç</p>
+        <p id="subjSub">Konu seç</p>
       </div>
     </div>
     <div class="grid" id="catGrid"></div>
@@ -100,7 +100,7 @@
       <button class="btn btn-ghost" onclick="backFromPath()" style="padding:8px 14px;font-size:12px">← Geri</button>
       <div style="text-align:center;flex:1">
         <h2 id="pathTitle">🎓 Öğren</h2>
-        <p id="pathSub">Ders seç — her ders kart + sorular</p>
+        <p id="pathSub">Konu anlatımı ve sorular</p>
       </div>
     </div>
     <div class="dp-wrap" id="lessonList"></div>
@@ -238,7 +238,7 @@
     <div class="page-header">
       <div>
         <h2>⭐ Favorilerim</h2>
-        <p id="favSub">Kaydettiğin sorular</p>
+        <p id="favSub">Daha sonra çözmek için kaydettiğin sorular</p>
       </div>
       <div style="display:flex;gap:8px">
         <button class="btn btn-primary" id="favStartBtn" onclick="startFavoritesQuiz()" style="padding:9px 16px;font-size:12px">🎯 Test Çöz</button>
@@ -253,7 +253,7 @@
     <div class="page-header">
       <div>
         <h2>🔁 Yanlışlarım</h2>
-        <p id="wrongSub">Yanlış yaptığın sorular</p>
+        <p id="wrongSub">Tekrar çalışman gereken sorular</p>
       </div>
       <div style="display:flex;gap:8px">
         <button class="btn btn-primary" id="wrongStartBtn" onclick="startWrongsQuiz()" style="padding:9px 16px;font-size:12px">🎯 Çöz</button>
@@ -271,20 +271,20 @@
       <button class="btn btn-ghost" onclick="goHome()" style="padding:8px 14px;font-size:12px;position:absolute;left:0;top:0">← Geri</button>
       <div style="text-align:center;flex:1">
         <h2>📊 İstatistik</h2>
-        <p>Başarın ve gelişimin</p>
+        <p>Çözüm geçmişin ve performansın</p>
       </div>
     </div>
     <div class="stats-grid" id="statsTiles"></div>
     <div class="stats-section">
-      <h3>📚 Ders Bazlı Başarı</h3>
+      <h3>Ders Bazlı Başarı</h3>
       <div class="cat-bars" id="catBars"></div>
     </div>
   </section>
 </main>
 
 <footer>
-  <p><b>KPSS BilgiMatik</b> — Telegram bot entegre soru bankası<br>
-  Dersler: Tarih • Coğrafya • Vatandaşlık • Türkçe • Matematik • Güncel</p>
+  <p><b>KPSS BilgiMatik</b><br>
+  Tarih • Coğrafya • Vatandaşlık • Türkçe • Matematik • Güncel</p>
 </footer>
 
 <!-- ═══════════ MODALS ═══════════ -->
