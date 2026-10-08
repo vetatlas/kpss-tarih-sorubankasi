@@ -114,6 +114,41 @@
     <div class="dp-wrap" id="lessonList"></div>
   </section>
 
+  <!-- TOPIC STUDY CENTER -->
+  <section id="studyCenter" class="screen hidden">
+    <div class="study-center-head">
+      <button class="subject-back" onclick="backFromStudyCenter()" type="button">← <span>Konu listesi</span></button>
+      <div class="study-center-title">
+        <span>KONU ÇALIŞMA MERKEZİ</span>
+        <h2 id="studyTopicTitle">Konu</h2>
+        <p id="studyTopicSub">Bu konuyu nasıl çalışmak istiyorsun?</p>
+      </div>
+    </div>
+    <div class="study-choice-grid">
+      <button class="study-choice" onclick="startTopicStudy()">
+        <span class="study-choice-no">01</span>
+        <span class="study-choice-icon">01</span>
+        <strong>Konu Çalış</strong>
+        <small>Konu anlatımını adım adım incele.</small>
+        <span class="study-choice-arrow">→</span>
+      </button>
+      <button class="study-choice" onclick="startTopicQuestions()">
+        <span class="study-choice-no">02</span>
+        <span class="study-choice-icon">02</span>
+        <strong>Soru Çöz</strong>
+        <small>Öğrendiklerini konu sorularıyla pekiştir.</small>
+        <span class="study-choice-arrow">→</span>
+      </button>
+      <button class="study-choice" onclick="startTopicFlashcards()">
+        <span class="study-choice-no">03</span>
+        <span class="study-choice-icon">03</span>
+        <strong>Flash Kartlar</strong>
+        <small>Önemli bilgileri hızlı tekrar et.</small>
+        <span class="study-choice-arrow">→</span>
+      </button>
+    </div>
+  </section>
+
   <!-- LESSON CARD VIEW -->
   <section id="lessonCardView" class="screen hidden">
     <div class="lesson-top-bar">
@@ -126,6 +161,36 @@
     <div class="lc-wrap" id="lcCardWrap"></div>
     <div class="lesson-footer">
       <button class="btn btn-primary" id="lcNextBtn" onclick="nextLessonCard()">Devam →</button>
+    </div>
+  </section>
+
+  <!-- FLASHCARD VIEW -->
+  <section id="flashcardView" class="screen hidden">
+    <div class="flash-study-top">
+      <button class="lesson-exit" onclick="exitFlashcards()" title="Çıkış">×</button>
+      <div class="flash-study-title">
+        <span>FLASH KARTLAR</span>
+        <strong id="flashTopicTitle">Konu</strong>
+      </div>
+      <div class="flash-study-count" id="flashCount">1/1</div>
+    </div>
+    <div class="flash-progress"><div id="flashProgressFill"></div></div>
+    <div class="flash-stage" id="flashStage" onclick="flipFlashcard()">
+      <div class="flash-card-inner">
+        <div class="flash-face flash-front">
+          <span class="flash-face-label">BİLGİ</span>
+          <h2 id="flashFront">Yükleniyor…</h2>
+          <small>Yanıtı görmek için karta dokun</small>
+        </div>
+        <div class="flash-face flash-back">
+          <span class="flash-face-label">AÇIKLAMA</span>
+          <div id="flashBack"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flash-actions">
+      <button class="btn btn-ghost" onclick="prevFlashcard()">← Önceki</button>
+      <button class="btn btn-primary" onclick="nextFlashcard()">Sonraki →</button>
     </div>
   </section>
 
