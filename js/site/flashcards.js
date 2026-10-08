@@ -59,7 +59,7 @@ function startTopicQuestions(){
 function flashText(value){
   const box=document.createElement('div');
   box.innerHTML=String(value||'');
-  return (box.textContent||box.innerText||'').replace(/\\s+/g,' ').trim();
+  return (box.textContent||box.innerText||'').replace(/\s+/g,' ').trim();
 }
 
 /* Kısa, ezberlenebilir flash kartlar üretir.
