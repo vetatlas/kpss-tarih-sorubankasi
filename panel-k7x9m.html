@@ -18,7 +18,7 @@
     <h1>Yönetim Paneli</h1>
     <p id="loginSub">Devam etmek için şifreyi gir</p>
     <input type="password" id="loginPass" placeholder="••••••••" autocomplete="off">
-    <button onclick="handleLogin()">Giriş Yap</button>
+    <button type="button" id="loginBtn">Giriş Yap</button>
     <div class="login-hint" id="loginHint"></div>
   </div>
 </div>
@@ -303,12 +303,23 @@
 
 <div class="toast" id="toast"></div>
 
+<script>
+// Login butonunu doğrudan bağla; eski önbellek/inline onclick sorunlarını önler.
+document.addEventListener('DOMContentLoaded', function(){
+  const btn = document.getElementById('loginBtn');
+  if(btn) btn.addEventListener('click', function(){
+    if(typeof handleLogin === 'function') handleLogin();
+    else alert('Yönetim paneli JavaScript dosyası yüklenemedi. Sayfayı yenileyin.');
+  });
+});
+</script>
+
 <!-- ═══════════ SCRIPTS ═══════════ -->
-<script src="js/core/config.js"></script>
-<script src="js/core/utils.js"></script>
-<script src="js/core/storage.js"></script>
-<script src="js/core/ui.js"></script>
-<script src="js/core/api.js"></script>
-<script src="js/admin.js"></script>
+<script src="js/core/config.js?v=20261008-1"></script>
+<script src="js/core/utils.js?v=20261008-1"></script>
+<script src="js/core/storage.js?v=20261008-1"></script>
+<script src="js/core/ui.js?v=20261008-1"></script>
+<script src="js/core/api.js?v=20261008-1"></script>
+<script src="js/admin.js?v=20261008-1"></script>
 </body>
 </html>
