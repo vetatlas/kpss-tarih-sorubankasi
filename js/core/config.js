@@ -8,7 +8,7 @@ const SUBJECTS = [
   { key:"Güncel",      ikon:"🌐", renk:"orange", aciklama:"Güncel bilgiler" }
 ];
 
-const ADMIN_API_BASE = window.location.origin;
+const ADMIN_API_BASE = window.location.origin === 'https://vetatlas.github.io' ? 'https://kpss-tarih-sorubankasi.onrender.com' : window.location.origin;
 
 const GITHUB = {
   user: "vetatlas",
