@@ -148,6 +148,7 @@ function startLesson(idx){
   LP.phase = "learn";
   LP.activeQuestion = null;
   LP.usedRecallQuestions = new Set();
+  LP.recallQueue = [];
 
   if(!LP.cards.length){
     startLessonQuestions();
@@ -400,6 +401,11 @@ function selectLessonOption(btn, isCorrect, q){
   }else{
     playWrongSound();
     LP.wrong++;
+    // Aktif öğrenmede yanlış cevaplanan bilgi kısa süre sonra yeniden sorulur.
+    if(LP.phase === "recall" && q){
+      if(!Array.isArray(LP.recallQueue)) LP.recallQueue = [];
+      LP.recallQueue.push({ q, cardIndex: LP.cardIdx });
+    }
     btn.classList.remove("dim");
     btn.classList.add("wrong");
     btn.querySelector(".mark").textContent = "✕";
@@ -434,9 +440,35 @@ function selectLessonOption(btn, isCorrect, q){
 
 function nextLessonQuestion(){
   if(LP.phase === "recall"){
+    // Yanlış yapılan kartı yeni bilgiye geçmeden önce kısa bir tekrar döngüsüne al.
+    const retry = Array.isArray(LP.recallQueue) && LP.recallQueue.shift();
+    if(retry){
+      LP.activeQuestion = retry.q;
+      LP.phase = "recallRetry";
+      LP.qAnswered = false;
+      showScreen("lessonQuiz");
+      renderLessonQuestion();
+      return;
+    }
+
     advanceActiveLearning();
     return;
   }
+
+  if(LP.phase === "recallRetry"){
+    // Tekrar sorusunda yine yanlış yapıldıysa kartı oturum sonuna bırak.
+    if(LP.recallQueue?.length){
+      const retry = LP.recallQueue.shift();
+      LP.activeQuestion = retry.q;
+      LP.phase = "recallRetry";
+      LP.qAnswered = false;
+      renderLessonQuestion();
+      return;
+    }
+    advanceActiveLearning();
+    return;
+  }
+
   LP.qIdx++;
   renderLessonQuestion();
 }
