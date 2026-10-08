@@ -136,7 +136,11 @@ async function handleAdminApi(req, res) {
 
   if (url.pathname === '/api/data' && (req.method === 'GET' || req.method === 'PUT')) {
     if (!authorizedPanel(req)) return jsonRes(req, res, 401, { ok: false, error: 'Yetkisiz erişim.' });
-    const p = safeDataPath(url.searchParams.get('path') || (req.method === 'PUT' ? JSON.parse(await readRequestBody(req) || '{}').path : ''));
+    let body = null;
+    if (req.method === 'PUT') {
+      body = JSON.parse(await readRequestBody(req) || '{}');
+    }
+    const p = safeDataPath(url.searchParams.get('path') || (body && body.path) || '');
     if (!p) return jsonRes(req, res, 400, { ok: false, error: 'Geçersiz dosya yolu.' });
 
     if (req.method === 'GET') {
@@ -150,8 +154,7 @@ async function handleAdminApi(req, res) {
     }
 
     try {
-      const body = JSON.parse(await readRequestBody(req) || '{}');
-      if (!body.content || typeof body.content !== 'object') return jsonRes(req, res, 400, { ok: false, error: 'Geçersiz içerik.' });
+      if (!body || !body.content || typeof body.content !== 'object') return jsonRes(req, res, 400, { ok: false, error: 'Geçersiz içerik.' });
       const full = path.join(__dirname, p);
       fs.mkdirSync(path.dirname(full), { recursive: true });
       fs.writeFileSync(full, JSON.stringify(body.content, null, 2));
