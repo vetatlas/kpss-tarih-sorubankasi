@@ -44,7 +44,18 @@ function openSubject(subj){
         <p>${escapeHtml(pack.ozet || 'Kart + sorularla öğren')}</p>
         <div class="cat-cta">Derse Başla <span>→</span></div>
       `;
-      card.onclick = () => openLessonPathFromPack(pack);
+      card.onclick = async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        card.disabled = true;
+        try{
+          await openLessonPathFromPack(pack);
+        }catch(err){
+          console.error("Ders paketi tıklama hatası:", err);
+        }finally{
+          card.disabled = false;
+        }
+      };
       grid.appendChild(card);
     });
   }
