@@ -8,32 +8,69 @@ const LP = {
 };
 
 async function openLessonPathFromPack(pack){
-  LP.pack = pack;
-  LP.subj = { key: pack.ders };
-  LP.catName = pack.baslik;
-  $("pathTitle").textContent = (pack.ikon || "🎓") + " " + pack.baslik;
-  $("pathSub").textContent = pack.ozet || "Ders seç, kart kart öğren, sonra pekiştir";
-
-  const list = $("lessonList");
-  list.innerHTML = `<div class="empty-state"><div class="es-ico">📥</div><h4>Dersler yükleniyor...</h4></div>`;
-  showScreen("lessonPath");
-
-  let data = null;
+  // Paket kartına basıldığında ekranın kesin olarak açılması ve
+  // hem data/dersler/ hem de data/ kökündeki eski paket dosyalarının
+  // desteklenmesi için güvenli yükleyici.
   try{
-    data = await fetchJSON(pack.dosya, PACKS_FOLDER);
-  }catch(e){ console.warn("Ders yüklenemedi:", e.message); }
+    LP.pack = pack || null;
+    LP.subj = { key: (pack && pack.ders) || "Tarih" };
+    LP.catName = (pack && pack.baslik) || "Ders Paketi";
 
-  if(!data || !Array.isArray(data.dersler) || data.dersler.length === 0){
-    list.innerHTML = `<div class="empty-state">
-      <div class="es-ico">📭</div>
-      <h4>Bu pakette ders yok</h4>
-      <p>Admin panelden "${pack.baslik}" paketine ders ekle.</p>
-      <button class="btn btn-ghost" style="margin-top:14px" onclick="backFromPath()">← Geri</button>
-    </div>`;
-    return;
+    $("pathTitle").textContent = ((pack && pack.ikon) || "🎓") + " " + LP.catName;
+    $("pathSub").textContent = (pack && pack.ozet) || "Ders seç — kart kart öğren, sonra pekiştir";
+
+    const list = $("lessonList");
+    if(!list) throw new Error("lessonList alanı bulunamadı.");
+
+    list.innerHTML = `<div class="empty-state"><div class="es-ico">📥</div><h4>Dersler yükleniyor...</h4><p>İçerik hazırlanıyor.</p></div>`;
+    showScreen("lessonPath");
+
+    let data = null;
+    let lastError = null;
+
+    // Önce standart paket klasörü.
+    try{
+      data = await fetchJSON(pack.dosya, PACKS_FOLDER);
+    }catch(e){
+      lastError = e;
+      console.warn("Paket klasöründen yüklenemedi:", e.message);
+
+      // Eski/veri uyumluluğu: dosya data/ altında tutuluyorsa onu da dene.
+      try{
+        data = await fetchJSON(pack.dosya);
+      }catch(e2){
+        lastError = e2;
+        console.warn("Ana data klasöründen de yüklenemedi:", e2.message);
+      }
+    }
+
+    if(!data || !Array.isArray(data.dersler) || data.dersler.length === 0){
+      const detail = lastError ? `<small style="display:block;margin-top:10px;opacity:.7">Teknik bilgi: ${escapeHtml(lastError.message)}</small>` : "";
+      list.innerHTML = `<div class="empty-state">
+        <div class="es-ico">📭</div>
+        <h4>Bu pakette ders bulunamadı</h4>
+        <p>"${escapeHtml(LP.catName)}" paketi açıldı fakat ders içeriği okunamadı.</p>
+        ${detail}
+        <button class="btn btn-ghost" style="margin-top:14px" onclick="backFromPath()">← Geri</button>
+      </div>`;
+      return;
+    }
+
+    LP.lessons = data.dersler;
+    renderLessonPath();
+  }catch(err){
+    console.error("openLessonPathFromPack hata:", err);
+    const list = $("lessonList");
+    if(list){
+      list.innerHTML = `<div class="empty-state">
+        <div class="es-ico">⚠️</div>
+        <h4>Ders paketi açılamadı</h4>
+        <p>Beklenmeyen bir hata oluştu.</p>
+        <small style="display:block;margin-top:10px;opacity:.7">${escapeHtml(err.message || err)}</small>
+        <button class="btn btn-ghost" style="margin-top:14px" onclick="backFromPath()">← Geri</button>
+      </div>`;
+    }
   }
-  LP.lessons = data.dersler;
-  renderLessonPath();
 }
 
 function renderLessonPath(){
