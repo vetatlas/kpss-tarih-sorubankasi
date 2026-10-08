@@ -289,3 +289,39 @@ tr.selected td{background:rgba(201,162,39,.08)}
   .q-text{max-width:180px;font-size:11px}
   .lesson-grid,.pack-grid{grid-template-columns:1fr}
 }
+
+
+/* FLASHCARD ADMIN */
+.flash-admin-pack{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden;background:rgba(255,255,255,.02)}
+.flash-admin-pack-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 16px;background:rgba(255,255,255,.025);cursor:pointer}
+.flash-admin-pack-head:hover{background:rgba(255,255,255,.045)}
+.flash-admin-pack-title{display:flex;align-items:center;gap:10px;min-width:0}
+.flash-admin-pack-ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.25);flex:0 0 auto}
+.flash-admin-pack-title strong{display:block;color:#fff;font-size:13px;font-weight:800}
+.flash-admin-pack-title small{display:block;color:var(--muted);font-size:10.5px;margin-top:3px}
+.flash-admin-body{display:none;border-top:1px solid var(--line);padding:12px}
+.flash-admin-pack.open .flash-admin-body{display:block}
+.flash-admin-lesson{border:1px solid var(--line);border-radius:11px;margin-bottom:8px;background:rgba(0,0,0,.12);overflow:hidden}
+.flash-admin-lesson:last-child{margin-bottom:0}
+.flash-admin-lesson-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;cursor:pointer}
+.flash-admin-lesson-head:hover{background:rgba(255,255,255,.025)}
+.flash-admin-lesson-info{min-width:0}
+.flash-admin-lesson-info strong{display:block;color:#fff;font-size:12px;font-weight:800}
+.flash-admin-lesson-info small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.flash-admin-cards{display:none;padding:0 12px 12px}
+.flash-admin-lesson.open .flash-admin-cards{display:block}
+.flash-admin-card{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:start;padding:11px 0;border-top:1px solid var(--line)}
+.flash-admin-card:first-child{border-top:0}
+.flash-admin-card-num{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.22);color:var(--blue);font-size:10px;font-weight:800}
+.flash-admin-card strong{display:block;color:#fff;font-size:11.5px;line-height:1.4}
+.flash-admin-card p{margin:4px 0 0;color:var(--muted);font-size:10.5px;line-height:1.5}
+.flash-admin-card .tag{margin-left:6px}
+.flash-admin-actions{display:flex;gap:5px;flex-wrap:wrap}
+.flash-admin-empty{padding:34px 20px;text-align:center;color:var(--muted)}
+.flash-json-help{padding:12px 14px;border:1px solid rgba(96,165,250,.2);background:rgba(96,165,250,.06);border-radius:10px;margin-bottom:12px;color:var(--text-2);font-size:11px;line-height:1.6}
+.flash-json-help code{font-family:'JetBrains Mono',monospace;color:var(--blue)}
+@media(max-width:640px){
+  .flash-admin-card{grid-template-columns:30px 1fr}
+  .flash-admin-card .flash-admin-actions{grid-column:2}
+  .flash-admin-pack-head{align-items:flex-start}
+}
