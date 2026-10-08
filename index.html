@@ -113,7 +113,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="lesson-progress"><div class="lesson-progress-fill" id="lcProgress"></div></div>
-      <div class="lesson-count" id="lcCount" aria-hidden="true"></div>
+      <div class="lesson-count" id="lcCount">1/1</div>
     </div>
     <div class="lc-wrap" id="lcCardWrap"></div>
     <div class="lesson-footer">
@@ -128,7 +128,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="lesson-progress"><div class="lesson-progress-fill" id="lqProgress"></div></div>
-      <div class="lesson-count" id="lqCount" aria-hidden="true"></div>
+      <div class="lesson-count" id="lqCount">1/1</div>
     </div>
     <div class="question-card" style="max-width:680px;margin:0 auto">
       <div class="q-head">
@@ -302,6 +302,13 @@
         <option>Türkçe</option><option>Matematik</option><option>Güncel</option>
       </select>
     </div>
+    <div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;letter-spacing:1.4px">SORU SAYISI</div>
+    <div class="count-options" id="examCountOptions" style="margin-bottom:16px">
+      <button class="count-opt" data-count="10">10</button>
+      <button class="count-opt active" data-count="20">20</button>
+      <button class="count-opt" data-count="30">30</button>
+      <button class="count-opt" data-count="40">40</button>
+    </div>
     <div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;letter-spacing:1.4px">ZORLUK</div>
     <div class="difficulty-row" style="justify-content:flex-start;margin-bottom:16px">
       <button class="diff-btn active" data-diff="">Tümü</button>
@@ -319,6 +326,32 @@
     <div class="modal-actions">
       <button class="btn btn-ghost" onclick="closeExamModal()">İptal</button>
       <button class="btn btn-primary" onclick="startExam()">Başlat →</button>
+    </div>
+  </div>
+</div>
+
+<!-- SORU SAYISI MODALI -->
+<div class="modal-backdrop" id="countModal">
+  <div class="modal">
+    <div class="modal-icon">Soru</div>
+    <h3 id="countModalTitle">Soru Çöz</h3>
+    <p class="modal-sub">Çözeceğin soru sayısını seç</p>
+    <div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;letter-spacing:1.4px">SORU SAYISI</div>
+    <div class="count-options" id="countOptions">
+      <button class="count-opt" data-count="5">5</button>
+      <button class="count-opt active" data-count="10">10</button>
+      <button class="count-opt" data-count="20">20</button>
+    </div>
+    <div style="font-size:11px;font-weight:800;color:var(--muted);margin:16px 0 8px;letter-spacing:1.4px">ZORLUK</div>
+    <div class="difficulty-row" id="countDiffOptions" style="justify-content:flex-start;margin-bottom:8px">
+      <button class="diff-btn active" data-diff="">Tümü</button>
+      <button class="diff-btn kolay" data-diff="Kolay">Kolay</button>
+      <button class="diff-btn orta" data-diff="Orta">Orta</button>
+      <button class="diff-btn zor" data-diff="Zor">Zor</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeCountModal()">İptal</button>
+      <button class="btn btn-primary" onclick="confirmStartQuiz()">Başlat →</button>
     </div>
   </div>
 </div>
