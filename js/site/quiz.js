@@ -148,11 +148,12 @@ function toggleFavorite(){
 }
 
 function finishQuiz(){
-  if(S.isExamMode){ S.isExamMode = false; return; }
-  stopTimer();
+  const examMode = S.isExamMode;
+  if(examMode) stopTimer();
+  else stopTimer();
   const total = S.list.length;
   const pct = total ? Math.round(S.correct / total * 100) : 0;
-  const elapsed = Math.floor((Date.now() - S.t0) / 1000);
+  const elapsed = examMode ? Math.floor((Date.now() - S.examStartTime) / 1000) : Math.floor((Date.now() - S.t0) / 1000);
   animateNumber($("rPct"), 0, pct, 900);
   animateNumber($("rCorrect"), 0, S.correct, 700);
   animateNumber($("rWrong"), 0, S.wrong.length, 700);
@@ -165,7 +166,10 @@ function finishQuiz(){
     ring.style.background = `conic-gradient(var(--gold) ${cur}%, rgba(255,255,255,.06) ${cur}%)`;
   }, 22);
   let title, msg;
-  if(pct >= 90){ title = "Muhteşem! 🏆"; msg = "Bu konuya hâkimsin."; }
+  if(examMode){
+    title = "Deneme Tamamlandı";
+    msg = pct >= 75 ? "İyi bir performans. Sonuçlarını inceleyebilirsin." : "Sonuçlarını incele, eksiklerini belirle ve tekrar et.";
+  } else if(pct >= 90){ title = "Muhteşem! 🏆"; msg = "Bu konuya hâkimsin."; }
   else if(pct >= 75){ title = "Çok iyi! 👏"; msg = "Güçlü performans."; }
   else if(pct >= 50){ title = "İyi gidiyorsun 💪"; msg = "Tekrar ile yükselirsin."; }
   else { title = "Tekrar gerekiyor 📚"; msg = "Yanlışlarını incele."; }
@@ -185,6 +189,7 @@ function finishQuiz(){
     });
   }
   if(pct >= 75){ launchConfetti(); playCompleteSound(); }
+  S.isExamMode = false;
   showScreen("result");
 }
 
