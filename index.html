@@ -99,7 +99,7 @@
     <div class="page-header" style="position:relative">
       <button class="btn btn-ghost" onclick="backFromPath()" style="padding:8px 14px;font-size:12px">← Geri</button>
       <div style="text-align:center;flex:1">
-        <h2 id="pathTitle">🎓 Öğren</h2>
+        <h2 id="pathTitle">Öğren</h2>
         <p id="pathSub">Konu anlatımı ve sorular</p>
       </div>
     </div>
@@ -133,7 +133,7 @@
     <div class="question-card" style="max-width:680px;margin:0 auto">
       <div class="q-head">
         <div class="q-head-left">
-          <span class="badge" id="lqBadge">🎓 Ders Sorusu</span>
+          <span class="badge" id="lqBadge">Ders Sorusu</span>
         </div>
         <div class="q-tools">
           <button class="q-tool" id="lqFav" onclick="toggleLessonFav()" title="Favori">
@@ -155,7 +155,7 @@
   <!-- LESSON COMPLETE -->
   <section id="lessonComplete" class="screen hidden">
     <div class="complete-wrap">
-      <div class="complete-ring"><div class="complete-inner">🎉</div></div>
+      <div class="complete-ring"><div class="complete-inner">✓</div></div>
       <h2 id="completeTitle">Ders Tamamlandı!</h2>
       <p id="completeSub">Harika iş çıkardın.</p>
       <div class="complete-stats">
@@ -164,8 +164,8 @@
         <div class="complete-stat"><div class="num" id="completeStreak">0</div><div class="lbl">Seri</div></div>
       </div>
       <div class="complete-actions">
-        <button class="btn btn-primary" onclick="backFromComplete()">📚 Ders Listesi</button>
-        <button class="btn btn-ghost" onclick="goHome()">🏠 Ana Sayfa</button>
+        <button class="btn btn-primary" onclick="backFromComplete()">Ders Listesi</button>
+        <button class="btn btn-ghost" onclick="goHome()">Ana Sayfa</button>
       </div>
     </div>
   </section>
@@ -237,11 +237,11 @@
   <section id="favorites" class="screen hidden">
     <div class="page-header">
       <div>
-        <h2>⭐ Favorilerim</h2>
+        <h2>Favorilerim</h2>
         <p id="favSub">Daha sonra çözmek için kaydettiğin sorular</p>
       </div>
       <div style="display:flex;gap:8px">
-        <button class="btn btn-primary" id="favStartBtn" onclick="startFavoritesQuiz()" style="padding:9px 16px;font-size:12px">🎯 Test Çöz</button>
+        <button class="btn btn-primary" id="favStartBtn" onclick="startFavoritesQuiz()" style="padding:9px 16px;font-size:12px">Test Çöz</button>
         <button class="btn btn-ghost" onclick="goHome()" style="padding:9px 16px;font-size:12px">← Geri</button>
       </div>
     </div>
@@ -252,11 +252,11 @@
   <section id="wrongs" class="screen hidden">
     <div class="page-header">
       <div>
-        <h2>🔁 Yanlışlarım</h2>
+        <h2>Yanlışlarım</h2>
         <p id="wrongSub">Tekrar çalışman gereken sorular</p>
       </div>
       <div style="display:flex;gap:8px">
-        <button class="btn btn-primary" id="wrongStartBtn" onclick="startWrongsQuiz()" style="padding:9px 16px;font-size:12px">🎯 Çöz</button>
+        <button class="btn btn-primary" id="wrongStartBtn" onclick="startWrongsQuiz()" style="padding:9px 16px;font-size:12px">Çöz</button>
         <button class="btn btn-ghost" onclick="clearAllWrongs()" style="padding:9px 16px;font-size:12px">🗑 Temizle</button>
         <button class="btn btn-ghost" onclick="goHome()" style="padding:9px 16px;font-size:12px">← Geri</button>
       </div>
@@ -270,7 +270,7 @@
     <div class="page-header" style="position:relative">
       <button class="btn btn-ghost" onclick="goHome()" style="padding:8px 14px;font-size:12px;position:absolute;left:0;top:0">← Geri</button>
       <div style="text-align:center;flex:1">
-        <h2>📊 İstatistik</h2>
+        <h2>İstatistik</h2>
         <p>Çözüm geçmişin ve performansın</p>
       </div>
     </div>
@@ -291,7 +291,7 @@
 
 <div class="modal-backdrop" id="examModal">
   <div class="modal">
-    <div class="modal-icon">📝</div>
+    <div class="modal-icon">Deneme</div>
     <h3>Deneme Sınavı</h3>
     <p class="modal-sub">Karışık sorular + süreli</p>
     <div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;letter-spacing:1.4px">DERS</div>
@@ -332,7 +332,7 @@
 
 <div class="modal-backdrop" id="countModal">
   <div class="modal">
-    <div class="modal-icon">🎯</div>
+    <div class="modal-icon">Soru</div>
     <h3>Kaç soru?</h3>
     <p class="modal-sub" id="countSub">Konu: <b>—</b></p>
     <div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;letter-spacing:1.4px">ZORLUK</div>
@@ -358,7 +358,7 @@
 <!-- ÖZEL CONFIRM MODAL -->
 <div class="kb-confirm-backdrop" id="kbConfirm">
   <div class="kb-confirm">
-    <div class="kb-confirm-icon" id="kbConfirmIcon">🤔</div>
+    <div class="kb-confirm-icon" id="kbConfirmIcon">?</div>
     <h3 id="kbConfirmTitle">Emin misin?</h3>
     <p id="kbConfirmMsg">Bu işlem geri alınamaz.</p>
     <div class="kb-confirm-actions">
