@@ -1,7 +1,8 @@
 import os, json, asyncio, threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, InputPollOption
+from telegram.ext import (Application, CommandHandler, MessageHandler, filters,
+                          ContextTypes, CallbackQueryHandler, PollAnswerHandler)
 from telegram.constants import ParseMode
 
 # ==================== AYARLAR ====================
@@ -10,7 +11,7 @@ TOKEN = os.environ.get("TELEGRAM_TOKEN")
 PORT = int(os.environ.get("PORT", 8080))
 VARSAYILAN_SURE = 30
 
-# ⚠️ BURAYA KENDİ TELEGRAM ID'NI YAZ (virgülle birden fazla ekleyebilirsin)
+# ⚠️ KENDİ TELEGRAM ID'NI YAZ (virgülle birden fazla ekleyebilirsin)
 ADMIN_IDS = [7132774477]
 
 # ==================== VERİ ====================
@@ -18,6 +19,7 @@ veri = {}
 kullanici_durumu = {}
 zamanlayicilar = {}
 bekleyen = {}
+son_poll = {}  # {user_id: poll_id} - hangi poll'un cevabını bekliyoruz
 
 # ==================== HTTP ====================
 class HealthHandler(BaseHTTPRequestHandler):
@@ -41,42 +43,9 @@ def is_admin(uid):
     return uid in ADMIN_IDS
 
 def icerik_ozeti():
-    return len(veri), sum(len(k) for k in veri.values()), sum(len(s) for kl in veri.values() for s in kl.values())
-
-def soru_metni(d, s, idx, sure=None, kalan=None):
-    sorular = veri[d["ders"]][d["konu"]]
-    yuzde = int(idx / len(sorular) * 10)
-    bar = "▰" * yuzde + "▱" * (10 - yuzde)
-    oran = int(idx / len(sorular) * 100)
-    if sure is None:
-        sure = d.get("sure", VARSAYILAN_SURE)
-    if sure > 0:
-        goster = kalan if kalan is not None else sure
-        if goster <= 5:
-            sure_txt = f"🔴 <b>Kalan: {goster} sn</b>"
-        else:
-            sure_txt = f"⏱️ Kalan süre: <b>{goster} sn</b>"
-    else:
-        sure_txt = "♾️ <b>Süresiz</b>"
-
-    return (
-        f"🎓 <b>{BOT_ADI.upper()}</b>\n"
-        f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n"
-        f"📖 <b>{d['konu'].upper()}</b>\n"
-        f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n\n"
-        f"📊 <b>Soru {idx+1} / {len(sorular)}</b>   <i>(%{oran})</i>\n"
-        f"{bar}\n\n"
-        f"✅ <b>{d['dogru']}</b>   ❌ <b>{d['yanlis']}</b>   ⏰ <b>{d['bos']}</b>\n"
-        f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n\n"
-        f"❓ <b>{s['soru']}</b>\n\n"
-        f"{sure_txt}"
-    )
-
-def secenek_klavyesi(s):
-    klavye = [[InlineKeyboardButton(f"{harf(i)})  {opt}", callback_data=f"cv_{i}")]
-              for i, opt in enumerate(s["secenekler"])]
-    klavye.append([InlineKeyboardButton("🛑 Testi Bitir", callback_data="menu_iptal")])
-    return InlineKeyboardMarkup(klavye)
+    return (len(veri),
+            sum(len(k) for k in veri.values()),
+            sum(len(s) for kl in veri.values() for s in kl.values()))
 
 def skor_metni(d):
     return (
@@ -195,16 +164,14 @@ async def menu_callback(update, context):
         except (KeyError, IndexError):
             await q.edit_message_text("Test durumu bozuk. /coz ile yeniden başla.")
             return
-        sure = d.get("sure", VARSAYILAN_SURE)
-        await q.edit_message_text(soru_metni(d, s, d["index"], sure),
-                                  reply_markup=secenek_klavyesi(s),
-                                  parse_mode=ParseMode.HTML)
-        d["msg_id"] = q.message.message_id
-        t = zamanlayicilar.pop(uid, None)
-        if t and not t.done(): t.cancel()
-        if sure > 0:
-            zamanlayicilar[uid] = asyncio.create_task(
-                sure_sayaci(q.message.chat_id, uid, context, d["index"], sure))
+        await q.edit_message_text(
+            f"▶️ <b>Devam ediliyor...</b>\n\n"
+            f"📚 {d['ders']}\n📖 {d['konu']}\n"
+            f"📝 Soru {d['index']+1}/{d['toplam']}",
+            parse_mode=ParseMode.HTML
+        )
+        await asyncio.sleep(1)
+        await soru_gonder(q.message.chat_id, uid, context)
         return
 
     # --- İçerik ---
@@ -218,7 +185,6 @@ async def menu_callback(update, context):
                 parse_mode=ParseMode.HTML
             )
             return
-        # Herkes DERS listesini görsün, ama sadece admin soru sayılarını görsün
         klavye = []
         for i, ders in enumerate(veri.keys()):
             klavye.append([InlineKeyboardButton(f"📚 {ders}", callback_data=f"ic_ders_{i}")])
@@ -230,7 +196,6 @@ async def menu_callback(update, context):
         )
         return
 
-    # --- İçerik: Ders seçildi ---
     if data.startswith("ic_ders_"):
         i = int(data.replace("ic_ders_", ""))
         ders = list(veri.keys())[i]
@@ -246,20 +211,16 @@ async def menu_callback(update, context):
         )
         return
 
-    # --- İçerik: Konu seçildi ---
     if data.startswith("ic_konu_"):
         _, di, ki = data.split("_")
         di, ki = int(di), int(ki)
         ders = list(veri.keys())[di]
         konu = list(veri[ders].keys())[ki]
         soru_sayisi = len(veri[ders][konu])
-
-        # Sadece admin soru sayısını görsün
         if is_admin(uid):
             bilgi = f"📝 Toplam <b>{soru_sayisi}</b> soru"
         else:
             bilgi = "📝 Soruları çözmeye hazır mısın?"
-
         await q.edit_message_text(
             f"📚 <b>{ders}</b>\n"
             f"📖 <b>{konu}</b>\n"
@@ -296,8 +257,6 @@ async def menu_callback(update, context):
         if not d or "toplam" not in d:
             await q.edit_message_text("Aktif testin yok.")
             return
-        t = zamanlayicilar.pop(uid, None)
-        if t and not t.done(): t.cancel()
         await q.edit_message_text(
             "🛑 <b>Testi bitirmek istediğine emin misin?</b>\n\n"
             f"Şu an: Soru <b>{d['index']}/{d['toplam']}</b>\n"
@@ -312,9 +271,8 @@ async def menu_callback(update, context):
         return
 
     if data == "menu_iptal_onay":
-        t = zamanlayicilar.pop(uid, None)
-        if t and not t.done(): t.cancel()
         kullanici_durumu.pop(uid, None)
+        son_poll.pop(uid, None)
         await q.edit_message_text(
             "🛑 <b>Test bitirildi.</b>",
             reply_markup=InlineKeyboardMarkup([
@@ -329,21 +287,12 @@ async def menu_callback(update, context):
         if not d or "toplam" not in d:
             await q.edit_message_text("Aktif test yok.")
             return
-        try:
-            s = veri[d["ders"]][d["konu"]][d["index"]]
-        except (KeyError, IndexError):
-            await q.edit_message_text("Test durumu bozuk. /coz ile yeniden başla.")
-            return
-        sure = d.get("sure", VARSAYILAN_SURE)
-        await q.edit_message_text(soru_metni(d, s, d["index"], sure),
-                                  reply_markup=secenek_klavyesi(s),
-                                  parse_mode=ParseMode.HTML)
-        d["msg_id"] = q.message.message_id
-        t = zamanlayicilar.pop(uid, None)
-        if t and not t.done(): t.cancel()
-        if sure > 0:
-            zamanlayicilar[uid] = asyncio.create_task(
-                sure_sayaci(q.message.chat_id, uid, context, d["index"], sure))
+        await q.edit_message_text(
+            "▶️ <b>Devam ediliyor...</b>",
+            parse_mode=ParseMode.HTML
+        )
+        await asyncio.sleep(1)
+        await soru_gonder(q.message.chat_id, uid, context)
         return
 
     # --- Admin panel ---
@@ -445,7 +394,6 @@ async def ders_secildi(update, context):
     konular = list(veri[ders].keys())
     klavye = []
     for j, k in enumerate(konular):
-        # Admin soru sayısını görsün, kullanıcı görmesin
         etiket = f"📖 {k}"
         if is_admin(q.from_user.id):
             etiket += f" ({len(veri[ders][k])})"
@@ -481,8 +429,10 @@ async def konu_secildi(update, context):
         f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n"
         f"📚 {ders}\n"
         f"📖 <b>{konu}</b>\n"
+        f"📝 {soru_sayisi} soru\n"
         f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n\n"
-        f"⏱️ Soru başına süre?",
+        f"⏱️ Soru başına süre?\n\n"
+        f"<i>⚠️ Telegram quiz için süre 5-600 sn arası olmalı</i>",
         reply_markup=InlineKeyboardMarkup(klavye),
         parse_mode=ParseMode.HTML
     )
@@ -514,7 +464,7 @@ async def sure_secildi(update, context):
     await asyncio.sleep(1)
     await soru_gonder(q.message.chat_id, uid, context)
 
-# ==================== SORU GÖNDER ====================
+# ==================== SORU GÖNDER (QUIZ) ====================
 async def soru_gonder(chat_id, uid, context):
     d = kullanici_durumu.get(uid)
     if not d: return
@@ -522,76 +472,122 @@ async def soru_gonder(chat_id, uid, context):
     idx = d["index"]
     if idx >= len(sorular):
         await sonuc_goster(chat_id, uid, context); return
-    s = sorular[idx]
-    sure = d.get("sure", VARSAYILAN_SURE)
-    msg = await context.bot.send_message(chat_id, soru_metni(d, s, idx, sure),
-                                         reply_markup=secenek_klavyesi(s),
-                                         parse_mode=ParseMode.HTML)
-    d["msg_id"] = msg.message_id
-    t = zamanlayicilar.pop(uid, None)
-    if t and not t.done(): t.cancel()
-    if sure > 0:
-        zamanlayicilar[uid] = asyncio.create_task(
-            sure_sayaci(chat_id, uid, context, idx, sure))
 
-async def sure_sayaci(chat_id, uid, context, soru_idx, sure):
-    kalan = sure
-    for _ in range(sure):
-        await asyncio.sleep(1)
-        kalan -= 1
-        d = kullanici_durumu.get(uid)
-        if not d or d["index"] != soru_idx: return
-        try:
-            s = veri[d["ders"]][d["konu"]][soru_idx]
-            await context.bot.edit_message_text(
-                soru_metni(d, s, soru_idx, sure, kalan),
-                chat_id=chat_id, message_id=d["msg_id"],
-                reply_markup=secenek_klavyesi(s),
-                parse_mode=ParseMode.HTML)
-        except Exception: pass
+    s = sorular[idx]
+    di = dogru_index(s)
+
+    # Başlık mesajı (ilerleme + skor)
+    yuzde = int(idx / len(sorular) * 10)
+    bar = "▰" * yuzde + "▱" * (10 - yuzde)
+    oran = int(idx / len(sorular) * 100)
+    bilgi = (
+        f"🎓 <b>{BOT_ADI.upper()}</b>\n"
+        f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n"
+        f"📖 <b>{d['konu'].upper()}</b>\n"
+        f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n\n"
+        f"📊 <b>Soru {idx+1} / {len(sorular)}</b>   <i>(%{oran})</i>\n"
+        f"{bar}\n\n"
+        f"✅ <b>{d['dogru']}</b>   ❌ <b>{d['yanlis']}</b>   ⏰ <b>{d['bos']}</b>"
+    )
+
+    # Quiz için seçenekleri hazırla (max 100 karakter)
+    secenekler = []
+    for opt in s["secenekler"]:
+        if len(opt) > 100:
+            opt = opt[:97] + "..."
+        secenekler.append(InputPollOption(text=opt))
+
+    # Soru metni (max 300 karakter)
+    soru_text = s["soru"]
+    if len(soru_text) > 300:
+        soru_text = soru_text[:297] + "..."
+
+    # Açıklama (max 200 karakter)
+    aciklama = s.get("aciklama", "")
+    if aciklama and len(aciklama) > 200:
+        aciklama = aciklama[:197] + "..."
+
+    sure = d.get("sure", VARSAYILAN_SURE)
+    poll_sure = max(5, min(sure, 600)) if sure > 0 else None
+
+    try:
+        # Önce bilgi mesajı
+        await context.bot.send_message(chat_id, bilgi, parse_mode=ParseMode.HTML)
+
+        # Sonra quiz
+        poll_msg = await context.bot.send_poll(
+            chat_id=chat_id,
+            question=soru_text,
+            options=secenekler,
+            type="quiz",
+            correct_option_id=di,
+            is_anonymous=False,
+            explanation=aciklama if aciklama else None,
+            open_period=poll_sure,
+        )
+        # Poll id'sini kaydet (hangi poll'un cevabını bekliyoruz)
+        son_poll[uid] = poll_msg.poll.id
+
+        # Süre varsa eski sistemdeki gibi zamanlayıcı kur
+        # (Telegram anket süresi kendi yönetir ama biz boş saymak için bekleriz)
+        t = zamanlayicilar.pop(uid, None)
+        if t and not t.done(): t.cancel()
+        if sure > 0:
+            zamanlayicilar[uid] = asyncio.create_task(
+                poll_sure_sayaci(chat_id, uid, context, idx, sure)
+            )
+    except Exception as e:
+        await context.bot.send_message(
+            chat_id,
+            f"⚠️ Anket gönderilemedi: <i>{e}</i>",
+            parse_mode=ParseMode.HTML
+        )
+
+async def poll_sure_sayaci(chat_id, uid, context, soru_idx, sure):
+    """Süre bitince boş sayılır ve sonraki soruya geçer"""
+    try:
+        await asyncio.sleep(sure + 1)  # Telegram'dan 1 sn fazla bekle
+    except asyncio.CancelledError:
+        return
     d = kullanici_durumu.get(uid)
     if not d or d["index"] != soru_idx: return
-    s = veri[d["ders"]][d["konu"]][soru_idx]
-    di = dogru_index(s)
+    # Kullanıcı cevap vermediyse boş say
     d["bos"] += 1
-    try:
-        await context.bot.edit_message_text(
-            f"⏰ <b>Süre doldu!</b>\n"
-            f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n"
-            f"✅ Doğru: <b>{harf(di)}) {s['secenekler'][di]}</b>"
-            + (f"\n\n📝 <i>{s['aciklama']}</i>" if s.get("aciklama") else ""),
-            chat_id=chat_id, message_id=d["msg_id"],
-            parse_mode=ParseMode.HTML)
-    except: pass
     d["index"] += 1
-    await asyncio.sleep(2)
+    await asyncio.sleep(1)
     await soru_gonder(chat_id, uid, context)
 
-async def cevap_verildi(update, context):
-    q = update.callback_query; await q.answer()
-    uid = q.from_user.id
+# ==================== POLL CEVAP ====================
+async def poll_cevap(update, context):
+    """Kullanıcı Telegram Quiz'de bir şık seçtiğinde tetiklenir"""
+    pa = update.poll_answer
+    uid = pa.user.id
     d = kullanici_durumu.get(uid)
     if not d or "toplam" not in d: return
+    if pa.poll_id != son_poll.get(uid):
+        return  # eski bir poll, yoksay
+
+    secilen = pa.option_ids[0] if pa.option_ids else -1
+    try:
+        s = veri[d["ders"]][d["konu"]][d["index"]]
+    except (KeyError, IndexError):
+        return
+    di = dogru_index(s)
+
+    # Zamanlayıcıyı iptal et (cevap geldi)
     t = zamanlayicilar.pop(uid, None)
     if t and not t.done(): t.cancel()
-    sec = int(q.data.replace("cv_", ""))
-    s = veri[d["ders"]][d["konu"]][d["index"]]
-    di = dogru_index(s)
-    dogru_metin = s["secenekler"][di]
-    if sec == di:
+
+    if secilen == di:
         d["dogru"] += 1
-        baslik = "✅ <b>Doğru!</b>\n<code>━━━━━━━━━━━━━━━━━━━━</code>"
     else:
         d["yanlis"] += 1
-        baslik = (f"❌ <b>Yanlış.</b>\n"
-                  f"<code>━━━━━━━━━━━━━━━━━━━━</code>\n"
-                  f"✅ Doğru: <b>{harf(di)}) {dogru_metin}</b>")
-    acik = f"\n\n📝 <i>{s['aciklama']}</i>" if s.get("aciklama") else ""
-    await q.edit_message_text(baslik + acik, parse_mode=ParseMode.HTML)
+
     d["index"] += 1
     await asyncio.sleep(2)
-    await soru_gonder(q.message.chat_id, uid, context)
+    await soru_gonder(pa.user.id, uid, context)
 
+# ==================== SONUÇ ====================
 async def sonuc_goster(chat_id, uid, context):
     d = kullanici_durumu.get(uid)
     if not d: return
@@ -620,7 +616,8 @@ async def sonuc_goster(chat_id, uid, context):
             [InlineKeyboardButton("🏠 Ana Menü", callback_data="menu_ana")]
         ]),
         parse_mode=ParseMode.HTML)
-    del kullanici_durumu[uid]
+    kullanici_durumu.pop(uid, None)
+    son_poll.pop(uid, None)
 
 # ==================== JSON YÜKLEME (SADECE ADMIN) ====================
 async def dosya_al(update, context):
@@ -816,8 +813,6 @@ async def iptal_komut(update, context):
     uid = update.message.from_user.id
     if uid in kullanici_durumu and "toplam" in kullanici_durumu[uid]:
         d = kullanici_durumu[uid]
-        t = zamanlayicilar.pop(uid, None)
-        if t and not t.done(): t.cancel()
         await update.message.reply_text(
             "🛑 <b>Testi bitirmek istediğine emin misin?</b>\n\n"
             f"✅ {d['dogru']}  ❌ {d['yanlis']}  ⏰ {d['bos']}",
@@ -837,20 +832,29 @@ async def iptal_komut(update, context):
 def main():
     threading.Thread(target=run_http, daemon=True).start()
     app = Application.builder().token(TOKEN).build()
+
+    # Komutlar
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("menu", menu))
     app.add_handler(CommandHandler("coz", coz))
     app.add_handler(CommandHandler("yardim", menu))
     app.add_handler(CommandHandler("skor", skor_komut))
     app.add_handler(CommandHandler("iptal", iptal_komut))
+
+    # Callback'ler
     app.add_handler(CallbackQueryHandler(menu_callback, pattern="^menu_"))
     app.add_handler(CallbackQueryHandler(yukle_callback, pattern="^yk_"))
     app.add_handler(CallbackQueryHandler(sure_secildi, pattern="^sure_"))
     app.add_handler(CallbackQueryHandler(konu_secildi, pattern="^konu_"))
     app.add_handler(CallbackQueryHandler(ders_secildi, pattern="^ders_"))
-    app.add_handler(CallbackQueryHandler(cevap_verildi, pattern="^cv_"))
+
+    # Poll cevap handler
+    app.add_handler(PollAnswerHandler(poll_cevap))
+
+    # Mesajlar
     app.add_handler(MessageHandler(filters.Document.ALL, dosya_al))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, metin_al))
+
     app.run_polling()
 
 if __name__ == "__main__":
