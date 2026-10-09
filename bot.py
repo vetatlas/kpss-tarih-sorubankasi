@@ -352,7 +352,7 @@ async def menu_callback(update, context):
             parse_mode=ParseMode.HTML
         )
         return
-  async def coz(update, context):
+async def coz(update, context):
     uid = update.message.from_user.id
     if uid in bekleyen:
         await update.message.reply_text("⚠️ Önce yükleme tamamlansın.")
