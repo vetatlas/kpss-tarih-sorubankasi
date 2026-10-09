@@ -12,7 +12,7 @@ PORT = int(os.environ.get("PORT", 8080))
 VARSAYILAN_SURE = 30
 
 # ⚠️ KENDİ TELEGRAM ID'NI YAZ
-ADMIN_IDS = [123456789]
+ADMIN_IDS = [7132774477]
 
 # ==================== VERİ ====================
 veri = {}
